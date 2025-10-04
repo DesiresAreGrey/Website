@@ -1,6 +1,6 @@
 ---
 description: Results of the 2025 4tran Survey 
-image: /assets/survey2025/thumb.png
+image: https://desiresaregrey.github.io/Website/assets/survey2025/thumb.png
 ---
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="../4transurvey2025.js"></script>
