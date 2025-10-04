@@ -1,5 +1,5 @@
 function createBarChart(chartId, dataUrl, hideSeries=[]) {
-    fetch("../assets/results/" + dataUrl).then(response => response.json()).then(data => {
+    fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         hideSeries.forEach(index => {
             if (data.series[index]) {
                 data.series[index].hidden = true;
@@ -58,7 +58,7 @@ function createBarChart(chartId, dataUrl, hideSeries=[]) {
 }
 
 function createPieChart(chartId, dataUrl) {
-    fetch("../assets/results/" + dataUrl).then(response => response.json()).then(data => {
+    fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         const options = {
             chart: {
                 type: 'pie',

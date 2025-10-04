@@ -17,10 +17,11 @@
     {% if page and page.meta and page.meta.image %}
       {% set image = page.meta.image %}
     {% endif %}
-    
+
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="{{ description }}">
-    {% if image %}<meta property="og:image" content="{{ image }}">{% endif %}
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:description" content="{{ description }}" />
+    {% if image %}<meta property="og:image" content="{{ image }}" />{% endif %}
     <meta name="theme-color" data-react-helmet="true" content="#4e389d"/>
+    <meta name="darkreader-lock" />
 {% endblock %}
