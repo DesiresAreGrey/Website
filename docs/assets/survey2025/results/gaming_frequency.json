@@ -10,18 +10,18 @@
     {
       "name": "Daily",
       "data": [
-        80,
-        309,
+        83,
+        312,
         18,
         6,
-        16
+        18
       ]
     },
     {
       "name": "Several times per week",
       "data": [
-        87,
-        292,
+        88,
+        298,
         7,
         1,
         19
@@ -30,7 +30,7 @@
     {
       "name": "Several times per month",
       "data": [
-        40,
+        41,
         141,
         2,
         5,
@@ -40,9 +40,9 @@
     {
       "name": "Rarely",
       "data": [
-        45,
-        134,
-        4,
+        47,
+        136,
+        5,
         2,
         5
       ]

@@ -88,10 +88,6 @@
   }
 }
 
-.apexcharts-svg{
-  background: none !important;
-}
-
 .round-corners {
   border-radius: 0.75em;
 }
@@ -128,4 +124,39 @@
   .md-sidebar--primary { display: none; }
   /* Optional: also hide the right ToC */
   /* .md-sidebar--secondary { display: none; } */
+}
+
+/* Apex charts stuff */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.charts-grid .apexcharts-canvas,
+.charts-grid .apexcharts-svg {
+  width: 100% !important;
+}
+
+.apexcharts-svg{
+  background: none !important;
+}
+
+.apexcharts-legend {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  overflow: visible !important;
+  width: 100% !important;
+}
+
+.apexcharts-legend-series {
+  display: inline-flex !important;
+  margin: 0 10px 6px 0 !important; 
+}
+
+.apexcharts-canvas,
+.apexcharts-svg {
+  max-width: 100% !important;
 }

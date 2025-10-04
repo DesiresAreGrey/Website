@@ -19,7 +19,7 @@ function createBarChart(chartId, dataUrl, hideSeries=[]) {
                 labels: { rotate: -20 }
             },
             legend: {
-                position: 'top',
+                position: 'bottom',
                 horizontalAlign: 'center'
             },
             tooltip: {
@@ -57,13 +57,13 @@ function createBarChart(chartId, dataUrl, hideSeries=[]) {
     });
 }
 
-function createPieChart(chartId, dataUrl) {
+function createPieChart(chartId, dataUrl, hideToolbar=false) {
     fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         const options = {
             chart: {
                 type: 'pie',
                 height: 380,
-                toolbar: { show: true },
+                toolbar: { show: !hideToolbar },
                 background: '#090909'
             },
             series: data.series,
@@ -77,7 +77,7 @@ function createPieChart(chartId, dataUrl) {
                 }
             },
             legend: {
-                position: 'top',
+                position: 'bottom',
                 horizontalAlign: 'center'
             },
             states: {

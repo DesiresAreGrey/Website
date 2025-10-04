@@ -7,17 +7,25 @@ image: https://desiresaregrey.github.io/Website/assets/survey2025/thumb.png
 
 # The 2025 4tran Survey
 
-just temp stuff
+write stuff here
+
+## Overall Gender Divide
+
+write stuff here
+
+<div class="charts-grid">
+  <div>
+    <div id="overallgenderbinary"></div>
+    <script>createPieChart("overallgenderbinary", "gender_binary.json", true)</script>
+  </div>
+
+  <div>
+    <div id="overallgender"></div>
+    <script>createPieChart("overallgender", "gender.json")</script>
+  </div>
+</div>
 
 ## test
 
 <div id="chart1"></div>
 <script>createBarChart("chart1", "height.json", [2, 3, 4])</script>
-
-## test
-
-<div id="chart2"></div>
-<script>createPieChart("chart2", "gender.json")</script>
-
-
-
