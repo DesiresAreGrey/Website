@@ -1,0 +1,103 @@
+{
+  "categories": [
+    "r/4Tranistan",
+    "r/4tran",
+    "r/4tran4",
+    "r/Tranistan",
+    "r/4trancirclejerk",
+    "r/ttttrans",
+    "r/troonselfies",
+    "r/4tranSelfieTrain",
+    "r/smuTTTT",
+    "r/fitttts",
+    "r/4tography",
+    "r/4trancooking"
+  ],
+  "series": [
+    {
+      "name": "Man (FtM)",
+      "data": [
+        141,
+        110,
+        176,
+        57,
+        74,
+        60,
+        43,
+        27,
+        43,
+        84,
+        38,
+        89
+      ]
+    },
+    {
+      "name": "Woman (MtF)",
+      "data": [
+        466,
+        498,
+        608,
+        180,
+        319,
+        263,
+        199,
+        185,
+        331,
+        312,
+        145,
+        304
+      ]
+    },
+    {
+      "name": "Man (Cis)",
+      "data": [
+        17,
+        21,
+        25,
+        7,
+        11,
+        8,
+        7,
+        7,
+        10,
+        8,
+        1,
+        5
+      ]
+    },
+    {
+      "name": "Woman (Cis)",
+      "data": [
+        9,
+        9,
+        12,
+        4,
+        7,
+        4,
+        4,
+        3,
+        4,
+        3,
+        2,
+        5
+      ]
+    },
+    {
+      "name": "Nonbinary",
+      "data": [
+        26,
+        23,
+        38,
+        12,
+        16,
+        13,
+        9,
+        9,
+        14,
+        20,
+        13,
+        20
+      ]
+    }
+  ]
+}

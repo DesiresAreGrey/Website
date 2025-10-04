@@ -1,0 +1,31 @@
+{
+  "categories": [
+    "Man (FtM)",
+    "Woman (MtF)",
+    "Man (Cis)",
+    "Woman (Cis)",
+    "Nonbinary"
+  ],
+  "series": [
+    {
+      "name": "No Preference",
+      "data": [
+        64,
+        487,
+        13,
+        7,
+        28
+      ]
+    },
+    {
+      "name": "Has Preference",
+      "data": [
+        192,
+        361,
+        17,
+        4,
+        21
+      ]
+    }
+  ]
+}

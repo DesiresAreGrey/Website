@@ -1,0 +1,43 @@
+{
+  "categories": [
+    "Contributer",
+    "Lurker"
+  ],
+  "series": [
+    {
+      "name": "Man (FtM)",
+      "data": [
+        74,
+        187
+      ]
+    },
+    {
+      "name": "Woman (MtF)",
+      "data": [
+        302,
+        597
+      ]
+    },
+    {
+      "name": "Man (Cis)",
+      "data": [
+        8,
+        28
+      ]
+    },
+    {
+      "name": "Woman (Cis)",
+      "data": [
+        4,
+        10
+      ]
+    },
+    {
+      "name": "Nonbinary",
+      "data": [
+        16,
+        34
+      ]
+    }
+  ]
+}

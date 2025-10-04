@@ -1,0 +1,14 @@
+{
+  "labels": [
+    "Assigned Male",
+    "Assigned Female",
+    "Assigned Intersex",
+    "Unspecified"
+  ],
+  "series": [
+    36,
+    8,
+    2,
+    5
+  ]
+}

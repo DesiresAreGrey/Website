@@ -82,9 +82,10 @@
   }
 }
 
-/* Center Pane Width */
-.md-grid {
+@media (pointer: fine) {
+  .md-grid {
     max-width: 50%;
+  }
 }
 
 .apexcharts-svg{

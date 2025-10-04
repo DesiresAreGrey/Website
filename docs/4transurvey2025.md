@@ -10,10 +10,13 @@ just temp stuff
 ## test
 
 <div id="chart1"></div>
+
+## test
+
 <div id="chart2"></div>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
-    fetch("https://www.jsonkeeper.com/b/TLV5L").then(response => response.json()).then(data => {
+    fetch("../assets/results/height.json").then(response => response.json()).then(data => {
         const options = {
             chart: {
                 type: 'bar',
@@ -64,7 +67,7 @@ just temp stuff
         const chart1 = new ApexCharts(document.querySelector("#chart1"), options);
         chart1.render();
     });
-    fetch("https://www.jsonkeeper.com/b/0UHU8").then(response => response.json()).then(data => {
+    fetch("../assets/results/gender.json").then(response => response.json()).then(data => {
         const options = {
             chart: {
                 type: 'pie',
@@ -76,15 +79,11 @@ just temp stuff
             labels: data.labels,
             responsive: [{
                 breakpoint: 480,
-                options: {
-                    chart: {
-                        width: 200
-                    },
-                    legend: {
-                        position: 'bottom'
-                    }
-                }
             }],
+            legend: {
+                position: 'top',
+                horizontalAlign: 'center'
+            },
             states: {
                 active: {
                     filter: {
@@ -103,4 +102,4 @@ just temp stuff
 </script>
 
 
-## test
+

@@ -1,0 +1,55 @@
+{
+  "categories": [
+    "Straight",
+    "Bisexual / Pansexual",
+    "Gay / Lesbian",
+    "Asexual"
+  ],
+  "series": [
+    {
+      "name": "Man (FtM)",
+      "data": [
+        59,
+        136,
+        44,
+        23
+      ]
+    },
+    {
+      "name": "Woman (MtF)",
+      "data": [
+        141,
+        537,
+        168,
+        57
+      ]
+    },
+    {
+      "name": "Man (Cis)",
+      "data": [
+        15,
+        16,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "Woman (Cis)",
+      "data": [
+        2,
+        4,
+        5,
+        3
+      ]
+    },
+    {
+      "name": "Nonbinary",
+      "data": [
+        1,
+        35,
+        10,
+        5
+      ]
+    }
+  ]
+}
