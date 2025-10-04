@@ -13,7 +13,6 @@ theme:
   features:
     - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.instant
     - navigation.top
     - toc.integrate
   custom_dir: overrides

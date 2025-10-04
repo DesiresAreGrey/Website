@@ -53,6 +53,10 @@
   margin-left: 0.25rem !important;
 }
 
+.md-header__button.md-logo {
+  min-width: 2rem;
+}
+
 /* Tab list inside header */
 @media (min-width: 60rem) {
 .md-header .md-tabs {
