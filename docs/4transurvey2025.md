@@ -2,6 +2,7 @@
 description: Results of the 2025 4tran Survey 
 image: https://desiresaregrey.github.io/Website/assets/DesiresAreGrey.png
 ---
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 # The 2025 4tran Survey
 
@@ -10,11 +11,6 @@ just temp stuff
 ## test
 
 <div id="chart1"></div>
-
-## test
-
-<div id="chart2"></div>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
     fetch("../assets/results/height.json").then(response => response.json()).then(data => {
         const options = {
@@ -62,11 +58,18 @@ just temp stuff
             theme: {
                 mode: 'dark', 
                 palette: 'palette1',
-            }
+            },
+            colors: ['#008FFB', '#FF4560', '#3f51b5', '#D7263D', '#00E396']
         };
         const chart1 = new ApexCharts(document.querySelector("#chart1"), options);
         chart1.render();
     });
+</script>
+
+## test
+
+<div id="chart2"></div>
+<script>
     fetch("../assets/results/gender.json").then(response => response.json()).then(data => {
         const options = {
             chart: {
@@ -94,7 +97,8 @@ just temp stuff
             theme: {
                 mode: 'dark', 
                 palette: 'palette1',
-            }
+            },
+            colors: ['#008FFB', '#FF4560', '#3f51b5', '#D7263D', '#00E396']
         };
         const chart2 = new ApexCharts(document.querySelector("#chart2"), options);
         chart2.render();
