@@ -13,6 +13,9 @@ just temp stuff
 <div id="chart1"></div>
 <script>
     fetch("../assets/results/height.json").then(response => response.json()).then(data => {
+        data.series[2].hidden = true;
+        data.series[3].hidden = true;
+        data.series[4].hidden = true;
         const options = {
             chart: {
                 type: 'bar',
@@ -61,8 +64,7 @@ just temp stuff
             },
             colors: ['#008FFB', '#FF4560', '#3f51b5', '#D7263D', '#00E396']
         };
-        const chart1 = new ApexCharts(document.querySelector("#chart1"), options);
-        chart1.render();
+        new ApexCharts(document.querySelector("#chart1"), options).render();
     });
 </script>
 
@@ -83,6 +85,11 @@ just temp stuff
             responsive: [{
                 breakpoint: 480,
             }],
+            plotOptions: {
+                pie: {
+                    expandOnClick: false
+                }
+            },
             legend: {
                 position: 'top',
                 horizontalAlign: 'center'
@@ -100,8 +107,7 @@ just temp stuff
             },
             colors: ['#008FFB', '#FF4560', '#3f51b5', '#D7263D', '#00E396']
         };
-        const chart2 = new ApexCharts(document.querySelector("#chart2"), options);
-        chart2.render();
+        new ApexCharts(document.querySelector("#chart2"), options).render();
     });
 </script>
 
