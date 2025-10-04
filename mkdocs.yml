@@ -1,0 +1,47 @@
+site_name: DesiresAreGrey
+site_description: "DesiresAreGrey's website"
+theme:
+  name: material
+  logo: assets/DesiresAreGrey-Circle.png
+  favicon: assets/DesiresAreGrey-Circle.png
+  palette:
+    scheme: slate
+    primary: deep purple
+    accent: indigo
+  font:
+    text: Inter
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.instant
+    - navigation.top
+    - toc.integrate
+  custom_dir: overrides
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.keys
+  - meta
+plugins:
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: false
+      skip_classes:
+       - no-lb
+      auto_caption: false
+      caption_position: bottom
+  - mkdocs-video
+extra:
+  generator: false
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: 'index.md'
+  - The 2025 4tran Survey: '4transurvey2025.md'
