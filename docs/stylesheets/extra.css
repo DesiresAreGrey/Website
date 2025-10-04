@@ -82,6 +82,15 @@
   }
 }
 
+/* Center Pane Width */
+.md-grid {
+    max-width: 50%;
+}
+
+.apexcharts-svg{
+  background: none !important;
+}
+
 .round-corners {
   border-radius: 0.75em;
 }
