@@ -1,4 +1,4 @@
-function createBarChart(chartId, dataUrl, title = undefined, hideSeries=[]) {
+function createBarChart(chartId, dataUrl, title = undefined, hideSeries = []) {
     fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         hideSeries.forEach(index => {
             if (data.series[index]) {

@@ -160,3 +160,75 @@
 .apexcharts-svg {
   max-width: 100% !important;
 }
+
+.vh {
+  position: fixed !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+  padding: 0;
+  margin: -1px;
+}
+
+.chart-set .toggle {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0 12px;
+  position: relative;
+  z-index: 5;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.chart-set .toggle label {
+  border: .1rem solid;
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+  padding: 0.4em 1em;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: color 125ms, background-color 125ms, border-color 125ms !important;
+  font-weight: 700;
+}
+.chart-set .toggle label:hover {
+  color: #fff;
+}
+.chart-set > input:first-of-type:checked ~ .toggle label:first-of-type,
+.chart-set > input:nth-of-type(2):checked ~ .toggle label:nth-of-type(2) {
+  background-color: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+  color: #fff;
+}
+
+.chart-set .chart-stack{
+  position: relative;
+  min-height: 500px;
+}
+.chart-set .chart-layer{
+  position: absolute;
+  inset: 0;
+  transition: opacity 125ms linear;
+}
+.chart-set > input:first-of-type:checked ~ .chart-stack .layer-a {
+  opacity: 1;
+  pointer-events: auto;
+}
+.chart-set > input:first-of-type:checked ~ .chart-stack .layer-b {
+  opacity: 0;
+  pointer-events: none;
+}
+.chart-set > input:nth-of-type(2):checked ~ .chart-stack .layer-a {
+  opacity: 0;
+  pointer-events: none;
+}
+.chart-set > input:nth-of-type(2):checked ~ .chart-stack .layer-b {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.noselect {
+  -webkit-user-select: none;
+  user-select: none;
+}

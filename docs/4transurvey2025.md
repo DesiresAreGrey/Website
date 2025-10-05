@@ -4,6 +4,7 @@ image: https://desiresaregrey.github.io/Website/assets/survey2025/thumb.png
 ---
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="../4transurvey2025.js"></script>
+<!-- js is gonna make me 41 -->
 
 # The 2025 4tran Survey
 
@@ -27,16 +28,44 @@ write stuff here
 
 ## Age
 
-<div id="age-capped"></div>
-<script>createBarChart("age-capped", "age_capped_reversed.json", "Age (Overall)")</script>
+write stuff here
 
-<div id="age-capped-pop-pyramid"></div>
-<script>createPopPyramidChart("age-capped-pop-pyramid", "age_capped_pop_pyramid.json", "Age (Population Pyramid)")</script>
+<div class="chart-set">
+  <input id="age-a" class="vh" type="radio" name="view-age">
+  <input id="age-b" class="vh" type="radio" name="view-age" checked>
+  
+  <div class="chart-stack">
+    <div id="age-capped-pop-pyramid" class="chart-layer layer-a"></div>
+    <div id="age-capped-overall" class="chart-layer layer-b"></div>
+  </div>
+  <script>
+    createPopPyramidChart("age-capped-pop-pyramid", "age_capped_pop_pyramid.json", "Age (Population Pyramid)");
+    createBarChart("age-capped-overall", "age_capped_reversed.json", "Age (Overall)");
+  </script>
+  <div class="toggle">
+    <label for="age-a" class="noselect">Population Pyramid</label>
+    <label for="age-b" class="noselect">Overall</label>
+  </div>
+</div>
 
 ## Height
 
-<div id="height-reversed"></div>
-<script>createBarChart("height-reversed", "height_reversed.json", "Height (Overall)")</script>
+write stuff here
 
-<div id="height-reversed-pop-pyramid"></div>
-<script>createPopPyramidChart("height-reversed-pop-pyramid", "height_reversed_pop_pyramid.json", "Height (Population Pyramid)")</script>
+<div class="chart-set">
+  <input id="height-a" class="vh" type="radio" name="view-height">
+  <input id="height-b" class="vh" type="radio" name="view-height" checked>
+  
+  <div class="chart-stack">
+    <div id="height-pop-pyramid" class="chart-layer layer-a"></div>
+    <div id="height-overall" class="chart-layer layer-b"></div>
+  </div>
+  <script>
+    createBarChart("height-overall", "height_reversed.json", "Height (Overall)");
+    createPopPyramidChart("height-pop-pyramid", "height_reversed_pop_pyramid.json", "Height (Population Pyramid)");
+  </script>
+  <div class="toggle">
+    <label for="height-a" class="noselect">Population Pyramid</label>
+    <label for="height-b" class="noselect">Overall</label>
+  </div>
+</div>
