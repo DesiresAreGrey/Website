@@ -21,7 +21,7 @@
       "name": "Facial Feminization Surgery",
       "data": [
         0,
-        51,
+        52,
         1,
         2,
         1
@@ -30,7 +30,7 @@
     {
       "name": "Top Surgery (FTM)",
       "data": [
-        58,
+        59,
         0,
         1,
         0,
@@ -81,7 +81,7 @@
       "name": "Orchiectomy",
       "data": [
         0,
-        22,
+        24,
         2,
         0,
         0
@@ -91,7 +91,7 @@
       "name": "Vaginoplasty (Penile Inversion)",
       "data": [
         0,
-        11,
+        12,
         0,
         0,
         1
@@ -120,7 +120,7 @@
     {
       "name": "Other",
       "data": [
-        2,
+        3,
         5,
         0,
         0,

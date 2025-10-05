@@ -7,22 +7,22 @@
     {
       "name": "Man (FtM)",
       "data": [
-        75,
-        193
+        77,
+        202
       ]
     },
     {
       "name": "Woman (MtF)",
       "data": [
-        303,
-        607
+        304,
+        620
       ]
     },
     {
       "name": "Nonbinary",
       "data": [
         16,
-        36
+        40
       ]
     },
     {

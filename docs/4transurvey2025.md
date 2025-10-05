@@ -50,7 +50,7 @@ write stuff here
 
  <div id="under18"></div>
 <script>
-    createRatioBarChart("under18", "under18.json", "Under 18");
+    createRatioBarChart("under18", "under18.json", "Under 18", [], ["#7B61FF", "#00E0B8"]);
 </script>
 
 ## Height

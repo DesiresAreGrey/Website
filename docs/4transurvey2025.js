@@ -76,7 +76,7 @@ function createBarChart(chartId, dataUrl, title = undefined, hideSeries = []) {
     });
 }
 
-function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = []) {
+function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [], customColors = undefined) {
     fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         hideSeries.forEach(index => {
             if (data.series[index]) {
@@ -103,7 +103,17 @@ function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [
             },
             series: data.series,
             xaxis: {
-                categories: data.categories
+                categories: data.categories,
+                show: false,
+                labels: {
+                    show: false
+                },
+                axisBorder: {
+                    show: false
+                },
+                axisTicks: {
+                    show: false
+                }
             },
             legend: {
                 position: 'bottom',
@@ -123,6 +133,7 @@ function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [
                     horizontal: true,
                     borderRadius: 3,
                     borderRadiusApplication: 'end',
+                     barHeight: '90%'
                 }
             },
             dataLabels: {
@@ -131,10 +142,9 @@ function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [
             grid: {
                 yaxis: {
                     lines: { 
-                        show: true 
+                        show: false 
                     }
-                },
-                borderColor: '#e0e0e020',
+                }
             },
             states: {
                 active: {
@@ -147,7 +157,11 @@ function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [
                 mode: 'dark', 
                 palette: 'palette1',
             },
-            colors: colors
+            stroke: {
+                colors: ['transparent'],
+                width: 3,    
+            },
+            colors: customColors ?? colors
         };
         new ApexCharts(document.querySelector("#" + chartId), options).render();
     });
