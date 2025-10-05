@@ -1,6 +1,7 @@
 :root {
     --md-tooltip-width: 750px;
     --md-default-fg-color--light: #cecece;
+    --grid-w: 50vw;
 }
 
 /* Page Background Color */
@@ -83,12 +84,6 @@
   }
 }
 
-@media (pointer: fine) {
-  .md-grid {
-    max-width: 50%;
-  }
-}
-
 .round-corners {
   border-radius: 0.75em;
 }
@@ -122,9 +117,27 @@
 }
 
 @media (min-width: 60rem) {
-  .md-sidebar--primary { display: none; }
-  /* Optional: also hide the right ToC */
-  /* .md-sidebar--secondary { display: none; } */
+  .md-sidebar--primary { 
+    display: none; 
+  }
+}
+
+@media (min-width: 100rem) {
+  .md-sidebar--primary { 
+    display: none; 
+  }
+  .md-grid {
+    max-width: var(--grid-w);
+  }
+  .md-sidebar--secondary{
+    position: fixed !important;
+    top: calc(var(--md-header-height) + 1rem);
+    right: max(1rem, calc((100vw - var(--grid-w))/2 - 19rem));
+    width: 18rem;
+    height: calc(100vh - var(--md-header-height) - 3rem);
+    overflow: auto;
+    z-index: 2;
+  }
 }
 
 /* Apex charts stuff */
