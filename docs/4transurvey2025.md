@@ -110,4 +110,43 @@ write stuff here
     createPieChart("nbasab", "nb_asab.json", false, ['#259efa', '#ff4f69', '#00E396', '#2E294E']);
 </script>
 
+### Location
+
+write stuff here  
+i need a library that does maps...
+
+___
+
+## Reddit
+
+### Main/Favorite Subreddit
+
+write stuff here  
+
+<div class="chart-set">
+  <input id="favsub-a" class="vh" type="radio" name="view-favsub" checked>
+  <input id="favsub-b" class="vh" type="radio" name="view-favsub">
+  
+  <div class="chart-stack" style="min-height: 300px;">
+    <div id="favsub-ratio" class="chart-layer layer-a"></div>
+    <div id="favsub-bar" class="chart-layer layer-b"></div>
+  </div>
+  <script>
+    createRatioBarChart("favsub-ratio", "favorite_subreddit.json", "Main/Favorite Subreddit (Ratio)");
+    createBarChart("favsub-bar", "favorite_subreddit.json", "Main/Favorite Subreddit (Total)", [], undefined, 300);
+  </script>
+  <div class="toggle">
+    <label for="favsub-a" class="noselect">Ratio</label>
+    <label for="favsub-b" class="noselect">Total</label>
+  </div>
+</div>
+
+### Used Subreddits
+
+write stuff here  
+
+### Where You Came From
+
+write stuff here  
+
 ___

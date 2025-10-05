@@ -1,6 +1,6 @@
 const colors = ['#259efa', '#ff4f69', '#00E396', '#3f51b5', '#D7263D'];
 
-function createBarChart(chartId, dataUrl, title = undefined, hideSeries = []) {
+function createBarChart(chartId, dataUrl, title = undefined, hideSeries = [], customColors = undefined, height = 500) {
     fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         hideSeries.forEach(index => {
             if (data.series[index]) {
@@ -11,7 +11,7 @@ function createBarChart(chartId, dataUrl, title = undefined, hideSeries = []) {
         const options = {
             chart: {
                 type: 'bar',
-                height: 500,
+                height: height,
                 stacked: true,
                 toolbar: { show: true },
                 background: '#090909',
@@ -70,7 +70,7 @@ function createBarChart(chartId, dataUrl, title = undefined, hideSeries = []) {
                 mode: 'dark', 
                 palette: 'palette1',
             },
-            colors: colors
+            colors: customColors ?? colors
         };
         new ApexCharts(document.querySelector("#" + chartId), options).render();
     });
