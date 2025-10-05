@@ -81,15 +81,24 @@ write stuff here
   </div>
 </div>
 
+### Sexuality
+
+write stuff here
+
+<div id="sexuality-chart"></div>
+<script>
+    createRatioBarChart("sexuality-chart", "sexuality_flipped.json", "Sexuality", [], ['#8AA0B3', '#8E5CF1', '#FF4D88', '#2E294E']);
+</script>
+
 ### Assigned Sex at Birth
 
 #### Intersex
 
 write stuff here
 
-<div id="intersex"></div>
+<div id="intersex-chart"></div>
 <script>
-    createRatioBarChart("intersex", "intersex.json", "Intersex", [3, 4, 5], ["#7B61FF", "#00E0B8"]);
+    createRatioBarChart("intersex-chart", "intersex.json", "Intersex", [3, 4, 5], ["#7B61FF", "#00E0B8"]);
 </script>
 
 #### Nonbinary ASAB

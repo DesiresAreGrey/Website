@@ -76,7 +76,7 @@ function createBarChart(chartId, dataUrl, title = undefined, hideSeries = []) {
     });
 }
 
-function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [], customColors = undefined) {
+function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [], customColors = undefined, height = 300) {
     fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         hideSeries.forEach(index => {
             if (data.series[index]) {
@@ -87,7 +87,7 @@ function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [
         const options = {
             chart: {
                 type: 'bar',
-                height: 500,
+                height: height,
                 stacked: true,
                 stackType: '100%',
                 toolbar: { show: true },
