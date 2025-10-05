@@ -140,6 +140,10 @@
   }
 }
 
+.md-sidebar--primary{
+  z-index: 101;
+}
+
 /* Apex charts stuff */
 .charts-grid {
   display: grid;

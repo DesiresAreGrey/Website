@@ -167,7 +167,7 @@ function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [
     });
 }
 
-function createPopPyramidChart(chartId, dataUrl, title = undefined) {
+function createPopPyramidChart(chartId, dataUrl, title = undefined, bounds = 15.0) {
     fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         data.categories = data.categories.map(c => replaceXThanWithSymbol(c));
         const options = {
@@ -189,7 +189,7 @@ function createPopPyramidChart(chartId, dataUrl, title = undefined) {
             },
             xaxis: {
                 categories: data.categories,
-                min: -150, max: 150,
+                min: -bounds * 10, max: bounds * 10,
                 labels: {
                     formatter: function (val) {
                         return Math.abs(Math.round(val/10)) + "%"

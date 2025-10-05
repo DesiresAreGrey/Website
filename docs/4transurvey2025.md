@@ -39,7 +39,7 @@ write stuff here
     <div id="age-capped-overall" class="chart-layer layer-b"></div>
   </div>
   <script>
-    createPopPyramidChart("age-capped-pop-pyramid", "age_capped_pop_pyramid.json", "Age (Population Pyramid)");
+    createPopPyramidChart("age-capped-pop-pyramid", "age_capped_pop_pyramid.json", "Age (Population Pyramid)", 16);
     createBarChart("age-capped-overall", "age_capped_reversed.json", "Age (Overall)");
   </script>
   <div class="toggle">
@@ -67,7 +67,7 @@ write stuff here
   </div>
   <script>
     createBarChart("height-overall", "height_reversed.json", "Height (Overall)");
-    createPopPyramidChart("height-pop-pyramid", "height_reversed_pop_pyramid.json", "Height (Population Pyramid)");
+    createPopPyramidChart("height-pop-pyramid", "height_reversed_pop_pyramid.json", "Height (Population Pyramid)", 18);
   </script>
   <div class="toggle">
     <label for="height-a" class="noselect">Population Pyramid</label>
