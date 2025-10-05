@@ -69,6 +69,7 @@
     height: var(--md-header-height, 3.2rem);
     background: transparent;
     box-shadow: none;
+    z-index: auto;
   }
   
   .md-header .md-tabs__list {
