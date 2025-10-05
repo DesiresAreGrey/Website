@@ -175,32 +175,48 @@
 }
 
 .chart-set .toggle {
-  display: flex;
-  gap: 8px;
-  margin: 8px 0 12px;
-  position: relative;
-  z-index: 5;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: flex; 
+  justify-content: center; 
+  gap: 0.5rem; 
+  align-items: flex-end;
+  margin: 0.5rem 0 1rem;
 }
+
 .chart-set .toggle label {
-  border: .1rem solid;
-  border-color: var(--md-primary-fg-color);
-  color: var(--md-primary-fg-color);
-  padding: 0.4em 1em;
-  border-radius: 0.4rem;
+  position: relative;
+  padding: 0.1rem 0.5rem; 
   cursor: pointer;
-  transition: color 125ms, background-color 125ms, border-color 125ms !important;
-  font-weight: 700;
+  font-variation-settings: 'wght' 400;
+  opacity: 0.69;
+  transition: opacity 200ms ease, color 200ms ease, font-variation-settings 200ms ease;
 }
+
 .chart-set .toggle label:hover {
-  color: #fff;
+  opacity: 1;
+  font-variation-settings: 'wght' 500;
 }
-.chart-set > input:first-of-type:checked ~ .toggle label:first-of-type,
-.chart-set > input:nth-of-type(2):checked ~ .toggle label:nth-of-type(2) {
-  background-color: var(--md-primary-fg-color);
-  border-color: var(--md-primary-fg-color);
+
+.chart-set .toggle label::before {
+  content: ""; 
+  position: absolute; 
+  inset: -0.25rem 0 auto;
+  height: 0.2rem; 
+  border-radius: 2px; 
+  transform: scaleX(0);
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+
+.chart-set > input:nth-of-type(1):checked ~ .toggle label:nth-of-type(1),
+.chart-set > input:nth-of-type(2):checked ~ .toggle label:nth-of-type(2) { 
   color: #fff;
+  opacity: 1;
+  font-variation-settings: 'wght' 750;
+}
+
+.chart-set > input:nth-of-type(1):checked ~ .toggle label:nth-of-type(1)::before,
+.chart-set > input:nth-of-type(2):checked ~ .toggle label:nth-of-type(2)::before {
+  background: var(--md-primary-fg-color);
+  transform: scaleX(1);
 }
 
 .chart-set .chart-stack{
@@ -210,7 +226,7 @@
 .chart-set .chart-layer{
   position: absolute;
   inset: 0;
-  transition: opacity 125ms linear;
+  transition: opacity 75ms ease;
 }
 .chart-set > input:first-of-type:checked ~ .chart-stack .layer-a {
   opacity: 1;
