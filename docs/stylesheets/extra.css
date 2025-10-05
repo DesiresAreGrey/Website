@@ -45,6 +45,7 @@
 /* Header */
 .md-header {
   background-color: #000;
+  z-index: 100;
 }
 .md-nav__title {
   color: #fff;
