@@ -98,7 +98,7 @@ write stuff here
 
 <div id="intersex-chart"></div>
 <script>
-    createRatioBarChart("intersex-chart", "intersex.json", "Intersex", [3, 4, 5], ["#7B61FF", "#00E0B8"]);
+    createRatioBarChart("intersex-chart", "intersex.json", "Intersex", [3, 4, 5], ["#7B61FF", "#00E0B8"], 225);
 </script>
 
 #### Nonbinary ASAB

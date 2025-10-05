@@ -133,7 +133,7 @@ function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [
                     horizontal: true,
                     borderRadius: 3,
                     borderRadiusApplication: 'end',
-                     barHeight: '90%'
+                    barHeight: '90%'
                 }
             },
             dataLabels: {
@@ -259,7 +259,7 @@ function createPieChart(chartId, dataUrl, hideToolbar=false, customColors = unde
         const options = {
             chart: {
                 type: 'pie',
-                height: 380,
+                height: 325,
                 toolbar: { show: !hideToolbar },
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
