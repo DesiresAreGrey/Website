@@ -32,6 +32,9 @@ write stuff here
 <div id="age-capped"></div>
 <script>createBarChart("age-capped", "age_capped_reversed.json")</script>
 
+<div id="age-capped-pop-pyramid"></div>
+<script>createPopPyramidChart("age-capped-pop-pyramid", "age_capped_pop_pyramid.json")</script>
+
 ## test
 
 <div id="chart1"></div>

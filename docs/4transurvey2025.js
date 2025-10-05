@@ -40,6 +40,92 @@ function createBarChart(chartId, dataUrl, hideSeries=[]) {
             dataLabels: {
                 enabled: false
             },
+            grid: {
+                yaxis: {
+                    lines: { 
+                        show: true 
+                    }
+                },
+                borderColor: '#e0e0e020',
+            },
+            states: {
+                active: {
+                    filter: {
+                        type: 'none',
+                    }
+                }
+            },
+            theme: {
+                mode: 'dark', 
+                palette: 'palette1',
+            },
+            colors: ['#008FFB', '#FF4560', '#3f51b5', '#D7263D', '#00E396']
+        };
+        new ApexCharts(document.querySelector("#" + chartId), options).render();
+    });
+}
+
+function createPopPyramidChart(chartId, dataUrl) {
+    fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
+        const options = {
+            chart: {
+                type: 'bar',
+                height: 500,
+                stacked: true,
+                toolbar: { show: true },
+                background: '#090909'
+            },
+            series: data.series,
+            xaxis: {
+                categories: data.categories,
+                min: -150, max: 150,
+                labels: {
+                    formatter: function (val) {
+                        return Math.abs(Math.round(val/10)) + "%"
+                    }
+                }
+                
+            },
+            grid: {
+                yaxis: {
+                    lines: { 
+                        show: true 
+                    }
+                },
+                borderColor: '#e0e0e020',
+            },
+            annotations: {
+                xaxis: [
+                    {
+                        x: 0,
+                        borderColor: "#e0e0e0",
+                        strokeDashArray: 0,
+                        borderWidth: 2,
+                    }
+                ]
+            },
+            legend: {
+                show: false
+            },
+            tooltip: {
+                y: {
+                    formatter: (val, opts) => {
+                        const total = opts.w.globals.stackedSeriesTotals[opts.dataPointIndex];
+                        const pct = total ? ((val / total) * 100).toFixed(1) : 0;
+                        return Math.abs(val/10) + "%";
+                    }
+                }
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: true,
+                    borderRadius: 3,
+                    borderRadiusApplication: 'end',
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
             states: {
                 active: {
                     filter: {
