@@ -1,4 +1,4 @@
-const colors = ['#259efa', '#ff4f69', '#3f51b5', '#D7263D', '#00E396'];
+const colors = ['#259efa', '#ff4f69', '#00E396', '#3f51b5', '#D7263D'];
 
 function createBarChart(chartId, dataUrl, title = undefined, hideSeries = []) {
     fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {

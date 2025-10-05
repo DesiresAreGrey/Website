@@ -2,15 +2,15 @@
   "labels": [
     "Man (FtM)",
     "Woman (MtF)",
+    "Nonbinary",
     "Man (Cis)",
-    "Woman (Cis)",
-    "Nonbinary"
+    "Woman (Cis)"
   ],
   "series": [
     269,
     914,
+    53,
     37,
-    14,
-    53
+    14
   ]
 }

@@ -2,9 +2,9 @@
   "categories": [
     "Man (FtM)",
     "Woman (MtF)",
+    "Nonbinary",
     "Man (Cis)",
-    "Woman (Cis)",
-    "Nonbinary"
+    "Woman (Cis)"
   ],
   "series": [
     {
@@ -12,9 +12,9 @@
       "data": [
         65,
         494,
+        30,
         14,
-        7,
-        30
+        7
       ]
     },
     {
@@ -22,9 +22,9 @@
       "data": [
         198,
         364,
+        21,
         17,
-        4,
-        21
+        4
       ]
     }
   ]

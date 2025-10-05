@@ -19,6 +19,13 @@
       ]
     },
     {
+      "name": "Nonbinary",
+      "data": [
+        16,
+        36
+      ]
+    },
+    {
       "name": "Man (Cis)",
       "data": [
         8,
@@ -30,13 +37,6 @@
       "data": [
         4,
         10
-      ]
-    },
-    {
-      "name": "Nonbinary",
-      "data": [
-        16,
-        36
       ]
     }
   ]
