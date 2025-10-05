@@ -295,6 +295,73 @@ function createPieChart(chartId, dataUrl, hideToolbar=false, customColors = unde
     });
 }
 
+function createBoxPlot(chartId, dataUrl, title = undefined, hideToolbar = false, customColors = undefined, height = 300) {
+    fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
+        const options = {
+            chart: {
+                type: 'boxPlot',
+                height: height,
+                toolbar: { show: !hideToolbar },
+                background: '#090909',
+                fontFamily: 'Inter, Arial, sans-serif',
+            },
+            title: {
+                text: title,
+                align: 'center',
+                style: {
+                    fontSize:  '20px'
+                },
+            },
+            series: [
+                {
+                    type: 'boxPlot',
+                    data: data,
+                }
+            ],
+            responsive: [{
+                breakpoint: 480,
+            }],
+            plotOptions: {
+                bar: {
+                    horizontal: true,
+                },
+                boxPlot: {
+                    expandOnClick: false
+                }
+            },
+            legend: {
+                position: 'bottom',
+                horizontalAlign: 'center'
+            },
+            grid: {
+                yaxis: {
+                    lines: { 
+                        show: true 
+                    }
+                },
+                borderColor: '#e0e0e020',
+            },
+            stroke: {
+                colors: ['#fff']
+            },
+            states: {
+                active: {
+                    filter: {
+                        type: 'none',
+                    }
+                }
+            },
+            theme: {
+                mode: 'dark', 
+                palette: 'palette1',
+            },
+            
+            colors: customColors ?? colors
+        };
+        new ApexCharts(document.querySelector("#" + chartId), options).render();
+    });
+}
+
 
 function replaceXThanWithSymbol(s) {
   return String(s)

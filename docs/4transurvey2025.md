@@ -163,6 +163,11 @@ write stuff here
   </div>
 </div>
 
+<div id="usedsubs-ages"></div>
+<script>
+    createBoxPlot("usedsubs-ages", "used_subreddits_age.json", "Used Subreddits Age Distribution", false, undefined, 500);
+</script>
+
 ### Where You Came From
 
 write stuff here  
