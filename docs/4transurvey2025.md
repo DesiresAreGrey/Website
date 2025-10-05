@@ -132,8 +132,8 @@ write stuff here
     <div id="favsub-bar" class="chart-layer layer-b"></div>
   </div>
   <script>
-    createRatioBarChart("favsub-ratio", "favorite_subreddit.json", "Main/Favorite Subreddit (Ratio)");
-    createBarChart("favsub-bar", "favorite_subreddit.json", "Main/Favorite Subreddit (Total)", [], undefined, 300);
+    createRatioBarChart("favsub-ratio", "favorite_subreddit.json", "Main/Favorite Subreddit (Ratio)", [3, 4]);
+    createBarChart("favsub-bar", "favorite_subreddit.json", "Main/Favorite Subreddit (Total)", [3, 4], undefined, 300);
   </script>
   <div class="toggle">
     <label for="favsub-a" class="noselect">Ratio</label>
@@ -144,6 +144,24 @@ write stuff here
 ### Used Subreddits
 
 write stuff here  
+
+<div class="chart-set">
+  <input id="usedsub-a" class="vh" type="radio" name="view-usedsub" checked>
+  <input id="usedsub-b" class="vh" type="radio" name="view-usedsub">
+  
+  <div class="chart-stack" style="min-height: 500px;">
+    <div id="usedsub-ratio" class="chart-layer layer-a"></div>
+    <div id="usedsub-bar" class="chart-layer layer-b"></div>
+  </div>
+  <script>
+    createRatioBarChart("usedsub-ratio", "used_subreddits.json", "Used Subreddits (Ratio)", [3, 4], undefined, 500);
+    createBarChart("usedsub-bar", "used_subreddits.json", "Used Subreddits (Total)", [3, 4], undefined, 500);
+  </script>
+  <div class="toggle">
+    <label for="usedsub-a" class="noselect">Ratio</label>
+    <label for="usedsub-b" class="noselect">Total</label>
+  </div>
+</div>
 
 ### Where You Came From
 
