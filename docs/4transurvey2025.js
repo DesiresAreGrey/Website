@@ -15,8 +15,7 @@ function createBarChart(chartId, dataUrl, hideSeries=[]) {
             },
             series: data.series,
             xaxis: {
-                categories: data.categories,
-                labels: { rotate: -20 }
+                categories: data.categories
             },
             legend: {
                 position: 'bottom',
@@ -34,7 +33,8 @@ function createBarChart(chartId, dataUrl, hideSeries=[]) {
             plotOptions: {
                 bar: {
                     horizontal: true,
-                    borderRadius: 3
+                    borderRadius: 3,
+                    borderRadiusApplication: 'end',
                 }
             },
             dataLabels: {

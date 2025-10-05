@@ -15,15 +15,22 @@ write stuff here
 
 <div class="charts-grid">
   <div>
-    <div id="overallgenderbinary"></div>
-    <script>createPieChart("overallgenderbinary", "gender_binary.json", true)</script>
+    <div id="gender-overall-binary"></div>
+    <script>createPieChart("gender-overall-binary", "gender_binary.json", true)</script>
   </div>
 
   <div>
-    <div id="overallgender"></div>
-    <script>createPieChart("overallgender", "gender.json")</script>
+    <div id="gender-overall"></div>
+    <script>createPieChart("gender-overall", "gender.json")</script>
   </div>
 </div>
+
+## Age Distribution
+
+### Overall
+
+<div id="age-capped"></div>
+<script>createBarChart("age-capped", "age_capped_reversed.json")</script>
 
 ## test
 
