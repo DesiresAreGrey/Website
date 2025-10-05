@@ -31,8 +31,8 @@ write stuff here
 write stuff here
 
 <div class="chart-set">
-  <input id="age-a" class="vh" type="radio" name="view-age">
-  <input id="age-b" class="vh" type="radio" name="view-age" checked>
+  <input id="age-a" class="vh" type="radio" name="view-age" checked>
+  <input id="age-b" class="vh" type="radio" name="view-age">
   
   <div class="chart-stack">
     <div id="age-capped-pop-pyramid" class="chart-layer layer-a"></div>
@@ -53,8 +53,8 @@ write stuff here
 write stuff here
 
 <div class="chart-set">
-  <input id="height-a" class="vh" type="radio" name="view-height">
-  <input id="height-b" class="vh" type="radio" name="view-height" checked>
+  <input id="height-a" class="vh" type="radio" name="view-height" checked>
+  <input id="height-b" class="vh" type="radio" name="view-height">
   
   <div class="chart-stack">
     <div id="height-pop-pyramid" class="chart-layer layer-a"></div>
