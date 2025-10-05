@@ -1,0 +1,25 @@
+{
+  "categories": [
+    "Man (FtM)",
+    "Woman (MtF)",
+    "Nonbinary"
+  ],
+  "series": [
+    {
+      "name": "Intersex",
+      "data": [
+        3,
+        11,
+        2
+      ]
+    },
+    {
+      "name": "Not Intersex",
+      "data": [
+        186,
+        763,
+        49
+      ]
+    }
+  ]
+}

@@ -254,7 +254,7 @@ function createPopPyramidChart(chartId, dataUrl, title = undefined, bounds = 15.
     });
 }
 
-function createPieChart(chartId, dataUrl, hideToolbar=false) {
+function createPieChart(chartId, dataUrl, hideToolbar=false, customColors = undefined) {
     fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         const options = {
             chart: {
@@ -289,7 +289,7 @@ function createPieChart(chartId, dataUrl, hideToolbar=false) {
                 mode: 'dark', 
                 palette: 'palette1',
             },
-            colors: colors
+            colors: customColors ?? colors
         };
         new ApexCharts(document.querySelector("#" + chartId), options).render();
     });

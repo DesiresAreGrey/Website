@@ -26,7 +26,11 @@ write stuff here
   </div>
 </div>
 
-## Age
+___
+
+## Demographics
+
+### Age
 
 write stuff here  
 
@@ -48,12 +52,14 @@ write stuff here
   </div>
 </div>
 
- <div id="under18"></div>
+write stuff here
+
+<div id="under18"></div>
 <script>
     createRatioBarChart("under18", "under18.json", "Under 18", [], ["#7B61FF", "#00E0B8"]);
 </script>
 
-## Height
+### Height
 
 write stuff here
 
@@ -74,3 +80,25 @@ write stuff here
     <label for="height-b" class="noselect">Overall</label>
   </div>
 </div>
+
+### Assigned Sex at Birth
+
+#### Intersex
+
+write stuff here
+
+<div id="intersex"></div>
+<script>
+    createRatioBarChart("intersex", "intersex.json", "Intersex", [3, 4, 5], ["#7B61FF", "#00E0B8"]);
+</script>
+
+#### Nonbinary ASAB
+
+write stuff here
+
+<div id="nbasab"></div>
+<script>
+    createPieChart("nbasab", "nb_asab.json", false, ['#259efa', '#ff4f69', '#00E396', '#2E294E']);
+</script>
+
+___
