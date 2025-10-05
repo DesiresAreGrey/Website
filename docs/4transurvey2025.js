@@ -1,4 +1,4 @@
-function createBarChart(chartId, dataUrl, hideSeries=[]) {
+function createBarChart(chartId, dataUrl, title = undefined, hideSeries=[]) {
     fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         hideSeries.forEach(index => {
             if (data.series[index]) {
@@ -11,7 +11,15 @@ function createBarChart(chartId, dataUrl, hideSeries=[]) {
                 height: 500,
                 stacked: true,
                 toolbar: { show: true },
-                background: '#090909'
+                background: '#090909',
+                fontFamily: 'Inter, Arial, sans-serif',
+            },
+            title: {
+                text: title,
+                align: 'center',
+                style: {
+                    fontSize:  '20px'
+                },
             },
             series: data.series,
             xaxis: {
@@ -65,7 +73,7 @@ function createBarChart(chartId, dataUrl, hideSeries=[]) {
     });
 }
 
-function createPopPyramidChart(chartId, dataUrl) {
+function createPopPyramidChart(chartId, dataUrl, title = undefined) {
     fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         const options = {
             chart: {
@@ -73,9 +81,17 @@ function createPopPyramidChart(chartId, dataUrl) {
                 height: 500,
                 stacked: true,
                 toolbar: { show: true },
-                background: '#090909'
+                background: '#090909',
+                fontFamily: 'Inter, Arial, sans-serif',
             },
             series: data.series,
+            title: {
+                text: title,
+                align: 'center',
+                style: {
+                    fontSize:  '20px'
+                },
+            },
             xaxis: {
                 categories: data.categories,
                 min: -150, max: 150,
@@ -150,7 +166,8 @@ function createPieChart(chartId, dataUrl, hideToolbar=false) {
                 type: 'pie',
                 height: 380,
                 toolbar: { show: !hideToolbar },
-                background: '#090909'
+                background: '#090909',
+                fontFamily: 'Inter, Arial, sans-serif',
             },
             series: data.series,
             labels: data.labels,

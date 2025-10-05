@@ -25,17 +25,18 @@ write stuff here
   </div>
 </div>
 
-## Age Distribution
-
-### Overall
+## Age
 
 <div id="age-capped"></div>
-<script>createBarChart("age-capped", "age_capped_reversed.json")</script>
+<script>createBarChart("age-capped", "age_capped_reversed.json", "Age (Overall)")</script>
 
 <div id="age-capped-pop-pyramid"></div>
-<script>createPopPyramidChart("age-capped-pop-pyramid", "age_capped_pop_pyramid.json")</script>
+<script>createPopPyramidChart("age-capped-pop-pyramid", "age_capped_pop_pyramid.json", "Age (Population Pyramid)")</script>
 
-## test
+## Height
 
-<div id="chart1"></div>
-<script>createBarChart("chart1", "height.json", [2, 3, 4])</script>
+<div id="height-reversed"></div>
+<script>createBarChart("height-reversed", "height_reversed.json", "Height (Overall)")</script>
+
+<div id="height-reversed-pop-pyramid"></div>
+<script>createPopPyramidChart("height-reversed-pop-pyramid", "height_reversed_pop_pyramid.json", "Height (Population Pyramid)")</script>
