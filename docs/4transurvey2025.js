@@ -1,3 +1,5 @@
+const colors = ['#259efa', '#ff4f69', '#3f51b5', '#D7263D', '#00E396'];
+
 function createBarChart(chartId, dataUrl, title = undefined, hideSeries = []) {
     fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         hideSeries.forEach(index => {
@@ -68,7 +70,7 @@ function createBarChart(chartId, dataUrl, title = undefined, hideSeries = []) {
                 mode: 'dark', 
                 palette: 'palette1',
             },
-            colors: ['#008FFB', '#FF4560', '#3f51b5', '#D7263D', '#00E396']
+            colors: colors
         };
         new ApexCharts(document.querySelector("#" + chartId), options).render();
     });
@@ -145,7 +147,7 @@ function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [
                 mode: 'dark', 
                 palette: 'palette1',
             },
-            colors: ['#008FFB', '#FF4560', '#3f51b5', '#D7263D', '#00E396']
+            colors: colors
         };
         new ApexCharts(document.querySelector("#" + chartId), options).render();
     });
@@ -232,7 +234,7 @@ function createPopPyramidChart(chartId, dataUrl, title = undefined) {
                 mode: 'dark', 
                 palette: 'palette1',
             },
-            colors: ['#008FFB', '#FF4560', '#3f51b5', '#D7263D', '#00E396']
+            colors: colors
         };
         new ApexCharts(document.querySelector("#" + chartId), options).render();
     });
@@ -273,7 +275,7 @@ function createPieChart(chartId, dataUrl, hideToolbar=false) {
                 mode: 'dark', 
                 palette: 'palette1',
             },
-            colors: ['#008FFB', '#FF4560', '#3f51b5', '#D7263D', '#00E396']
+            colors: colors
         };
         new ApexCharts(document.querySelector("#" + chartId), options).render();
     });
