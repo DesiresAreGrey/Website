@@ -5,6 +5,7 @@ function createBarChart(chartId, dataUrl, title = undefined, hideSeries = []) {
                 data.series[index].hidden = true;
             }
         });
+        data.categories = data.categories.map(c => replaceXThanWithSymbol(c));
         const options = {
             chart: {
                 type: 'bar',
@@ -75,6 +76,7 @@ function createBarChart(chartId, dataUrl, title = undefined, hideSeries = []) {
 
 function createPopPyramidChart(chartId, dataUrl, title = undefined) {
     fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
+        data.categories = data.categories.map(c => replaceXThanWithSymbol(c));
         const options = {
             chart: {
                 type: 'bar',
@@ -198,4 +200,13 @@ function createPieChart(chartId, dataUrl, hideToolbar=false) {
         };
         new ApexCharts(document.querySelector("#" + chartId), options).render();
     });
+}
+
+
+function replaceXThanWithSymbol(s) {
+  return String(s)
+    .replace(/^\s*([^()]+?)(\s*\(.*?\))?\s+or\s+less\s*$/i, '≤$1$2')
+    .replace(/^\s*([^()]+?)(\s*\(.*?\))?\s+or\s+more\s*$/i, '≥$1$2')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
