@@ -1,0 +1,31 @@
+{
+  "categories": [
+    "Man (FtM)",
+    "Woman (MtF)",
+    "Man (Cis)",
+    "Woman (Cis)",
+    "Nonbinary"
+  ],
+  "series": [
+    {
+      "name": "Under 18",
+      "data": [
+        66,
+        77,
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "name": "18+",
+      "data": [
+        203,
+        837,
+        35,
+        11,
+        48
+      ]
+    }
+  ]
+}

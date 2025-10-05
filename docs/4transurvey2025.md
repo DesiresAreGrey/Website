@@ -28,7 +28,7 @@ write stuff here
 
 ## Age
 
-write stuff here
+write stuff here  
 
 <div class="chart-set">
   <input id="age-a" class="vh" type="radio" name="view-age" checked>
@@ -47,6 +47,11 @@ write stuff here
     <label for="age-b" class="noselect">Overall</label>
   </div>
 </div>
+
+ <div id="under18"></div>
+<script>
+    createRatioBarChart("under18", "under18.json", "Under 18");
+</script>
 
 ## Height
 

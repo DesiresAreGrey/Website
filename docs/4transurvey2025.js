@@ -74,6 +74,83 @@ function createBarChart(chartId, dataUrl, title = undefined, hideSeries = []) {
     });
 }
 
+function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = []) {
+    fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
+        hideSeries.forEach(index => {
+            if (data.series[index]) {
+                data.series[index].hidden = true;
+            }
+        });
+        data.categories = data.categories.map(c => replaceXThanWithSymbol(c));
+        const options = {
+            chart: {
+                type: 'bar',
+                height: 500,
+                stacked: true,
+                stackType: '100%',
+                toolbar: { show: true },
+                background: '#090909',
+                fontFamily: 'Inter, Arial, sans-serif',
+            },
+            title: {
+                text: title,
+                align: 'center',
+                style: {
+                    fontSize:  '20px'
+                },
+            },
+            series: data.series,
+            xaxis: {
+                categories: data.categories
+            },
+            legend: {
+                position: 'bottom',
+                horizontalAlign: 'center'
+            },
+            tooltip: {
+                y: {
+                    formatter: (val, opts) => {
+                        const total = opts.w.globals.stackedSeriesTotals[opts.dataPointIndex];
+                        const pct = total ? ((val / total) * 100).toFixed(1) : 0;
+                        return `${val} respondents (${pct}%)`;
+                    }
+                }
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: true,
+                    borderRadius: 3,
+                    borderRadiusApplication: 'end',
+                }
+            },
+            dataLabels: {
+                enabled: true
+            },
+            grid: {
+                yaxis: {
+                    lines: { 
+                        show: true 
+                    }
+                },
+                borderColor: '#e0e0e020',
+            },
+            states: {
+                active: {
+                    filter: {
+                        type: 'none',
+                    }
+                }
+            },
+            theme: {
+                mode: 'dark', 
+                palette: 'palette1',
+            },
+            colors: ['#008FFB', '#FF4560', '#3f51b5', '#D7263D', '#00E396']
+        };
+        new ApexCharts(document.querySelector("#" + chartId), options).render();
+    });
+}
+
 function createPopPyramidChart(chartId, dataUrl, title = undefined) {
     fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         data.categories = data.categories.map(c => replaceXThanWithSymbol(c));
