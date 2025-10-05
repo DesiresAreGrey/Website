@@ -355,7 +355,25 @@ function createBoxPlot(chartId, dataUrl, title = undefined, hideToolbar = false,
                 mode: 'dark', 
                 palette: 'palette1',
             },
-            
+            tooltip: {
+                shared: false,
+                intersect: true,
+                custom: ({ seriesIndex, dataPointIndex, w }) => {
+                    const d = w.config.series[seriesIndex].data[dataPointIndex];
+                    const [min, q1, median, q3, max] = d.y;
+                    return `
+                        <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${d.x}</div>
+                        <div class="apexcharts-tooltip-box apexcharts-tooltip-boxPlot">
+                            <div class="apexcharts-tooltip-text" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">
+                                Maximum: <b>${max}</b><br>
+                                Q3: <b>${q3}</b><br>
+                                Median: <b>${median}</b><br>
+                                Q1: <b>${q1}</b><br>
+                                Minimum: <b>${min}</b>
+                            </div>
+                        </div>`;
+                }
+            },
             colors: customColors ?? colors
         };
         new ApexCharts(document.querySelector("#" + chartId), options).render();
