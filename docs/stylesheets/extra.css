@@ -145,6 +145,30 @@
   z-index: 101;
 }
 
+/* Button */
+.big-button {
+    border: .1rem solid;
+    padding: 0.4em 1em;
+    border-radius: 0.4rem;
+    margin-right: 0.1rem;
+    border-color: var(--md-primary-fg-color);
+    color: var(--md-primary-fg-color) !important;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    font-weight: 700;
+    transition: color 125ms, background-color 125ms, border-color 125ms !important;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 20px;
+}
+.big-button:focus,
+.big-button:hover {
+  background-color: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+  color: #fff !important;
+}
+
 /* Apex charts stuff */
 .charts-grid {
   display: grid;

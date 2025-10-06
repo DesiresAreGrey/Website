@@ -41,4 +41,6 @@ extra_css:
 
 nav:
   - Home: 'index.md'
-  - The 2025 4tran Survey: '4transurvey2025.md'
+  - The 2025 4tran Survey: 
+    - The 2025 4tran Survey: '4transurvey2025/index.md'
+    - The 2025 4tran Survey - Page 2: '4transurvey2025/2.md'

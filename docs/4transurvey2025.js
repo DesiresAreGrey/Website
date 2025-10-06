@@ -1,7 +1,7 @@
 const colors = ['#259efa', '#ff4f69', '#00E396', '#3f51b5', '#D7263D'];
 
 function createBarChart(chartId, dataUrl, title = undefined, hideSeries = [], customColors = undefined, height = 500) {
-    fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
+    fetch("/assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         hideSeries.forEach(index => {
             if (data.series[index]) {
                 data.series[index].hidden = true;
@@ -77,7 +77,7 @@ function createBarChart(chartId, dataUrl, title = undefined, hideSeries = [], cu
 }
 
 function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [], customColors = undefined, height = 300) {
-    fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
+    fetch("/assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         hideSeries.forEach(index => {
             if (data.series[index]) {
                 data.series[index].hidden = true;
@@ -174,7 +174,7 @@ function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [
 }
 
 function createPopPyramidChart(chartId, dataUrl, title = undefined, bounds = 15.0, height = 500) {
-    fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
+    fetch("/assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         data.categories = data.categories.map(c => replaceXThanWithSymbol(c));
         const options = {
             chart: {
@@ -260,7 +260,7 @@ function createPopPyramidChart(chartId, dataUrl, title = undefined, bounds = 15.
 }
 
 function createColumnChart(chartId, dataUrl, title = undefined, hideSeries = [], customColors = undefined, height = 500) {
-    fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
+    fetch("/assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         hideSeries.forEach(index => {
             if (data.series[index]) {
                 data.series[index].hidden = true;
@@ -336,7 +336,7 @@ function createColumnChart(chartId, dataUrl, title = undefined, hideSeries = [],
 }
 
 function createPieChart(chartId, dataUrl, title = undefined, hideToolbar = false, customColors = undefined) {
-    fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
+    fetch("/assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         const options = {
             chart: {
                 type: 'pie',
@@ -393,7 +393,7 @@ function createPieChart(chartId, dataUrl, title = undefined, hideToolbar = false
 }
 
 function createBoxPlot(chartId, dataUrl, title = undefined, hideToolbar = false, height = 300) {
-    fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
+    fetch("/assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         const options = {
             chart: {
                 type: 'boxPlot',
@@ -478,7 +478,7 @@ function createBoxPlot(chartId, dataUrl, title = undefined, hideToolbar = false,
 }
 
 function createChangeBoxPlot(chartId, dataUrl, title = undefined, hideToolbar = false, bounds = 5.0, height = 300) {
-    fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
+    fetch("/assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         const options = {
             chart: {
                 type: 'boxPlot',
