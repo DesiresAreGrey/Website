@@ -78,7 +78,9 @@ Well well well...nearly a quarter of trans men are minors. I knew that a decent 
 
 ### Height
 
-write stuff here
+Probably the most brutal of the comparisons out of the entire survey. Not only is the ftm height lower than the mtf height, its also less spread out. I had to extend the bounds of this chart all the way to 20% so it could fit the 5'5 bar being at ~18%, while the most popular mtf choice (5'8) is only ~13% of the population.  
+
+Fun fact: The one 6'2 trans guy is 17 years old (gigaluckshit)
 
 <div class="chart-set">
   <input id="height-a" class="vh" type="radio" name="view-height" checked>
@@ -100,7 +102,9 @@ write stuff here
 
 ### Sexuality
 
-write stuff here
+Men be straight.
+
+Bi being the most common choice is very much expected too. All the numbers here honestly just makes perfect sense, not much to talk about (except for the one single straight nonbinary person)
 
 <div id="sexuality-chart"></div>
 <script>
@@ -109,18 +113,16 @@ write stuff here
 
 ### Assigned Sex at Birth
 
-#### Intersex
+The dreaded ASAB question. I really wasn't sure if I wanted to include it, I ended up doing it anyway while making it obvious that the question is optional so that people don't get (maybe rightfully) annoyed with it.
 
-write stuff here
+I was mostly only interested in the question for 2 reasons, the first one was to see how many people are intersex. Theres no real statistical difference between any of the genders being intersex so this was mostly just useless
 
 <div id="intersex-chart"></div>
 <script>
     createRatioBarChart("intersex-chart", "intersex.json", "Intersex", [3, 4, 5], ["#7B61FF", "#00E0B8"], 225);
 </script>
 
-#### Nonbinary ASAB
-
-write stuff here
+This is probably the most controversial part of the entire survey. I wanted to see the ratio between theyfabs and theymabs, and tbh I assumed there would be a lot more afab nbs considering how most people view amab nbs.
 
 <div id="nbasab"></div>
 <script>
@@ -138,7 +140,9 @@ ___
 
 ### Main/Favorite Subreddit
 
-write stuff here  
+This question was pretty self explanatory, I wanted to see the popularity of the main 4tran subreddits as well as the gender ratios between them. Tbh I've noticed that the people who primarily use r/Tranistan leaned male but I didn't really realize that about r/4trancirclejerk.
+
+<p style="font-size: 12px;">You can switch between the ratio view and the total/overall view with the 2 tabs underneath the chart!</p>
 
 <div class="chart-set">
   <input id="favsub-a" class="vh" type="radio" name="view-favsub" checked>
@@ -158,7 +162,7 @@ write stuff here
   </div>
 </div>
 
-write stuff here
+Interestingly r/Tranistan is a bit younger than the other subreddits, which I have not noticed (especially considering r/4Tranistan exists). r/ttttrans skews older which is obviously completely expected, the oldfag sub is old who woulda thought. What is surprising is that ttttrans is the second most popular (main) subreddit, only behind 4tran4.
 
 <div id="favsub-ages"></div>
 <script>
@@ -167,7 +171,7 @@ write stuff here
 
 ### Used Subreddits
 
-write stuff here  
+Used subreddits was to see all the subreddits that people used and had access to. smutttt and the selfie subreddits are both mostly women, while fitttts, 4tography and 4trancooking have a bit more men in them. The total distribution makes a lot more sense here since popular/open subreddits like 4tran, 4tran4, and 4Tranistan are the most popular.
 
 <div class="chart-set">
   <input id="usedsub-a" class="vh" type="radio" name="view-usedsub" checked>
@@ -193,7 +197,7 @@ write stuff here
 
 ### Contributer or Lurker
 
-write stuff here
+I expected the differences between the genders to be way higher here tbh. I feel like a lot of trans men are lurkers, but the difference is only like 5% between men and women here. Cis people are also the most likely to be lurkers (unsurprising) 
 
 <div id="contributer-chart"></div>
 <script>
