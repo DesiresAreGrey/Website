@@ -9,7 +9,7 @@
       "name": "Gigahon/Gigapoon",
       "data": [
         12,
-        55,
+        57,
         4
       ]
     },
@@ -18,30 +18,30 @@
       "data": [
         11,
         87,
-        5
+        6
       ]
     },
     {
       "name": "Semipassoid",
       "data": [
         62,
-        364,
-        34
+        372,
+        36
       ]
     },
     {
       "name": "Passoid",
       "data": [
-        160,
-        376,
+        162,
+        382,
         13
       ]
     },
     {
       "name": "Gigapassoid",
       "data": [
-        56,
-        97,
+        57,
+        99,
         4
       ]
     }

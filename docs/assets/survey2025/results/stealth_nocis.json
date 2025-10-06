@@ -9,24 +9,24 @@
       "name": "Fully stealth",
       "data": [
         50,
-        93,
-        7
+        95,
+        6
       ]
     },
     {
       "name": "Mostly stealth",
       "data": [
-        108,
-        189,
-        10
+        111,
+        191,
+        11
       ]
     },
     {
       "name": "No",
       "data": [
         137,
-        680,
-        39
+        693,
+        42
       ]
     }
   ]
