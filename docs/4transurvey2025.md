@@ -17,12 +17,12 @@ write stuff here
 <div class="charts-grid">
   <div>
     <div id="gender-overall-binary"></div>
-    <script>createPieChart("gender-overall-binary", "gender_binary.json", true)</script>
+    <script>createPieChart("gender-overall-binary", "gender_binary.json", undefined, true)</script>
   </div>
 
   <div>
     <div id="gender-overall"></div>
-    <script>createPieChart("gender-overall", "gender.json")</script>
+    <script>createPieChart("gender-overall", "gender.json", undefined)</script>
   </div>
 </div>
 
@@ -107,7 +107,7 @@ write stuff here
 
 <div id="nbasab"></div>
 <script>
-    createPieChart("nbasab", "nb_asab.json", false, ['#259efa', '#ff4f69', '#00E396', '#2E294E']);
+    createPieChart("nbasab", "nb_asab.json", "Nonbinary ASAB", false, ['#259efa', '#ff4f69', '#00E396', '#2E294E']);
 </script>
 
 ### Location

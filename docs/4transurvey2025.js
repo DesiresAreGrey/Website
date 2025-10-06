@@ -260,7 +260,7 @@ function createPopPyramidChart(chartId, dataUrl, title = undefined, bounds = 15.
     });
 }
 
-function createPieChart(chartId, dataUrl, hideToolbar=false, customColors = undefined) {
+function createPieChart(chartId, dataUrl, title = undefined, hideToolbar = false, customColors = undefined) {
     fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         const options = {
             chart: {
@@ -272,6 +272,13 @@ function createPieChart(chartId, dataUrl, hideToolbar=false, customColors = unde
             },
             series: data.series,
             labels: data.labels,
+            title: {
+                text: title,
+                align: 'center',
+                style: {
+                    fontSize:  '20px'
+                },
+            },
             responsive: [{
                 breakpoint: 480,
             }],
