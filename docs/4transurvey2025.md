@@ -309,17 +309,44 @@ write stuff here
 
 write stuff here
 
-<div id="acceptance-came-out"></div>
-<script>
-    createBoxPlot("acceptance-came-out", "parental_acceptance_came_out_nocis_boxplot.json", "Parental Acceptance when Coming Out", false, undefined, 250);
-</script>
+<div class="chart-set">
+  <input id="acceptance-came-out-a" class="vh" type="radio" name="acceptance-came-out" checked>
+  <input id="acceptance-came-out-b" class="vh" type="radio" name="acceptance-came-out">
+  
+  <div class="chart-stack" style="min-height: 400px;">
+    <div id="acceptance-came-out-column" class="chart-layer layer-a"></div>
+    <div id="acceptance-came-out-box-plot" class="chart-layer layer-b"></div>
+  </div>
+  <script>
+    createColumnChart("acceptance-came-out-column", "parents_acceptance_came_out_nocis.json", "Parental Acceptance when Coming Out", [], undefined, 400);
+    createBoxPlot("acceptance-came-out-box-plot", "parental_acceptance_came_out_nocis_boxplot.json", "Parental Acceptance when Coming Out", false, undefined, 400);
+  </script>
+  <div class="toggle">
+    <label for="acceptance-came-out-a" class="noselect">Column</label>
+    <label for="acceptance-came-out-b" class="noselect">Box Plot</label>
+  </div>
+</div>
+
 
 write stuff here
 
-<div id="acceptance-now"></div>
-<script>
-    createBoxPlot("acceptance-now", "parental_acceptance_now_nocis_boxplot.json", "Parental Acceptance Now", false, undefined, 250);
-</script>
+<div class="chart-set">
+  <input id="acceptance-now-a" class="vh" type="radio" name="acceptance-now" checked>
+  <input id="acceptance-now-b" class="vh" type="radio" name="acceptance-now">
+  
+  <div class="chart-stack" style="min-height: 400px;">
+    <div id="acceptance-now-column" class="chart-layer layer-a"></div>
+    <div id="acceptance-now-box-plot" class="chart-layer layer-b"></div>
+  </div>
+  <script>
+    createColumnChart("acceptance-now-column", "parents_acceptance_now_nocis.json", "Parental Acceptance Now", [], undefined, 400);
+    createBoxPlot("acceptance-now-box-plot", "parental_acceptance_now_nocis_boxplot.json", "Parental Acceptance Now", false, undefined, 400);
+  </script>
+  <div class="toggle">
+    <label for="acceptance-now-a" class="noselect">Column</label>
+    <label for="acceptance-now-b" class="noselect">Box Plot</label>
+  </div>
+</div>
 
 write stuff here
 
