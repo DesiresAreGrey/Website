@@ -196,4 +196,26 @@ write stuff here
     createRatioBarChart("onhrt-chart", "hrt.json", "On HRT", [], ["#7B61FF", "#00E0B8"]);
 </script>
 
+### Time on HRT
+
+write stuff here  
+
+<div class="chart-set">
+  <input id="hrt-time-a" class="vh" type="radio" name="view-hrt-time" checked>
+  <input id="hrt-time-b" class="vh" type="radio" name="view-hrt-time">
+  
+  <div class="chart-stack" style="min-height: 400px;">
+    <div id="hrt-time-pop-pyramid" class="chart-layer layer-a"></div>
+    <div id="hrt-time-overall" class="chart-layer layer-b"></div>
+  </div>
+  <script>
+    createPopPyramidChart("hrt-time-pop-pyramid", "hrt_time_pop_pyramid.json", "Time on HRT (Population Pyramid)", 30, 400);
+    createBarChart("hrt-time-overall", "hrt_time_reversed.json", "Time on HRT (Overall)", [3, 4, 5], undefined, 400);
+  </script>
+  <div class="toggle">
+    <label for="hrt-time-a" class="noselect">Population Pyramid</label>
+    <label for="hrt-time-b" class="noselect">Overall</label>
+  </div>
+</div>
+
 ___

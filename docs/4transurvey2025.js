@@ -173,13 +173,13 @@ function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [
     });
 }
 
-function createPopPyramidChart(chartId, dataUrl, title = undefined, bounds = 15.0) {
+function createPopPyramidChart(chartId, dataUrl, title = undefined, bounds = 15.0, height = 500) {
     fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         data.categories = data.categories.map(c => replaceXThanWithSymbol(c));
         const options = {
             chart: {
                 type: 'bar',
-                height: 500,
+                height: height,
                 stacked: true,
                 toolbar: { show: true },
                 background: '#090909',
