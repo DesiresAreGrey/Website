@@ -7,6 +7,7 @@ image: https://desiresaregrey.github.io/Website/assets/survey2025/thumb.png
 <!-- js is gonna make me 41 :( -->
 
 # The 2025 4tran Survey
+<h6 style="margin: 0 0.2rem">Page 1</h6>
 
 write stuff here
 
