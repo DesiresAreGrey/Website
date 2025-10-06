@@ -195,7 +195,25 @@ Used subreddits was to see all the subreddits that people used and had access to
 
 ### Where You Came From
 
-write stuff here  
+If you noticed the little `?source=r/4tran4` thing at the end of the survey link, this is what that was used for. I was curious where people came from, and if it was different from their main sub. I sent the survey out on some 4tran related discords as well and was curious how many survey respondents were from discord. (Unsurprisingly) the most female heavy space, even when compared to the other questions, happens to be Discord (94% female).
+
+<div class="chart-set">
+  <input id="camefrom-a" class="vh" type="radio" name="view-camefrom">
+  <input id="camefrom-b" class="vh" type="radio" name="view-camefrom" checked>
+  
+  <div class="chart-stack" style="min-height: 350px;">
+    <div id="camefrom-ratio" class="chart-layer layer-a"></div>
+    <div id="camefrom-bar" class="chart-layer layer-b"></div>
+  </div>
+  <script>
+    createRatioBarChart("camefrom-ratio", "came_from.json", "Where You Came From", "Ratio", [3, 4], undefined, 350);
+    createBarChart("camefrom-bar", "came_from.json", "Where You Came From", "Total", [3, 4], undefined, 350);
+  </script>
+  <div class="toggle">
+    <label for="camefrom-a" class="noselect">Ratio</label>
+    <label for="camefrom-b" class="noselect">Total</label>
+  </div>
+</div>
 
 ### Contributer or Lurker
 
