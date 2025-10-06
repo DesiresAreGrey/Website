@@ -140,7 +140,7 @@ This is probably the most controversial part of the entire survey. I wanted to s
 write stuff here  
 
 <div id="states" style="height: 500px;"></div>
-<script>createUSMap("states", "location_states.json");</script>
+<script>createUSMap("states", "location_state.json");</script>
 
 ___
 
