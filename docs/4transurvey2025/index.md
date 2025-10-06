@@ -23,7 +23,7 @@ Also some of you may have noticed that you were able to submit multiple response
 
 Its heavily recommended you view this site on desktop! The charts are interactive (click on the legend options to show/hide them) and also they are a bit heavier to render than I originally thought, which is why I've separated everything into 3 separate pages, to hopefully reduce the amount your phone would have to render at once. There is also a table of contents to the right side on desktop and in the menu at the top left on mobile!
 
-[Page 1]() - [Page 2](2) - [Page 3](3) - [Amekyras's idktheword](amekyras)
+[Page 1]() - [Page 2](2) - [Page 3](3) - [Amekyras's Analysis](amekyras)
 
 ## Overall Gender Divide
 
