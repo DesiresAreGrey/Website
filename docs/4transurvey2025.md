@@ -193,7 +193,7 @@ write stuff here
 
 <div id="onhrt-chart"></div>
 <script>
-    createRatioBarChart("onhrt-chart", "hrt.json", "On HRT", [], ["#7B61FF", "#00E0B8"]);
+    createRatioBarChart("onhrt-chart", "hrt_nocis.json", "On HRT", [], ["#7B61FF", "#00E0B8"], 225);
 </script>
 
 write stuff here  
@@ -222,14 +222,14 @@ write stuff here
 
 <div id="hassurgery-chart"></div>
 <script>
-    createRatioBarChart("hassurgery-chart", "surgery.json", "Has Had Surgery", [], ["#7B61FF", "#00E0B8"]);
+    createRatioBarChart("hassurgery-chart", "surgery_nocis.json", "Has Had Surgery", [], ["#7B61FF", "#00E0B8"], 225);
 </script>
 
 write stuff here
 
 <div id="surgeries-chart"></div>
 <script>
-    createRatioBarChart("surgeries-chart", "surgeries.json", "Surgeries", [], ["#2983FF", "#EA3546", "#4caf50", "#FEB019", "#FF9800", "#449DD1", "#43BCCD", "#00E396", "#7D02EB", "#775DD0", "#546E7A", "#2E294E"], 350);
+    createRatioBarChart("surgeries-chart", "surgeries_nocis.json", "Surgeries", [], ["#2983FF", "#EA3546", "#4caf50", "#FEB019", "#FF9800", "#449DD1", "#43BCCD", "#00E396", "#7D02EB", "#775DD0", "#546E7A", "#2E294E"], 275);
 </script>
 
 ### Coming Out
@@ -238,7 +238,7 @@ write stuff here
 
 <div id="came-out-chart"></div>
 <script>
-    createRatioBarChart("came-out-chart", "came_out.json", "Came Out", [], ["#7B61FF", "#00E0B8"]);
+    createRatioBarChart("came-out-chart", "came_out_nocis.json", "Came Out", [], ["#7B61FF", "#00E0B8"], 225);
 </script>
 
 
@@ -281,5 +281,21 @@ write stuff here
     <label for="realizing-time-b" class="noselect">Overall</label>
   </div>
 </div>
+
+### Passing Levels
+
+write stuff here
+
+<div id="passing-level-chart"></div>
+<script>
+    createRatioBarChart("passing-level-chart", "passing_level_reversed_nocis.json", "Current Passing Level", [], ["#333f44", "#2E294E", "#5653FE", "#7D02EB", "#A300D6"], 225);
+</script>
+
+write stuff here
+
+<div id="future-passing-level-chart"></div>
+<script>
+    createRatioBarChart("future-passing-level-chart", "future_passing_level_reversed_nocis.json", "Future Passing Level", [], ["#333f44", "#2E294E", "#5653FE", "#7D02EB", "#A300D6"], 225);
+</script>
 
 ___
