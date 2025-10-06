@@ -10,6 +10,8 @@ image: https://desiresaregrey.github.io/Website/assets/survey2025/thumb.png
 
 write stuff here
 
+[Page 1]() - [Page 2](2) - [Page 3](3)
+
 ## Overall Gender Divide
 
 write stuff here
