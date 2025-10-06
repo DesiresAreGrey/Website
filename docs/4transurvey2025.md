@@ -73,7 +73,7 @@ write stuff here
   </div>
   <script>
     createBarChart("height-overall", "height_reversed.json", "Height (Overall)");
-    createPopPyramidChart("height-pop-pyramid", "height_reversed_pop_pyramid.json", "Height (Population Pyramid)", 18);
+    createPopPyramidChart("height-pop-pyramid", "height_reversed_pop_pyramid.json", "Height (Population Pyramid)", 20);
   </script>
   <div class="toggle">
     <label for="height-a" class="noselect">Population Pyramid</label>
@@ -356,3 +356,7 @@ write stuff here
 </script>
 
 ___
+
+## Personality
+
+write stuff here
