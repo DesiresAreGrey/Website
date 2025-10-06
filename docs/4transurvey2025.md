@@ -196,8 +196,6 @@ write stuff here
     createRatioBarChart("onhrt-chart", "hrt.json", "On HRT", [], ["#7B61FF", "#00E0B8"]);
 </script>
 
-### Time on HRT
-
 write stuff here  
 
 <div class="chart-set">
@@ -217,5 +215,21 @@ write stuff here
     <label for="hrt-time-b" class="noselect">Overall</label>
   </div>
 </div>
+
+### Surgery
+
+write stuff here
+
+<div id="hassurgery-chart"></div>
+<script>
+    createRatioBarChart("hassurgery-chart", "surgery.json", "Has Had Surgery", [], ["#7B61FF", "#00E0B8"]);
+</script>
+
+write stuff here
+
+<div id="surgeries-chart"></div>
+<script>
+    createRatioBarChart("surgeries-chart", "surgeries.json", "Surgeries", [], ["#2983FF", "#EA3546", "#4caf50", "#FEB019", "#FF9800", "#449DD1", "#43BCCD", "#00E396", "#7D02EB", "#775DD0", "#546E7A", "#2E294E"], 350);
+</script>
 
 ___
