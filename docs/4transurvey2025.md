@@ -187,7 +187,7 @@ ___
 
 ## Transition
 
-### On HRT
+### HRT
 
 write stuff here
 
@@ -231,5 +231,55 @@ write stuff here
 <script>
     createRatioBarChart("surgeries-chart", "surgeries.json", "Surgeries", [], ["#2983FF", "#EA3546", "#4caf50", "#FEB019", "#FF9800", "#449DD1", "#43BCCD", "#00E396", "#7D02EB", "#775DD0", "#546E7A", "#2E294E"], 350);
 </script>
+
+### Coming Out
+
+write stuff here
+
+<div id="came-out-chart"></div>
+<script>
+    createRatioBarChart("came-out-chart", "came_out.json", "Came Out", [], ["#7B61FF", "#00E0B8"]);
+</script>
+
+
+write stuff here  
+
+<div class="chart-set">
+  <input id="came-out-time-a" class="vh" type="radio" name="came-out-time" checked>
+  <input id="came-out-time-b" class="vh" type="radio" name="came-out-time">
+  
+  <div class="chart-stack" style="min-height: 400px;">
+    <div id="came-out-time-pop-pyramid" class="chart-layer layer-a"></div>
+    <div id="came-out-time-overall" class="chart-layer layer-b"></div>
+  </div>
+  <script>
+    createPopPyramidChart("came-out-time-pop-pyramid", "years_came_out_pop_pyramid.json", "Time Since Coming Out (Population Pyramid)", 30, 400);
+    createBarChart("came-out-time-overall", "years_came_out_reversed.json", "Time Since Coming Out (Overall)", [3, 4, 5], undefined, 400);
+  </script>
+  <div class="toggle">
+    <label for="came-out-time-a" class="noselect">Population Pyramid</label>
+    <label for="came-out-time-b" class="noselect">Overall</label>
+  </div>
+</div>
+
+write stuff here  
+
+<div class="chart-set">
+  <input id="realizing-time-a" class="vh" type="radio" name="realizing-time" checked>
+  <input id="realizing-time-b" class="vh" type="radio" name="realizing-time">
+  
+  <div class="chart-stack" style="min-height: 400px;">
+    <div id="realizing-time-pop-pyramid" class="chart-layer layer-a"></div>
+    <div id="realizing-time-overall" class="chart-layer layer-b"></div>
+  </div>
+  <script>
+    createPopPyramidChart("realizing-time-pop-pyramid", "years_realized_pop_pyramid.json", "Time Since Realizing (Population Pyramid)", 30, 400);
+    createBarChart("realizing-time-overall", "years_realized_reversed.json", "Time Since Realizing (Overall)", [3, 4, 5], undefined, 400);
+  </script>
+  <div class="toggle">
+    <label for="realizing-time-a" class="noselect">Population Pyramid</label>
+    <label for="realizing-time-b" class="noselect">Overall</label>
+  </div>
+</div>
 
 ___
