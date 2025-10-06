@@ -300,3 +300,9 @@
   width: 0 !important;
   height: 0 !important;
 }
+
+@media (max-width: 768px) {
+  #states, #country {
+    height: 350px !important;
+  }
+}

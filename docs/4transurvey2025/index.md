@@ -141,6 +141,10 @@ write stuff here
 
 <div id="states" style="height: 500px;"></div>
 <script>createUSMap("states", "location_state.json");</script>
+write stuff here  
+
+<div id="country" style="height: 500px;"></div>
+<script>createWorldMap("country", "location_country.json");</script>
 
 ___
 

@@ -634,6 +634,7 @@ function createUSMap(chartId, dataUrl) {
             wheelX: "none", 
             wheelY: "none",
             projection: am5map.geoAlbersUsa(),
+            panEventsEnabled: false
         }));
 
         var polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
@@ -644,7 +645,7 @@ function createUSMap(chartId, dataUrl) {
 
         polygonSeries.mapPolygons.template.setAll({
             tooltipHTML: `<div style="padding:8px 12px; background:#1e1e1e; color:white; border-radius:5px; font-family:Inter, sans-serif; font-size:14px;"><b>{name}</b><br>Respondents: {value}</div>`,
-            fill: "#333f44", 
+            fill: "#262f33", 
             strokeWidth: 1.5,
             stroke: "#090909"
         });
@@ -652,13 +653,61 @@ function createUSMap(chartId, dataUrl) {
         polygonSeries.set("heatRules", [{
             target: polygonSeries.mapPolygons.template,
             key: "fill",
-            min: am5.color(0xacd0e6),
-            max: am5.color(0x0f3f8c),
-            dataField: "value"
+            min: am5.color(0x333f44),
+            max: am5.color(0x00E396),
+            dataField: "value",
+            logarithmic: true
         }]);
         
         polygonSeries.mapPolygons.template.states.create("hover", {
-            fill:  am5.color(0x6baed6),
+            fill:  am5.color(0x61ba9c),
+        });
+        
+        fetch("/assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
+            polygonSeries.data.setAll(data);
+        });
+    });
+}
+
+function createWorldMap(chartId, dataUrl) {
+    am5.ready(function() {
+        var root = am5.Root.new(chartId);
+        root._logo.dispose();
+
+        var chart = root.container.children.push(am5map.MapChart.new(root, {
+            panX: "none", 
+            panY: "none",
+            wheelX: "none", 
+            wheelY: "none",
+            projection: am5map.geoMercator(),
+            panEventsEnabled: false
+        }));
+
+        var polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
+            geoJSON: am5geodata_worldLow,
+            valueField: "value",
+            calculateAggregates: true,
+            exclude: ["AQ"]
+        }));
+
+        polygonSeries.mapPolygons.template.setAll({
+            tooltipHTML: `<div style="padding:8px 12px; background:#1e1e1e; color:white; border-radius:5px; font-family:Inter, sans-serif; font-size:14px;"><b>{name}</b><br>Respondents: {value}</div>`,
+            fill: "#262f33", 
+            strokeWidth: 1,
+            stroke: "#090909"
+        });
+
+        polygonSeries.set("heatRules", [{
+            target: polygonSeries.mapPolygons.template,
+            key: "fill",
+            min: am5.color(0x333f44),
+            max: am5.color(0x00E396),
+            dataField: "value",
+            logarithmic: true
+        }]);
+        
+        polygonSeries.mapPolygons.template.states.create("hover", {
+            fill:  am5.color(0x61ba9c),
         });
         
         fetch("/assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
