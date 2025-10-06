@@ -3,6 +3,9 @@ description: Results of the 2025 4tran Survey
 image: https://desiresaregrey.github.io/Website/assets/survey2025/thumb.png
 ---
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
 <script src="../4transurvey2025.js?4"></script>
 <!-- js is gonna make me 41 :( -->
 
@@ -134,7 +137,9 @@ This is probably the most controversial part of the entire survey. I wanted to s
 ### Location
 
 write stuff here  
-i need a library that does maps...
+
+<div id="states" style="height: 500px;"></div>
+<script>createUSMap("states", "location_states.json");</script>
 
 ___
 

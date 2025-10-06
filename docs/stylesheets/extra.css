@@ -295,3 +295,8 @@
   -webkit-user-select: none;
   user-select: none;
 }
+
+.am5-layer-30 {
+  width: 0 !important;
+  height: 0 !important;
+}

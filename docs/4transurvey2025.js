@@ -623,6 +623,49 @@ function createChangeBoxPlot(chartId, dataUrl, title = undefined, subtitle = und
     });
 }
 
+function createUSMap(chartId, dataUrl) {
+    am5.ready(function() {
+        var root = am5.Root.new(chartId);
+        root._logo.dispose();
+
+        var chart = root.container.children.push(am5map.MapChart.new(root, {
+            panX: "none", 
+            panY: "none",
+            wheelX: "none", 
+            wheelY: "none",
+            projection: am5map.geoAlbersUsa(),
+        }));
+
+        var polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
+            geoJSON: am5geodata_usaLow,
+            valueField: "value",
+            calculateAggregates: true
+        }));
+
+        polygonSeries.mapPolygons.template.setAll({
+            tooltipHTML: `<div style="padding:8px 12px; background:#1e1e1e; color:white; border-radius:5px; font-family:Inter, sans-serif; font-size:14px;"><b>{name}</b><br>Respondents: {value}</div>`,
+            fill: "#333f44", 
+            strokeWidth: 1.5,
+            stroke: "#090909"
+        });
+
+        polygonSeries.set("heatRules", [{
+            target: polygonSeries.mapPolygons.template,
+            key: "fill",
+            min: am5.color(0xacd0e6),
+            max: am5.color(0x0f3f8c),
+            dataField: "value"
+        }]);
+        
+        polygonSeries.mapPolygons.template.states.create("hover", {
+            fill:  am5.color(0x6baed6),
+        });
+        
+        fetch("/assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
+            polygonSeries.data.setAll(data);
+        });
+    });
+}
 
 function replaceXThanWithSymbol(s) {
   return String(s)
