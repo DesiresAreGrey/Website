@@ -154,7 +154,7 @@ ___
 
 This question was pretty self explanatory, I wanted to see the popularity of the main 4tran subreddits as well as the gender ratios between them. Tbh I've noticed that the people who primarily use r/Tranistan leaned male but I didn't really realize that about r/4trancirclejerk.
 
-<p style="font-size: 12px;">You can switch between the ratio view and the total/overall view with the 2 tabs underneath the chart!</p>
+<p style="font-size: 12px; color: #888">You can switch between the ratio view and the total/overall view with the 2 tabs underneath the chart!</p>
 
 <div class="chart-set">
   <input id="favsub-a" class="vh" type="radio" name="view-favsub" checked>
