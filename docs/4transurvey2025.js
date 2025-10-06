@@ -471,7 +471,7 @@ function createBoxPlot(chartId, dataUrl, title = undefined, hideToolbar = false,
                         </div>`;
                 }
             },
-            colors: colors
+            colors: ['#546E7A', '#A5978B']
         };
         new ApexCharts(document.querySelector("#" + chartId), options).render();
     });
@@ -569,7 +569,7 @@ function createChangeBoxPlot(chartId, dataUrl, title = undefined, hideToolbar = 
                         </div>`;
                 }
             },
-            colors: colors
+            colors: ['#546E7A', '#A5978B']
         };
         new ApexCharts(document.querySelector("#" + chartId), options).render();
     });
