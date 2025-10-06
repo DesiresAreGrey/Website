@@ -7,11 +7,13 @@ image: https://desiresaregrey.github.io/Website/assets/survey2025/thumb.png
 <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-<script src="../4transurvey2025.js?4"></script>
+<script src="../4transurvey2025.js?5"></script>
 <!-- js is gonna make me 41 :( -->
 
 # The 2025 4tran Survey
 <h6 style="margin: 0 0.2rem">Page 1</h6>
+
+[Page 1]() - [Page 2](2) - [Page 3](3) - [Amekyras's Analysis](amekyras)
 
 Here are some of the results of the survey I conducted from September 30th to October 6th 2025! Some of you may remember that a year ago I ran a bunch of polls over the few months I've been posting on r/4tran4, and then in November I went through all the polls and compiled all the results into a [document](https://www.reddit.com/r/4tran4/comments/1gi24vt/the_desiresaregrey_poll_report_november/). I remember being a bit frustrated since I wasn't good at figuring out how to do charts and whatever and so I just put everything into excel and pasted the outputted images into a google doc lol. I had since wanted to do a survey but I was lazy and didn't wanna go through all that trouble, but a few days ago I kinda felt like finally making that survey I've been wanting to make for months.
 
@@ -22,8 +24,6 @@ Anyways after several hours/days of figuring all this stuff out, here is everyth
 Also some of you may have noticed that you were able to submit multiple responses by changing your IP; unfortunately for you, tally.so also assigns a respondent ID to people based on multiple factors. I chose to prevent duplicate submissions by IP address because I removed all duplicate responses from the same ID in a step afterwards. Unfortunately since duplicate responses usually means a troll response, I removed everyone who submitted multiple responses.
 
 Its heavily recommended you view this site on desktop! The charts are interactive (click on the legend options to show/hide them) and also they are a bit heavier to render than I originally thought, which is why I've separated everything into 3 separate pages, to hopefully reduce the amount your phone would have to render at once. There is also a table of contents to the right side on desktop and in the menu at the top left on mobile!
-
-[Page 1]() - [Page 2](2) - [Page 3](3) - [Amekyras's Analysis](amekyras)
 
 ## Overall Gender Divide
 
@@ -52,7 +52,7 @@ ___
 
 I had noticed a while ago that generally, trans men I notice commenting/posting are generally much younger than the trans women ive noticed. It's kinda depressing as a 24yo how most men are younger. Something I noticed with this graph is that the heights of trans men are a more concentrated.
 
-<p style="font-size: 12px;">You can switch between the population pyramid and the overall view with the 2 tabs underneath the chart!</p>
+<p style="font-size: 12px; color: #888">You can switch between the population pyramid and the overall view with the 2 tabs underneath the chart!</p>
 
 
 <div class="chart-set">
