@@ -60,8 +60,8 @@ I had noticed a while ago that generally, trans men I notice commenting/posting 
     <div id="age-capped-overall" class="chart-layer layer-b"></div>
   </div>
   <script>
-    createPopPyramidChart("age-capped-pop-pyramid", "age_capped_pop_pyramid.json", "Age (Population Pyramid)", 16);
-    createBarChart("age-capped-overall", "age_capped_reversed.json", "Age (Overall)");
+    createPopPyramidChart("age-capped-pop-pyramid", "age_capped_pop_pyramid.json", "Age", "Population Pyramid", 16);
+    createBarChart("age-capped-overall", "age_capped_reversed.json", "Age", "Overall");
   </script>
   <div class="toggle">
     <label for="age-a" class="noselect">Population Pyramid</label>
@@ -73,7 +73,7 @@ Well well well...nearly a quarter of trans men are minors. I knew that a decent 
 
 <div id="under18"></div>
 <script>
-    createRatioBarChart("under18", "under18.json", "Under 18", [], ["#7B61FF", "#00E0B8"]);
+    createRatioBarChart("under18", "under18.json", "Under 18", undefined, [], ["#7B61FF", "#00E0B8"]);
 </script>
 
 ### Height
@@ -91,8 +91,8 @@ Fun fact: The one 6'2 trans guy is 17 years old (gigaluckshit)
     <div id="height-overall" class="chart-layer layer-b"></div>
   </div>
   <script>
-    createBarChart("height-overall", "height_reversed.json", "Height (Overall)");
-    createPopPyramidChart("height-pop-pyramid", "height_reversed_pop_pyramid.json", "Height (Population Pyramid)", 20);
+    createBarChart("height-overall", "height_reversed.json", "Height", "Overall");
+    createPopPyramidChart("height-pop-pyramid", "height_reversed_pop_pyramid.json", "Height", "Population Pyramid", 20);
   </script>
   <div class="toggle">
     <label for="height-a" class="noselect">Population Pyramid</label>
@@ -110,7 +110,7 @@ You can enable/disable sexualities by clicking on them in the legend at the bott
 
 <div id="sexuality-chart"></div>
 <script>
-    createRatioBarChart("sexuality-chart", "sexuality_flipped.json", "Sexuality", [], ['#8AA0B3', '#8E5CF1', '#FF4D88', '#2E294E']);
+    createRatioBarChart("sexuality-chart", "sexuality_flipped.json", "Sexuality", undefined, [], ['#8AA0B3', '#8E5CF1', '#FF4D88', '#2E294E']);
 </script>
 
 ### Assigned Sex at Birth
@@ -121,7 +121,7 @@ I was mostly only interested in the question for 2 reasons, the first one was to
 
 <div id="intersex-chart"></div>
 <script>
-    createRatioBarChart("intersex-chart", "intersex.json", "Intersex", [3, 4, 5], ["#7B61FF", "#00E0B8"], 225);
+    createRatioBarChart("intersex-chart", "intersex.json", "Intersex", undefined, [3, 4, 5], ["#7B61FF", "#00E0B8"], 225);
 </script>
 
 This is probably the most controversial part of the entire survey. I wanted to see the ratio between theyfabs and theymabs, and tbh I assumed there would be a lot more afab nbs considering how most people view amab nbs.
@@ -155,8 +155,8 @@ This question was pretty self explanatory, I wanted to see the popularity of the
     <div id="favsub-bar" class="chart-layer layer-b"></div>
   </div>
   <script>
-    createRatioBarChart("favsub-ratio", "favorite_subreddit.json", "Main/Favorite Subreddit (Ratio)", [3, 4]);
-    createBarChart("favsub-bar", "favorite_subreddit.json", "Main/Favorite Subreddit (Total)", [3, 4], undefined, 300);
+    createRatioBarChart("favsub-ratio", "favorite_subreddit.json", "Main/Favorite Subreddit", "Ratio", [3, 4]);
+    createBarChart("favsub-bar", "favorite_subreddit.json", "Main/Favorite Subreddit", "Total", [3, 4], undefined, 300);
   </script>
   <div class="toggle">
     <label for="favsub-a" class="noselect">Ratio</label>
@@ -168,7 +168,7 @@ Interestingly r/Tranistan is a bit younger than the other subreddits, which I ha
 
 <div id="favsub-ages"></div>
 <script>
-    createBoxPlot("favsub-ages", "favorite_subreddit_age.json", "Main/Favorite Subreddits Age Distribution", false, undefined, 300);
+    createBoxPlot("favsub-ages", "favorite_subreddit_age.json", "Main/Favorite Subreddit", "Age Distribution", false, undefined, 300);
 </script>
 
 ### Used Subreddits
@@ -184,8 +184,8 @@ Used subreddits was to see all the subreddits that people used and had access to
     <div id="usedsub-bar" class="chart-layer layer-b"></div>
   </div>
   <script>
-    createRatioBarChart("usedsub-ratio", "used_subreddits.json", "Used Subreddits (Ratio)", [3, 4], undefined, 500);
-    createBarChart("usedsub-bar", "used_subreddits.json", "Used Subreddits (Total)", [3, 4], undefined, 500);
+    createRatioBarChart("usedsub-ratio", "used_subreddits.json", "Used Subreddits", "Ratio", [3, 4], undefined, 500);
+    createBarChart("usedsub-bar", "used_subreddits.json", "Used Subreddits", "Total", [3, 4], undefined, 500);
   </script>
   <div class="toggle">
     <label for="usedsub-a" class="noselect">Ratio</label>
@@ -203,7 +203,7 @@ I expected the differences between the genders to be way higher here tbh. I feel
 
 <div id="contributer-chart"></div>
 <script>
-    createRatioBarChart("contributer-chart", "contributer.json", "Contributer or Lurker", [], ["#7B61FF", "#00E0B8"]);
+    createRatioBarChart("contributer-chart", "contributer.json", "Contributer or Lurker", undefined, [], ["#7B61FF", "#00E0B8"]);
 </script>
 
 ___

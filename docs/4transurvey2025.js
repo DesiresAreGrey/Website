@@ -1,6 +1,6 @@
 const colors = ['#259efa', '#ff4f69', '#00E396', '#3f51b5', '#D7263D'];
 
-function createBarChart(chartId, dataUrl, title = undefined, hideSeries = [], customColors = undefined, height = 500) {
+function createBarChart(chartId, dataUrl, title = undefined, subtitle = undefined, hideSeries = [], customColors = undefined, height = 500) {
     fetch("/assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         hideSeries.forEach(index => {
             if (data.series[index]) {
@@ -22,6 +22,14 @@ function createBarChart(chartId, dataUrl, title = undefined, hideSeries = [], cu
                 align: 'center',
                 style: {
                     fontSize:  '20px'
+                },
+            },
+            subtitle: {
+                text: subtitle,
+                align: 'center',
+                floating: true,
+                style: {
+                    fontSize:  '12px'
                 },
             },
             series: data.series,
@@ -76,7 +84,7 @@ function createBarChart(chartId, dataUrl, title = undefined, hideSeries = [], cu
     });
 }
 
-function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [], customColors = undefined, height = 300) {
+function createRatioBarChart(chartId, dataUrl, title = undefined, subtitle = undefined, hideSeries = [], customColors = undefined, height = 300) {
     fetch("/assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         hideSeries.forEach(index => {
             if (data.series[index]) {
@@ -99,6 +107,14 @@ function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [
                 align: 'center',
                 style: {
                     fontSize:  '20px'
+                },
+            },
+            subtitle: {
+                text: subtitle,
+                align: 'center',
+                floating: true,
+                style: {
+                    fontSize:  '12px'
                 },
             },
             series: data.series,
@@ -173,7 +189,7 @@ function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [
     });
 }
 
-function createPopPyramidChart(chartId, dataUrl, title = undefined, bounds = 15.0, height = 500) {
+function createPopPyramidChart(chartId, dataUrl, title = undefined, subtitle = undefined, bounds = 15.0, height = 500) {
     fetch("/assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         data.categories = data.categories.map(c => replaceXThanWithSymbol(c));
         const options = {
@@ -191,6 +207,14 @@ function createPopPyramidChart(chartId, dataUrl, title = undefined, bounds = 15.
                 align: 'center',
                 style: {
                     fontSize:  '20px'
+                },
+            },
+            subtitle: {
+                text: subtitle,
+                align: 'center',
+                floating: true,
+                style: {
+                    fontSize:  '12px'
                 },
             },
             xaxis: {
@@ -259,7 +283,7 @@ function createPopPyramidChart(chartId, dataUrl, title = undefined, bounds = 15.
     });
 }
 
-function createColumnChart(chartId, dataUrl, title = undefined, hideSeries = [], customColors = undefined, height = 500) {
+function createColumnChart(chartId, dataUrl, title = undefined, subtitle = undefined, hideSeries = [], customColors = undefined, height = 500) {
     fetch("/assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         hideSeries.forEach(index => {
             if (data.series[index]) {
@@ -281,6 +305,14 @@ function createColumnChart(chartId, dataUrl, title = undefined, hideSeries = [],
                 align: 'center',
                 style: {
                     fontSize:  '20px'
+                },
+            },
+            subtitle: {
+                text: subtitle,
+                align: 'center',
+                floating: true,
+                style: {
+                    fontSize:  '12px'
                 },
             },
             series: data.series,
@@ -392,7 +424,7 @@ function createPieChart(chartId, dataUrl, title = undefined, hideToolbar = false
     });
 }
 
-function createBoxPlot(chartId, dataUrl, title = undefined, hideToolbar = false, height = 300) {
+function createBoxPlot(chartId, dataUrl, title = undefined, subtitle = undefined, hideToolbar = false, height = 300) {
     fetch("/assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         const options = {
             chart: {
@@ -407,6 +439,14 @@ function createBoxPlot(chartId, dataUrl, title = undefined, hideToolbar = false,
                 align: 'center',
                 style: {
                     fontSize:  '20px'
+                },
+            },
+            subtitle: {
+                text: subtitle,
+                align: 'center',
+                floating: true,
+                style: {
+                    fontSize:  '12px'
                 },
             },
             series: [
@@ -477,7 +517,7 @@ function createBoxPlot(chartId, dataUrl, title = undefined, hideToolbar = false,
     });
 }
 
-function createChangeBoxPlot(chartId, dataUrl, title = undefined, hideToolbar = false, bounds = 5.0, height = 300) {
+function createChangeBoxPlot(chartId, dataUrl, title = undefined, subtitle = undefined, hideToolbar = false, bounds = 5.0, height = 300) {
     fetch("/assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         const options = {
             chart: {
@@ -492,6 +532,14 @@ function createChangeBoxPlot(chartId, dataUrl, title = undefined, hideToolbar = 
                 align: 'center',
                 style: {
                     fontSize:  '20px'
+                },
+            },
+            subtitle: {
+                text: subtitle,
+                align: 'center',
+                floating: true,
+                style: {
+                    fontSize:  '12px'
                 },
             },
             series: [
