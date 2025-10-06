@@ -141,6 +141,13 @@ write stuff here
   </div>
 </div>
 
+write stuff here
+
+<div id="favsub-ages"></div>
+<script>
+    createBoxPlot("favsub-ages", "favorite_subreddit_age.json", "Main/Favorite Subreddits Age Distribution", false, undefined, 300);
+</script>
+
 ### Used Subreddits
 
 write stuff here  
@@ -162,11 +169,6 @@ write stuff here
     <label for="usedsub-b" class="noselect">Total</label>
   </div>
 </div>
-
-<div id="usedsubs-ages"></div>
-<script>
-    createBoxPlot("usedsubs-ages", "used_subreddits_age.json", "Used Subreddits Age Distribution", false, undefined, 500);
-</script>
 
 ### Where You Came From
 

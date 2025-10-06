@@ -180,6 +180,10 @@
   max-width: 100% !important;
 }
 
+.apexcharts-boxPlot-series path {
+  shape-rendering: crispEdges;
+}
+
 .vh {
   position: fixed !important;
   width: 1px;
