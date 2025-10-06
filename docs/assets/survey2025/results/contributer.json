@@ -1,41 +1,29 @@
 {
   "categories": [
-    "Contributer",
-    "Lurker"
+    "Man (FtM)",
+    "Woman (MtF)",
+    "Nonbinary",
+    "Man (Cis)",
+    "Woman (Cis)"
   ],
   "series": [
     {
-      "name": "Man (FtM)",
+      "name": "Contributer",
       "data": [
         84,
-        212
-      ]
-    },
-    {
-      "name": "Woman (MtF)",
-      "data": [
         328,
-        654
-      ]
-    },
-    {
-      "name": "Nonbinary",
-      "data": [
         18,
-        40
-      ]
-    },
-    {
-      "name": "Man (Cis)",
-      "data": [
         8,
-        32
+        4
       ]
     },
     {
-      "name": "Woman (Cis)",
+      "name": "Lurker",
       "data": [
-        4,
+        212,
+        654,
+        40,
+        32,
         12
       ]
     }

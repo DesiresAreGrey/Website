@@ -1,41 +1,29 @@
 {
   "categories": [
-    "On HRT",
-    "Not on HRT"
+    "Man (FtM)",
+    "Woman (MtF)",
+    "Nonbinary",
+    "Man (Cis)",
+    "Woman (Cis)"
   ],
   "series": [
     {
-      "name": "Man (FtM)",
+      "name": "On HRT",
       "data": [
         221,
-        76
-      ]
-    },
-    {
-      "name": "Woman (MtF)",
-      "data": [
         874,
-        112
-      ]
-    },
-    {
-      "name": "Nonbinary",
-      "data": [
         42,
-        17
-      ]
-    },
-    {
-      "name": "Man (Cis)",
-      "data": [
         15,
-        25
+        9
       ]
     },
     {
-      "name": "Woman (Cis)",
+      "name": "Not on HRT",
       "data": [
-        9,
+        76,
+        112,
+        17,
+        25,
         7
       ]
     }

@@ -174,4 +174,26 @@ write stuff here
 
 write stuff here  
 
+### Contributer or Lurker
+
+write stuff here
+
+<div id="contributer-chart"></div>
+<script>
+    createRatioBarChart("contributer-chart", "contributer.json", "Contributer or Lurker", [], ["#7B61FF", "#00E0B8"]);
+</script>
+
+___
+
+## Transition
+
+### On HRT
+
+write stuff here
+
+<div id="onhrt-chart"></div>
+<script>
+    createRatioBarChart("onhrt-chart", "hrt.json", "On HRT", [], ["#7B61FF", "#00E0B8"]);
+</script>
+
 ___
