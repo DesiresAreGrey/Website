@@ -104,7 +104,9 @@ Fun fact: The one 6'2 trans guy is 17 years old (gigaluckshit)
 
 Men be straight.
 
-Bi being the most common choice is very much expected too. All the numbers here honestly just makes perfect sense, not much to talk about (except for the one single straight nonbinary person)
+Bi being the most common choice is very much expected too. All the numbers here honestly just makes perfect sense, not much to talk about (except for the one single straight nonbinary person). 
+
+You can enable/disable sexualities by clicking on them in the legend at the bottom, and if you disable bi and ace people, you see that there are more straight trans men than gay trans men, but more lesbian trans women than straight trans women.
 
 <div id="sexuality-chart"></div>
 <script>
