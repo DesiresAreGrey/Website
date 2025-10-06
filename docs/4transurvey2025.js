@@ -201,7 +201,6 @@ function createPopPyramidChart(chartId, dataUrl, title = undefined, bounds = 15.
                         return Math.abs(Math.round(val/10)) + "%"
                     }
                 }
-                
             },
             grid: {
                 yaxis: {
@@ -317,7 +316,7 @@ function createPieChart(chartId, dataUrl, title = undefined, hideToolbar = false
     });
 }
 
-function createBoxPlot(chartId, dataUrl, title = undefined, hideToolbar = false, customColors = undefined, height = 300) {
+function createBoxPlot(chartId, dataUrl, title = undefined, hideToolbar = false, height = 300) {
     fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
         const options = {
             chart: {
@@ -396,7 +395,105 @@ function createBoxPlot(chartId, dataUrl, title = undefined, hideToolbar = false,
                         </div>`;
                 }
             },
-            colors: customColors ?? colors
+            colors: colors
+        };
+        new ApexCharts(document.querySelector("#" + chartId), options).render();
+    });
+}
+
+function createChangeBoxPlot(chartId, dataUrl, title = undefined, hideToolbar = false, bounds = 5.0, height = 300) {
+    fetch("../assets/survey2025/results/" + dataUrl).then(response => response.json()).then(data => {
+        const options = {
+            chart: {
+                type: 'boxPlot',
+                height: height,
+                toolbar: { show: !hideToolbar },
+                background: '#090909',
+                fontFamily: 'Inter, Arial, sans-serif',
+            },
+            title: {
+                text: title,
+                align: 'center',
+                style: {
+                    fontSize:  '20px'
+                },
+            },
+            series: [
+                {
+                    type: 'boxPlot',
+                    data: data,
+                }
+            ],
+            responsive: [{
+                breakpoint: 480,
+            }],
+            plotOptions: {
+                bar: {
+                    horizontal: true,
+                },
+                boxPlot: {
+                    expandOnClick: false
+                }
+            },
+            legend: {
+                position: 'bottom',
+                horizontalAlign: 'center'
+            },
+            grid: {
+                yaxis: {
+                    lines: { 
+                        show: true 
+                    }
+                },
+                borderColor: '#e0e0e020',
+            },
+            xaxis: {
+                min: -bounds, max: bounds,
+            },
+            stroke: {
+                colors: ['#fff']
+            },
+            states: {
+                active: {
+                    filter: {
+                        type: 'none',
+                    }
+                }
+            },
+            theme: {
+                mode: 'dark', 
+                palette: 'palette1',
+            },
+            annotations: {
+                xaxis: [
+                    {
+                        x: 0,
+                        borderColor: "#e0e0e0",
+                        strokeDashArray: 0,
+                        borderWidth: 2,
+                    }
+                ]
+            },
+            tooltip: {
+                shared: false,
+                intersect: true,
+                custom: ({ seriesIndex, dataPointIndex, w }) => {
+                    const d = w.config.series[seriesIndex].data[dataPointIndex];
+                    const [min, q1, median, q3, max] = d.y;
+                    return `
+                        <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${d.x}</div>
+                        <div class="apexcharts-tooltip-box apexcharts-tooltip-boxPlot">
+                            <div class="apexcharts-tooltip-text" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">
+                                Maximum: <b>${max}</b><br>
+                                Q3: <b>${q3}</b><br>
+                                Median: <b>${median}</b><br>
+                                Q1: <b>${q1}</b><br>
+                                Minimum: <b>${min}</b>
+                            </div>
+                        </div>`;
+                }
+            },
+            colors: colors
         };
         new ApexCharts(document.querySelector("#" + chartId), options).render();
     });

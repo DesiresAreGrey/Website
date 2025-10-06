@@ -305,4 +305,27 @@ write stuff here
     createRatioBarChart("stealth-chart", "stealth_nocis.json", "Stealth", [], ["#8210e6", "#2E294E", "#333f44"], 225);
 </script>
 
+### Parental Acceptance
+
+write stuff here
+
+<div id="acceptance-came-out"></div>
+<script>
+    createBoxPlot("acceptance-came-out", "parental_acceptance_came_out_nocis_boxplot.json", "Parental Acceptance when Coming Out", false, undefined, 250);
+</script>
+
+write stuff here
+
+<div id="acceptance-now"></div>
+<script>
+    createBoxPlot("acceptance-now", "parental_acceptance_now_nocis_boxplot.json", "Parental Acceptance Now", false, undefined, 250);
+</script>
+
+write stuff here
+
+<div id="acceptance-change"></div>
+<script>
+    createChangeBoxPlot("acceptance-change", "parental_acceptance_change_nocis_boxplot.json", "Parental Acceptance Change", false, 8, 250);
+</script>
+
 ___
