@@ -7,21 +7,21 @@
     {
       "name": "Man (FtM)",
       "data": [
-        77,
-        202
+        84,
+        212
       ]
     },
     {
       "name": "Woman (MtF)",
       "data": [
-        304,
-        620
+        328,
+        654
       ]
     },
     {
       "name": "Nonbinary",
       "data": [
-        16,
+        18,
         40
       ]
     },
@@ -29,14 +29,14 @@
       "name": "Man (Cis)",
       "data": [
         8,
-        29
+        32
       ]
     },
     {
       "name": "Woman (Cis)",
       "data": [
-        3,
-        10
+        4,
+        12
       ]
     }
   ]

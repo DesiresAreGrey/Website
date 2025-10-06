@@ -10,39 +10,39 @@
     {
       "name": "Straight",
       "data": [
-        65,
-        145,
+        68,
+        159,
         1,
-        16,
-        2
-      ]
-    },
-    {
-      "name": "Bisexual / Pansexual",
-      "data": [
-        144,
-        553,
-        39,
         16,
         3
       ]
     },
     {
+      "name": "Bisexual / Pansexual",
+      "data": [
+        155,
+        582,
+        40,
+        19,
+        4
+      ]
+    },
+    {
       "name": "Gay / Lesbian",
       "data": [
-        46,
-        171,
+        48,
+        183,
         11,
         2,
-        5
+        6
       ]
     },
     {
       "name": "Asexual",
       "data": [
-        25,
-        59,
-        6,
+        26,
+        62,
+        7,
         3,
         3
       ]
