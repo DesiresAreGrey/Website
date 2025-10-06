@@ -137,7 +137,13 @@ function createRatioBarChart(chartId, dataUrl, title = undefined, hideSeries = [
                 }
             },
             dataLabels: {
-                enabled: true
+                enabled: true,
+                dropShadow: {
+                    enabled: true,
+                    left: 0,
+                    top: 0,
+                    opacity: 0.5
+                }
             },
             grid: {
                 yaxis: {
@@ -277,6 +283,15 @@ function createPieChart(chartId, dataUrl, hideToolbar=false, customColors = unde
             legend: {
                 position: 'bottom',
                 horizontalAlign: 'center'
+            },
+            dataLabels: {
+                enabled: true,
+                dropShadow: {
+                    enabled: true,
+                    left: 0,
+                    top: 0,
+                    opacity: 0.5
+                }
             },
             states: {
                 active: {
