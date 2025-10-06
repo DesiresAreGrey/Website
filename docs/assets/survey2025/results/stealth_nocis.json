@@ -1,0 +1,33 @@
+{
+  "categories": [
+    "Man (FtM)",
+    "Woman (MtF)",
+    "Nonbinary"
+  ],
+  "series": [
+    {
+      "name": "Fully stealth",
+      "data": [
+        48,
+        93,
+        7
+      ]
+    },
+    {
+      "name": "Mostly stealth",
+      "data": [
+        107,
+        189,
+        10
+      ]
+    },
+    {
+      "name": "No",
+      "data": [
+        136,
+        669,
+        38
+      ]
+    }
+  ]
+}

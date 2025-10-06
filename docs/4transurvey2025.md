@@ -282,13 +282,13 @@ write stuff here
   </div>
 </div>
 
-### Passing Levels
+### Passing
 
 write stuff here
 
 <div id="passing-level-chart"></div>
 <script>
-    createRatioBarChart("passing-level-chart", "passing_level_reversed_nocis.json", "Current Passing Level", [], ["#333f44", "#2E294E", "#5653FE", "#7D02EB", "#A300D6"], 225);
+    createRatioBarChart("passing-level-chart", "passing_level_reversed_nocis.json", "Current Passing Level", [], ["#333f44", "#2E294E", "#5653FE", "#8210e6", "#A300D6"], 225);
 </script>
 
 write stuff here
@@ -296,6 +296,13 @@ write stuff here
 <div id="future-passing-level-chart"></div>
 <script>
     createRatioBarChart("future-passing-level-chart", "future_passing_level_reversed_nocis.json", "Future Passing Level", [], ["#333f44", "#2E294E", "#5653FE", "#7D02EB", "#A300D6"], 225);
+</script>
+
+write stuff here
+
+<div id="stealth-chart"></div>
+<script>
+    createRatioBarChart("stealth-chart", "stealth_nocis.json", "Stealth", [], ["#8210e6", "#2E294E", "#333f44"], 225);
 </script>
 
 ___
