@@ -37,7 +37,7 @@ plugins:
 extra:
   generator: false
 extra_css:
-  - stylesheets/extra.css?5
+  - stylesheets/extra.css?8
 
 nav:
   - Home: 'index.md'
