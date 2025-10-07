@@ -44,7 +44,7 @@ extra:
       link: https://www.reddit.com/user/DesiresAreGrey
       name: Reddit
 extra_css:
-  - stylesheets/extra.css?8
+  - stylesheets/extra.css?9
 
 nav:
   - Home: 'index.md'

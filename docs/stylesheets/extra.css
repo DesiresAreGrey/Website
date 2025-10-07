@@ -45,6 +45,9 @@
 .md-typeset p {
   font-size: .7rem;
 }
+.md-typeset li {
+  font-size: .63rem;
+}
 
 /* Header */
 .md-header {
