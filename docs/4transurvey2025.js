@@ -633,11 +633,12 @@ function createUSMap(chartId, dataUrl) {
             panY: "none",
             wheelX: "none", 
             wheelY: "none",
-            projection: am5map.geoAlbersUsa(),
-            panEventsEnabled: false,
-            tapToActivate: true,
-            tapTimeout: 500
+            projection: am5map.geoAlbersUsa()
         }));
+
+        chart.panEventsEnabled = false;
+        chart.tapToActivate = true;
+        chart.tapTimeout = 500;
 
         var polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
             geoJSON: am5geodata_usaLow,
@@ -681,11 +682,12 @@ function createWorldMap(chartId, dataUrl) {
             panY: "none",
             wheelX: "none", 
             wheelY: "none",
-            projection: am5map.geoMercator(),
-            panEventsEnabled: false,
-            tapToActivate: true,
-            tapTimeout: 500
+            projection: am5map.geoMercator()
         }));
+
+        chart.panEventsEnabled = false;
+        chart.tapToActivate = true;
+        chart.tapTimeout = 500;
 
         var polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
             geoJSON: am5geodata_worldLow,

@@ -7,7 +7,7 @@ image: https://desiresaregrey.github.io/Website/assets/survey2025/thumb.png
 <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-<script src="../4transurvey2025.js?6"></script>
+<script src="../4transurvey2025.js?7"></script>
 <!-- js is gonna make me 41 :( -->
 
 # The 2025 4tran Survey
