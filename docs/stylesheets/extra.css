@@ -172,6 +172,12 @@
   color: #fff !important;
 }
 
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
 /* Apex charts stuff */
 .charts-grid {
   display: grid;

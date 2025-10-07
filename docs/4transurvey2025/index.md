@@ -235,5 +235,6 @@ I expected the differences between the genders to be way higher here tbh. I feel
 </script>
 
 ___
-
-[Next Page](2){ .big-button }
+<div class="button-container">
+  <a class="big-button" href="2">Next Page</a>
+</div>
