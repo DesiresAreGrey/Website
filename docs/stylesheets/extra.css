@@ -306,6 +306,6 @@
 
 @media (max-width: 768px) {
   #states, #country {
-    height: 350px !important;
+    height: 225px !important;
   }
 }
