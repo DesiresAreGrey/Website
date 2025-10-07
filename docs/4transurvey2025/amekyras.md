@@ -9,7 +9,7 @@ image: https://desiresaregrey.github.io/Website/assets/survey2025/thumb.png
 # The 2025 4tran Survey
 <h6 style="margin: 0 0.2rem">Amekyras's Analysis</h6>
 
-[Page 1](../) - [Page 2](../2) - [Page 3](../3) - [Page 4](../4) - [Amekyras's Analysis]()
+[Page 1](../) - [Page 2](../2) - [Page 3](../3) - [Page 4](../4) - [**Amekyras's Analysis**]()
 
 write stuff here
 
