@@ -634,7 +634,8 @@ function createUSMap(chartId, dataUrl) {
             wheelX: "none", 
             wheelY: "none",
             projection: am5map.geoAlbersUsa(),
-            panEventsEnabled: false
+            panEventsEnabled: false,
+            tapToActivate: true
         }));
 
         var polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
@@ -680,7 +681,8 @@ function createWorldMap(chartId, dataUrl) {
             wheelX: "none", 
             wheelY: "none",
             projection: am5map.geoMercator(),
-            panEventsEnabled: false
+            panEventsEnabled: false,
+            tapToActivate: true
         }));
 
         var polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
