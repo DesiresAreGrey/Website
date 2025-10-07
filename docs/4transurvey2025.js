@@ -461,9 +461,14 @@ function createBoxPlot(chartId, dataUrl, title = undefined, subtitle = undefined
             plotOptions: {
                 bar: {
                     horizontal: true,
+                    barHeight: '75%'
                 },
                 boxPlot: {
-                    expandOnClick: false
+                    expandOnClick: false,
+                    colors: {
+                        upper: '#775DD0',
+                        lower: '#6649ca',
+                    }
                 }
             },
             legend: {
@@ -479,7 +484,7 @@ function createBoxPlot(chartId, dataUrl, title = undefined, subtitle = undefined
                 borderColor: '#e0e0e020',
             },
             stroke: {
-                colors: ['#fff']
+                colors: ['#bbb']
             },
             states: {
                 active: {
@@ -510,8 +515,7 @@ function createBoxPlot(chartId, dataUrl, title = undefined, subtitle = undefined
                             </div>
                         </div>`;
                 }
-            },
-            colors: ['#546E7A', '#A5978B']
+            }
         };
         new ApexCharts(document.querySelector("#" + chartId), options).render();
     });
@@ -554,9 +558,14 @@ function createChangeBoxPlot(chartId, dataUrl, title = undefined, subtitle = und
             plotOptions: {
                 bar: {
                     horizontal: true,
+                    barHeight: '75%'
                 },
                 boxPlot: {
-                    expandOnClick: false
+                    expandOnClick: false,
+                    colors: {
+                        upper: '#775DD0',
+                        lower: '#6649ca',
+                    }
                 }
             },
             legend: {
@@ -575,7 +584,7 @@ function createChangeBoxPlot(chartId, dataUrl, title = undefined, subtitle = und
                 min: -bounds, max: bounds,
             },
             stroke: {
-                colors: ['#fff']
+                colors: ['#bbb']
             },
             states: {
                 active: {
