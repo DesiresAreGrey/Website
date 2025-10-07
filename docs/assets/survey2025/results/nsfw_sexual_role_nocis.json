@@ -1,36 +1,32 @@
 {
   "categories": [
-    "Straight",
-    "Bisexual / Pansexual",
-    "Gay / Lesbian",
-    "Asexual"
+    "Man (FtM)",
+    "Woman (MtF)",
+    "Nonbinary"
   ],
   "series": [
     {
       "name": "Dominant",
       "data": [
-        1,
-        12,
-        14,
-        0
+        71,
+        27,
+        5
       ]
     },
     {
       "name": "Switch",
       "data": [
-        19,
-        162,
-        61,
-        10
+        119,
+        252,
+        26
       ]
     },
     {
       "name": "Submissive",
       "data": [
-        129,
-        338,
-        87,
-        29
+        26,
+        583,
+        24
       ]
     }
   ]

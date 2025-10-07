@@ -7,30 +7,30 @@
   ],
   "series": [
     {
-      "name": "Dominant",
+      "name": "Top",
       "data": [
-        38,
-        48,
-        24,
-        4
+        43,
+        44,
+        8,
+        6
       ]
     },
     {
-      "name": "Switch",
+      "name": "Vers",
       "data": [
-        38,
-        265,
-        88,
-        22
+        6,
+        64,
+        13,
+        7
       ]
     },
     {
-      "name": "Submissive",
+      "name": "Bottom",
       "data": [
-        139,
-        377,
-        100,
-        34
+        1,
+        11,
+        13,
+        1
       ]
     }
   ]
