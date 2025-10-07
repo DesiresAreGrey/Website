@@ -137,15 +137,19 @@ This is probably the most controversial part of the entire survey. I wanted to s
 
 ### Location
 
-write stuff here  
+The US is obviously in first place, not much to write here tbh.
 
-<div id="states" style="height: 500px;"></div>
-<script>createUSMap("states", "location_state.json");</script>
-write stuff here  
+<p style="font-size: 12px; color: #888">Scrolling over these charts might hard on mobile, I tried a bunch to fix it but couldn't</p>
 
 <div id="country" style="height: 500px;"></div>
 <script>createWorldMap("country", "location_country.json");</script>
 
+I knew California was gonna be popular but I didn't expect it to be this much. Rip Montana, North Dakota, and West Virginia, no one lives in those states I guess...
+
+<p style="font-size: 12px; color: #888">Use this area to help with scrolling :)</p>
+
+<div id="states" style="height: 500px;"></div>
+<script>createUSMap("states", "location_state.json");</script>
 ___
 
 ## Reddit
