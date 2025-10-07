@@ -46,10 +46,6 @@ Also, for future reference, the cis man and women responses aren't really as rel
   </div>
 </div>
 
-### The Cis Problem
-
-Write here
-
 ___
 
 ## Demographics
@@ -139,6 +135,15 @@ This is probably the most controversial part of the entire survey. I wanted to s
 <div id="nbasab"></div>
 <script>
     createPieChart("nbasab", "nb_asab.json", "Nonbinary ASAB", false, ['#259efa', '#ff4f69', '#00E396', '#2E294E']);
+</script>
+
+#### The Cis Problem
+
+This is a mess. Only about 56% of "cis men" and 38% of "cis women" are actually what I meant by cis men/women. I'm pretty sure the 29% of amab "cis men" on hrt are actually just trans women misgendering themselves, and the 25% of amab "cis women" are just passing trans women (when manually checking the results a lot of these women have vaginoplasty). I really have no choice but to exclude cis people from most of the charts I'm doing, I was kinda planning on doing this anyways since this survey was mostly meant for trans people though it would've been nice to see the trends of actual cis people on the subreddit.
+
+<div id="cisasab-chart"></div>
+<script>
+    createRatioBarChart("cisasab-chart", "cis_asab.json", "Cis People", "Divided by Assigned Sex at Birth and HRT Status", [], ['#259efa', "#15598c", '#ff4f69', "#801927", '#00E396', "#008055", '#2E294E', "#0f0e1a"], 250);
 </script>
 
 ### Location
