@@ -60,18 +60,22 @@ I had noticed a while ago that generally, trans men I notice commenting/posting 
 <div class="chart-set">
   <input id="age-a" class="vh" type="radio" name="view-age" checked>
   <input id="age-b" class="vh" type="radio" name="view-age">
+  <input id="age-c" class="vh" type="radio" name="view-age">
   
   <div class="chart-stack">
     <div id="age-capped-pop-pyramid" class="chart-layer layer-a"></div>
-    <div id="age-capped-overall" class="chart-layer layer-b"></div>
+    <div id="age-capped-boxplot" class="chart-layer layer-b"></div>
+    <div id="age-capped-overall" class="chart-layer layer-c"></div>
   </div>
   <script>
     createPopPyramidChart("age-capped-pop-pyramid", "age_capped_pop_pyramid.json", "Age", "Population Pyramid", 16);
+    createVertBoxPlot("age-capped-boxplot", "age_boxplot.json", "Age", "Box Plot", true, 500);
     createBarChart("age-capped-overall", "age_capped_reversed.json", "Age", "Overall");
   </script>
   <div class="toggle">
     <label for="age-a" class="noselect">Population Pyramid</label>
-    <label for="age-b" class="noselect">Overall</label>
+    <label for="age-b" class="noselect">Box Plot</label>
+    <label for="age-c" class="noselect">Overall</label>
   </div>
 </div>
 
@@ -193,7 +197,7 @@ Interestingly r/Tranistan is a bit younger than the other subreddits, which I ha
 
 <div id="favsub-ages"></div>
 <script>
-    createBoxPlot("favsub-ages", "favorite_subreddit_age.json", "Main/Favorite Subreddit", "Age Distribution", false, undefined, 300);
+    createBoxPlot("favsub-ages", "favorite_subreddit_age.json", "Main/Favorite Subreddit", "Age Distribution", false, 300);
 </script>
 
 ### Used Subreddits
