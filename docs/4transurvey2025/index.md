@@ -13,7 +13,7 @@ image: https://desiresaregrey.github.io/Website/assets/survey2025/thumb.png
 # The 2025 4tran Survey
 <h6 style="margin: 0 0.2rem">Page 1</h6>
 
-[Page 1]() - [Page 2](2) - [Page 3](3) - [Amekyras's Analysis](amekyras)
+[Page 1]() - [Page 2](2) - [Page 3](3) - [Page 4](4) - [Amekyras's Analysis](amekyras)
 
 Here are some of the results of the survey I conducted from September 30th to October 6th 2025! Some of you may remember that a year ago I ran a bunch of polls over the few months I've been posting on r/4tran4, and then in November I went through all the polls and compiled all the results into a [document](https://www.reddit.com/r/4tran4/comments/1gi24vt/the_desiresaregrey_poll_report_november/). I remember being a bit frustrated since I wasn't good at figuring out how to do charts and whatever and so I just put everything into excel and pasted the outputted images into a google doc lol. I had since wanted to do a survey but I was lazy and didn't wanna go through all that trouble, but a few days ago I kinda felt like finally making that survey I've been wanting to make for months.
 
