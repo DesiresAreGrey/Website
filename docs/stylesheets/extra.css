@@ -182,6 +182,11 @@
 }
 
 /* Apex charts stuff */
+.apexcharts-tooltip.apexcharts-theme-dark{
+  background: rgba(30, 30, 30, .75) !important;
+  backdrop-filter: blur(4px);
+}
+
 .charts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
