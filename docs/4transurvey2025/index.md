@@ -52,9 +52,9 @@ ___
 
 ### Age
 
-I had noticed a while ago that generally, trans men I notice commenting/posting are generally much younger than the trans women ive noticed. It's kinda depressing as a 24yo how most men are younger. Something I noticed with this graph is that the heights of trans men are a more concentrated.
+I had noticed a while ago that generally, trans men I notice commenting/posting are generally much younger than the trans women ive noticed. It's kinda depressing as a 24yo how most men are younger. Something I noticed with this graph is that the heights of trans men are a bit less spread out compared to trans women.
 
-<p style="font-size: 12px; color: #888">You can switch between the population pyramid and the overall view with the 2 tabs underneath the chart!</p>
+<p style="font-size: 12px; color: #888">You can switch between the population pyramid, box plot, and the overall view with the 3 tabs underneath the chart!</p>
 
 
 <div class="chart-set">
@@ -69,7 +69,7 @@ I had noticed a while ago that generally, trans men I notice commenting/posting 
   </div>
   <script>
     createPopPyramidChart("age-capped-pop-pyramid", "age_capped_pop_pyramid.json", "Age", "Population Pyramid", 16);
-    createVertBoxPlot("age-capped-boxplot", "age_boxplot.json", "Age", "Box Plot", true, 500);
+    createBoxPlot("age-capped-boxplot", "age_boxplot.json", "Age", "Box Plot", false, 500);
     createBarChart("age-capped-overall", "age_capped_reversed.json", "Age", "Overall");
   </script>
   <div class="toggle">
@@ -171,7 +171,7 @@ ___
 
 ### Main/Favorite Subreddit
 
-This question was pretty self explanatory, I wanted to see the popularity of the main 4tran subreddits as well as the gender ratios between them. Tbh I've noticed that the people who primarily use r/Tranistan leaned male but I didn't really realize that about r/4trancirclejerk.
+This question was pretty self explanatory, I wanted to see the popularity of the main 4tran subreddits as well as the gender ratios between them. Tbh I've noticed that the people who primarily use r/Tranistan leaned male but I didn't really realize that about r/4trancirclejerk as well.
 
 <p style="font-size: 12px; color: #888">You can switch between the ratio view and the total/overall view with the 2 tabs underneath the chart! You can also enable/disable genders by clicking them on the bottom of the chart</p>
 
