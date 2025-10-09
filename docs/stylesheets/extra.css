@@ -215,6 +215,15 @@
   pointer-events: auto;
 }
 
+.apexcharts-canvas .apexcharts-toolbar:has(.apexcharts-menu-open) {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.apexcharts-menu {
+  min-width: fit-content !important;
+}
+
 
 .apexcharts-toolbar .apexcharts-menu-icon > svg { 
   display: none !important;

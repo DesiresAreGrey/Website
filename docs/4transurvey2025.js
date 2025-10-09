@@ -17,10 +17,7 @@ function createBarChart(chartId, dataUrl, title = undefined, subtitle = undefine
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
                 events: {
-                    mounted: (chartCtx) => {
-                      chartCtx.el.querySelectorAll('.apexcharts-menu-icon')
-                        .forEach(el => el.removeAttribute('title'));
-                    }
+                    mounted: (chartCtx) => apexMountedFix(chartCtx)
                 }
             },
             title: {
@@ -108,10 +105,7 @@ function createRatioBarChart(chartId, dataUrl, title = undefined, subtitle = und
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
                 events: {
-                    mounted: (chartCtx) => {
-                      chartCtx.el.querySelectorAll('.apexcharts-menu-icon')
-                        .forEach(el => el.removeAttribute('title'));
-                    }
+                    mounted: (chartCtx) => apexMountedFix(chartCtx)
                 }
             },
             title: {
@@ -213,10 +207,7 @@ function createPopPyramidChart(chartId, dataUrl, title = undefined, subtitle = u
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
                 events: {
-                    mounted: (chartCtx) => {
-                      chartCtx.el.querySelectorAll('.apexcharts-menu-icon')
-                        .forEach(el => el.removeAttribute('title'));
-                    }
+                    mounted: (chartCtx) => apexMountedFix(chartCtx)
                 }
             },
             series: data.series,
@@ -318,10 +309,7 @@ function createColumnChart(chartId, dataUrl, title = undefined, subtitle = undef
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
                 events: {
-                    mounted: (chartCtx) => {
-                      chartCtx.el.querySelectorAll('.apexcharts-menu-icon')
-                        .forEach(el => el.removeAttribute('title'));
-                    }
+                    mounted: (chartCtx) => apexMountedFix(chartCtx)
                 }
             },
             title: {
@@ -401,10 +389,7 @@ function createPieChart(chartId, dataUrl, title = undefined, hideToolbar = false
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
                 events: {
-                    mounted: (chartCtx) => {
-                      chartCtx.el.querySelectorAll('.apexcharts-menu-icon')
-                        .forEach(el => el.removeAttribute('title'));
-                    }
+                    mounted: (chartCtx) => apexMountedFix(chartCtx)
                 }
             },
             series: data.series,
@@ -464,10 +449,7 @@ function createBoxPlot(chartId, dataUrl, title = undefined, subtitle = undefined
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
                 events: {
-                    mounted: (chartCtx) => {
-                      chartCtx.el.querySelectorAll('.apexcharts-menu-icon')
-                        .forEach(el => el.removeAttribute('title'));
-                    }
+                    mounted: (chartCtx) => apexMountedFix(chartCtx)
                 }
             },
             title: {
@@ -567,10 +549,7 @@ function createVertBoxPlot(chartId, dataUrl, title = undefined, subtitle = undef
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
                 events: {
-                    mounted: (chartCtx) => {
-                      chartCtx.el.querySelectorAll('.apexcharts-menu-icon')
-                        .forEach(el => el.removeAttribute('title'));
-                    }
+                    mounted: (chartCtx) => apexMountedFix(chartCtx)
                 }
             },
             title: {
@@ -663,10 +642,7 @@ function createChangeBoxPlot(chartId, dataUrl, title = undefined, subtitle = und
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
                 events: {
-                    mounted: (chartCtx) => {
-                      chartCtx.el.querySelectorAll('.apexcharts-menu-icon')
-                        .forEach(el => el.removeAttribute('title'));
-                    }
+                    mounted: (chartCtx) => apexMountedFix(chartCtx)
                 }
             },
             title: {
@@ -875,5 +851,13 @@ function replaceXThanWithSymbol(s) {
     .replace(/^\s*([^()]+?)(\s*\(.*?\))?\s+or\s+more\s*$/i, '≥$1$2')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+function apexMountedFix(chartCtx) {
+    chartCtx.el.querySelectorAll('.apexcharts-menu-icon').forEach(el => el.removeAttribute('title'));
+    chartCtx.el.querySelectorAll('.exportCSV').forEach(el => {
+        el.removeAttribute('title');
+        el.textContent = "CSV";
+    });
 }
 

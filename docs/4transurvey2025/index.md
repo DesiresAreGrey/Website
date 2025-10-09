@@ -45,7 +45,7 @@ Also, for future reference, the cis man and women responses aren't really as rel
 <div class="charts-grid">
   <div>
     <div id="gender-overall-binary"></div>
-    <script>createPieChart("gender-overall-binary", "gender_binary.json", undefined, true)</script>
+    <script>createPieChart("gender-overall-binary", "gender_binary.json", undefined)</script>
   </div>
 
   <div>
