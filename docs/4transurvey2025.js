@@ -746,7 +746,7 @@ function createUSMap(chartId, dataUrl) {
         }));
 
         polygonSeries.mapPolygons.template.setAll({
-            tooltipHTML: `<div style="padding:8px 12px; background:#1e1e1e; color:white; border-radius:5px; font-family:Inter, sans-serif; font-size:14px;"><b>{name}</b><br>Respondents: {value}</div>`,
+            tooltipHTML: `<div class="am5-tooltip-new"><b>{name}</b><br>Respondents: {value}</div>`,
             fill: "#262f33", 
             strokeWidth: 1,
             stroke: "#090909"
@@ -796,7 +796,7 @@ function createWorldMap(chartId, dataUrl) {
         }));
 
         polygonSeries.mapPolygons.template.setAll({
-            tooltipHTML: `<div style="padding:8px 12px; background:#1e1e1e; color:white; border-radius:5px; font-family:Inter, sans-serif; font-size:14px;"><b>{name}</b><br>Respondents: {value}</div>`,
+            tooltipHTML: `<div class="am5-tooltip-new"><b>{name}</b><br>Respondents: {value}</div>`,
             fill: "#262f33", 
             strokeWidth: 0.5,
             stroke: "#090909"
