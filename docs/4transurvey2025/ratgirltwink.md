@@ -1,6 +1,6 @@
 ---
 description: Results of the 2025 4tran Survey (Ratgirltwink)
-image: https://desiresaregrey.github.io/Website/assets/survey2025/thumb.png
+image: https://desiresaregrey.com/assets/survey2025/thumb.png
 ---
 
 # The 2025 4tran Survey
