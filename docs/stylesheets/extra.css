@@ -200,6 +200,22 @@
   font-variation-settings: 'wght' 550 !important;
 }
 
+.exportSVG, .exportPNG {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+.apexcharts-canvas .apexcharts-toolbar {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.apexcharts-canvas:hover .apexcharts-toolbar {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .charts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -212,7 +228,7 @@
   width: 100% !important;
 }
 
-.apexcharts-svg{
+.apexcharts-svg {
   background: none !important;
 }
 
