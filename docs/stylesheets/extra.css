@@ -268,6 +268,14 @@
   transform: scaleX(0);
   transition: transform 200ms ease, background-color 200ms ease;
 }
+.chart-set .toggle label::after {
+  content: '';
+  position: absolute;
+  inset: -.4rem 0 auto;
+  height: 2.25rem; 
+  cursor: pointer;
+  transform: scaleX(1);
+}
 
 .chart-set > input:nth-of-type(1):checked ~ .toggle label:nth-of-type(1),
 .chart-set > input:nth-of-type(2):checked ~ .toggle label:nth-of-type(2),
