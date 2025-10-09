@@ -16,6 +16,12 @@ function createBarChart(chartId, dataUrl, title = undefined, subtitle = undefine
                 toolbar: { show: true },
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
+                events: {
+                    mounted: (chartCtx) => {
+                      chartCtx.el.querySelectorAll('.apexcharts-menu-icon')
+                        .forEach(el => el.removeAttribute('title'));
+                    }
+                }
             },
             title: {
                 text: title,
@@ -101,6 +107,12 @@ function createRatioBarChart(chartId, dataUrl, title = undefined, subtitle = und
                 toolbar: { show: true },
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
+                events: {
+                    mounted: (chartCtx) => {
+                      chartCtx.el.querySelectorAll('.apexcharts-menu-icon')
+                        .forEach(el => el.removeAttribute('title'));
+                    }
+                }
             },
             title: {
                 text: title,
@@ -200,6 +212,12 @@ function createPopPyramidChart(chartId, dataUrl, title = undefined, subtitle = u
                 toolbar: { show: true },
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
+                events: {
+                    mounted: (chartCtx) => {
+                      chartCtx.el.querySelectorAll('.apexcharts-menu-icon')
+                        .forEach(el => el.removeAttribute('title'));
+                    }
+                }
             },
             series: data.series,
             title: {
@@ -299,6 +317,12 @@ function createColumnChart(chartId, dataUrl, title = undefined, subtitle = undef
                 toolbar: { show: true },
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
+                events: {
+                    mounted: (chartCtx) => {
+                      chartCtx.el.querySelectorAll('.apexcharts-menu-icon')
+                        .forEach(el => el.removeAttribute('title'));
+                    }
+                }
             },
             title: {
                 text: title,
@@ -376,6 +400,12 @@ function createPieChart(chartId, dataUrl, title = undefined, hideToolbar = false
                 toolbar: { show: !hideToolbar },
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
+                events: {
+                    mounted: (chartCtx) => {
+                      chartCtx.el.querySelectorAll('.apexcharts-menu-icon')
+                        .forEach(el => el.removeAttribute('title'));
+                    }
+                }
             },
             series: data.series,
             labels: data.labels,
@@ -433,6 +463,12 @@ function createBoxPlot(chartId, dataUrl, title = undefined, subtitle = undefined
                 toolbar: { show: !hideToolbar },
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
+                events: {
+                    mounted: (chartCtx) => {
+                      chartCtx.el.querySelectorAll('.apexcharts-menu-icon')
+                        .forEach(el => el.removeAttribute('title'));
+                    }
+                }
             },
             title: {
                 text: title,
@@ -530,6 +566,12 @@ function createVertBoxPlot(chartId, dataUrl, title = undefined, subtitle = undef
                 toolbar: { show: !hideToolbar },
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
+                events: {
+                    mounted: (chartCtx) => {
+                      chartCtx.el.querySelectorAll('.apexcharts-menu-icon')
+                        .forEach(el => el.removeAttribute('title'));
+                    }
+                }
             },
             title: {
                 text: title,
@@ -620,6 +662,12 @@ function createChangeBoxPlot(chartId, dataUrl, title = undefined, subtitle = und
                 toolbar: { show: !hideToolbar },
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
+                events: {
+                    mounted: (chartCtx) => {
+                      chartCtx.el.querySelectorAll('.apexcharts-menu-icon')
+                        .forEach(el => el.removeAttribute('title'));
+                    }
+                }
             },
             title: {
                 text: title,
@@ -828,3 +876,4 @@ function replaceXThanWithSymbol(s) {
     .replace(/\s+/g, ' ')
     .trim();
 }
+

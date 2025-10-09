@@ -210,10 +210,25 @@
   pointer-events: none;
   transition: opacity 200ms ease;
 }
-
 .apexcharts-canvas:hover .apexcharts-toolbar {
   opacity: 1;
   pointer-events: auto;
+}
+
+
+.apexcharts-toolbar .apexcharts-menu-icon > svg { 
+  display: none !important;
+}
+.apexcharts-toolbar .apexcharts-menu-icon {
+  opacity: 1;
+  transform: none !important;
+  width: 24px;
+  height: 24px;
+  background: center / contain no-repeat url("/assets/svg/download.svg");
+  transition: opacity 200ms ease;
+}
+.apexcharts-toolbar .apexcharts-menu-icon:hover {
+  opacity: 0.69;
 }
 
 .charts-grid {
