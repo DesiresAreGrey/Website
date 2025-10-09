@@ -45,6 +45,10 @@
 .md-typeset p {
   font-size: .7rem;
 }
+
+.md-typeset ul {
+  margin-top: -0.5em;
+}
 .md-typeset li {
   font-size: .63rem;
 }
