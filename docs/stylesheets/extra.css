@@ -183,13 +183,17 @@
 
 /* Apex charts stuff */
 .apexcharts-tooltip.apexcharts-theme-dark{
-  background: rgba(10, 10, 10, .75) !important;
+  background: rgba(8, 8, 8, .75) !important;
   box-shadow: 2px 2px 6px -4px #000 !important;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px) saturate(150%);
   outline: solid;
   outline-width: thin;
   outline-color: #333333;
   outline-offset: -1px;
+}
+.apexcharts-tooltip.apexcharts-theme-dark .apexcharts-tooltip-title {
+  font-size: 13px !important;
+  font-variation-settings: 'wght' 550 !important;
 }
 
 .charts-grid {
@@ -355,13 +359,13 @@
 
 .am5-tooltip-new {
   padding: 8px 12px;
-  background: rgba(10, 10, 10, .75);
+  background: rgba(8, 8, 8, .75);
   color: white;
   border-radius: 5px;
   font-family: Inter, sans-serif;
   font-size: 14px;
   box-shadow: 2px 2px 6px -4px #000 !important;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px) saturate(150%);
   outline: solid;
   outline-width: thin;
   outline-color: #333333;
