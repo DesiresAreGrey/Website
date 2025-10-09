@@ -185,6 +185,16 @@
   gap: 10px;
 }
 
+.nav-links {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: .75rem;
+  font-variation-settings: 'wght' 350;
+}
+.nav-links .active {
+  font-variation-settings: 'wght' 750;
+}
+
 /* Apex charts stuff */
 .apexcharts-tooltip.apexcharts-theme-dark{
   background: rgba(8, 8, 8, .75) !important;
