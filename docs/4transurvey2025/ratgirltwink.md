@@ -32,6 +32,8 @@ ___
 For only this data, I combined gigapassoid and passoid into the same passoid category.
 I also added semipassoids to the passoid category who said they feel as if they will become passoids or gigapassoids in the future. I did this specifically because of people like windblown and soph btw, who are just passoids but refuse to say it.
 
+<p style="font-size: 12px; color: #888">You can click on charts to expand them!</p>
+
 <div class="button-container">
   <img alt="predictors_women" src="/assets/survey2025/img/ratgirltwink/predictors_women.png">
   <img alt="predictors_men" src="/assets/survey2025/img/ratgirltwink/predictors_men.png">
