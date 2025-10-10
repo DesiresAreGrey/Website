@@ -37,12 +37,12 @@ plugins:
 extra:
   generator: false
   social:
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/DesiresAreGrey
-      name: Twitter
     - icon: fontawesome/brands/reddit-alien
       link: https://www.reddit.com/user/DesiresAreGrey
       name: Reddit
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/DesiresAreGrey
+      name: Twitter
 extra_css:
   - stylesheets/extra.css?11
 
@@ -53,6 +53,6 @@ nav:
     - The 2025 4tran Survey - Page 2: '4transurvey2025/2.md'
     - The 2025 4tran Survey - Page 3: '4transurvey2025/3.md'
     - The 2025 4tran Survey - Page 4: '4transurvey2025/4.md'
-    - The 2025 4tran Survey - Amekyras: '4transurvey2025/amekyras.md'
+#    - The 2025 4tran Survey - Amekyras: '4transurvey2025/amekyras.md'
     - The 2025 4tran Survey - Jealous Cat: '4transurvey2025/jealouscat.md'
     - The 2025 4tran Survey - Ratgirltwink: '4transurvey2025/ratgirltwink.md'
