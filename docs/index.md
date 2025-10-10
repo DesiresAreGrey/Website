@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="preload" href="/assets/DesiresAreGrey.png" as="image">
 
 <style>
 .home-container {
@@ -8,6 +9,19 @@
   justify-content: center;
   text-align: center;
   min-height: 70vh;
+  opacity: 0;
+  animation: fadeInUp 750ms ease-out 250ms forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .profile-pic {
