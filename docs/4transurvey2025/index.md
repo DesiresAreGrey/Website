@@ -104,7 +104,7 @@ Well well well...nearly a quarter of trans men are minors. I knew that a decent 
 
 ### Height
 
-Probably the most brutal of the comparisons out of the entire survey. Not only is the ftm height lower than the mtf height, its also less spread out. I had to extend the bounds of this chart all the way to 20% so it could fit the 5'5 bar being at ~18%, while the most popular mtf choice (5'8) is only ~13% of the population.  
+Probably the most brutal of the comparisons out of the entire survey. Not only is the male height lower than the female height, its also less spread out. I had to extend the bounds of this chart all the way to 20% so it could fit the 5'5 bar being at ~18%, while the most popular mtf choice (5'8) is only ~13% of the population.  
 
 Fun fact: The one 6'2 trans guy is 17 years old (gigaluckshit)
 
