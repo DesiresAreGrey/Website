@@ -135,19 +135,20 @@ Fun fact: The one 6'2 trans guy is 17 years old (gigaluckshit)
 So yeah...check to see how where your height lands compared to the participants of this survey. It uses the mean and standard deviations of the heights of each gender to calculate the sorta general percentile. I can see now why you're all so annoyed with me when I worm about my own height...
 
 <div class="percentile-container">
-  <select id="hp-gender">
-    <option>Man (FtM)</option>
-    <option>Woman (MtF)</option>
-    <option>Nonbinary</option>
-  </select>
-  <input id="hp-val" type="number" step="1" value="66">
-
-  <select id="hp-unit">
-  <option value="in">in</option>
-  <option value="cm">cm</option>
-  </select>
+  <div>
+    <select id="hp-gender">
+      <option>Man (FtM)</option>
+      <option>Woman (MtF)</option>
+      <option>Nonbinary</option>
+    </select>
+    <input id="hp-val" type="number" step="1" value="66">
+    <select id="hp-unit">
+      <option value="in">in</option>
+      <option value="cm">cm</option>
+    </select>
+    <span id="hp-out" class="percentile-container" style="min-width: 12ch; margin-top: 0; margin-bottom: -0.325rem; font-size: .9rem; font-variation-settings: 'wght' 500;">—</span>
+  </div>
 </div>
-<span id="hp-out" class="percentile-container" style="min-width: 12ch; margin-top: -0.75rem; font-size: .9rem; font-variation-settings: 'wght' 750;">—</span>
 
 <script>
   (function () {
@@ -203,16 +204,16 @@ So yeah...check to see how where your height lands compared to the participants 
         console.log(v.value);
         console.log(v.value.length);
         if (v.value.length > 5) {
-          v.style.width = "2.9rem";
+          v.style.width = "3rem";
         }
         else if (v.value.length > 4) {
-          v.style.width = "2.6rem";
+          v.style.width = "2.8rem";
         }
         else if (v.value.length > 2) {
-          v.style.width = "2.1rem";
+          v.style.width = "2.4rem";
         }
         else {
-          v.style.width = "1.6rem";
+          v.style.width = "2rem";
         }
     }
 
