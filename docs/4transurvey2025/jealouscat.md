@@ -16,15 +16,48 @@ image: https://desiresaregrey.com/assets/survey2025/thumb.png
   <a href="/4transurvey2025/ratgirltwink">Ratgirltwink</a>
 </div>
 
-write stuff here
+## Introduction
 
-## Title
+This analysis is an attempt to answer 3 important questions:
 
-write stuff here
+- Does starting age matter?
+- How much does time on HRT matter?
+- Does height matter?
+
+### Filters
+
+Except where otherwise stated, the following filters are used:
+
+- Gender must be ‘Woman (MtF)’
+- Surgeries must be ‘No’
+- Age must be >= 16 and <=30
+- Starting age must be >= 10
+- Time on HRT must be >= 16
+- Respondents who did not answer the passing question were excluded
+
+### Passing Scale
+
+The passing question was converted to a 4-point scale:
+
+- Gigapassoid and passoid were set to equal 4
+- Semipassoid was set to equal 3
+- Nonpassoid was set to equal 2
+- Gigahon was set to equal 1
 
 ___
 
-etc
+## Data
+
+### Summary Statistics
+
+Uncategorised
+
+| Statistic   | N   | Missing | Mean  | Median | SD  | IQR  | Minimum | Maximum |
+|-------------|-----|---------|-------|--------|-----|------|---------|---------|
+|Age          |584  |0        |21.87  |21.00   |3.15 |5.00  |16.000   |30.0     |
+|Starting Age |584  |0        |19.88  |19.50   |2.92 |3.83  |10.000   |29.4     |
+|Height (cm)  |584  |0        |175.32 |175.00  |7.42 |10.00 |157.000  |201.0    |
+|Time On HRT  |584  |0        |1.99   |1.50    |1.66 |1.84  |0.100    |12.1     |
 
 ___
 
