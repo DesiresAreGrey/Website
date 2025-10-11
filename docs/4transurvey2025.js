@@ -502,11 +502,16 @@ function createBoxPlot(chartId, dataUrl, title = undefined, subtitle = undefined
                 borderColor: '#e0e0e020',
             },
             stroke: {
-                colors: ['#ccc'],
+                colors: ['#ddd'],
                 width: 2
             },
             states: {
                 active: {
+                    filter: {
+                        type: 'none',
+                    }
+                },
+                hover: {
                     filter: {
                         type: 'none',
                     }
@@ -603,8 +608,20 @@ function createVertBoxPlot(chartId, dataUrl, title = undefined, subtitle = undef
                 borderColor: '#e0e0e020',
             },
             stroke: {
-                colors: ['#ccc'],
+                colors: ['#ddd'],
                 width: 2
+            },
+            states: {
+                active: {
+                    filter: {
+                        type: 'none',
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                    }
+                }
             },
             theme: {
                 mode: 'dark', 
@@ -700,11 +717,16 @@ function createChangeBoxPlot(chartId, dataUrl, title = undefined, subtitle = und
                 min: -bounds, max: bounds,
             },
             stroke: {
-                colors: ['#ccc'],
+                colors: ['#ddd'],
                 width: 2
             },
             states: {
                 active: {
+                    filter: {
+                        type: 'none',
+                    }
+                },
+                hover: {
                     filter: {
                         type: 'none',
                     }
