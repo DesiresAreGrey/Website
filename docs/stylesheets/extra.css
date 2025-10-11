@@ -195,6 +195,52 @@
   font-variation-settings: 'wght' 750;
 }
 
+.percentile-container {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+select {
+  background-color: #090909 !important;
+  color: #ddd !important;
+}
+input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0; 
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#hp-gender, #hp-unit {
+  background: transparent;
+  border: .1rem solid;
+  border-radius: 0.4rem;
+  border-color: var(--md-primary-fg-color);
+  font-weight: normal;
+  font-size: 16px;
+  font-family: Inter, sans-serif;
+  text-align: center;
+}
+
+#hp-val {
+  width: 2rem;
+  background: transparent;
+  border: .1rem solid;
+  border-radius: 0.4rem;
+  border-color: var(--md-primary-fg-color);
+  font-weight: normal;
+  font-size: 16px;
+  font-family: Inter, sans-serif;
+  text-align: center;
+}
+
 /* Apex charts stuff */
 .apexcharts-tooltip.apexcharts-theme-dark{
   background: rgba(8, 8, 8, .75) !important;

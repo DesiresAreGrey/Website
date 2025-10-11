@@ -130,6 +130,84 @@ Fun fact: The one 6'2 trans guy is 17 years old (gigaluckshit)
   </div>
 </div>
 
+#### Height Percentile Calculator
+
+So yeah...check to see how where your height lands compared to the participants of this survey. It uses the mean and standard deviations of the heights of each gender to calculate the sorta general percentile. I can see now why you're all so annoyed with me when I worm about my own height...
+
+<div class="percentile-container">
+  <select id="hp-gender">
+    <option>Man (FtM)</option>
+    <option>Woman (MtF)</option>
+    <option>Nonbinary</option>
+  </select>
+  <input id="hp-val" type="number" step="1" placeholder="66">
+
+  <select id="hp-unit">
+  <option value="in">in</option>
+  <option value="cm">cm</option>
+  </select>
+</div>
+<span id="hp-out" class="percentile-container" style=" min-width: 12ch; margin-top: -0.75rem; font-size: .9rem; font-variation-settings: 'wght' 750;">—</span>
+
+<script>
+  (function () {
+    let HEIGHT_STATS = null;
+    fetch("/assets/survey2025/results/height_mean_sd.json", { cache: "no-store" }).then((r) => r.json()).then((rows) => {
+        HEIGHT_STATS = Object.fromEntries(rows.map((r) => [r.Gender, { mean: r.Mean, sd: r.SD }]));
+        update();
+    }).catch(() => { });
+    const $ = (s) => document.querySelector(s);
+    const g = $("#hp-gender");
+    const v = $("#hp-val");
+    const u = $("#hp-unit");
+    const out = $("#hp-out");
+
+    function erf(x) {
+        const a1 = 0.254829592,
+            a2 = -0.284496736,
+            a3 = 1.421413741,
+            a4 = -1.453152027,
+            a5 = 1.061405429,
+            p = 0.3275911;
+        const sign = x < 0 ? -1 : 1;
+        x = Math.abs(x);
+        const t = 1 / (1 + p * x);
+        const y =
+            1 - ((((a5 * t + a4) * t + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+        return sign * y;
+    }
+    const Phi = (z) => 0.5 * (1 + erf(z / Math.SQRT2));
+
+    function toInches(x, unit) {
+        return unit === "cm" ? x / 2.54 : x;
+    }
+
+    function update() {
+        const gender = g.value;
+        const num = parseFloat(v.value);
+        if (!HEIGHT_STATS) {
+            out.textContent = "…";
+            return;
+        }
+        const s = HEIGHT_STATS[gender];
+        if (!s || !isFinite(num)) {
+            out.textContent = "—";
+            return;
+        }
+
+        const inches = toInches(num, u.value);
+        const z = (inches - s.mean) / s.sd;
+        const pct = Math.max(0, Math.min(100, Phi(z) * 100));
+        out.textContent = `${pct.toFixed(1)}th Percentile`;
+    }
+
+    g.addEventListener("change", update);
+    u.addEventListener("change", update);
+    v.addEventListener("input", update);
+})();
+</script>
+
+
 ### Sexuality
 
 Men be straight.
