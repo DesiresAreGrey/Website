@@ -111,18 +111,22 @@ Fun fact: The one 6'2 trans guy is 17 years old (gigaluckshit)
 <div class="chart-set">
   <input id="height-a" class="vh" type="radio" name="view-height" checked>
   <input id="height-b" class="vh" type="radio" name="view-height">
-  
+  <input id="height-c" class="vh" type="radio" name="view-height">
+
   <div class="chart-stack">
     <div id="height-pop-pyramid" class="chart-layer layer-a"></div>
-    <div id="height-overall" class="chart-layer layer-b"></div>
+    <div id="height-boxplot" class="chart-layer layer-b"></div>
+    <div id="height-overall" class="chart-layer layer-c"></div>
   </div>
   <script>
     createBarChart("height-overall", "height_reversed.json", "Height", "Overall");
+    createBoxPlot("height-boxplot", "height_boxplot.json", "Height", "Box Plot (Inches)", false, 500);
     createPopPyramidChart("height-pop-pyramid", "height_reversed_pop_pyramid.json", "Height", "Population Pyramid", 20);
   </script>
   <div class="toggle">
     <label for="height-a" class="noselect">Population Pyramid</label>
-    <label for="height-b" class="noselect">Overall</label>
+    <label for="height-b" class="noselect">Box Plot</label>
+    <label for="height-c" class="noselect">Overall</label>
   </div>
 </div>
 
@@ -159,7 +163,7 @@ This is probably the most controversial part of the entire survey. I wanted to s
 
 #### The Cis Problem
 
-This is a mess. Only about 56% of "cis men" and 38% of "cis women" are actually what I meant by cis men/women. I'm pretty sure the 29% of amab "cis men" on hrt are actually just trans women misgendering themselves, and the 25% of amab "cis women" are just passing trans women (when manually checking the results a lot of these women have vaginoplasty). I really have no choice but to exclude cis people from most of the charts I'm doing, I was kinda planning on doing this anyways since this survey was mostly meant for trans people though it would've been nice to see the trends of actual cis people on the subreddit.
+This is a mess. Only about 56% of "cis men" and 38% of "cis women" at max are actually what I meant by cis men/women (and even then, some of those are likely reppers). I'm pretty sure the 29% of amab "cis men" on hrt are actually just trans women misgendering themselves, and the 25% of amab "cis women" are just passing trans women (when manually checking the results a lot of these women have vaginoplasty). I really have no choice but to exclude cis people from most of the charts I'm doing, I was kinda planning on doing this anyways since this survey was mostly meant for trans people though it would've been nice to see the trends of actual cis people on the subreddit.
 
 <div id="cisasab-chart"></div>
 <script>

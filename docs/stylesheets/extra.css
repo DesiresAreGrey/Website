@@ -286,6 +286,7 @@
 
 .apexcharts-boxPlot-series path {
   shape-rendering: crispEdges;
+  stroke-linecap: square;
 }
 
 .vh {

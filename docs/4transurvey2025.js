@@ -502,7 +502,8 @@ function createBoxPlot(chartId, dataUrl, title = undefined, subtitle = undefined
                 borderColor: '#e0e0e020',
             },
             stroke: {
-                colors: ['#bbb']
+                colors: ['#ccc'],
+                width: 2
             },
             states: {
                 active: {
@@ -602,7 +603,8 @@ function createVertBoxPlot(chartId, dataUrl, title = undefined, subtitle = undef
                 borderColor: '#e0e0e020',
             },
             stroke: {
-                colors: ['#bbb']
+                colors: ['#ccc'],
+                width: 2
             },
             theme: {
                 mode: 'dark', 
@@ -698,7 +700,8 @@ function createChangeBoxPlot(chartId, dataUrl, title = undefined, subtitle = und
                 min: -bounds, max: bounds,
             },
             stroke: {
-                colors: ['#bbb']
+                colors: ['#ccc'],
+                width: 2
             },
             states: {
                 active: {
