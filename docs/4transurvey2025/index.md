@@ -153,7 +153,7 @@ So yeah...check to see how where your height lands compared to the participants 
 <script>
   (function () {
     let HEIGHT_STATS = null;
-    fetch("/assets/survey2025/results/height_mean_sd.json", { cache: "no-store" }).then((r) => r.json()).then((rows) => {
+    fetch("/assets/survey2025/results/height_mean_sd.json").then((r) => r.json()).then((rows) => {
         HEIGHT_STATS = Object.fromEntries(rows.map((r) => [r.Gender, { mean: r.Mean, sd: r.SD }]));
         update();
     }).catch(() => { });
@@ -200,7 +200,7 @@ So yeah...check to see how where your height lands compared to the participants 
         const z = (inches - s.mean) / s.sd;
         const pct = Math.max(0, Math.min(100, Phi(z) * 100));
         out.textContent = `${pct.toFixed(1)}th Percentile`;
-        
+
         if (v.value.length > 5) {
           v.style.width = "3rem";
         }
