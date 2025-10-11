@@ -227,6 +227,15 @@ input::-webkit-inner-spin-button {
   font-family: Inter, sans-serif;
   text-align: center;
   color: #ccc;
+  transition: all 200ms ease;
+}
+#hp-gender:focus,
+#hp-gender:hover,
+#hp-val:focus,
+#hp-val:hover,
+#hp-unit:focus,
+#hp-unit:hover {
+  border-color: #9152ff;
 }
 
 #hp-val {
@@ -240,6 +249,7 @@ input::-webkit-inner-spin-button {
   font-family: Inter, sans-serif;
   text-align: center;
   color: #ccc;
+  transition: all 200ms ease;
 }
 
 input:focus::placeholder {
