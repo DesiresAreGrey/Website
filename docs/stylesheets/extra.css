@@ -239,7 +239,7 @@ input::-webkit-inner-spin-button {
 }
 
 #hp-val {
-  width: 2rem;
+  width: 2.5rem;
   background: transparent;
   border: .1rem solid;
   border-radius: 0.4rem;
@@ -250,10 +250,6 @@ input::-webkit-inner-spin-button {
   text-align: center;
   color: #ccc;
   transition: all 200ms ease;
-}
-
-input:focus::placeholder {
-  color: transparent;
 }
 
 /* Apex charts stuff */

@@ -140,14 +140,14 @@ So yeah...check to see how where your height lands compared to the participants 
     <option>Woman (MtF)</option>
     <option>Nonbinary</option>
   </select>
-  <input id="hp-val" type="number" step="1" placeholder="—" value="66">
+  <input id="hp-val" type="number" step="1" value="66">
 
   <select id="hp-unit">
   <option value="in">in</option>
   <option value="cm">cm</option>
   </select>
 </div>
-<span id="hp-out" class="percentile-container" style=" min-width: 12ch; margin-top: -0.75rem; font-size: .9rem; font-variation-settings: 'wght' 750;">—</span>
+<span id="hp-out" class="percentile-container" style="min-width: 12ch; margin-top: -0.75rem; font-size: .9rem; font-variation-settings: 'wght' 750;">—</span>
 
 <script>
   (function () {
@@ -201,8 +201,21 @@ So yeah...check to see how where your height lands compared to the participants 
         out.textContent = `${pct.toFixed(1)}th Percentile`;
     }
 
+    function changeUnit(oldUnit, newUnit) {
+        const num = parseFloat(v.value);
+        if (!isFinite(num) || oldUnit === newUnit) return;
+        const inches = toInches(num, oldUnit);
+        const converted = newUnit === "cm" ? inches * 2.54 : inches;
+        v.value = converted.toFixed(2) / 1;
+    }
+
     g.addEventListener("change", update);
-    u.addEventListener("change", update);
+    u.addEventListener("change", (e) => {
+        changeUnit(e.target.dataset.oldValue, e.target.value);
+        e.target.dataset.oldValue = e.target.value;
+        update();
+    });
+    u.dataset.oldValue = u.value;
     v.addEventListener("input", update);
 })();
 </script>
