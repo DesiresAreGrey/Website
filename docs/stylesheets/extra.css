@@ -242,6 +242,10 @@ input::-webkit-inner-spin-button {
   color: #ccc;
 }
 
+input:focus::placeholder {
+  color: transparent;
+}
+
 /* Apex charts stuff */
 .apexcharts-tooltip.apexcharts-theme-dark{
   background: rgba(8, 8, 8, .75) !important;

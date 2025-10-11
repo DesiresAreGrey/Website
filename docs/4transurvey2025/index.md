@@ -140,7 +140,7 @@ So yeah...check to see how where your height lands compared to the participants 
     <option>Woman (MtF)</option>
     <option>Nonbinary</option>
   </select>
-  <input id="hp-val" type="number" step="1" placeholder="66">
+  <input id="hp-val" type="number" step="1" placeholder="—" value="66">
 
   <select id="hp-unit">
   <option value="in">in</option>
