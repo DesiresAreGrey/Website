@@ -251,9 +251,6 @@ input::-webkit-inner-spin-button {
 #hp-unit:focus {
   border-color: #9152ff;
 }
-#hp-unit {
-  width: 2.25rem;
-}
 
 #hp-val {
   width: 1.8rem;

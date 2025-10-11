@@ -7,7 +7,7 @@ image: https://desiresaregrey.com/assets/survey2025/thumb.png
 <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-<script src="../4transurvey2025.js?11"></script>
+<script src="../4transurvey2025.js?12"></script>
 <!-- js is gonna make me 41 :( -->
 
 # The 2025 4tran Survey
@@ -141,7 +141,7 @@ So yeah...check to see how where your height lands compared to the participants 
       <option>Woman (MtF)</option>
       <option>Nonbinary</option>
     </select>
-    <input id="hp-val" type="number" step="1" value="66">
+    <input id="hp-val" type="number" inputmode="decimal" step="1" value="66">
     <select id="hp-unit">
       <option value="in">in</option>
       <option value="cm">cm</option>
