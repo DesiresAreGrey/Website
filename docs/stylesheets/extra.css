@@ -316,6 +316,7 @@ input::-webkit-inner-spin-button {
 
 .apexcharts-menu {
   min-width: fit-content !important;
+  border-radius: 0.5rem !important;
 }
 
 
