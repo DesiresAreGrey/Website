@@ -167,7 +167,7 @@
     display: block;
     width: 100%;
     font-weight: 700;
-    transition: color 125ms, background-color 125ms, border-color 125ms !important;
+    transition: all 200ms ease !important;
     text-align: center;
     padding: 0.5rem;
     font-size: 20px;
