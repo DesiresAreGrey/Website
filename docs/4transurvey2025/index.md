@@ -138,7 +138,7 @@ So yeah...check to see how where your height lands compared to the participants 
   <div>
     <select id="hp-gender">
       <option>Man (FtM)</option>
-      <option>Woman (MtF)</option>
+      <option selected>Woman (MtF)</option>
       <option>Nonbinary</option>
     </select>
     <input id="hp-val" type="number" inputmode="decimal" step="1" value="66">
@@ -200,9 +200,7 @@ So yeah...check to see how where your height lands compared to the participants 
         const z = (inches - s.mean) / s.sd;
         const pct = Math.max(0, Math.min(100, Phi(z) * 100));
         out.textContent = `${pct.toFixed(1)}th Percentile`;
-
-        console.log(v.value);
-        console.log(v.value.length);
+        
         if (v.value.length > 5) {
           v.style.width = "3rem";
         }
