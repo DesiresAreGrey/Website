@@ -199,6 +199,21 @@ So yeah...check to see how where your height lands compared to the participants 
         const z = (inches - s.mean) / s.sd;
         const pct = Math.max(0, Math.min(100, Phi(z) * 100));
         out.textContent = `${pct.toFixed(1)}th Percentile`;
+
+        console.log(v.value);
+        console.log(v.value.length);
+        if (v.value.length > 5) {
+          v.style.width = "2.9rem";
+        }
+        else if (v.value.length > 4) {
+          v.style.width = "2.6rem";
+        }
+        else if (v.value.length > 2) {
+          v.style.width = "2.1rem";
+        }
+        else {
+          v.style.width = "1.6rem";
+        }
     }
 
     function changeUnit(oldUnit, newUnit) {
