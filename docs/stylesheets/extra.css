@@ -159,7 +159,7 @@
 .big-button {
     border: .1rem solid;
     padding: 0.4em 1em;
-    border-radius: 0.4rem;
+    border-radius: 100vh;
     margin-right: 0.1rem;
     border-color: var(--md-primary-fg-color);
     color: var(--md-primary-fg-color) !important;

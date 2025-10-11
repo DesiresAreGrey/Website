@@ -132,7 +132,7 @@ Fun fact: The one 6'2 trans guy is 17 years old (gigaluckshit)
 
 #### Height Percentile Calculator
 
-So yeah...check to see how where your height lands compared to the participants of this survey. It uses the mean and standard deviations of the heights of each gender to calculate the sorta general percentile. I can see now why you're all so annoyed with me when I worm about my own height...
+So yeah...check to see how where your height lands compared to the participants of this survey. It uses the mean and standard deviations of the heights of each gender to calculate the sorta general percentile. I can see now why you're all so annoyed with me when I worm about my own height...sorry :(
 
 <div class="percentile-container">
   <div>
