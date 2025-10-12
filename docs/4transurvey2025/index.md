@@ -146,6 +146,7 @@ So yeah...check to see how where your height lands compared to the participants 
       <option value="in">in</option>
       <option value="cm">cm</option>
     </select>
+    <span id="hp-info" class="percentile-container" style="min-width: 12ch; margin-top: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0'0" - 0.0 cm</span>
     <span id="hp-out" class="percentile-container" style="min-width: 12ch; margin-top: 0; margin-bottom: -0.325rem; font-size: 21px; font-variation-settings: 'wght' 500;">—</span>
   </div>
 </div>
@@ -161,6 +162,7 @@ So yeah...check to see how where your height lands compared to the participants 
     const g = $("#hp-gender");
     const v = $("#hp-val");
     const u = $("#hp-unit");
+    const info = $("#hp-info");
     const out = $("#hp-out");
 
     function erf(x) {
@@ -179,13 +181,24 @@ So yeah...check to see how where your height lands compared to the participants 
     }
     const Phi = (z) => 0.5 * (1 + erf(z / Math.SQRT2));
 
+    function toFeet(x) {
+        const feet = Math.floor(x / 12);
+        const inches = Math.round(x - feet * 12);
+        return `${feet}'${inches}"`;
+    }
     function toInches(x, unit) {
         return unit === "cm" ? x / 2.54 : x;
+    }
+    function toCm(x, unit) {
+        return unit === "in" ? x * 2.54 : x;
     }
 
     function update() {
         const gender = g.value;
         const num = parseFloat(v.value);
+
+        info.textContent = `${toFeet(toInches(num, u.value))} - ${toCm(num, u.value).toFixed(2)} cm`;
+
         if (!HEIGHT_STATS) {
             out.textContent = "…";
             return;
@@ -193,6 +206,7 @@ So yeah...check to see how where your height lands compared to the participants 
         const s = HEIGHT_STATS[gender];
         if (!s || !isFinite(num)) {
             out.textContent = "—";
+            info.textContent = "0'0\" - 0.0 cm";
             return;
         }
 
