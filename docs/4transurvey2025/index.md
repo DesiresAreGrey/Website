@@ -2,6 +2,30 @@
 description: Results of the 2025 4tran Survey 
 image: https://desiresaregrey.com/assets/survey2025/thumb.png
 ---
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+.reddit {
+    color: #ff5719 !important;
+    font-variation-settings: 'wght' 650;
+    transition: all 200ms ease !important;
+}
+.reddit:hover {
+    color: #ff6026 !important;
+    text-shadow: 0 0 32px #ff3c00;
+    font-variation-settings: 'wght' 800;
+}
+.twitter {
+    color: #1DA1F2 !important;
+    font-variation-settings: 'wght' 650;
+    transition: all 200ms ease !important;
+}
+.twitter:hover {
+    color: #2ca6f2 !important;
+    text-shadow: 0 0 32px #0091ff;
+    font-variation-settings: 'wght' 800;
+}
+</style>
+
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
@@ -41,6 +65,20 @@ Its heavily recommended you view this site on desktop! The charts are interactiv
   </video>
   <p style="font-size: 12px; color: #888; margin-top: -0.25rem;">Interactive Charts!</p>
 </div>
+
+
+  
+<p>
+  Follow me on:
+  <a class="noselect reddit" style="margin-right: 0.15rem;" href="https://www.reddit.com/user/DesiresAreGrey" target="_blank">
+    <i class="fa-brands fa-reddit-alien" style="margin-right: -0.1rem;"></i>
+    <span>Reddit</span>
+  </a>
+  <a class="noselect twitter" href="https://twitter.com/DesiresAreGrey" target="_blank">
+    <i class="fa-brands fa-twitter" style="margin-right: -0.1rem;"></i>
+    <span>Twitter</span>
+  </a>
+</p>
 
 
 ## Overall Gender Divide

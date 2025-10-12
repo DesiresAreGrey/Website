@@ -2,6 +2,8 @@
 description: Results of the 2025 4tran Survey (Jealous Cat)
 image: https://desiresaregrey.com/assets/survey2025/thumb.png
 ---
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style type="text/css">
 .tg {
   width: 100%;
@@ -52,6 +54,17 @@ image: https://desiresaregrey.com/assets/survey2025/thumb.png
   background: #ddd;
   border-radius: 1em;
 }
+
+.reddit {
+    color: #ff5719 !important;
+    font-variation-settings: 'wght' 650;
+    transition: all 200ms ease !important;
+}
+.reddit:hover {
+    color: #ff6026 !important;
+    text-shadow: 0 0 32px #ff3c00;
+    font-variation-settings: 'wght' 800;
+}
 </style>
 
 # The 2025 4tran Survey
@@ -66,6 +79,14 @@ image: https://desiresaregrey.com/assets/survey2025/thumb.png
   <a href="/4transurvey2025/jealouscat" class="active">Jealous Cat</a> - 
   <a href="/4transurvey2025/ratgirltwink">Ratgirltwink</a>
 </div>
+
+<p>
+  This page is written by Jealous Cat: 
+  <a class="noselect reddit" style="margin-right: 0.15rem;" href="https://www.reddit.com/user/Jealous_Cat9157/" target="_blank">
+    <i class="fa-brands fa-reddit-alien" style="margin-right: -0.1rem;"></i>
+    <span>Reddit</span>
+  </a>
+</p>
 
 ## Introduction
 
