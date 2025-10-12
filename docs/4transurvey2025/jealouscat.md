@@ -570,120 +570,122 @@ ___
 </table>
 
 <p style="margin-bottom: 0">Parameter Estimates (Coefficients)</p>
-<table class="tg"><thead>
-  <tr>
-    <th class="tg-0pky" colspan="4"></th>
-    <th class="tg-0pky" colspan="2">95% CI</th>
-    <th class="tg-0pky"></th>
-    <th class="tg-0pky" colspan="2"> Exp(B) 95% CI</th>
-    <th class="tg-0pky" colspan="2"></th>
-  </tr></thead>
-<tbody>
-  <tr>
-    <th class="tg-0pky">Name</th>
-    <th class="tg-0pky">Effect</th>
-    <th class="tg-0pky">Estimate</th>
-    <th class="tg-0pky">SE</th>
-    <th class="tg-0pky">LL</th>
-    <th class="tg-0pky">UL</th>
-    <th class="tg-0pky">Exp(B)</th>
-    <th class="tg-0pky">LL</th>
-    <th class="tg-0pky"> UL</th>
-    <th class="tg-0pky"> z</th>
-    <th class="tg-0pky"> p</th>
-  </tr>
-  <tr>
-    <td class="tg-0pky">(Threshold)</td>
-    <td class="tg-0pky">Gigahon/Gigapoon|Nonpassoid</td>
-    <td class="tg-0pky">-2.3534</td>
-    <td class="tg-0pky">.12748</td>
-    <td class="tg-0pky">-2.6033</td>
-    <td class="tg-0pky">-2.10359</td>
-    <td class="tg-0pky">.0950</td>
-    <td class="tg-0pky">.0740</td>
-    <td class="tg-0pky">.122</td>
-    <td class="tg-0pky">-18.46</td>
-    <td class="tg-0pky">&lt;.001***</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">(Threshold)</td>
-    <td class="tg-0pky">Nonpassoid|Semipassoid</td>
-    <td class="tg-0pky">-.1217</td>
-    <td class="tg-0pky">.07981</td>
-    <td class="tg-0pky">-.2781</td>
-    <td class="tg-0pky">.03475</td>
-    <td class="tg-0pky">.8854</td>
-    <td class="tg-0pky">.7572</td>
-    <td class="tg-0pky">1.035</td>
-    <td class="tg-0pky">-1.52</td>
-    <td class="tg-0pky">.127</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">(Threshold)</td>
-    <td class="tg-0pky">Semipassoid|Passoid</td>
-    <td class="tg-0pky">2.1276</td>
-    <td class="tg-0pky">.12068</td>
-    <td class="tg-0pky">1.8911</td>
-    <td class="tg-0pky">2.36415</td>
-    <td class="tg-0pky">8.3948</td>
-    <td class="tg-0pky">6.6265</td>
-    <td class="tg-0pky">10.635</td>
-    <td class="tg-0pky">17.63</td>
-    <td class="tg-0pky">&lt;.001***</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">Height (cm)</td>
-    <td class="tg-0pky">Height (cm)</td>
-    <td class="tg-0pky">-.0494</td>
-    <td class="tg-0pky">.00981</td>
-    <td class="tg-0pky">-.0686</td>
-    <td class="tg-0pky">-.03016</td>
-    <td class="tg-0pky">   .9518</td>
-    <td class="tg-0pky">   .9337</td>
-    <td class="tg-0pky">   .970</td>
-    <td class="tg-0pky">   -5.04</td>
-    <td class="tg-0pky">&lt;.001***</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">Time On HRT</td>
-    <td class="tg-0pky">Time On HRT</td>
-    <td class="tg-0pky">.4338</td>
-    <td class="tg-0pky">.04993</td>
-    <td class="tg-0pky">.3360</td>
-    <td class="tg-0pky">.53167</td>
-    <td class="tg-0pky">1.5431</td>
-    <td class="tg-0pky">1.3993</td>
-    <td class="tg-0pky">1.702</td>
-    <td class="tg-0pky">8.69</td>
-    <td class="tg-0pky">&lt;.001***</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">Starting Age</td>
-    <td class="tg-0pky">Starting Age</td>
-    <td class="tg-0pky">-.0446</td>
-    <td class="tg-0pky">.02467</td>
-    <td class="tg-0pky">-.0930</td>
-    <td class="tg-0pky">.00375</td>
-    <td class="tg-0pky">.9564</td>
-    <td class="tg-0pky">.9112</td>
-    <td class="tg-0pky">1.004</td>
-    <td class="tg-0pky">-1.81</td>
-    <td class="tg-0pky">.071</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">Time on HRT-Start Age Interaction</td>
-    <td class="tg-0pky">Time on HRT-Start Age Interaction</td>
-    <td class="tg-0pky">.0453</td>
-    <td class="tg-0pky">.01263</td>
-    <td class="tg-0pky">.0205</td>
-    <td class="tg-0pky">.07004</td>
-    <td class="tg-0pky">1.0463</td>
-    <td class="tg-0pky">1.0208</td>
-    <td class="tg-0pky">1.073</td>
-    <td class="tg-0pky">3.59</td>
-    <td class="tg-0pky">&lt;.001***</td>
-  </tr>
-</tbody></table>
+<div style="overflow-x: auto;">
+  <table class="tg"><thead>
+    <tr>
+      <th class="tg-0pky" colspan="4"></th>
+      <th class="tg-0pky" colspan="2">95% CI</th>
+      <th class="tg-0pky"></th>
+      <th class="tg-0pky" colspan="2"> Exp(B) 95% CI</th>
+      <th class="tg-0pky" colspan="2"></th>
+    </tr></thead>
+  <tbody>
+    <tr>
+      <th class="tg-0pky">Name</th>
+      <th class="tg-0pky">Effect</th>
+      <th class="tg-0pky">Estimate</th>
+      <th class="tg-0pky">SE</th>
+      <th class="tg-0pky">LL</th>
+      <th class="tg-0pky">UL</th>
+      <th class="tg-0pky">Exp(B)</th>
+      <th class="tg-0pky">LL</th>
+      <th class="tg-0pky"> UL</th>
+      <th class="tg-0pky"> z</th>
+      <th class="tg-0pky"> p</th>
+    </tr>
+    <tr>
+      <td class="tg-0pky">(Threshold)</td>
+      <td class="tg-0pky">Gigahon/Gigapoon|Nonpassoid</td>
+      <td class="tg-0pky">-2.3534</td>
+      <td class="tg-0pky">.12748</td>
+      <td class="tg-0pky">-2.6033</td>
+      <td class="tg-0pky">-2.10359</td>
+      <td class="tg-0pky">.0950</td>
+      <td class="tg-0pky">.0740</td>
+      <td class="tg-0pky">.122</td>
+      <td class="tg-0pky">-18.46</td>
+      <td class="tg-0pky">&lt;.001***</td>
+    </tr>
+    <tr>
+      <td class="tg-0pky">(Threshold)</td>
+      <td class="tg-0pky">Nonpassoid|Semipassoid</td>
+      <td class="tg-0pky">-.1217</td>
+      <td class="tg-0pky">.07981</td>
+      <td class="tg-0pky">-.2781</td>
+      <td class="tg-0pky">.03475</td>
+      <td class="tg-0pky">.8854</td>
+      <td class="tg-0pky">.7572</td>
+      <td class="tg-0pky">1.035</td>
+      <td class="tg-0pky">-1.52</td>
+      <td class="tg-0pky">.127</td>
+    </tr>
+    <tr>
+      <td class="tg-0pky">(Threshold)</td>
+      <td class="tg-0pky">Semipassoid|Passoid</td>
+      <td class="tg-0pky">2.1276</td>
+      <td class="tg-0pky">.12068</td>
+      <td class="tg-0pky">1.8911</td>
+      <td class="tg-0pky">2.36415</td>
+      <td class="tg-0pky">8.3948</td>
+      <td class="tg-0pky">6.6265</td>
+      <td class="tg-0pky">10.635</td>
+      <td class="tg-0pky">17.63</td>
+      <td class="tg-0pky">&lt;.001***</td>
+    </tr>
+    <tr>
+      <td class="tg-0pky">Height (cm)</td>
+      <td class="tg-0pky">Height (cm)</td>
+      <td class="tg-0pky">-.0494</td>
+      <td class="tg-0pky">.00981</td>
+      <td class="tg-0pky">-.0686</td>
+      <td class="tg-0pky">-.03016</td>
+      <td class="tg-0pky">   .9518</td>
+      <td class="tg-0pky">   .9337</td>
+      <td class="tg-0pky">   .970</td>
+      <td class="tg-0pky">   -5.04</td>
+      <td class="tg-0pky">&lt;.001***</td>
+    </tr>
+    <tr>
+      <td class="tg-0pky">Time On HRT</td>
+      <td class="tg-0pky">Time On HRT</td>
+      <td class="tg-0pky">.4338</td>
+      <td class="tg-0pky">.04993</td>
+      <td class="tg-0pky">.3360</td>
+      <td class="tg-0pky">.53167</td>
+      <td class="tg-0pky">1.5431</td>
+      <td class="tg-0pky">1.3993</td>
+      <td class="tg-0pky">1.702</td>
+      <td class="tg-0pky">8.69</td>
+      <td class="tg-0pky">&lt;.001***</td>
+    </tr>
+    <tr>
+      <td class="tg-0pky">Starting Age</td>
+      <td class="tg-0pky">Starting Age</td>
+      <td class="tg-0pky">-.0446</td>
+      <td class="tg-0pky">.02467</td>
+      <td class="tg-0pky">-.0930</td>
+      <td class="tg-0pky">.00375</td>
+      <td class="tg-0pky">.9564</td>
+      <td class="tg-0pky">.9112</td>
+      <td class="tg-0pky">1.004</td>
+      <td class="tg-0pky">-1.81</td>
+      <td class="tg-0pky">.071</td>
+    </tr>
+    <tr>
+      <td class="tg-0pky">Time on HRT-Start Age Interaction</td>
+      <td class="tg-0pky">Time on HRT-Start Age Interaction</td>
+      <td class="tg-0pky">.0453</td>
+      <td class="tg-0pky">.01263</td>
+      <td class="tg-0pky">.0205</td>
+      <td class="tg-0pky">.07004</td>
+      <td class="tg-0pky">1.0463</td>
+      <td class="tg-0pky">1.0208</td>
+      <td class="tg-0pky">1.073</td>
+      <td class="tg-0pky">3.59</td>
+      <td class="tg-0pky">&lt;.001***</td>
+    </tr>
+  </tbody></table>
+</div>
 
 From the model, we can conclude that there is a negative relationship between height and passing (p <.001). For every cm increase of height, the odds of being in a lower passing category increase by 4.82%. This can be seen by the height plot, which shows that all else equal, 175 cm is the point at which the likelihood of being a passoid or semipassoid intersect the likelihoods of being a nonpassoid or gigahon.
 
