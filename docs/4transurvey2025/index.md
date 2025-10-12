@@ -146,7 +146,7 @@ So yeah...check to see how where your height lands compared to the participants 
       <option value="in">in</option>
       <option value="cm">cm</option>
     </select>
-    <span id="hp-out" class="percentile-container" style="min-width: 12ch; margin-top: 0; margin-bottom: -0.325rem; font-size: .9rem; font-variation-settings: 'wght' 500;">—</span>
+    <span id="hp-out" class="percentile-container" style="min-width: 12ch; margin-top: 0; margin-bottom: -0.325rem; font-size: 21px; font-variation-settings: 'wght' 500;">—</span>
   </div>
 </div>
 

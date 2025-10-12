@@ -214,7 +214,7 @@
 }
 
 select {
-  background-color: #242424 !important;
+  background-color: #252525 !important;
 }
 input[type='number'] {
     -moz-appearance: textfield;
@@ -230,12 +230,12 @@ input::-webkit-inner-spin-button {
 
 #hp-gender, #hp-unit {
   padding: .15rem;
-  background: #242424;
+  background: #252525;
   border: .1rem solid;
   border-radius: 0.5rem;
   border-color: transparent;
   font-weight: 200;
-  font-size: 16px;
+  font-size: 17px;
   font-family: Inter, sans-serif;
   text-align: center;
   color: #ccc;
@@ -255,12 +255,12 @@ input::-webkit-inner-spin-button {
 #hp-val {
   width: 1.8rem;
   padding: .15rem;
-  background: #242424;
+  background: #252525;
   border: .1rem solid;
   border-radius: 0.5rem;
   border-color: transparent;
   font-weight: 200;
-  font-size: 16px;
+  font-size: 17px;
   font-family: Inter, sans-serif;
   text-align: center;
   color: #ccc;
