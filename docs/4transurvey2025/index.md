@@ -235,7 +235,7 @@ So yeah...check to see how where your height lands compared to the participants 
         const gender = g.value;
         const num = parseFloat(v.value);
 
-        info.textContent = `${toFeet(toInches(num, u.value))} - ${toCm(num, u.value).toFixed(2)} cm`;
+        info.textContent = `${toFeet(toInches(num, u.value))} - ${toCm(num, u.value).toFixed(2) / 1} cm`;
 
         if (!HEIGHT_STATS) {
             out.textContent = "…";
