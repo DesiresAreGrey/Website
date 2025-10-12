@@ -386,6 +386,14 @@ input::-webkit-inner-spin-button {
   stroke-linecap: square;
 }
 
+.apexcharts-xcrosshairs {
+  display: none !important;
+}
+
+.no-yline .apexcharts-grid-borders line:last-child {
+  display: none !important;
+}
+
 .vh {
   position: fixed !important;
   width: 1px;
