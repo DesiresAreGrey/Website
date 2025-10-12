@@ -425,6 +425,152 @@ ___
 
 ___
 
+### Model
+
+#### Info
+
+<p style="margin-bottom: 0">Model Info</p>
+<table class="tg"><thead>
+  <tr>
+    <th class="tg-cly1">Info</th>
+    <th class="tg-cly1"> </th>
+    <th class="tg-cly1"> </th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">Model Type</td>
+    <td class="tg-0lax">Cumlative Link Model</td>
+    <td class="tg-0lax">Proportional odds logistic</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Model</td>
+    <td class="tg-0lax">ordinal::clm</td>
+    <td class="tg-0lax">4 Scale Passing Level ~1 + Height (cm) + Time On HRT + Starting Age + Time on HRT-Start Age Interaction</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Distribution</td>
+    <td class="tg-0lax">Logistic</td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Link function</td>
+    <td class="tg-0lax">Logit</td>
+    <td class="tg-0lax">Log of the odd of y</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Direction</td>
+    <td class="tg-0lax">P(Y ≤ j)/P(Y &gt; j)</td>
+    <td class="tg-0lax">j = Gigahon/Gigapoon | Nonpassoid | Semipassoid | Passoid</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Sample size</td>
+    <td class="tg-0lax">584</td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Converged</td>
+    <td class="tg-0lax">yes</td>
+    <td class="tg-0lax"> </td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">C.I. method</td>
+    <td class="tg-0lax">Wald</td>
+    <td class="tg-0lax"> </td>
+  </tr>
+  <tr>
+    <td class="tg-cly1" colspan="3">Note. All covariates are centered to the mean</td>
+  </tr>
+</tbody></table>
+
+#### Results
+
+<p style="margin-bottom: 0">Model Fit</p>
+<table class="tg"><thead>
+  <tr>
+    <th class="tg-cly1">R²</th>
+    <th class="tg-cly1">df</th>
+    <th class="tg-cly1">X²</th>
+    <th class="tg-cly1">p</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">0.0693</td>
+    <td class="tg-0lax">4</td>
+    <td class="tg-0lax">122</td>
+    <td class="tg-0lax">&lt;.001</td>
+  </tr>
+</tbody>
+</table>
+
+<p style="margin-bottom: 0">Additional Indices</p>
+<table class="tg"><thead>
+  <tr>
+    <th class="tg-cly1">Info</th>
+    <th class="tg-cly1">Model Value</th>
+    <th class="tg-cly1">Comment</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">Log Likelihood</td>
+    <td class="tg-0lax">-821</td>
+    <td class="tg-0lax"> </td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">AIC</td>
+    <td class="tg-0lax">1656</td>
+    <td class="tg-0lax">Less is better</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">BIC</td>
+    <td class="tg-0lax">1688</td>
+    <td class="tg-0lax">Less is better</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Deviance</td>
+    <td class="tg-0lax">1642</td>
+    <td class="tg-0lax">Less is better</td>
+  </tr>
+</tbody>
+</table>
+
+<p style="margin-bottom: 0">Omnibus Tests</p>
+<table class="tg"><thead>
+  <tr>
+    <th class="tg-cly1"> </th>
+    <th class="tg-cly1">X²</th>
+    <th class="tg-cly1">df</th>
+    <th class="tg-cly1">p</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">Height (cm)</td>
+    <td class="tg-0lax">25.36</td>
+    <td class="tg-0lax">1</td>
+    <td class="tg-0lax">&lt;.001</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Time On HRT</td>
+    <td class="tg-0lax">75.50</td>
+    <td class="tg-0lax">1</td>
+    <td class="tg-0lax">&lt;.001</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Starting Age</td>
+    <td class="tg-0lax">3.27</td>
+    <td class="tg-0lax">1</td>
+    <td class="tg-0lax">0.071</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Time on HRT-Start Age Interaction</td>
+    <td class="tg-0lax">12.87</td>
+    <td class="tg-0lax">1</td>
+    <td class="tg-0lax">&lt;.001</td>
+  </tr>
+</tbody>
+</table>
+
+___
+
 <div class="button-container">
   <!--<a class="big-button" href="../amekyras">Previous Page</a>-->
   <a class="big-button" href="../4">Previous Page</a>
