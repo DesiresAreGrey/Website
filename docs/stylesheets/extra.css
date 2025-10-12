@@ -2,6 +2,9 @@
     --md-tooltip-width: 750px;
     --md-default-fg-color--light: #cecece;
     --grid-w: 50vw;
+
+    --shadow-s: 0 1px 2px #00000030, 0 2px 4px #00000015;
+    --shadow-m: 0 2px 4px #00000030, 0 4px 8px #00000015;
 }
 
 /* Page Background Color */
@@ -211,6 +214,7 @@
   color: var(--md-typeset-color);
   font-size: .75rem;
   font-variation-settings: 'wght' 400;
+  /*box-shadow: var(--shadow-m);*/
 }
 
 select {
@@ -240,6 +244,7 @@ input::-webkit-inner-spin-button {
   text-align: center;
   color: #ccc;
   transition: all 200ms ease;
+  /*box-shadow: var(--shadow-s);*/
 }
 #hp-gender:hover,
 #hp-val:hover,
@@ -265,6 +270,7 @@ input::-webkit-inner-spin-button {
   text-align: center;
   color: #ccc;
   transition: all 200ms ease;
+  box-shadow: var(--shadow-s);
 }
 
 /* Apex charts stuff */
