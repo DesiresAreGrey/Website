@@ -720,14 +720,14 @@ ___
     <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/model/plots/2heightandtimeonhrt/28-0-1years-height.svg"/>
   </div>
   <div>
-    <p style="margin-bottom: -1rem">Time on HRT = 2.496 Years</p>
+    <p style="margin-bottom: -1rem">Time on HRT = 1.298 Years</p>
     <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/model/plots/2heightandtimeonhrt/29-1-298years-height.svg"/>
   </div>
 </div>
 
 <div class="button-container" style="margin-top: -1.5rem">
   <div>
-    <p style="margin-bottom: -1rem">Time on HRT = 1.298 Years</p>
+    <p style="margin-bottom: -1rem">Time on HRT = 2.496 Years</p>
     <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/model/plots/2heightandtimeonhrt/30-2-496years-height.svg"/>
   </div>
   <div>
