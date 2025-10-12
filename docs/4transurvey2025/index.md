@@ -221,7 +221,7 @@ So yeah...check to see how where your height lands compared to the participants 
 
     function toFeet(x) {
         const feet = Math.floor(x / 12);
-        const inches = Math.round(x - feet * 12);
+        const inches = (x - feet * 12).toFixed(1) / 1;
         return `${feet}'${inches}"`;
     }
     function toInches(x, unit) {
