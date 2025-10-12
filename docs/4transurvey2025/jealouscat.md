@@ -2,6 +2,48 @@
 description: Results of the 2025 4tran Survey (Jealous Cat)
 image: https://desiresaregrey.com/assets/survey2025/thumb.png
 ---
+<style type="text/css">
+.tg {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 13px;
+}
+
+.tg th, .tg td {
+  padding: 8px 8px;
+  border: none;
+  vertical-align: middle;
+}
+
+.tg thead tr {
+  border-top: 1px solid #555;
+  border-bottom: 1px solid #555;
+}
+
+.tg th {
+  text-align: left;
+  font-weight: bold;
+}
+
+.tg :is(td,th):first-child,
+.tg tr > :is(td,th)[rowspan] + :is(td,th) {
+  font-weight: bold;
+}
+
+.tg tbody tr:last-child {
+  border-bottom: 2px solid #555;
+}
+
+.tg .tg-cly1 {
+  text-align: left; 
+  vertical-align: middle;
+}
+.tg .tg-0lax {
+  text-align: left;
+  vertical-align: top;
+}
+</style>
 
 # The 2025 4tran Survey
 <h6 style="margin: 0 0.2rem">Jealous Cat's Analysis</h6>
@@ -50,14 +92,155 @@ ___
 
 ### Summary Statistics
 
-Uncategorised
+<p style="margin-bottom: 0">Uncategorised</p>
 
-| Statistic   | N   | Missing | Mean  | Median | SD  | IQR  | Minimum | Maximum |
-|-------------|-----|---------|-------|--------|-----|------|---------|---------|
-|Age          |584  |0        |21.87  |21.00   |3.15 |5.00  |16.000   |30.0     |
-|Starting Age |584  |0        |19.88  |19.50   |2.92 |3.83  |10.000   |29.4     |
-|Height (cm)  |584  |0        |175.32 |175.00  |7.42 |10.00 |157.000  |201.0    |
-|Time On HRT  |584  |0        |1.99   |1.50    |1.66 |1.84  |0.100    |12.1     |
+<table class="tg"><thead>
+  <tr>
+    <th class="tg-lboi"></th>
+    <th class="tg-lboi">Mean</th>
+    <th class="tg-lboi">Median</th>
+    <th class="tg-lboi">SD</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">Age</td>
+    <td class="tg-0pky">21.87</td>
+    <td class="tg-0pky">21.00</td>
+    <td class="tg-0pky">3.15</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Starting Age</td>
+    <td class="tg-0pky">19.88</td>
+    <td class="tg-0pky">19.50</td>
+    <td class="tg-0pky">2.92</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Height (cm)</td>
+    <td class="tg-0pky">175.32</td>
+    <td class="tg-0pky">175.00</td>
+    <td class="tg-0pky">7.42</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Time On HRT</td>
+    <td class="tg-0pky">1.99</td>
+    <td class="tg-0pky">1.50</td>
+    <td class="tg-0pky">1.66</td>
+  </tr>
+</tbody>
+</table>
+
+test
+
+<table class="tg"><thead>
+  <tr>
+    <th class="tg-cly1"></th>
+    <th class="tg-cly1">Start Age Category</th>
+    <th class="tg-cly1">Mean</th>
+    <th class="tg-cly1">Median</th>
+    <th class="tg-cly1">SD</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax" rowspan="4">Age</td>
+    <td class="tg-0lax">Youngshit</td>
+    <td class="tg-0lax">17.74</td>
+    <td class="tg-0lax">17.50</td>
+    <td class="tg-0lax">1.781</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Midshit</td>
+    <td class="tg-0lax">19.78</td>
+    <td class="tg-0lax">19.00</td>
+    <td class="tg-0lax">1.946</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Lateshit</td>
+    <td class="tg-0lax">23.14</td>
+    <td class="tg-0lax">23.00</td>
+    <td class="tg-0lax">2.073</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Oldshit</td>
+    <td class="tg-0lax">27.47</td>
+    <td class="tg-0lax">27.00</td>
+    <td class="tg-0lax">1.515</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" rowspan="4">Starting Age</td>
+    <td class="tg-0lax">Youngshit</td>
+    <td class="tg-0lax">15.12</td>
+    <td class="tg-0lax">15.40</td>
+    <td class="tg-0lax">1.116</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Midshit</td>
+    <td class="tg-0lax">17.75</td>
+    <td class="tg-0lax">17.80</td>
+    <td class="tg-0lax">0.870</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Lateshit</td>
+    <td class="tg-0lax">21.18</td>
+    <td class="tg-0lax">20.92</td>
+    <td class="tg-0lax">1.457</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Oldshit</td>
+    <td class="tg-0lax">25.95</td>
+    <td class="tg-0lax">25.50</td>
+    <td class="tg-0lax">1.446</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" rowspan="4">Height (cm)</td>
+    <td class="tg-0lax">Youngshit</td>
+    <td class="tg-0lax">172.71</td>
+    <td class="tg-0lax">171.50</td>
+    <td class="tg-0lax">6.530</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Midshit</td>
+    <td class="tg-0lax">175.40</td>
+    <td class="tg-0lax">175.00</td>
+    <td class="tg-0lax">7.813</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Lateshit</td>
+    <td class="tg-0lax">175.36</td>
+    <td class="tg-0lax">175.00</td>
+    <td class="tg-0lax">7.176</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Oldshit</td>
+    <td class="tg-0lax">176.49</td>
+    <td class="tg-0lax">175.00</td>
+    <td class="tg-0lax">7.275</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" rowspan="4">Time On HRT</td>
+    <td class="tg-0lax">Youngshit</td>
+    <td class="tg-0lax">2.61</td>
+    <td class="tg-0lax">2.10</td>
+    <td class="tg-0lax">2.571</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Midshit</td>
+    <td class="tg-0lax">2.03</td>
+    <td class="tg-0lax">1.50</td>
+    <td class="tg-0lax">1.682</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Lateshit</td>
+    <td class="tg-0lax">1.96</td>
+    <td class="tg-0lax">1.50</td>
+    <td class="tg-0lax">1.568</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Oldshit</td>
+    <td class="tg-0lax">1.52</td>
+    <td class="tg-0lax">1.50</td>
+    <td class="tg-0lax">0.943</td>
+  </tr>
+</tbody></table>
 
 ___
 
