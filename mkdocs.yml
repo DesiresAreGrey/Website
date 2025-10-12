@@ -47,7 +47,7 @@ extra:
       link: https://twitter.com/DesiresAreGrey
       name: Twitter
 extra_css:
-  - stylesheets/extra.css?12
+  - stylesheets/extra.css?1
 
 nav:
   - Home: 'index.md'
