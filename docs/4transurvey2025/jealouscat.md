@@ -736,11 +736,51 @@ ___
   </div>
 </div>
 
-<div style="margin-top: -1.5rem">
-  <p style="margin-bottom: -1rem;">Time on HRT = 4.892 Years</p>
-  <img class="claire-plot-image" style="width: 50%" src="/assets/survey2025/img/jealouscat/model/plots/2heightandtimeonhrt/32-4-892years-height.svg"/>
+<div class="button-container" style="margin-top: -1.5rem">
+  <div>
+    <p style="margin-bottom: -1rem;">Time on HRT = 4.892 Years</p>
+    <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/model/plots/2heightandtimeonhrt/32-4-892years-height.svg"/>
+  </div>
+  <div>
+    <p style="margin-bottom: -1rem">Time on HRT = 6.09 Years</p>
+    <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/model/plots/2heightandtimeonhrt/33-6-09years-height.svg"/>
+  </div>
 </div>
 
+#### Start Age and Time on HRT
+
+<div class="button-container">
+  <div>
+    <p style="margin-bottom: -1rem">Time on HRT = 0.1 Years</p>
+    <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/model/plots/3startageandtimeonhrt/34-0-1years-startage.svg"/>
+  </div>
+  <div>
+    <p style="margin-bottom: -1rem">Time on HRT = 1.298 Years</p>
+    <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/model/plots/3startageandtimeonhrt/35-1-298years-startage.svg"/>
+  </div>
+</div>
+
+<div class="button-container" style="margin-top: -1.5rem">
+  <div>
+    <p style="margin-bottom: -1rem">Time on HRT = 2.496 Years</p>
+    <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/model/plots/3startageandtimeonhrt/36-2-496years-startage.svg"/>
+  </div>
+  <div>
+    <p style="margin-bottom: -1rem">Time on HRT = 3.694 Years</p>
+    <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/model/plots/3startageandtimeonhrt/37-3-694years-startage.svg"/>
+  </div>
+</div>
+
+<div class="button-container" style="margin-top: -1.5rem">
+  <div>
+    <p style="margin-bottom: -1rem;">Time on HRT = 4.892 Years</p>
+    <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/model/plots/3startageandtimeonhrt/38-4-892years-startage.svg"/>
+  </div>
+  <div>
+    <p style="margin-bottom: -1rem">Time on HRT = 6.09 Years</p>
+    <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/model/plots/3startageandtimeonhrt/39-6-09years-startage.svg"/>
+  </div>
+</div>
 
 ___
 
