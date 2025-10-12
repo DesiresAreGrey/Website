@@ -857,13 +857,14 @@ function createPoliticsBoxPlot(chartId, dataUrl, title = undefined, subtitle = u
                 maxWidth: 160,
                 labels: {
                     formatter: function (val) {
-                        if (val < 5) 
-                            return "Left +" + (5-val);
-                        if (val == 5) 
+                        if (val == 0) 
+                            return "Left";
+                        else if (val == 5) 
                             return "Center";
-                        if (val > 5) 
-                            return "Right +" + (val-5);
-                        return (val);
+                        else if (val == 10) 
+                            return "Right";
+                        else
+                            return "";
                     },
                     offsetX: -2
                 },
