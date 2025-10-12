@@ -368,9 +368,59 @@ ___
 
 #### Plots
 
+<p style="margin-bottom: -1em">Uncategorised</p>
 <div class="button-container">
   <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/1uncategorised/1agehisto.svg"/>
   <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/1uncategorised/2agebox.svg"/>
+</div>
+<div class="button-container">
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/1uncategorised/3startagehisto.svg"/>
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/1uncategorised/4startagebox.svg"/>
+</div>
+<div class="button-container">
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/1uncategorised/5heighthisto.svg"/>
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/1uncategorised/6heightbox.svg"/>
+</div>
+<div class="button-container">
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/1uncategorised/7timeonhrthisto.svg"/>
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/1uncategorised/8timeonhrtbox.svg"/>
+</div>
+
+<p style="margin-bottom: -1em">By Starting Age</p>
+<div class="button-container">
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/2bystartage/9agehisto.svg"/>
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/2bystartage/10agebox.svg"/>
+</div>
+<div class="button-container">
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/2bystartage/11startagehisto.svg"/>
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/2bystartage/12startagebox.svg"/>
+</div>
+<div class="button-container">
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/2bystartage/13heighthisto.svg"/>
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/2bystartage/14heightbox.svg"/>
+</div>
+<div class="button-container">
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/2bystartage/15timeonhrthisto.svg"/>
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/2bystartage/16timeonhrtbox.svg"/>
+</div>
+
+
+<p style="margin-bottom: -1em">By Passing Category</p>
+<div class="button-container">
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/3bypassingcategory/17agehisto.svg"/>
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/3bypassingcategory/18agebox.svg"/>
+</div>
+<div class="button-container">
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/3bypassingcategory/19startagehisto.svg"/>
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/3bypassingcategory/20stageagebox.svg"/>
+</div>  
+<div class="button-container">
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/3bypassingcategory/21heighthisto.svg"/>
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/3bypassingcategory/22heightbox.svg"/>
+</div>
+<div class="button-container">
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/3bypassingcategory/23timeonhrthisto.svg"/>
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/3bypassingcategory/24timeonhrtbox.svg"/>
 </div>
 
 ___
