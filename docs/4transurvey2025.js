@@ -858,11 +858,11 @@ function createPoliticsBoxPlot(chartId, dataUrl, title = undefined, subtitle = u
                 labels: {
                     formatter: function (val) {
                         if (val == 0) 
-                            return "Left";
+                            return "Left [0]";
                         else if (val == 5) 
-                            return "Center";
+                            return "Center [5]";
                         else if (val == 10) 
-                            return "Right";
+                            return "Right [10]";
                         else
                             return "";
                     },
