@@ -43,6 +43,15 @@ image: https://desiresaregrey.com/assets/survey2025/thumb.png
   text-align: left;
   vertical-align: top;
 }
+
+.claire-plot-image {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin: 1rem 0;
+  background: #ddd;
+  border-radius: 1em;
+}
 </style>
 
 # The 2025 4tran Survey
@@ -92,6 +101,8 @@ ___
 
 ### Summary Statistics
 
+#### Tables
+
 <p style="margin-bottom: 0">Uncategorised</p>
 
 <table class="tg"><thead>
@@ -129,7 +140,7 @@ ___
 </tbody>
 </table>
 
-test
+<p style="margin-bottom: 0">By Starting Age</p>
 
 <table class="tg"><thead>
   <tr>
@@ -241,6 +252,126 @@ test
     <td class="tg-0lax">0.943</td>
   </tr>
 </tbody></table>
+
+<p style="margin-bottom: 0">By Passing Category</p>
+
+<table class="tg"><thead>
+  <tr>
+    <th class="tg-cly1"></th>
+    <th class="tg-cly1">4 Scale Passing Level</th>
+    <th class="tg-cly1">Mean</th>
+    <th class="tg-cly1">Median</th>
+    <th class="tg-cly1">SD</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax" rowspan="4">Age</td>
+    <td class="tg-0lax">Gigahon/Gigapoon</td>
+    <td class="tg-0lax">22.56</td>
+    <td class="tg-0lax">22.00</td>
+    <td class="tg-0lax">3.03</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Nonpassoid</td>
+    <td class="tg-0lax">21.26</td>
+    <td class="tg-0lax">21.00</td>
+    <td class="tg-0lax">2.94</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Semipassoid</td>
+    <td class="tg-0lax">22.17</td>
+    <td class="tg-0lax">22.00</td>
+    <td class="tg-0lax">3.31</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Passoid</td>
+    <td class="tg-0lax">22.33</td>
+    <td class="tg-0lax">22.00</td>
+    <td class="tg-0lax">3.16</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" rowspan="4">Starting Age</td>
+    <td class="tg-0lax">Gigahon/Gigapoon</td>
+    <td class="tg-0lax">21.15</td>
+    <td class="tg-0lax">20.00</td>
+    <td class="tg-0lax">2.92</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Nonpassoid</td>
+    <td class="tg-0lax">19.84</td>
+    <td class="tg-0lax">19.50</td>
+    <td class="tg-0lax">2.82</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Semipassoid</td>
+    <td class="tg-0lax">19.77</td>
+    <td class="tg-0lax">19.36</td>
+    <td class="tg-0lax">2.96</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Passoid</td>
+    <td class="tg-0lax">19.29</td>
+    <td class="tg-0lax">19.00</td>
+    <td class="tg-0lax">2.83</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" rowspan="4">Height(cm)</td>
+    <td class="tg-0lax">Gigahon/Gigapoon</td>
+    <td class="tg-0lax">177.58</td>
+    <td class="tg-0lax">175.00</td>
+    <td class="tg-0lax">8.15</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Nonpassoid</td>
+    <td class="tg-0lax">176.27</td>
+    <td class="tg-0lax">175.00</td>
+    <td class="tg-0lax">7.14</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Semipassoid</td>
+    <td class="tg-0lax">174.83</td>
+    <td class="tg-0lax">175.00</td>
+    <td class="tg-0lax">7.40</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Passoid</td>
+    <td class="tg-0lax">171.70</td>
+    <td class="tg-0lax">170.00</td>
+    <td class="tg-0lax">6.37</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" rowspan="4">Time On HRT</td>
+    <td class="tg-0lax">Gigahon/Gigapoon</td>
+    <td class="tg-0lax">1.42</td>
+    <td class="tg-0lax">1.00</td>
+    <td class="tg-0lax">1.08</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Nonpassoid</td>
+    <td class="tg-0lax">1.42</td>
+    <td class="tg-0lax">1.00</td>
+    <td class="tg-0lax">1.35</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Semipassoid</td>
+    <td class="tg-0lax">2.41</td>
+    <td class="tg-0lax">2.00</td>
+    <td class="tg-0lax">1.80</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Passoid</td>
+    <td class="tg-0lax">3.04</td>
+    <td class="tg-0lax">2.64</td>
+    <td class="tg-0lax">1.62</td>
+  </tr>
+</tbody></table>
+
+#### Plots
+
+<div class="button-container">
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/1uncategorised/1agehisto.svg"/>
+  <img class="claire-plot-image" src="/assets/survey2025/img/jealouscat/summarystatistics/plots/1uncategorised/2agebox.svg"/>
+</div>
 
 ___
 
