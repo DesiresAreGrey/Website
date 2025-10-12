@@ -36,6 +36,9 @@ plugins:
   - mkdocs-video
 extra:
   generator: false
+  analytics:
+    provider: google 
+    property: G-67EDVX3WRV 
   social:
     - icon: fontawesome/brands/reddit-alien
       link: https://www.reddit.com/user/DesiresAreGrey

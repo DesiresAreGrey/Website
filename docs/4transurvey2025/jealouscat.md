@@ -569,6 +569,17 @@ ___
 </tbody>
 </table>
 
+<p style="margin-bottom: 0">Parameter Estimates (Coefficients)</p>
+charthereiguess
+
+From the model, we can conclude that there is a negative relationship between height and passing (p <.001). For every cm increase of height, the odds of being in a lower passing category increase by 4.82%. This can be seen by the height plot, which shows that all else equal, 175 cm is the point at which the likelihood of being a passoid or semipassoid intersect the likelihoods of being a nonpassoid or gigahon.
+
+Additionally, time on HRT is positively correlated with passing (p <.001), to nobody’s surprise. For each year on HRT, the odds of being in a higher passing category increase by 54%. This is shown by the time on HRT plot, which show that chances of passing do indeed increase. This however does not directly account for starting age.
+
+Starting age itself was found to not be a significant predictor of passing (p > 0.05). This makes sense, as time on HRT is more predictive. However, if one moderates the predictor of time on HRT by starting age, then the relationship becomes statistically significant (p <.001). The series of plots that compare passing and starting age after taking into account time on HRT show that a higher starting age may become less of a disadvantage with longer on HRT. It is worth noting that the model’s confidence decreases with more time on HRT, partially owing to a lack of data.
+In summary, starting age does not matter, time on HRT does. Unfortunately, height also matters, but with longer on HRT this disadvantage is reduced.
+
+
 ___
 
 <div class="button-container">
