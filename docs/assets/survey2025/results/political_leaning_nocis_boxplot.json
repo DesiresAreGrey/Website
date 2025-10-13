@@ -6,7 +6,23 @@
       0,
       2,
       3,
-      9
+      7
+    ],
+    "goals": [
+      {
+        "value": 8,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 9,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      }
     ]
   },
   {
@@ -16,7 +32,163 @@
       0,
       1,
       2,
-      10
+      5
+    ],
+    "goals": [
+      {
+        "value": 6,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 5.934236582055012,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 6.040921675353071,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 6.054010488989561,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 6.017444280904454,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 5.933892531224671,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 6.088916514972264,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 5.9964634746217,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 6.026899915676888,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 5.984309859039712,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 7,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 6.961275327235401,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 7.069118172954259,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 7.069501371550041,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 7.037105617939753,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 8,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 7.936530549655977,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 8.039210369305687,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 7.979177337345316,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 9,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 8.92634841094867,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      },
+      {
+        "value": 10,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      }
     ]
   },
   {
@@ -24,9 +196,18 @@
     "y": [
       0,
       0,
-      1.5,
+      1,
       2,
-      6
+      4
+    ],
+    "goals": [
+      {
+        "value": 6,
+        "strokeWidth": 4,
+        "strokeHeight": 0,
+        "strokeLineCap": "round",
+        "strokeColor": "#aaaaaa"
+      }
     ]
   }
 ]
