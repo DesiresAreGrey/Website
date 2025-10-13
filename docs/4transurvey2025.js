@@ -527,6 +527,25 @@ function createBoxPlot(chartId, dataUrl, title = undefined, subtitle = undefined
                 custom: ({ seriesIndex, dataPointIndex, w }) => {
                     const d = w.config.series[seriesIndex].data[dataPointIndex];
                     const [min, q1, median, q3, max] = d.y;
+                    const outliers = d.goals?.map(a => (a.value - a.jitter).toFixed(2) / 1).sort((a, b) => a - b);
+                    console.log(outliers);
+                    if (outliers?.length > 0) {
+                        return `
+                        <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${d.x}</div>
+                        <div class="apexcharts-tooltip-box apexcharts-tooltip-boxPlot">
+                            <div class="apexcharts-tooltip-text" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">
+                                Maximum: <b>${max}</b><br>
+                                Q3: <b>${q3}</b><br>
+                                Median: <b>${median}</b><br>
+                                Q1: <b>${q1}</b><br>
+                                Minimum: <b>${min}</b><br>
+                                <div style="margin-top: 2px; font-size: 11px; color: #bbb;">
+                                    Outliers: <b>${outliers.length}</b>
+                                </div>
+                            </div>
+                        </div>`;
+                    }
+
                     return `
                         <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${d.x}</div>
                         <div class="apexcharts-tooltip-box apexcharts-tooltip-boxPlot">
@@ -633,6 +652,25 @@ function createVertBoxPlot(chartId, dataUrl, title = undefined, subtitle = undef
                 custom: ({ seriesIndex, dataPointIndex, w }) => {
                     const d = w.config.series[seriesIndex].data[dataPointIndex];
                     const [min, q1, median, q3, max] = d.y;
+                    const outliers = d.goals?.map(a => (a.value - a.jitter).toFixed(2) / 1).sort((a, b) => a - b);
+                    console.log(outliers);
+                    if (outliers?.length > 0) {
+                        return `
+                        <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${d.x}</div>
+                        <div class="apexcharts-tooltip-box apexcharts-tooltip-boxPlot">
+                            <div class="apexcharts-tooltip-text" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">
+                                Maximum: <b>${max}</b><br>
+                                Q3: <b>${q3}</b><br>
+                                Median: <b>${median}</b><br>
+                                Q1: <b>${q1}</b><br>
+                                Minimum: <b>${min}</b><br>
+                                <div style="margin-top: 2px; font-size: 11px; color: #bbb;">
+                                    Outliers: <b>${outliers.length}</b>
+                                </div>
+                            </div>
+                        </div>`;
+                    }
+
                     return `
                         <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${d.x}</div>
                         <div class="apexcharts-tooltip-box apexcharts-tooltip-boxPlot">
@@ -752,6 +790,25 @@ function createChangeBoxPlot(chartId, dataUrl, title = undefined, subtitle = und
                 custom: ({ seriesIndex, dataPointIndex, w }) => {
                     const d = w.config.series[seriesIndex].data[dataPointIndex];
                     const [min, q1, median, q3, max] = d.y;
+                    const outliers = d.goals?.map(a => (a.value - a.jitter).toFixed(2) / 1).sort((a, b) => a - b);
+                    console.log(outliers);
+                    if (outliers?.length > 0) {
+                        return `
+                        <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${d.x}</div>
+                        <div class="apexcharts-tooltip-box apexcharts-tooltip-boxPlot">
+                            <div class="apexcharts-tooltip-text" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">
+                                Maximum: <b>${max}</b><br>
+                                Q3: <b>${q3}</b><br>
+                                Median: <b>${median}</b><br>
+                                Q1: <b>${q1}</b><br>
+                                Minimum: <b>${min}</b><br>
+                                <div style="margin-top: 2px; font-size: 11px; color: #bbb;">
+                                    Outliers: <b>${outliers.length}</b>
+                                </div>
+                            </div>
+                        </div>`;
+                    }
+
                     return `
                         <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${d.x}</div>
                         <div class="apexcharts-tooltip-box apexcharts-tooltip-boxPlot">
@@ -898,6 +955,25 @@ function createPoliticsBoxPlot(chartId, dataUrl, title = undefined, subtitle = u
                 custom: ({ seriesIndex, dataPointIndex, w }) => {
                     const d = w.config.series[seriesIndex].data[dataPointIndex];
                     const [min, q1, median, q3, max] = d.y;
+                    const outliers = d.goals?.map(a => (a.value - a.jitter).toFixed(2) / 1).sort((a, b) => a - b);
+                    console.log(outliers);
+                    if (outliers?.length > 0) {
+                        return `
+                        <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${d.x}</div>
+                        <div class="apexcharts-tooltip-box apexcharts-tooltip-boxPlot">
+                            <div class="apexcharts-tooltip-text" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">
+                                Maximum: <b>${max}</b><br>
+                                Q3: <b>${q3}</b><br>
+                                Median: <b>${median}</b><br>
+                                Q1: <b>${q1}</b><br>
+                                Minimum: <b>${min}</b><br>
+                                <div style="margin-top: 2px; font-size: 11px; color: #bbb;">
+                                    Outliers: <b>${outliers.length}</b>
+                                </div>
+                            </div>
+                        </div>`;
+                    }
+
                     return `
                         <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${d.x}</div>
                         <div class="apexcharts-tooltip-box apexcharts-tooltip-boxPlot">
