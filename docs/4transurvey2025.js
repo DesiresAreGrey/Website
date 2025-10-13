@@ -540,7 +540,7 @@ function createBoxPlot(chartId, dataUrl, title = undefined, subtitle = undefined
                                 Q1: <b>${q1}</b><br>
                                 Minimum: <b>${min}</b><br>
                                 <div style="margin-top: 2px; font-size: 11px; color: #bbb;">
-                                    Outliers: <b>${outliers.length}</b>
+                                    Outliers: <b>${outliers.length}/${d.total}</b>
                                 </div>
                             </div>
                         </div>`;
@@ -665,7 +665,7 @@ function createVertBoxPlot(chartId, dataUrl, title = undefined, subtitle = undef
                                 Q1: <b>${q1}</b><br>
                                 Minimum: <b>${min}</b><br>
                                 <div style="margin-top: 2px; font-size: 11px; color: #bbb;">
-                                    Outliers: <b>${outliers.length}</b>
+                                    Outliers: <b>${outliers.length}/${d.total}</b>
                                 </div>
                             </div>
                         </div>`;
@@ -803,7 +803,7 @@ function createChangeBoxPlot(chartId, dataUrl, title = undefined, subtitle = und
                                 Q1: <b>${q1}</b><br>
                                 Minimum: <b>${min}</b><br>
                                 <div style="margin-top: 2px; font-size: 11px; color: #bbb;">
-                                    Outliers: <b>${outliers.length}</b>
+                                    Outliers: <b>${outliers.length}/${d.total}</b>
                                 </div>
                             </div>
                         </div>`;
@@ -968,7 +968,7 @@ function createPoliticsBoxPlot(chartId, dataUrl, title = undefined, subtitle = u
                                 Q1: <b>${q1}</b><br>
                                 Minimum: <b>${min}</b><br>
                                 <div style="margin-top: 2px; font-size: 11px; color: #bbb;">
-                                    Outliers: <b>${outliers.length}</b>
+                                    Outliers: <b>${outliers.length}/${d.total}</b>
                                 </div>
                             </div>
                         </div>`;

@@ -11,7 +11,7 @@
     "goals": [
       {
         "value": 8,
-        "jitter": -0,
+        "jitter": 0,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
@@ -25,7 +25,8 @@
         "strokeLineCap": "round",
         "strokeColor": "#aaaaaa"
       }
-    ]
+    ],
+    "total": 301
   },
   {
     "x": "Woman (MtF)",
@@ -46,72 +47,72 @@
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 6.001712560388342,
-        "jitter": 0.0017125603883426212,
+        "value": 6.098754174721263,
+        "jitter": 0.09875417472126323,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 5.918338934456007,
-        "jitter": -0.08166106554399247,
+        "value": 6.06240330805488,
+        "jitter": 0.06240330805487997,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 5.920907828411867,
-        "jitter": -0.07909217158813305,
+        "value": 5.923291634725101,
+        "jitter": -0.0767083652748991,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 6.075301846799756,
-        "jitter": 0.07530184679975623,
+        "value": 5.9888327434641235,
+        "jitter": -0.011167256535876625,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 5.905509342850499,
-        "jitter": -0.09449065714950014,
+        "value": 5.933513889745659,
+        "jitter": -0.0664861102543407,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 5.9928585912338495,
-        "jitter": -0.007141408766150326,
+        "value": 6.027478779056813,
+        "jitter": 0.027478779056813507,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 5.931220120732114,
-        "jitter": -0.06877987926788653,
+        "value": 5.974414631460929,
+        "jitter": -0.025585368539071007,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 6.098872580002654,
-        "jitter": 0.09887258000265398,
+        "value": 6.010091525393476,
+        "jitter": 0.010091525393475999,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 5.927048093948555,
-        "jitter": -0.07295190605144546,
+        "value": 5.929299059571342,
+        "jitter": -0.0707009404286582,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
@@ -126,32 +127,32 @@
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 6.93075109332474,
-        "jitter": -0.06924890667526061,
+        "value": 7.080089648157328,
+        "jitter": 0.08008964815732765,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 7.035637911189588,
-        "jitter": 0.03563791118958775,
+        "value": 6.983297497917806,
+        "jitter": -0.01670250208219375,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 7.025643803109917,
-        "jitter": 0.025643803109916763,
+        "value": 6.903783524083803,
+        "jitter": -0.09621647591619725,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 6.999383610461929,
-        "jitter": -0.0006163895380709716,
+        "value": 6.97686224021965,
+        "jitter": -0.023137759780349754,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
@@ -166,24 +167,24 @@
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 7.975224096589423,
-        "jitter": -0.024775903410576117,
+        "value": 8.090150928130166,
+        "jitter": 0.09015092813016551,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 7.983100043911977,
-        "jitter": -0.016899956088023617,
+        "value": 8.00243220546117,
+        "jitter": 0.0024322054611711774,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 7.919673781496668,
-        "jitter": -0.08032621850333221,
+        "value": 8.040373898121386,
+        "jitter": 0.0403738981213859,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
@@ -198,8 +199,8 @@
         "strokeColor": "#aaaaaa"
       },
       {
-        "value": 8.937111428067277,
-        "jitter": -0.06288857193272245,
+        "value": 9.088377431925139,
+        "jitter": 0.0883774319251378,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
@@ -207,13 +208,14 @@
       },
       {
         "value": 10,
-        "jitter": -0,
+        "jitter": 0,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
         "strokeColor": "#aaaaaa"
       }
-    ]
+    ],
+    "total": 990
   },
   {
     "x": "Nonbinary",
@@ -227,12 +229,13 @@
     "goals": [
       {
         "value": 6,
-        "jitter": -0,
+        "jitter": 0,
         "strokeWidth": 4,
         "strokeHeight": 0,
         "strokeLineCap": "round",
         "strokeColor": "#aaaaaa"
       }
-    ]
+    ],
+    "total": 62
   }
 ]
