@@ -1,11 +1,12 @@
 ---
-description: Most popular modded Minecraft versions on Modrinth.
+title: Popularity of Modded Minecraft Versions
+description: Charts showing the number of mods for different Minecraft versions (on Modrinth).
 image: https://desiresaregrey.com/assets/misc/minecraft/thumb.png
 ---
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="../misc.js" data-path="../../assets/misc/minecraft/"></script>
 
-# Most Popular Modded Minecraft Versions
+# Popularity of Modded Minecraft Versions
 
 ## Modrinth
 
