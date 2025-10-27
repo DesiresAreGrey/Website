@@ -1,6 +1,18 @@
 const path = document.currentScript.dataset.path || "/assets/";
+const defaults = {
+    title: undefined,
+    subtitle: undefined,
+    units: undefined,
+    hideSeries: [],
+    colors: undefined,
+}
 
-function createColumnChart(chartId, dataUrl, title = undefined, subtitle = undefined, hideSeries = [], customColors = undefined, height = 500) {
+function createColumnChart(chartId, dataUrl, info = undefined, height = 500) {
+    const title = info?.title ?? defaults.title;
+    const subtitle = info?.subtitle ?? defaults.subtitle;
+    const units = ((info?.units ?? defaults.units) ? " " + (info?.units ?? defaults.units) : "");
+    const hideSeries = info?.hideSeries ?? defaults.hideSeries;
+    const colors = info?.colors ?? defaults.colors;
     fetch(path + dataUrl).then(response => response.json()).then(data => {
         hideSeries.forEach(index => {
             if (data.series[index]) {
@@ -48,7 +60,7 @@ function createColumnChart(chartId, dataUrl, title = undefined, subtitle = undef
                     formatter: (val, opts) => {
                         const total = opts.w.globals.stackedSeriesTotals[opts.dataPointIndex];
                         const pct = total ? ((val / total) * 100).toFixed(1) : 0;
-                        return `${val} respondents (${pct}%)`;
+                        return `${val} ${units} (${pct}%)`;
                     }
                 }
             },
@@ -81,7 +93,120 @@ function createColumnChart(chartId, dataUrl, title = undefined, subtitle = undef
                 mode: 'dark', 
                 palette: 'palette1',
             },
-            colors: customColors ?? colors
+            colors: colors
+        };
+        new ApexCharts(document.querySelector("#" + chartId), options).render();
+    });
+}
+
+function createRatioBarChart(chartId, dataUrl, info = undefined, height = 500) {
+    const title = info?.title ?? defaults.title;
+    const subtitle = info?.subtitle ?? defaults.subtitle;
+    const units = ((info?.units ?? defaults.units) ? " " + (info?.units ?? defaults.units) : "");
+    const hideSeries = info?.hideSeries ?? defaults.hideSeries;
+    const colors = info?.colors ?? defaults.colors;
+    fetch(path + dataUrl).then(response => response.json()).then(data => {
+        hideSeries.forEach(index => {
+            if (data.series[index]) {
+                data.series[index].hidden = true;
+            }
+        });
+        data.categories = data.categories;
+        const options = {
+            chart: {
+                type: 'bar',
+                height: height,
+                stacked: true,
+                stackType: '100%',
+                toolbar: { show: true },
+                background: '#090909',
+                fontFamily: 'Inter, Arial, sans-serif',
+                events: {
+                    mounted: (chartCtx) => apexMountedFix(chartCtx)
+                }
+            },
+            title: {
+                text: title,
+                align: 'center',
+                style: {
+                    fontSize:  '20px'
+                },
+            },
+            subtitle: {
+                text: subtitle?.replace("%generatedAt%", readableDateTime(data.generatedAt)),
+                align: 'center',
+                floating: true,
+                style: {
+                    fontSize:  '12px'
+                },
+            },
+            series: data.series,
+            xaxis: {
+                categories: data.categories,
+                show: false,
+                labels: {
+                    show: false
+                },
+                axisBorder: {
+                    show: false
+                },
+                axisTicks: {
+                    show: false
+                }
+            },
+            legend: {
+                position: 'bottom',
+                horizontalAlign: 'center'
+            },
+            tooltip: {
+                y: {
+                    formatter: (val, opts) => {
+                        const total = opts.w.globals.stackedSeriesTotals[opts.dataPointIndex];
+                        const pct = total ? ((val / total) * 100).toFixed(1) : 0;
+                        return `${val} ${units} (${pct}%)`;
+                    }
+                }
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: true,
+                    borderRadius: 3,
+                    borderRadiusApplication: 'end',
+                    barHeight: '90%'
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                dropShadow: {
+                    enabled: true,
+                    left: 0,
+                    top: 0,
+                    opacity: 0.5
+                }
+            },
+            grid: {
+                yaxis: {
+                    lines: { 
+                        show: false 
+                    }
+                }
+            },
+            states: {
+                active: {
+                    filter: {
+                        type: 'none',
+                    }
+                }
+            },
+            theme: {
+                mode: 'dark', 
+                palette: 'palette1',
+            },
+            stroke: {
+                colors: ['transparent'],
+                width: 3,    
+            },
+            colors: colors
         };
         new ApexCharts(document.querySelector("#" + chartId), options).render();
     });
