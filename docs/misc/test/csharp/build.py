@@ -21,4 +21,3 @@ try:
     print("Copied new _framework directory")
 except Exception as e:
     print(f"Error copying _framework directory: {e}")
-    os._exit(1)
