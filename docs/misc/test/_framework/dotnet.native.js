@@ -3474,10 +3474,6 @@ function createWasm() {
   }
   }
 
-  var ___syscall_fadvise64 = (fd, offset, len, advice) => {
-      return 0; // your advice is important to us (but we can't use it)
-    };
-
   function ___syscall_fcntl64(fd, cmd, varargs) {
   SYSCALLS.varargs = varargs;
   try {
@@ -3535,40 +3531,6 @@ function createWasm() {
   }
   }
 
-  function ___syscall_statfs64(path, size, buf) {
-  try {
-  
-      path = SYSCALLS.getStr(path);
-      // NOTE: None of the constants here are true. We're just returning safe and
-      //       sane values.
-      HEAP32[(((buf)+(4))>>2)] = 4096;
-      HEAP32[(((buf)+(40))>>2)] = 4096;
-      HEAP32[(((buf)+(8))>>2)] = 1000000;
-      HEAP32[(((buf)+(12))>>2)] = 500000;
-      HEAP32[(((buf)+(16))>>2)] = 500000;
-      HEAP32[(((buf)+(20))>>2)] = FS.nextInode;
-      HEAP32[(((buf)+(24))>>2)] = 1000000;
-      HEAP32[(((buf)+(28))>>2)] = 42;
-      HEAP32[(((buf)+(44))>>2)] = 2;  // ST_NOSUID
-      HEAP32[(((buf)+(36))>>2)] = 255;
-      return 0;
-    } catch (e) {
-    if (typeof FS == 'undefined' || !(e.name === 'ErrnoError')) throw e;
-    return -e.errno;
-  }
-  }
-  
-  function ___syscall_fstatfs64(fd, size, buf) {
-  try {
-  
-      var stream = SYSCALLS.getStreamFromFD(fd);
-      return ___syscall_statfs64(0, size, buf);
-    } catch (e) {
-    if (typeof FS == 'undefined' || !(e.name === 'ErrnoError')) throw e;
-    return -e.errno;
-  }
-  }
-
   var MAX_INT53 = 9007199254740992;
   
   var MIN_INT53 = -9007199254740992;
@@ -3602,56 +3564,6 @@ function createWasm() {
       if (size < cwdLengthInBytes) return -68;
       stringToUTF8(cwd, buf, size);
       return cwdLengthInBytes;
-    } catch (e) {
-    if (typeof FS == 'undefined' || !(e.name === 'ErrnoError')) throw e;
-    return -e.errno;
-  }
-  }
-
-  
-  function ___syscall_getdents64(fd, dirp, count) {
-  try {
-  
-      var stream = SYSCALLS.getStreamFromFD(fd)
-      stream.getdents ||= FS.readdir(stream.path);
-  
-      var struct_size = 280;
-      var pos = 0;
-      var off = FS.llseek(stream, 0, 1);
-  
-      var idx = Math.floor(off / struct_size);
-  
-      while (idx < stream.getdents.length && pos + struct_size <= count) {
-        var id;
-        var type;
-        var name = stream.getdents[idx];
-        if (name === '.') {
-          id = stream.node.id;
-          type = 4; // DT_DIR
-        }
-        else if (name === '..') {
-          var lookup = FS.lookupPath(stream.path, { parent: true });
-          id = lookup.node.id;
-          type = 4; // DT_DIR
-        }
-        else {
-          var child = FS.lookupNode(stream.node, name);
-          id = child.id;
-          type = FS.isChrdev(child.mode) ? 2 :  // DT_CHR, character device.
-                 FS.isDir(child.mode) ? 4 :     // DT_DIR, directory.
-                 FS.isLink(child.mode) ? 10 :   // DT_LNK, symbolic link.
-                 8;                             // DT_REG, regular file.
-        }
-        HEAP64[((dirp + pos)>>3)] = BigInt(id);
-        HEAP64[(((dirp + pos)+(8))>>3)] = BigInt((idx + 1) * struct_size);
-        HEAP16[(((dirp + pos)+(16))>>1)] = 280;
-        HEAP8[(dirp + pos)+(18)] = type;
-        stringToUTF8(name, dirp + pos + 19, 256);
-        pos += struct_size;
-        idx += 1;
-      }
-      FS.llseek(stream, idx * struct_size, 0);
-      return pos;
     } catch (e) {
     if (typeof FS == 'undefined' || !(e.name === 'ErrnoError')) throw e;
     return -e.errno;
@@ -4197,26 +4109,6 @@ function createWasm() {
       }
       return ret;
     };
-  
-  
-  function _fd_pread(fd, iov, iovcnt, offset, pnum) {
-    offset = bigintToI53Checked(offset);
-  
-    
-  try {
-  
-      if (isNaN(offset)) return 61;
-      var stream = SYSCALLS.getStreamFromFD(fd)
-      var num = doReadv(stream, iov, iovcnt, offset);
-      HEAPU32[((pnum)>>2)] = num;
-      return 0;
-    } catch (e) {
-    if (typeof FS == 'undefined' || !(e.name === 'ErrnoError')) throw e;
-    return e.errno;
-  }
-  ;
-  }
-
   
   function _fd_read(fd, iov, iovcnt, pnum) {
   try {
@@ -5080,19 +4972,13 @@ var wasmImports = {
   /** @export */
   __syscall_faccessat: ___syscall_faccessat,
   /** @export */
-  __syscall_fadvise64: ___syscall_fadvise64,
-  /** @export */
   __syscall_fcntl64: ___syscall_fcntl64,
   /** @export */
   __syscall_fstat64: ___syscall_fstat64,
   /** @export */
-  __syscall_fstatfs64: ___syscall_fstatfs64,
-  /** @export */
   __syscall_ftruncate64: ___syscall_ftruncate64,
   /** @export */
   __syscall_getcwd: ___syscall_getcwd,
-  /** @export */
-  __syscall_getdents64: ___syscall_getdents64,
   /** @export */
   __syscall_ioctl: ___syscall_ioctl,
   /** @export */
@@ -5139,8 +5025,6 @@ var wasmImports = {
   exit: _exit,
   /** @export */
   fd_close: _fd_close,
-  /** @export */
-  fd_pread: _fd_pread,
   /** @export */
   fd_read: _fd_read,
   /** @export */
@@ -5235,8 +5119,6 @@ var _memset = Module['_memset'] = (a0, a1, a2) => (_memset = Module['_memset'] =
 var _mono_aot_TestWasmLib_get_method = Module['_mono_aot_TestWasmLib_get_method'] = (a0) => (_mono_aot_TestWasmLib_get_method = Module['_mono_aot_TestWasmLib_get_method'] = wasmExports['mono_aot_TestWasmLib_get_method'])(a0);
 var _mono_aot_System_Console_get_method = Module['_mono_aot_System_Console_get_method'] = (a0) => (_mono_aot_System_Console_get_method = Module['_mono_aot_System_Console_get_method'] = wasmExports['mono_aot_System_Console_get_method'])(a0);
 var _mono_aot_System_Runtime_InteropServices_JavaScript_get_method = Module['_mono_aot_System_Runtime_InteropServices_JavaScript_get_method'] = (a0) => (_mono_aot_System_Runtime_InteropServices_JavaScript_get_method = Module['_mono_aot_System_Runtime_InteropServices_JavaScript_get_method'] = wasmExports['mono_aot_System_Runtime_InteropServices_JavaScript_get_method'])(a0);
-var _sin = Module['_sin'] = (a0) => (_sin = Module['_sin'] = wasmExports['sin'])(a0);
-var _cos = Module['_cos'] = (a0) => (_cos = Module['_cos'] = wasmExports['cos'])(a0);
 var _fmodf = Module['_fmodf'] = (a0, a1) => (_fmodf = Module['_fmodf'] = wasmExports['fmodf'])(a0, a1);
 var _mono_aot_corlib_get_method = Module['_mono_aot_corlib_get_method'] = (a0) => (_mono_aot_corlib_get_method = Module['_mono_aot_corlib_get_method'] = wasmExports['mono_aot_corlib_get_method'])(a0);
 var _mono_aot_aot_instances_get_method = Module['_mono_aot_aot_instances_get_method'] = (a0) => (_mono_aot_aot_instances_get_method = Module['_mono_aot_aot_instances_get_method'] = wasmExports['mono_aot_aot_instances_get_method'])(a0);
@@ -5257,12 +5139,14 @@ var _acos = Module['_acos'] = (a0) => (_acos = Module['_acos'] = wasmExports['ac
 var _acosh = Module['_acosh'] = (a0) => (_acosh = Module['_acosh'] = wasmExports['acosh'])(a0);
 var _atan = Module['_atan'] = (a0) => (_atan = Module['_atan'] = wasmExports['atan'])(a0);
 var _atanh = Module['_atanh'] = (a0) => (_atanh = Module['_atanh'] = wasmExports['atanh'])(a0);
+var _cos = Module['_cos'] = (a0) => (_cos = Module['_cos'] = wasmExports['cos'])(a0);
 var _cbrt = Module['_cbrt'] = (a0) => (_cbrt = Module['_cbrt'] = wasmExports['cbrt'])(a0);
 var _cosh = Module['_cosh'] = (a0) => (_cosh = Module['_cosh'] = wasmExports['cosh'])(a0);
 var _exp = Module['_exp'] = (a0) => (_exp = Module['_exp'] = wasmExports['exp'])(a0);
 var _log = Module['_log'] = (a0) => (_log = Module['_log'] = wasmExports['log'])(a0);
 var _log2 = Module['_log2'] = (a0) => (_log2 = Module['_log2'] = wasmExports['log2'])(a0);
 var _log10 = Module['_log10'] = (a0) => (_log10 = Module['_log10'] = wasmExports['log10'])(a0);
+var _sin = Module['_sin'] = (a0) => (_sin = Module['_sin'] = wasmExports['sin'])(a0);
 var _sinh = Module['_sinh'] = (a0) => (_sinh = Module['_sinh'] = wasmExports['sinh'])(a0);
 var _tan = Module['_tan'] = (a0) => (_tan = Module['_tan'] = wasmExports['tan'])(a0);
 var _tanh = Module['_tanh'] = (a0) => (_tanh = Module['_tanh'] = wasmExports['tanh'])(a0);
@@ -5375,7 +5259,6 @@ var _mono_wasm_gc_lock = Module['_mono_wasm_gc_lock'] = () => (_mono_wasm_gc_loc
 var _mono_wasm_gc_unlock = Module['_mono_wasm_gc_unlock'] = () => (_mono_wasm_gc_unlock = Module['_mono_wasm_gc_unlock'] = wasmExports['mono_wasm_gc_unlock'])();
 var _mono_print_method_from_ip = Module['_mono_print_method_from_ip'] = (a0) => (_mono_print_method_from_ip = Module['_mono_print_method_from_ip'] = wasmExports['mono_print_method_from_ip'])(a0);
 var _mono_wasm_execute_timer = Module['_mono_wasm_execute_timer'] = () => (_mono_wasm_execute_timer = Module['_mono_wasm_execute_timer'] = wasmExports['mono_wasm_execute_timer'])();
-var _mono_wasm_load_icu_data = Module['_mono_wasm_load_icu_data'] = (a0) => (_mono_wasm_load_icu_data = Module['_mono_wasm_load_icu_data'] = wasmExports['mono_wasm_load_icu_data'])(a0);
 var ___funcs_on_exit = () => (___funcs_on_exit = wasmExports['__funcs_on_exit'])();
 var _htons = Module['_htons'] = (a0) => (_htons = Module['_htons'] = wasmExports['htons'])(a0);
 var _emscripten_builtin_memalign = (a0, a1) => (_emscripten_builtin_memalign = wasmExports['emscripten_builtin_memalign'])(a0, a1);
