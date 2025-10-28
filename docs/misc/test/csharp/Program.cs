@@ -1,22 +1,21 @@
 using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.InteropServices.JavaScript;
 using System.Threading.Tasks;
 [assembly: System.Runtime.Versioning.SupportedOSPlatform("browser")] // vscode is actually stupid
 
 Console.WriteLine("Hello, Browser!");
 
-if (args.Length == 1 && args[0] == "start")
+if (args.ElementAtOrDefault(0) == "start")
     StopwatchSample.Start();
 
-while (true)
-{
+while (true) {
     StopwatchSample.Render();
     await Task.Delay(10);
 }
 
-partial class StopwatchSample
-{
+partial class StopwatchSample {
     private static Stopwatch stopwatch = new();
 
     public static void Start() => stopwatch.Start();
@@ -26,23 +25,19 @@ partial class StopwatchSample
     internal static partial void SetInnerText(string selector, string content);
 
     [JSExport]
-    internal static bool Toggle()
-    {
-        if (stopwatch.IsRunning)
-        {
+    internal static bool Toggle() {
+        if (stopwatch.IsRunning) {
             stopwatch.Stop();
             return false;
         }
-        else
-        {
+        else {
             stopwatch.Start();
             return true;
         }
     }
 
     [JSExport]
-    internal static void Reset()
-    {
+    internal static void Reset() {
         if (stopwatch.IsRunning)
             stopwatch.Restart();
         else
