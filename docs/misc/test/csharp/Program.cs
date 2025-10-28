@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices.JavaScript;
 using System.Threading.Tasks;
+[assembly: System.Runtime.Versioning.SupportedOSPlatform("browser")] // vscode is actually stupid
 
 Console.WriteLine("Hello, Browser!");
 
