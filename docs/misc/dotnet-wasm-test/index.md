@@ -1,7 +1,7 @@
 ---
-description: The default .NET WebAssembly Template
+description: Uses the default .NET WebAssembly Template
 ---
-# .NET WASM Test
+# .NET WebAssembly Test
 <script type='module' src="main.js"></script>
 
 <h3>Stopwatch</h3>
