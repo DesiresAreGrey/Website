@@ -114,5 +114,5 @@ A test of .NET/C# WebAssembly using the default template (stopwatch) that .NET c
     await runMain();
     ```
 
-    I set it up in a weird way that the C# project is in the website repo itself and then uses a python script to build and copy the output files to the right location so I don't have to manually copy over the compiled wasm every time I rebuild it.  
+    I set it up in a weird way that the C# project is in the website repo itself and then uses a python script to build and copy the output files to the right location so I don't have to manually copy over the compiled wasm every time I rebuild it. I guarantee nothing I did here is what people usually do when doing this stuff but I'll do anything to reduce how much JS I use.  
     [The code on GitHub](https://github.com/DesiresAreGrey/Website/tree/main/docs/misc/dotnet-wasm-test){ target="_blank" }
