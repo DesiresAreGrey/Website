@@ -8,16 +8,16 @@ os.system("dotnet publish -c Release")
 
 print("Build completed")
 
-if os.path.exists("../_framework"):
+if os.path.exists("../lib"):
     try:
-        shutil.rmtree("../_framework")
-        print("Removed existing _framework directory")
+        shutil.rmtree("../lib")
+        print("Removed existing lib directory")
     except Exception as e:
-        print(f"Error removing _framework directory: {e}")
+        print(f"Error removing lib directory: {e}")
         os._exit(1)
 
 try:
-    shutil.copytree("bin/Release/net10.0/publish/wwwroot/_framework", "../_framework")
-    print("Copied new _framework directory")
+    shutil.copytree("bin/Release/net10.0/publish/wwwroot", "../lib")
+    print("Copied new lib directory")
 except Exception as e:
-    print(f"Error copying _framework directory: {e}")
+    print(f"Error copying lib directory: {e}")

@@ -9,11 +9,18 @@
     <InvariantGlobalization>true</InvariantGlobalization>
     <BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>
     
+    <WasmFingerprintAssets>false</WasmFingerprintAssets>
+    <WasmEnableThreads>false</WasmEnableThreads>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <RunAOTCompilation>false</RunAOTCompilation>
+    <PublishTrimmed>false</PublishTrimmed>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <RunAOTCompilation>true</RunAOTCompilation>
     <PublishTrimmed>true</PublishTrimmed>
     <TrimMode>full</TrimMode>
-    
-    <WasmFingerprintAssets>false</WasmFingerprintAssets>
-    <WasmEnableThreads>false</WasmEnableThreads>
   </PropertyGroup>
 </Project>
