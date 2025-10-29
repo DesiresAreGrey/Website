@@ -3,7 +3,7 @@ description: Uses the default .NET WebAssembly Template
 ---
 # .NET WebAssembly Test
 
-Simple test of a .NET/C# WebAssembly thingy using the default template (stopwatch) that dotnet comes with but like adapted for my site and stuff
+A test of .NET/C# WebAssembly using the default template (stopwatch) that .NET comes with but like adapted for my site and stuff
 
 <script type='module' src="main.js"></script>
 <h3>Stopwatch</h3>
