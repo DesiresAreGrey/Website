@@ -165,21 +165,39 @@
 }
 
 /* Button */
+button {
+  border: .1rem solid;
+  padding: 0.4em 1em;
+  border-radius: 100vh;
+  margin-right: 0.1rem;
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color) !important;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 200ms ease !important;
+  text-align: center;
+  font-size: 16px;
+}
+button:hover {
+  background-color: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+  color: #fff !important;
+}
+
 .big-button {
-    border: .1rem solid;
-    padding: 0.4em 1em;
-    border-radius: 100vh;
-    margin-right: 0.1rem;
-    border-color: var(--md-primary-fg-color);
-    color: var(--md-primary-fg-color) !important;
-    cursor: pointer;
-    display: block;
-    width: 100%;
-    font-weight: 700;
-    transition: all 200ms ease !important;
-    text-align: center;
-    padding: 0.5rem;
-    font-size: 20px;
+  border: .1rem solid;
+  border-radius: 100vh;
+  margin-right: 0.1rem;
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color) !important;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  transition: all 200ms ease !important;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 20px;
 }
 .big-button:focus,
 .big-button:hover {
