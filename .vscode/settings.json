@@ -1,5 +1,28 @@
 {
   "path-autocomplete.pathMappings": {
-    "/": "${folder}/docs"
+    "/": {
+      "conditions": [
+        {
+          "when": "**/docs/**",
+          "value": "${folder}/docs"
+        },
+        {
+          "when": "**/mkdocs.yml",
+          "value": "${folder}/docs"
+        }
+      ]
+    },
+    "$root": {
+      "conditions": [
+        {
+          "when": "**/docs/**",
+          "value": "${folder}/docs"
+        },
+        {
+          "when": "**/mkdocs.yml",
+          "value": "${folder}/docs"
+        }
+      ]
+    }
   }
 }
