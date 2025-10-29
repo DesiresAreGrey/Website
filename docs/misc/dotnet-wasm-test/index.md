@@ -17,7 +17,7 @@ A test of .NET/C# WebAssembly using the default template (stopwatch) that .NET c
 
 ??? info "Info/Code"
 
-    [The tutorial thing I followed](https://andrewlock.net/running-dotnet-in-the-browser-without-blazor/){ target="_blank" }
+    [The tutorial/documentation I followed](https://learn.microsoft.com/en-us/aspnet/core/client-side/dotnet-interop/wasm-browser-app?view=aspnetcore-10.0){ target="_blank" }
 
     When creating a new C# project in VS2026 (crazy that theres finally a new VS version), theres an options to create a WebAssembly Browser App which generates a bunch of random stuff but the focus is the C# and the javascript that loads the stuff in the compiled C# wasm. I cleaned up the C# code a bit cause I didn't like how it was by default. idk why I'm spending so much time/effort on this but maybe its the autism and my hatred of javascript
 
