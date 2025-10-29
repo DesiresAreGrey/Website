@@ -43,7 +43,7 @@ A test of .NET/C# WebAssembly using the default template (stopwatch) that .NET c
         private static readonly Stopwatch stopwatch = new();
 
         public static void Start() => stopwatch.Start();
-        public static void Render() => SetInnerText("#time", stopwatch.Elapsed.ToString(@"mm\:ss\:fff"));
+        public static void Render() => SetInnerText("#time", stopwatch.Elapsed.ToString(@"mm\:ss\.fff"));
 
         [JSImport("dom.setInnerText", "main.js")]
         internal static partial void SetInnerText(string selector, string content);
