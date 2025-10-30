@@ -4,7 +4,7 @@ description: Charts showing the number of mods for different Minecraft versions 
 image: https://desiresaregrey.com/assets/misc/minecraft/thumb.png
 ---
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script src="../misc.js" data-path="../../assets/misc/minecraft/"></script>
+<script src="../misc.js?v={{ now() }}" data-path="../../assets/misc/minecraft/"></script>
 
 # Popularity of Modded Minecraft Versions
 

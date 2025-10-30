@@ -29,6 +29,7 @@ markdown_extensions:
   - pymdownx.details
 plugins:
   - mkdocs-video
+  - macros
   - glightbox:
       touchNavigation: true
       loop: false
@@ -50,6 +51,11 @@ plugins:
         '4transurvey2025/4.md': 'surveys/4tran2025/4.md'
         '4transurvey2025/jealouscat.md': 'surveys/4tran2025/jealouscat.md'
         '4transurvey2025/ratgirltwink.md': 'surveys/4tran2025/ratgirltwink.md'
+  - minify:
+      minify_css: true
+      cache_safe: true
+      css_files:
+        - stylesheets/extra.css
 extra:
   generator: false
   analytics:

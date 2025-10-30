@@ -25,7 +25,7 @@ h1 {
     border: .1rem solid;
     border-color: var(--md-primary-fg-color);
     border-radius: 2rem;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
     text-decoration: none;
     transition: all 0.25s ease;
     box-shadow: 0 0 10px rgba(150, 100, 255, 0.1);
@@ -45,6 +45,7 @@ h1 {
 }
 
 .survey-card h2 {
+    margin-top: 0;
     margin-bottom: 0;
     color: #dcc0ffff;
     font-size: 1.25rem;
@@ -56,8 +57,15 @@ h1 {
     text-shadow: 0 0 4px #00000050;
 }
 
+.survey-card .date {
+    color: #816da5ff;
+    font-size: 0.8rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
 .survey-card p {
-    color: #9f86ccff;
+    margin-bottom: 0.1rem;
+    color: #b298e2ff;
     font-size: 0.9rem;
     font-variation-settings: 'wght' 350;
     transition: all 200ms ease !important;
@@ -72,7 +80,8 @@ h1 {
     <div class="card-grid">
         <a class="survey-card" href="4tran2025">
             <h2>The 2025 4tran Survey</h2>
-            <p>Conducted from September 30th to October 6th 2025 for the users of 4tran related communities</p>
+            <p class="date">September 30 – October 6, 2025</p>
+            <p>Results and analysis of a survey conducted across various 4tran communities</p>
         </a>
     </div>
 </div>
