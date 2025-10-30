@@ -43,6 +43,11 @@ plugins:
        - no-lb
       auto_caption: false
       caption_position: bottom
+  - minify:
+      minify_css: true
+      cache_safe: true
+      css_files:
+        - stylesheets/extra.css
   - redirects:
       redirect_maps:
         '4transurvey2025/index.md': 'surveys/4tran2025/index.md'
@@ -51,11 +56,6 @@ plugins:
         '4transurvey2025/4.md': 'surveys/4tran2025/4.md'
         '4transurvey2025/jealouscat.md': 'surveys/4tran2025/jealouscat.md'
         '4transurvey2025/ratgirltwink.md': 'surveys/4tran2025/ratgirltwink.md'
-  - minify:
-      minify_css: true
-      cache_safe: true
-      css_files:
-        - stylesheets/extra.css
 extra:
   generator: false
   analytics:
