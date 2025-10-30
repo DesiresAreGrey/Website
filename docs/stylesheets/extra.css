@@ -358,7 +358,7 @@ input::-webkit-inner-spin-button {
   transform: none !important;
   width: 24px;
   height: 24px;
-  background: center / contain no-repeat url("/assets/svg/download.svg");
+  background: center / contain no-repeat url("../assets/svg/download.svg");
   transition: opacity 200ms ease;
 }
 .apexcharts-toolbar .apexcharts-menu-icon:hover {

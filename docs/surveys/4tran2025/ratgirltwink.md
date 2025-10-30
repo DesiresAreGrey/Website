@@ -20,13 +20,12 @@ image: https://desiresaregrey.com/assets/survey2025/thumb.png
 <h6 style="margin: 0 0.2rem">Ratgirltwink's Analysis</h6>
 
 <div class="nav-links">
-  <a href="/4transurvey2025/">Page 1</a> - 
-  <a href="/4transurvey2025/2">Page 2</a> - 
-  <a href="/4transurvey2025/3">Page 3</a> - 
-  <a href="/4transurvey2025/4">Page 4</a> - 
-  <!--<a href="/4transurvey2025/amekyras">Amekyras</a> - -->
-  <a href="/4transurvey2025/jealouscat">Jealous Cat</a> - 
-  <a href="/4transurvey2025/ratgirltwink" class="active">Ratgirltwink</a>
+  <a href="../">Page 1</a> - 
+  <a href="../2">Page 2</a> - 
+  <a href="../3">Page 3</a> - 
+  <a href="../4">Page 4</a> - 
+  <a href="../jealouscat">Jealous Cat</a> - 
+  <a href="../ratgirltwink" class="active">Ratgirltwink</a>
 </div>
 
 <p>
@@ -64,8 +63,8 @@ I also added semipassoids to the passoid category who said they feel as if they 
 <p style="font-size: 12px; color: #888">You can click on charts to expand them!</p>
 
 <div class="button-container">
-  <img alt="predictors_women" src="/assets/survey2025/img/ratgirltwink/predictors_women.png">
-  <img alt="predictors_men" src="/assets/survey2025/img/ratgirltwink/predictors_men.png">
+  <img alt="predictors_women" src="../../../assets/survey2025/img/ratgirltwink/predictors_women.png">
+  <img alt="predictors_men" src="../../../assets/survey2025/img/ratgirltwink/predictors_men.png">
 </div>
 
 It seems that for Men, the biggest contributing factor to passing is time on HRT. Whereas for Women, it’s whether you are a youngshit, or have surgeries.
@@ -73,8 +72,8 @@ It seems that for Men, the biggest contributing factor to passing is time on HRT
 ### Height vs Passing level
 
 <div class="button-container">
-  <img alt="height_graph_women" src="/assets/survey2025/img/ratgirltwink/height_graph_women.png">
-  <img alt="height_graph_men" src="/assets/survey2025/img/ratgirltwink/height_graph_men.png">
+  <img alt="height_graph_women" src="../../../assets/survey2025/img/ratgirltwink/height_graph_women.png">
+  <img alt="height_graph_men" src="../../../assets/survey2025/img/ratgirltwink/height_graph_men.png">
 </div>
 
 The graph for men doesn’t look smooth. This is probably because there is only 200 responses from men, making the graph less consistent.
@@ -82,8 +81,8 @@ The graph for men doesn’t look smooth. This is probably because there is only 
 ### Time on HRT vs Passing Level
 
 <div class="button-container">
-  <img alt="timeonhrt_graph" src="/assets/survey2025/img/ratgirltwink/timeonhrt_graph.png">
-  <img alt="timeonhrtnys_graph" src="/assets/survey2025/img/ratgirltwink/timeonhrtnys_graph.png">
+  <img alt="timeonhrt_graph" src="../../../assets/survey2025/img/ratgirltwink/timeonhrt_graph.png">
+  <img alt="timeonhrtnys_graph" src="../../../assets/survey2025/img/ratgirltwink/timeonhrtnys_graph.png">
 </div>
 
 Seems like after 3 years, 50% of people become Passoids. After 5 years, 75% become passoids.
@@ -98,7 +97,7 @@ For these graphs, I will only look at Minimum height preferences for Women, and 
 
 <div class="button-container">
   <div>
-    <img alt="height_pref_graph_women" src="/assets/survey2025/img/ratgirltwink/height_pref_graph_women.png">
+    <img alt="height_pref_graph_women" src="../../../assets/survey2025/img/ratgirltwink/height_pref_graph_women.png">
     <p>The median height preferences for Women (inches):</p>
     <ul>
       <li>Straight: 5’6”</li>
@@ -108,7 +107,7 @@ For these graphs, I will only look at Minimum height preferences for Women, and 
     </ul>
   </div>
   <div>
-    <img alt="height_pref_graph_men" src="/assets/survey2025/img/ratgirltwink/height_pref_graph_men.png">
+    <img alt="height_pref_graph_men" src="../../../assets/survey2025/img/ratgirltwink/height_pref_graph_men.png">
     <p>The median height preferences for Men (inches):</p>
     <ul>
       <li>Straight: 5’11”</li>
@@ -128,8 +127,8 @@ This was a requested graph. The user wanted to see how many years on HRT the ave
 ### Effect of sexuality on passing
 
 <div class="button-container">
-  <img alt="predictors_women_sexuality" src="/assets/survey2025/img/ratgirltwink/predictors_women_sexuality.png">
-  <img alt="predictors_men_sexuality" src="/assets/survey2025/img/ratgirltwink/predictors_men_sexuality.png">
+  <img alt="predictors_women_sexuality" src="../../../assets/survey2025/img/ratgirltwink/predictors_women_sexuality.png">
+  <img alt="predictors_men_sexuality" src="../../../assets/survey2025/img/ratgirltwink/predictors_men_sexuality.png">
 </div>
 
 Hsts > agp lol

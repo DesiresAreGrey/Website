@@ -31,7 +31,7 @@ image: https://desiresaregrey.com/assets/survey2025/thumb.png
 <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-<script src="4transurvey2025.js" data-path="../assets/survey2025/results/"></script>
+<script src="4transurvey2025.js" data-path="../../assets/survey2025/results/"></script>
 <!-- js is gonna make me 41 :( -->
 
 # The 2025 4tran Survey
@@ -40,13 +40,12 @@ image: https://desiresaregrey.com/assets/survey2025/thumb.png
 The basic survey results are separated into 4 pages, plus several community members each have their own page going over their more advanced analyses
 
 <div class="nav-links">
-  <a href="/4transurvey2025/" class="active">Page 1</a> - 
-  <a href="/4transurvey2025/2">Page 2</a> - 
-  <a href="/4transurvey2025/3">Page 3</a> - 
-  <a href="/4transurvey2025/4">Page 4</a> - 
-  <!--<a href="/4transurvey2025/amekyras">Amekyras</a> -  -->
-  <a href="/4transurvey2025/jealouscat">Jealous Cat</a> - 
-  <a href="/4transurvey2025/ratgirltwink">Ratgirltwink</a>
+  <a href="" class="active">Page 1</a> - 
+  <a href="2">Page 2</a> - 
+  <a href="3">Page 3</a> - 
+  <a href="4">Page 4</a> - 
+  <a href="jealouscat">Jealous Cat</a> - 
+  <a href="ratgirltwink">Ratgirltwink</a>
 </div>
 
 Here are some of the results of the survey I conducted from September 30th to October 6th 2025! Some of you may remember that a year ago I ran a bunch of polls over the few months I've been posting on r/4tran4, and then in November I went through all the polls and compiled all the results into a [document](https://www.reddit.com/r/4tran4/comments/1gi24vt/the_desiresaregrey_poll_report_november/){ target="_blank" }. I remember being a bit frustrated since I wasn't good at figuring out how to do charts and whatever and so I just put everything into excel and pasted the outputted images into a google doc lol. I had since wanted to do a survey but I was lazy and didn't wanna go through all that trouble, but a few days ago I kinda felt like finally making that survey I've been wanting to make for months.
@@ -61,7 +60,7 @@ Its heavily recommended you view this site on desktop! The charts are interactiv
 
 <div style="text-align: center">
   <video style="width: 80%;" autoplay muted loop playsinline disablePictureInPicture>
-    <source src="/assets/survey2025/img/interactive_charts.mp4" type="video/mp4">
+    <source src="../../assets/survey2025/img/interactive_charts.mp4" type="video/mp4">
   </video>
   <p style="font-size: 12px; color: #888; margin-top: -0.25rem;">Interactive Charts!</p>
 </div>
@@ -192,7 +191,7 @@ So yeah...check to see how where your height lands compared to the participants 
 <script>
   (function () {
     let HEIGHT_STATS = null;
-    fetch("/assets/survey2025/results/height_mean_sd.json").then((r) => r.json()).then((rows) => {
+    fetch("../../assets/survey2025/results/height_mean_sd.json").then((r) => r.json()).then((rows) => {
         HEIGHT_STATS = Object.fromEntries(rows.map((r) => [r.Gender, { mean: r.Mean, sd: r.SD }]));
         update();
     }).catch(() => { });
