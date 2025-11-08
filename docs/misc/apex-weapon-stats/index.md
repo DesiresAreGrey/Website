@@ -30,7 +30,7 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     text-align: center;
     margin-top: 0.75em;
     font-size: 1.25em;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.125);
     margin-bottom: 0;
     font-variation-settings: 'wght' 650;
     color: #ccc;
@@ -51,7 +51,7 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     display: flex;
     justify-content: space-between;
     padding: 0.25rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.125);
     font-size: 0.75rem;
   }
   .stat .label { 
@@ -359,7 +359,7 @@ ___
       <span class="label">Max Headshot Distance</span>
       <span class="value" id="max-headshot-distance">-</span>
     </div>
-    <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+    <div style="border-bottom: 1px solid rgba(255,255,255,0.125);">
       <h3 style="border-bottom: none;">Projectile Damage</h3>
       <div style="font-size: 0.5rem; opacity: 0.7; margin-top: 0; display: flex; align-items: center; justify-content: center;">Body / Head / Limb</div>
     </div>
@@ -386,7 +386,7 @@ ___
         <label class="noselect"><input id="damage-distance-very-far-tab" class="vh" type="radio" name="damage-distance">Very Far</label>
       </div>
     </form>
-    <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+    <div style="border-bottom: 1px solid rgba(255,255,255,0.125);">
       <h3 style="border-bottom: none;">Shot Damage</h3>
       <div style="font-size: 0.5rem; opacity: 0.7; margin-top: 0; display: flex; align-items: center; justify-content: center;">Body / Head / Limb</div>
     </div>
@@ -413,25 +413,42 @@ ___
         <label class="noselect"><input id="shot-damage-distance-very-far-tab" class="vh" type="radio" name="shot-damage-distance">Very Far</label>
       </div>
     </form>
-    <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-      <h3 style="border-bottom: none;">DPS</h3>
-      <div style="font-size: 0.5rem; opacity: 0.7; margin-top: 0; display: flex; align-items: center; justify-content: center;">Body / Head / Limb</div>
+    <h3>DPS</h3>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Base [Body]</span>
+      <span class="value" id="dps-base-body">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Base [Head]</span>
+      <span class="value" id="dps-base-head">-</span>
     </div>
     <div class="stat">
-      <span class="label">Base</span>
-      <span class="value" id="dps-amount">-</span>
+      <span class="label">Base [Limb]</span>
+      <span class="value" id="dps-base-limb">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Flesh [Body]</span>
+      <span class="value" id="dps-flesh-body">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Flesh [Head]</span>
+      <span class="value" id="dps-flesh-head">-</span>
     </div>
     <div class="stat">
-      <span class="label">Flesh</span>
-      <span class="value" id="dps-flesh">-</span>
+      <span class="label">Flesh [Limb]</span>
+      <span class="value" id="dps-flesh-limb">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Shield [Body]</span>
+      <span class="value" id="dps-shield-body">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Shield [Head]</span>
+      <span class="value" id="dps-shield-head">-</span>
     </div>
     <div class="stat">
-      <span class="label">Shield</span>
-      <span class="value" id="dps-shield">-</span>
-    </div>
-    <div class="stat">
-      <span class="label">Critical Hit</span>
-      <span class="value" id="dps-critical">-</span>
+      <span class="label">Shield [Limb]</span>
+      <span class="value" id="dps-shield-limb">-</span>
     </div>
     <form class="tabs">
       <div class="toggle">
