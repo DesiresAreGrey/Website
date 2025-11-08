@@ -92,22 +92,33 @@ function onModeChange(column) {
     column.querySelector("#ammo-type").textContent = column.mode.Ammo.Type;
     
     column.querySelector("#magazine-size").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, column.weapon.IsMythic, "Epic");
+
+    column.querySelector("#firing-mode").textContent = column.mode.Firing.FireMode;
+
+    column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, x => Math.round(x * 60));
+
+
 }
 
 
-function rarityFormat(value, isMythic = false, highestRarity = undefined) {
+function rarityFormat(value, isMythic = false, highestRarity = undefined, operation = x => x) {
     const order = ['Base', 'Common', 'Rare', 'Epic', 'Legendary', 'Mythic'];
     const stopIndex = order.indexOf(highestRarity) >= 0 ? order.indexOf(highestRarity) : order.length - 1;
+    const totalRarities = Object.keys(value).length;
+
     const rarities = [];
 
-    if (isMythic && Object.keys(value).length == 1)
-        return `<span style="color:var(--mythic);">${value["Base"]}</span>`;
-    
+    if (isMythic && totalRarities == 1)
+        return `<span style="color:var(--mythic);">${operation(value["Base"])}</span>`;
+
+    if (totalRarities == 1)
+        return `<span>${operation(value["Base"])}</span>`;
+
     for (let i = 0; i <= stopIndex; i++) {
         const rarity = order[i];
         const val = value[rarity];
         if (val != null) {
-            rarities.push(`<span style="color:var(--${rarity.toLowerCase()});">${val}</span>`);
+            rarities.push(`<span style="color:var(--${rarity.toLowerCase()});">${operation(val)}</span>`);
         }
     }
 
