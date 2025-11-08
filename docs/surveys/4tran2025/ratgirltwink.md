@@ -120,7 +120,7 @@ For these graphs, I will only look at Minimum height preferences for Women, and 
 
 ### Age when HRT was started vs Current age
 
-![startingage_graph](/assets/survey2025/img/ratgirltwink/startingage_graph.png)
+![startingage_graph](../../assets/survey2025/img/ratgirltwink/startingage_graph.png)
 
 This was a requested graph. The user wanted to see how many years on HRT the average person is depending on their age.
 
