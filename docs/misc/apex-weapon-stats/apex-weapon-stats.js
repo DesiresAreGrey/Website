@@ -206,7 +206,7 @@ function onModeChange(column) {
         column.querySelector("#max-headshot-distance").previousElementSibling.innerHTML = "Max Headshot Distance <span class=\"label-subtitle\">HAMMER</span>";
     }
 
-    // Damage
+    // Projectile Damage
 
     const damageDistanceNear = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.Near * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.Near + "h";
     const damageDistanceFar = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.Far * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.Far + "h";
@@ -235,8 +235,6 @@ function onModeChange(column) {
     else {
         column.querySelector("#damage-distance-very-far-tab").parentElement.style.display = "none";
     }
-    
-
 
     function damageDistanceTabChanged() {
         let baseDamage = column.mode.Firing.Shot.Damage.Amount.Near;
@@ -247,8 +245,6 @@ function onModeChange(column) {
             baseDamage = column.mode.Firing.Shot.Damage.Amount.Far;
         else if (column.querySelector("#damage-distance-very-far-tab").checked)
             baseDamage = column.mode.Firing.Shot.Damage.Amount.VeryFar;
-
-
 
         const headMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Head ?? 1;
         const legMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Leg ?? 1;
@@ -269,6 +265,66 @@ function onModeChange(column) {
 
     damageDistanceTabChanged();
     column.querySelectorAll('input[name="damage-distance"]').forEach(input => input.onchange = damageDistanceTabChanged);
+
+    // Projectile Damage
+
+    const shotDamageDistanceNear = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.Near * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.Near + "h";
+    const shotDamageDistanceFar = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.Far * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.Far + "h";
+    const shotDamageDistanceVeryFar = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.VeryFar * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.VeryFar + "h";
+
+    console.log(column.mode.Firing.Shot.Damage.Distance.Near);
+
+    if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
+        column.querySelector("#shot-damage-distance-near-tab").nextSibling.textContent = "Any Distance";
+    }
+    else {
+        column.querySelector("#shot-damage-distance-near-tab").nextSibling.textContent = shotDamageDistanceNear;
+    }
+
+    if (column.mode.Firing.Shot.Damage.Amount.Far != null) {
+        column.querySelector("#shot-damage-distance-far-tab").parentElement.style.display = "block";
+        column.querySelector("#shot-damage-distance-far-tab").nextSibling.textContent = shotDamageDistanceFar;
+    }
+    else {
+        column.querySelector("#shot-damage-distance-far-tab").parentElement.style.display = "none";
+    }
+    if (column.mode.Firing.Shot.Damage.Amount.VeryFar != null) {
+        column.querySelector("#shot-damage-distance-very-far-tab").parentElement.style.display = "block";
+        column.querySelector("#shot-damage-distance-very-far-tab").nextSibling.textContent = shotDamageDistanceVeryFar;
+    }
+    else {
+        column.querySelector("#shot-damage-distance-very-far-tab").parentElement.style.display = "none";
+    }
+
+    function shotDamageDistanceTabChanged() {
+        let baseDamage = column.mode.Firing.Shot.Damage.Amount.Near;
+    
+        if (column.querySelector("#shot-damage-distance-near-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Projectiles *column.mode.Firing.Shot.Damage.Amount.Near;
+        else if (column.querySelector("#shot-damage-distance-far-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Far;
+        else if (column.querySelector("#shot-damage-distance-very-far-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.VeryFar;
+
+        const headMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Head ?? 1;
+        const legMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Leg ?? 1;
+
+        const fleshMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Flesh ?? 1;
+        const shieldMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Shield ?? 1;
+
+        const critHitMultiplier = column.mode.Firing.Shot.Damage.Multipliers.CriticalHit ?? 1;
+
+        column.querySelector("#shot-damage-amount").textContent = `${baseDamage} / ${(headMultiplier * baseDamage).toFixed(2) / 1} / ${(legMultiplier * baseDamage).toFixed(2) / 1}`;
+
+        column.querySelector("#shot-damage-flesh").textContent = `${baseDamage * fleshMultiplier} / ${(headMultiplier * baseDamage * fleshMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * fleshMultiplier).toFixed(2) / 1}`;
+
+        column.querySelector("#shot-damage-shield").textContent = `${baseDamage * shieldMultiplier} / ${(headMultiplier * baseDamage * shieldMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * shieldMultiplier).toFixed(2) / 1}`;
+
+        column.querySelector("#shot-damage-critical").textContent = `${(baseDamage * critHitMultiplier).toFixed(2) / 1} / ${(headMultiplier * baseDamage * critHitMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * critHitMultiplier).toFixed(2) / 1}`;
+    }
+
+    shotDamageDistanceTabChanged();
+    column.querySelectorAll('input[name="shot-damage-distance"]').forEach(input => input.onchange = shotDamageDistanceTabChanged);
 
     // Projectile Size
 
