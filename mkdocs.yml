@@ -71,6 +71,9 @@ extra:
 extra_css:
   - stylesheets/extra.css
 
+exclude_docs: |
+  csharp/
+
 nav:
   - Home: 'index.md'
   - Surveys:
