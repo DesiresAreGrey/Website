@@ -30,14 +30,17 @@
     margin-bottom: 0;
     font-variation-settings: 'wght' 650;
     color: #ccc;
-    transition: all 200ms ease;
+    transition: none;
   }
 
   .dropdowns {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    transition: all 200ms ease;
+  }
+
+  .dropdowns .dropdown {
+    transition: none !important;
   }
 
   .stat {
@@ -46,17 +49,14 @@
     padding: 0.25rem 0;
     border-bottom: 1px solid rgba(255,255,255,0.1);
     font-size: 0.75rem;
-    transition: all 200ms ease;
   }
   .stat .label { 
     color: #aaa;
-    transition: all 200ms ease;
   }
 
   .stat .value { 
     color: #fff;
     font-weight: 500;
-    transition: all 200ms ease;
   }
 
   @media (max-width: 640px) {
@@ -83,7 +83,7 @@
     }
   }
 
-  @container (max-width: 340px) {
+  @container (max-width: 280px) {
     .dropdown {
       font-size: 16px;
     }
@@ -131,7 +131,6 @@
     width: calc(50% - 2px); 
     border-radius: 100vh;
     background: var(--md-primary-fg-color);
-    transition: all 0.3s;
   }
   .toggleCheckbox:checked + .toggleContainer::before {
     transform: translateX(100%);
@@ -201,15 +200,6 @@ ___
 
 <div style="margin: -0.5rem 0; gap: 1rem;">
   <div class="side">
-    <div class="label">Display Converted Values</div>
-    <input type="checkbox" id="toggle" class="toggleCheckbox" />
-    <label for="toggle" class='toggleContainer'>
-      <div class="noselect">Converted</div>   
-      <div class="noselect">Respawn</div>
-    </label>
-  </div>
-  <div style="height: 1rem;"></div>
-  <div class="side">
     <div class="label">Columns</div>
     <input type="checkbox" id="toggle" class="toggleCheckbox" />
     <div class="side">
@@ -217,6 +207,15 @@ ___
       <p id="column-count" class="noselect" style="margin: 0; font-size: 0.9rem;">2</p>
       <a id="increase-columns" class="big-button circle-button noselect">+</a>
     </div>
+  </div>
+  <div style="height: 1rem;"></div>
+  <div class="side">
+    <div class="label">Display Converted Values</div>
+    <input type="checkbox" id="toggle" class="toggleCheckbox" />
+    <label for="toggle" class='toggleContainer'>
+      <div class="noselect">Converted</div>   
+      <div class="noselect">Respawn</div>
+    </label>
   </div>
 </div>
 
