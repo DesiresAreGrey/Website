@@ -2,18 +2,13 @@
 
 const seasons = [];
 
-await loadSeasons();
 await new Promise(resolve => document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", resolve) : resolve());
 
+updateColumnButtonStyles(false);
+
+let numColumns = 2;
 const comparison = document.querySelector(".comparison");
 const columntemplate = document.getElementById("column-template").cloneNode(true);
-let numColumns = 2;
-
-const convertedValuesToggle = document.getElementById("converted-values-toggle");
-function usingConvertedValues() {
-    return !convertedValuesToggle.checked;
-}
-
 document.getElementById("column-template").remove();
 for (let i = 0; i < numColumns; i++) {
     const clone = columntemplate.cloneNode(true);
@@ -21,10 +16,18 @@ for (let i = 0; i < numColumns; i++) {
     comparison.appendChild(clone);
 }
 
+await loadSeasons();
+
+const convertedValuesToggle = document.getElementById("converted-values-toggle");
+function usingConvertedValues() {
+    return !convertedValuesToggle.checked;
+}
+
 const columns = document.querySelectorAll(".column");
 for (const column of columns) {
     setupColumn(column);
 }
+updateColumnButtonStyles();
 
 document.getElementById("decrease-columns").onclick = e => {
     if (numColumns > 1) {
@@ -44,8 +47,8 @@ document.getElementById("increase-columns").onclick = e => {
     updateColumnButtonStyles();
 };
 
-function updateColumnButtonStyles() {
-if (numColumns >= 5) {
+function updateColumnButtonStyles(loaded = true) {
+    if (numColumns >= 5 || !loaded) {
         document.getElementById("increase-columns").style.opacity = "0.5";
         document.getElementById("increase-columns").style.cursor = "default";
         document.getElementById("increase-columns").style.pointerEvents = "none";
@@ -55,7 +58,8 @@ if (numColumns >= 5) {
         document.getElementById("increase-columns").style.cursor = "pointer";
         document.getElementById("increase-columns").style.pointerEvents = "auto";
     }
-    if (numColumns > 1) {
+
+    if (numColumns > 1 && loaded) {
         document.getElementById("decrease-columns").style.opacity = "1";
         document.getElementById("decrease-columns").style.cursor = "pointer";
         document.getElementById("decrease-columns").style.pointerEvents = "auto";
