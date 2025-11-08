@@ -273,6 +273,23 @@ ___
       <span class="label">Max Headshot Distance</span>
       <span class="value" id="max-headshot-distance">-</span>
     </div>
+    <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+      <h3 style="border-bottom: none;">Damage</h3>
+      <div style="font-size: 0.5rem; opacity: 0.7; margin-top: 0; display: flex; align-items: center; justify-content: center;">Body / Head / Limb</div>
+    </div>
+    <div class="stat">
+      <span class="label">Base</span>
+      <span class="value" id="damage-amount">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Flesh</span>
+      <span class="value" id="damage-flesh">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Shield</span>
+      <span class="value" id="damage-shield">-</span>
+    </div>
+
     <h3>Projectile Size</h3>
     <div class="stat">
       <span class="label">Initial Size</span>

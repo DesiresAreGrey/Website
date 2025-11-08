@@ -140,11 +140,13 @@ function onWeaponChange(column) {
 }
 
 function onModeChange(column) {
-    console.log(column.weapon);
+    // Ammo
 
     column.querySelector("#ammo-type").textContent = column.mode.Ammo.Type ?? "-";
     
     column.querySelector("#magazine-size").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, column.weapon.IsMythic, "Epic");
+
+    // Firing
 
     column.querySelector("#firing-mode").textContent = column.mode.Firing.FireMode ?? "-";
 
@@ -173,6 +175,8 @@ function onModeChange(column) {
         column.querySelector("#rechamber-time").parentElement.style.display = "none";
     }
 
+    // Shot
+
     column.querySelector("#projectiles-per-shot").textContent = column.mode.Firing.Shot.Projectiles ?? "-";
 
     column.querySelector("#ammo-consumed").textContent = column.mode.Firing.Shot.AmmoConsumed ?? "-";
@@ -198,6 +202,24 @@ function onModeChange(column) {
         column.querySelector("#max-headshot-distance").textContent = column.mode.Firing.Shot.MaxHeadshotDistance ?? "-";
         column.querySelector("#max-headshot-distance").previousElementSibling.innerHTML = "Max Headshot Distance <span style=\"font-size: 0.5rem; opacity: 0.7;\">HAMMER</span>";
     }
+
+    // Damage
+
+    const baseDamage = column.mode.Firing.Shot.Damage.Amount.Near;
+
+    const headMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Head ?? 1;
+    const legMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Leg ?? 1;
+
+    const fleshMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Flesh ?? 1;
+    const shieldMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Shield ?? 1;
+
+    column.querySelector("#damage-amount").textContent = `${baseDamage} / ${(headMultiplier * baseDamage).toFixed(2) / 1} / ${(legMultiplier * baseDamage).toFixed(2) / 1}`;
+
+    column.querySelector("#damage-flesh").textContent = `${baseDamage * fleshMultiplier} / ${(headMultiplier * baseDamage * fleshMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * fleshMultiplier).toFixed(2) / 1}`;
+
+    column.querySelector("#damage-shield").textContent = `${baseDamage * shieldMultiplier} / ${(headMultiplier * baseDamage * shieldMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * shieldMultiplier).toFixed(2) / 1}`;
+
+    // Projectile Size
 
     column.querySelector("#initial-size").textContent = column.mode.Firing.Shot.ProjectileSize.InitialSize ?? "-";
 
