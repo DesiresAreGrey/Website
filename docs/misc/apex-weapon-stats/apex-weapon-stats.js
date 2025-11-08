@@ -50,23 +50,19 @@ document.getElementById("increase-columns").onclick = e => {
 function updateColumnButtonStyles(loaded = true) {
     if (numColumns >= 5 || !loaded) {
         document.getElementById("increase-columns").style.opacity = "0.5";
-        document.getElementById("increase-columns").style.cursor = "default";
         document.getElementById("increase-columns").style.pointerEvents = "none";
     }
     else {
         document.getElementById("increase-columns").style.opacity = "1";
-        document.getElementById("increase-columns").style.cursor = "pointer";
         document.getElementById("increase-columns").style.pointerEvents = "auto";
     }
 
     if (numColumns > 1 && loaded) {
         document.getElementById("decrease-columns").style.opacity = "1";
-        document.getElementById("decrease-columns").style.cursor = "pointer";
         document.getElementById("decrease-columns").style.pointerEvents = "auto";
     }
     else {
         document.getElementById("decrease-columns").style.opacity = "0.5";
-        document.getElementById("decrease-columns").style.cursor = "default";
         document.getElementById("decrease-columns").style.pointerEvents = "none";
     }
 }

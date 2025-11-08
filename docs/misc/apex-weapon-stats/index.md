@@ -275,9 +275,9 @@ ___
   <div class="side">
     <div class="label">Columns</div>
     <div class="side">
-      <a id="decrease-columns" class="big-button circle-button noselect">-</a>
+      <a id="decrease-columns" class="big-button circle-button noselect" style="opacity: 0.5; pointer-events: none;">-</a>
       <p id="column-count" class="noselect" style="margin: 0; font-size: 0.9rem;">2</p>
-      <a id="increase-columns" class="big-button circle-button noselect">+</a>
+      <a id="increase-columns" class="big-button circle-button noselect" style="opacity: 0.5; pointer-events: none;">+</a>
     </div>
   </div>
   <div style="height: 0.5rem;"></div>
