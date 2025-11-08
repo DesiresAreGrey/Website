@@ -1,22 +1,11 @@
 const seasons = [];
 
-async function loadSeasons() {
-    const files = await(await fetch('../../assets/misc/apex-weapon-stats/data/_index.json')).json();
-
-    for (const file of files) {
-        const json = await (await fetch(`/assets/misc/apex-weapon-stats/data/${file}`)).json();
-        seasons.push(json);
-    }
-
-    seasons.sort((a, b) => new Date(b.GeneratedDate) - new Date(a.GeneratedDate));
-}
-
 await loadSeasons();
 await new Promise(resolve => document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", resolve) : resolve());
 
 const comparison = document.querySelector(".comparison");
 const columntemplate = document.getElementById("column-template").cloneNode(true);
-const numColumns = 2;
+let numColumns = 2;
 
 document.getElementById("column-template").remove();
 for (let i = 0; i < numColumns; i++) {
@@ -27,6 +16,64 @@ for (let i = 0; i < numColumns; i++) {
 
 const columns = document.querySelectorAll(".column");
 for (const column of columns) {
+    setupColumn(column);
+}
+
+document.getElementById("decrease-columns").onclick = e => {
+    if (numColumns > 1) {
+        numColumns--;
+        removeColumn();
+        document.getElementById("column-count").textContent = numColumns;
+    }
+    updateColumnButtonStyles();
+};
+
+document.getElementById("increase-columns").onclick = e => {
+    if (numColumns < 5) {
+        numColumns++;
+        addColumn();
+        document.getElementById("column-count").textContent = numColumns;
+    }
+    updateColumnButtonStyles();
+};
+
+function updateColumnButtonStyles() {
+if (numColumns >= 5) {
+        document.getElementById("increase-columns").style.opacity = "0.5";
+        document.getElementById("increase-columns").style.cursor = "default";
+        document.getElementById("increase-columns").style.pointerEvents = "none";
+    }
+    else {
+        document.getElementById("increase-columns").style.opacity = "1";
+        document.getElementById("increase-columns").style.cursor = "pointer";
+        document.getElementById("increase-columns").style.pointerEvents = "auto";
+    }
+    if (numColumns > 1) {
+        document.getElementById("decrease-columns").style.opacity = "1";
+        document.getElementById("decrease-columns").style.cursor = "pointer";
+        document.getElementById("decrease-columns").style.pointerEvents = "auto";
+    }
+    else {
+        document.getElementById("decrease-columns").style.opacity = "0.5";
+        document.getElementById("decrease-columns").style.cursor = "default";
+        document.getElementById("decrease-columns").style.pointerEvents = "none";
+    }
+}
+
+function addColumn() {
+    const clone = columntemplate.cloneNode(true);
+    clone.id = `column-${numColumns}`;
+    comparison.appendChild(clone);
+
+    setupColumn(clone);
+}
+
+function removeColumn() {
+    const columns = document.querySelectorAll(".column");
+    columns[columns.length - 1].remove();
+}
+
+function setupColumn(column) {
     const seasonDropdown = column.querySelector(".season-dropdown");
     const weaponDropdown = column.querySelector(".weapon-dropdown");
     const modeDropdown = column.querySelector(".mode-dropdown");
@@ -123,4 +170,16 @@ function rarityFormat(value, isMythic = false, highestRarity = undefined, operat
     }
 
     return rarities.join(' / ');
+}
+
+
+async function loadSeasons() {
+    const files = await(await fetch('../../assets/misc/apex-weapon-stats/data/_index.json')).json();
+
+    for (const file of files) {
+        const json = await (await fetch(`/assets/misc/apex-weapon-stats/data/${file}`)).json();
+        seasons.push(json);
+    }
+
+    seasons.sort((a, b) => new Date(b.GeneratedDate) - new Date(a.GeneratedDate));
 }

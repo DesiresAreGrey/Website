@@ -110,16 +110,119 @@
       font-size: 0.75rem;
     }
   }
+
+  .toggleContainer {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: fit-content;
+    border: .1rem solid var(--md-primary-fg-color);
+    border-radius: 100vh;
+    font-weight: bold;
+    cursor: pointer;
+    height: 40px; 
+  }
+  .toggleContainer::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    bottom: 2px;
+    width: calc(50% - 2px); 
+    border-radius: 100vh;
+    background: var(--md-primary-fg-color);
+    transition: all 0.3s;
+  }
+  .toggleCheckbox:checked + .toggleContainer::before {
+    transform: translateX(100%);
+  }
+  .toggleContainer div {
+    padding: 4px 16px;
+    text-align: center;
+    z-index: 1;
+  }
+  .toggleCheckbox {
+    display: none;
+  }
+  .toggleCheckbox:checked + .toggleContainer div:first-child {
+    color: var(--md-primary-fg-color);
+    transition: color 0.3s;
+  }
+  .toggleCheckbox:checked + .toggleContainer div:last-child {
+    color: white;
+    transition: color 0.3s;
+  }
+  .toggleCheckbox + .toggleContainer div:first-child {
+    color: white;
+    transition: color 0.3s;
+  }
+  .toggleCheckbox + .toggleContainer div:last-child {
+    color: var(--md-primary-fg-color);
+    transition: color 0.3s;
+  }
+
+  .side {
+    display: flex;
+    justify-content: space-between;
+  }
+  .side .label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .side label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .side p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .circle-button {
+    padding: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    aspect-ratio: 1 / 1;
+    font-size: 1.3rem;
+    font-weight: 500;
+    border: 0;
+    background: transparent !important;
+  }
 </style>
 
 test
 
 ___
 
+<div style="margin: -0.5rem 0; gap: 1rem;">
+  <div class="side">
+    <div class="label">Display Converted Values</div>
+    <input type="checkbox" id="toggle" class="toggleCheckbox" />
+    <label for="toggle" class='toggleContainer'>
+      <div class="noselect">Converted</div>   
+      <div class="noselect">Respawn</div>
+    </label>
+  </div>
+  <div style="height: 1rem;"></div>
+  <div class="side">
+    <div class="label">Columns</div>
+    <input type="checkbox" id="toggle" class="toggleCheckbox" />
+    <div class="side">
+      <a id="decrease-columns" class="big-button circle-button noselect">-</a>
+      <p id="column-count" class="noselect" style="margin: 0; font-size: 0.9rem;">2</p>
+      <a id="increase-columns" class="big-button circle-button noselect">+</a>
+    </div>
+  </div>
+</div>
 
+___
 
 <div class="comparison">
-
   <div class="column" id="column-template">
     <div class="dropdowns">
       <select class="dropdown season-dropdown" style="width: 100%;"><option value="">Season</option></select>
