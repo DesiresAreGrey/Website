@@ -87,5 +87,29 @@ function onWeaponChange(column) {
 }
 
 function onModeChange(column) {
-    console.log(column.mode);
+    console.log(column.weapon);
+
+    column.querySelector("#ammo-type").textContent = column.mode.Ammo.Type;
+    
+    column.querySelector("#magazine-size").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, column.weapon.IsMythic, "Epic");
+}
+
+
+function rarityFormat(value, isMythic = false, highestRarity = undefined) {
+    const order = ['Base', 'Common', 'Rare', 'Epic', 'Legendary', 'Mythic'];
+    const stopIndex = order.indexOf(highestRarity) >= 0 ? order.indexOf(highestRarity) : order.length - 1;
+    const rarities = [];
+
+    if (isMythic && Object.keys(value).length == 1)
+        return `<span style="color:var(--mythic);">${value["Base"]}</span>`;
+    
+    for (let i = 0; i <= stopIndex; i++) {
+        const rarity = order[i];
+        const val = value[rarity];
+        if (val != null) {
+            rarities.push(`<span style="color:var(--${rarity.toLowerCase()});">${val}</span>`);
+        }
+    }
+
+    return rarities.join(' / ');
 }
