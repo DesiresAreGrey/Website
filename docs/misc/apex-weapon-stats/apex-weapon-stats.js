@@ -4,9 +4,9 @@ const seasons = [];
 
 await new Promise(resolve => document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", resolve) : resolve());
 
-updateColumnButtonStyles(false);
-
 let numColumns = 2;
+
+updateColumnButtonStyles(false);
 const comparison = document.querySelector(".comparison");
 const columntemplate = document.getElementById("column-template").cloneNode(true);
 document.getElementById("column-template").remove();
