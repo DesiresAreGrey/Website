@@ -63,58 +63,6 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     font-weight: 500;
   }
 
-  @media (max-width: 640px) {
-    .column h3 {
-      font-size: 1.1rem;
-    }
-
-    .stat {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 0.4rem 0;
-      font-size: 0.8rem;
-    }
-    .stat .label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      opacity: 0.8;
-      margin-bottom: 0.15rem;
-    }
-    .stat .value {
-      text-align: left;
-      font-size: 0.9rem;
-    }
-  }
-
-  @container (max-width: 280px) {
-    .dropdown {
-      font-size: 16px;
-    }
-
-    .column h3 {
-      font-size: 0.95rem;
-    }
-
-    .stat {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 0.25rem 0;
-      font-size: 0.65rem;
-    }
-    .stat .label {
-      font-size: 0.55rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      opacity: 0.8;
-      margin-bottom: 0;
-    }
-    .stat .value {
-      text-align: left;
-      font-size: 0.75rem;
-    }
-  }
-
   .toggleContainer {
     position: relative;
     display: grid;
@@ -174,6 +122,10 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     align-items: center;
     justify-content: center;
   }
+  .label .label-subtitle {
+    font-size: 0.5rem;
+    opacity: 0.7;
+  }
   .side label {
     display: flex;
     align-items: center;
@@ -201,16 +153,17 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
   .tabs .toggle {
     display: flex; 
     justify-content: center; 
-    gap: 0.5rem; 
+    gap: 0.25rem; 
     align-items: flex-end;
     margin: 0.5rem 0 1rem;
   }
 
   .tabs .toggle label {
     position: relative;
-    padding: 0.1rem 0.5rem; 
+    padding: 0 0.35rem; 
     cursor: pointer;
     font-variation-settings: 'wght' 400;
+    font-size: 0.75rem;
     opacity: 0.69;
     transition: opacity 200ms ease, color 200ms ease, font-variation-settings 200ms ease;
   }
@@ -248,6 +201,72 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     background: var(--md-primary-fg-color);
     transform: scaleX(1);
   }
+  
+  @media (max-width: 640px) {
+    .column h3 {
+      font-size: 1.1rem;
+    }
+
+    .stat {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0.4rem 0;
+      font-size: 0.8rem;
+    }
+    .stat .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.8;
+      margin-bottom: 0.15rem;
+    }
+    .label .label-subtitle {
+      font-size: 0.45rem;
+    }
+    .stat .value {
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    .tabs .toggle label {
+      font-size: 0.65rem;
+    }
+  }
+
+  @container (max-width: 280px) {
+    .dropdown {
+      font-size: 16px;
+    }
+
+    .column h3 {
+      font-size: 0.95rem;
+    }
+
+    .stat {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0.25rem 0;
+      font-size: 0.65rem;
+    }
+    .stat .label {
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.8;
+      margin-bottom: 0;
+    }
+    .label .label-subtitle {
+      font-size: 0.45rem;
+    }
+    .stat .value {
+      text-align: left;
+      font-size: 0.75rem;
+    }
+
+    .tabs .toggle label {
+      font-size: 0.6rem;
+    }
+  }
 </style>
 
 ___
@@ -263,7 +282,7 @@ ___
   </div>
   <div style="height: 0.5rem;"></div>
   <div class="side">
-    <div class="label">Display Converted Values</div>
+    <div class="label">Units</div>
     <input type="checkbox" id="converted-values-toggle" class="toggleCheckbox" />
     <label for="converted-values-toggle" class='toggleContainer'>
       <div class="noselect">Converted</div>   
@@ -350,9 +369,9 @@ ___
     </div>
     <form class="tabs">
       <div class="toggle">
-        <label class="noselect"><input id="damage-distance-near-tab" class="vh" type="radio" name="damage-distance" checked>Near</label>
-        <label class="noselect"><input id="damage-distance-far-tab" class="vh" type="radio" name="damage-distance">Far</label>
-        <label class="noselect"><input id="damage-distance-very-far-tab" class="vh" type="radio" name="damage-distance">Very Far</label>
+        <label class="noselect"><input id="damage-distance-near-tab" class="vh" type="radio" name="damage-distance" checked>100m</label>
+        <label class="noselect"><input id="damage-distance-far-tab" class="vh" type="radio" name="damage-distance">200m</label>
+        <label class="noselect"><input id="damage-distance-very-far-tab" class="vh" type="radio" name="damage-distance">300m</label>
       </div>
     </form>
 

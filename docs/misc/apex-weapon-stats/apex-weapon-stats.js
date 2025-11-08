@@ -8,6 +8,9 @@ const columntemplate = document.getElementById("column-template").cloneNode(true
 let numColumns = 2;
 
 const convertedValuesToggle = document.getElementById("converted-values-toggle");
+function usingConvertedValues() {
+    return !convertedValuesToggle.checked;
+}
 
 document.getElementById("column-template").remove();
 for (let i = 0; i < numColumns; i++) {
@@ -150,24 +153,24 @@ function onModeChange(column) {
 
     column.querySelector("#firing-mode").textContent = column.mode.Firing.FireMode ?? "-";
 
-    if (!convertedValuesToggle.checked) {
+    if (usingConvertedValues()) {
         column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             if (column.mode.Firing.RechamberTime?.[key] != null)
                 x = 1 / Math.max(1 / x, column.mode.Firing.RechamberTime[key]);
             return Math.round(x * 60);
         });
-        column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span style=\"font-size: 0.5rem; opacity: 0.7;\">RPM</span>";
+        column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span class=\"label-subtitle\">RPM</span>";
     }
     else {
         column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic);
-        column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span style=\"font-size: 0.5rem; opacity: 0.7;\">RPS</span>";
+        column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span class=\"label-subtitle\">RPS</span>";
     }
 
-    if (convertedValuesToggle.checked && column.mode.Firing.RechamberTime != null) {
+    if (!usingConvertedValues() && column.mode.Firing.RechamberTime != null) {
         column.querySelector("#rechamber-time").innerHTML = rarityFormat(column.mode.Firing.RechamberTime, column.weapon.IsMythic);
         column.querySelector("#rechamber-time").parentElement.style.display = "flex";
     }
-    else if (convertedValuesToggle.checked && column.mode.Firing.RechamberTime == null) {
+    else if (!usingConvertedValues() && column.mode.Firing.RechamberTime == null) {
         column.querySelector("#rechamber-time").textContent = "-";
         column.querySelector("#rechamber-time").parentElement.style.display = "flex";
     }
@@ -181,47 +184,86 @@ function onModeChange(column) {
 
     column.querySelector("#ammo-consumed").textContent = column.mode.Firing.Shot.AmmoConsumed ?? "-";
 
-    if (!convertedValuesToggle.checked) {
-        column.querySelector("#projectile-speed").textContent = column.mode.Firing.Shot.Speed != null ? (column.mode.Firing.Shot.Speed * 0.0254).toFixed(2) / 1 : "-";
-        column.querySelector("#projectile-speed").previousElementSibling.innerHTML = "Projectile Speed <span style=\"font-size: 0.5rem; opacity: 0.7;\">M/S</span>";
+    if (usingConvertedValues()) {
+        column.querySelector("#projectile-speed").textContent = column.mode.Firing.Shot.Speed != null ? (column.mode.Firing.Shot.Speed * 0.0254).toFixed(1) / 1 : "-";
+        column.querySelector("#projectile-speed").previousElementSibling.innerHTML = "Projectile Speed <span class=\"label-subtitle\">M/S</span>";
     }
     else {
         column.querySelector("#projectile-speed").textContent = column.mode.Firing.Shot.Speed ?? "-";
-        column.querySelector("#projectile-speed").previousElementSibling.innerHTML = "Projectile Speed <span style=\"font-size: 0.5rem; opacity: 0.7;\">H/S</span>";
+        column.querySelector("#projectile-speed").previousElementSibling.innerHTML = "Projectile Speed <span class=\"label-subtitle\">H/S</span>";
     }
     
     column.querySelector("#drag-coefficient").textContent = column.mode.Firing.Shot.DragCoefficient ?? "-";
 
     column.querySelector("#gravity-multiplier").textContent = column.mode.Firing.Shot.GravityMultiplier ?? "-";
 
-    if (!convertedValuesToggle.checked) {
-        column.querySelector("#max-headshot-distance").textContent = column.mode.Firing.Shot.MaxHeadshotDistance != null ? (column.mode.Firing.Shot.MaxHeadshotDistance * 0.0254).toFixed(2) / 1 : "-";
-        column.querySelector("#max-headshot-distance").previousElementSibling.innerHTML = "Max Headshot Distance <span style=\"font-size: 0.5rem; opacity: 0.7;\">METER</span>";
+    if (usingConvertedValues()) {
+        column.querySelector("#max-headshot-distance").textContent = column.mode.Firing.Shot.MaxHeadshotDistance != null ? (column.mode.Firing.Shot.MaxHeadshotDistance * 0.0254).toFixed(1) / 1 : "-";
+        column.querySelector("#max-headshot-distance").previousElementSibling.innerHTML = "Max Headshot Distance <span class=\"label-subtitle\">METER</span>";
     }
     else {
         column.querySelector("#max-headshot-distance").textContent = column.mode.Firing.Shot.MaxHeadshotDistance ?? "-";
-        column.querySelector("#max-headshot-distance").previousElementSibling.innerHTML = "Max Headshot Distance <span style=\"font-size: 0.5rem; opacity: 0.7;\">HAMMER</span>";
+        column.querySelector("#max-headshot-distance").previousElementSibling.innerHTML = "Max Headshot Distance <span class=\"label-subtitle\">HAMMER</span>";
     }
 
     // Damage
 
-    const baseDamage = column.mode.Firing.Shot.Damage.Amount.Near;
+    const damageDistanceNear = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.Near * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.Near + "h";
+    const damageDistanceFar = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.Far * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.Far + "h";
+    const damageDistanceVeryFar = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.VeryFar * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.VeryFar + "h";
 
-    const headMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Head ?? 1;
-    const legMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Leg ?? 1;
+    console.log(column.mode.Firing.Shot.Damage.Distance.Near);
 
-    const fleshMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Flesh ?? 1;
-    const shieldMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Shield ?? 1;
+    column.querySelector("#damage-distance-near-tab").nextSibling.textContent = damageDistanceNear;
 
-    const critHitMultiplier = column.mode.Firing.Shot.Damage.Multipliers.CriticalHit ?? 1;
+    if (column.mode.Firing.Shot.Damage.Amount.Far != null) {
+        column.querySelector("#damage-distance-far-tab").parentElement.style.display = "block";
+        column.querySelector("#damage-distance-far-tab").nextSibling.textContent = damageDistanceFar;
+    }
+    else {
+        column.querySelector("#damage-distance-far-tab").parentElement.style.display = "none";
+    }
+    if (column.mode.Firing.Shot.Damage.Amount.VeryFar != null) {
+        column.querySelector("#damage-distance-very-far-tab").parentElement.style.display = "block";
+        column.querySelector("#damage-distance-very-far-tab").nextSibling.textContent = damageDistanceVeryFar;
+    }
+    else {
+        column.querySelector("#damage-distance-very-far-tab").parentElement.style.display = "none";
+    }
+    
 
-    column.querySelector("#damage-amount").textContent = `${baseDamage} / ${(headMultiplier * baseDamage).toFixed(2) / 1} / ${(legMultiplier * baseDamage).toFixed(2) / 1}`;
 
-    column.querySelector("#damage-flesh").textContent = `${baseDamage * fleshMultiplier} / ${(headMultiplier * baseDamage * fleshMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * fleshMultiplier).toFixed(2) / 1}`;
+    function damageDistanceTabChanged() {
+        let baseDamage = column.mode.Firing.Shot.Damage.Amount.Near;
+    
+        if (column.querySelector("#damage-distance-near-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Damage.Amount.Near;
+        else if (column.querySelector("#damage-distance-far-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Damage.Amount.Far;
+        else if (column.querySelector("#damage-distance-very-far-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Damage.Amount.VeryFar;
 
-    column.querySelector("#damage-shield").textContent = `${baseDamage * shieldMultiplier} / ${(headMultiplier * baseDamage * shieldMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * shieldMultiplier).toFixed(2) / 1}`;
 
-    column.querySelector("#damage-critical").textContent = `${(baseDamage * critHitMultiplier).toFixed(2) / 1} / ${(headMultiplier * baseDamage * critHitMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * critHitMultiplier).toFixed(2) / 1}`;
+
+        const headMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Head ?? 1;
+        const legMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Leg ?? 1;
+
+        const fleshMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Flesh ?? 1;
+        const shieldMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Shield ?? 1;
+
+        const critHitMultiplier = column.mode.Firing.Shot.Damage.Multipliers.CriticalHit ?? 1;
+
+        column.querySelector("#damage-amount").textContent = `${baseDamage} / ${(headMultiplier * baseDamage).toFixed(2) / 1} / ${(legMultiplier * baseDamage).toFixed(2) / 1}`;
+
+        column.querySelector("#damage-flesh").textContent = `${baseDamage * fleshMultiplier} / ${(headMultiplier * baseDamage * fleshMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * fleshMultiplier).toFixed(2) / 1}`;
+
+        column.querySelector("#damage-shield").textContent = `${baseDamage * shieldMultiplier} / ${(headMultiplier * baseDamage * shieldMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * shieldMultiplier).toFixed(2) / 1}`;
+
+        column.querySelector("#damage-critical").textContent = `${(baseDamage * critHitMultiplier).toFixed(2) / 1} / ${(headMultiplier * baseDamage * critHitMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * critHitMultiplier).toFixed(2) / 1}`;
+    }
+
+    damageDistanceTabChanged();
+    column.querySelectorAll('input[name="damage-distance"]').forEach(input => input.onchange = damageDistanceTabChanged);
 
     // Projectile Size
 
@@ -233,7 +275,7 @@ function onModeChange(column) {
     }
     else {
         column.querySelector("#step-1").textContent = column.mode.Firing.Shot.ProjectileSize.Step1?.Size ?? "-";
-        column.querySelector("#step-1").previousElementSibling.innerHTML = `Step 1 <span style="font-size: 0.55rem; opacity: 0.75;">${column.mode.Firing.Shot.ProjectileSize.Step1.Time}sec</span>`;
+        column.querySelector("#step-1").previousElementSibling.innerHTML = `Step 1 <span class="label-subtitle">${column.mode.Firing.Shot.ProjectileSize.Step1.Time}sec</span>`;
     }
 
     if (column.mode.Firing.Shot.ProjectileSize.Step2 == null) {
@@ -242,7 +284,7 @@ function onModeChange(column) {
     }
     else {
         column.querySelector("#step-2").textContent = column.mode.Firing.Shot.ProjectileSize.Step2?.Size ?? "-";
-        column.querySelector("#step-2").previousElementSibling.innerHTML = `Step 2 <span style="font-size: 0.55rem; opacity: 0.75;">${column.mode.Firing.Shot.ProjectileSize.Step2.Time}sec</span>`;
+        column.querySelector("#step-2").previousElementSibling.innerHTML = `Step 2 <span class="label-subtitle">${column.mode.Firing.Shot.ProjectileSize.Step2.Time}sec</span>`;
     }
 
     if (column.mode.Firing.Shot.ProjectileSize.Final == null) {
@@ -251,7 +293,7 @@ function onModeChange(column) {
     }
     else {
         column.querySelector("#final-step").textContent = column.mode.Firing.Shot.ProjectileSize.Final?.Size ?? "-";
-        column.querySelector("#final-step").previousElementSibling.innerHTML = `Final Step <span style="font-size: 0.55rem; opacity: 0.75;">${column.mode.Firing.Shot.ProjectileSize.Final.Time}sec</span>`;
+        column.querySelector("#final-step").previousElementSibling.innerHTML = `Final Step <span class="label-subtitle">${column.mode.Firing.Shot.ProjectileSize.Final.Time}sec</span>`;
     }
     
 
