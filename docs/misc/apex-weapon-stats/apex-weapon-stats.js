@@ -106,11 +106,11 @@ function setupColumn(column) {
 
     modeDropdown.onchange = e => {
         column.mode = column.weapon.WeaponModes[e.target.value];
-        onModeChange(column);
+        updateWeaponStats(column);
     };
 
     convertedValuesToggle.addEventListener('change', e => {
-        onModeChange(column);
+        updateWeaponStats(column);
     });
 
     seasonDropdown.dispatchEvent(new Event('change'));
@@ -144,7 +144,7 @@ function onWeaponChange(column) {
     modeDropdown.dispatchEvent(new Event('change'));
 }
 
-function onModeChange(column) {
+function updateWeaponStats(column) {
     // Ammo
 
     column.querySelector("#ammo-type").textContent = column.mode.Ammo.Type ?? "-";
@@ -159,8 +159,8 @@ function onModeChange(column) {
         column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             if (column.mode.Firing.RechamberTime?.[key] != null)
                 x = 1 / Math.max(1 / x, column.mode.Firing.RechamberTime[key]);
-            if (column.mode.Firing.BurstCount > 1)
-                x = column.mode.Firing.BurstCount / ((column.mode.Firing.BurstCount) / x + column.mode.Firing.BurstDelay);
+            else if (column.mode.Firing.BurstCount > 1)
+                x = column.mode.Firing.BurstCount / (column.mode.Firing.BurstCount / x + column.mode.Firing.BurstDelay);
             return Math.round(x * 60);
         });
         column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span class=\"label-subtitle\">RPM</span>";
@@ -268,6 +268,14 @@ function onModeChange(column) {
     else {
         column.querySelector("#damage-distance-very-far-tab").parentElement.style.display = "none";
     }
+    
+    const headMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Head ?? 1;
+    const legMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Leg ?? 1;
+
+    const fleshMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Flesh ?? 1;
+    const shieldMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Shield ?? 1;
+
+    const critHitMultiplier = column.mode.Firing.Shot.Damage.Multipliers.CriticalHit ?? 1;
 
     function damageDistanceTabChanged() {
         let baseDamage = column.mode.Firing.Shot.Damage.Amount.Near;
@@ -278,14 +286,6 @@ function onModeChange(column) {
             baseDamage = column.mode.Firing.Shot.Damage.Amount.Far;
         else if (column.querySelector("#damage-distance-very-far-tab").checked)
             baseDamage = column.mode.Firing.Shot.Damage.Amount.VeryFar;
-
-        const headMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Head ?? 1;
-        const legMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Leg ?? 1;
-
-        const fleshMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Flesh ?? 1;
-        const shieldMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Shield ?? 1;
-
-        const critHitMultiplier = column.mode.Firing.Shot.Damage.Multipliers.CriticalHit ?? 1;
 
         column.querySelector("#damage-amount").textContent = `${baseDamage} / ${(headMultiplier * baseDamage).toFixed(2) / 1} / ${(legMultiplier * baseDamage).toFixed(2) / 1}`;
 
@@ -338,14 +338,6 @@ function onModeChange(column) {
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Far;
         else if (column.querySelector("#shot-damage-distance-very-far-tab").checked)
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.VeryFar;
-
-        const headMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Head ?? 1;
-        const legMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Leg ?? 1;
-
-        const fleshMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Flesh ?? 1;
-        const shieldMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Shield ?? 1;
-
-        const critHitMultiplier = column.mode.Firing.Shot.Damage.Multipliers.CriticalHit ?? 1;
 
         column.querySelector("#shot-damage-amount").textContent = `${baseDamage} / ${(headMultiplier * baseDamage).toFixed(2) / 1} / ${(legMultiplier * baseDamage).toFixed(2) / 1}`;
 
