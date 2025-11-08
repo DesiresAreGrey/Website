@@ -244,5 +244,9 @@ ___
       <span class="label">Firerate</span>
       <span class="value" id="firerate">-</span>
     </div>
+    <div class="stat">
+      <span class="label">Rechamber Time</span>
+      <span class="value" id="rechamber-time">-</span>
+    </div>
   </div>
 </div>

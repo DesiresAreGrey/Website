@@ -149,7 +149,11 @@ function onModeChange(column) {
     column.querySelector("#firing-mode").textContent = column.mode.Firing.FireMode;
 
     if (!convertedValuesToggle.checked){
-        column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, x => Math.round(x * 60));
+        column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            if (column.mode.Firing.RechamberTime?.[key] != null)
+                x = 1 / Math.max(1 / x, column.mode.Firing.RechamberTime[key]);
+            return Math.round(x * 60);
+        });
         column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span style=\"font-size: 0.5rem; opacity: 0.7;\">RPM</span>";
     }
     else {
@@ -157,6 +161,17 @@ function onModeChange(column) {
         column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span style=\"font-size: 0.5rem; opacity: 0.7;\">RPS</span>";
     }
 
+    if (convertedValuesToggle.checked && column.mode.Firing.RechamberTime != null) {
+        column.querySelector("#rechamber-time").innerHTML = rarityFormat(column.mode.Firing.RechamberTime, column.weapon.IsMythic);
+        column.querySelector("#rechamber-time").parentElement.style.display = "flex";
+    }
+    else if (convertedValuesToggle.checked && column.mode.Firing.RechamberTime == null) {
+        column.querySelector("#rechamber-time").textContent = "-";
+        column.querySelector("#rechamber-time").parentElement.style.display = "flex";
+    }
+    else {
+        column.querySelector("#rechamber-time").parentElement.style.display = "none";
+    }
 }
 
 
@@ -168,16 +183,16 @@ function rarityFormat(value, isMythic = false, highestRarity = undefined, operat
     const rarities = [];
 
     if (isMythic && totalRarities == 1)
-        return `<span style="color:var(--mythic);">${operation(value["Base"])}</span>`;
+        return `<span style="color:var(--mythic);">${operation(value["Base"], "Base")}</span>`;
 
     if (totalRarities == 1)
-        return `<span>${operation(value["Base"])}</span>`;
+        return `<span>${operation(value["Base"], "Base")}</span>`;
 
     for (let i = 0; i <= stopIndex; i++) {
         const rarity = order[i];
         const val = value[rarity];
         if (val != null) {
-            rarities.push(`<span style="color:var(--${rarity.toLowerCase()});">${operation(val)}</span>`);
+            rarities.push(`<span style="color:var(--${rarity.toLowerCase()});">${operation(val, rarity)}</span>`);
         }
     }
 
