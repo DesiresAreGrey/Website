@@ -195,8 +195,6 @@
   }
 </style>
 
-test
-
 ___
 
 <div style="margin: -0.5rem 0; gap: 1rem;">
@@ -211,13 +209,12 @@ ___
   <div style="height: 0.5rem;"></div>
   <div class="side">
     <div class="label">Display Converted Values</div>
-    <input type="checkbox" id="toggle" class="toggleCheckbox" />
-    <label for="toggle" class='toggleContainer'>
+    <input type="checkbox" id="converted-values-toggle" class="toggleCheckbox" />
+    <label for="converted-values-toggle" class='toggleContainer'>
       <div class="noselect">Converted</div>   
       <div class="noselect">Respawn</div>
     </label>
   </div>
-  
 </div>
 
 ___

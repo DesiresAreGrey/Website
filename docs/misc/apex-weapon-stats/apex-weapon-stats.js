@@ -7,6 +7,8 @@ const comparison = document.querySelector(".comparison");
 const columntemplate = document.getElementById("column-template").cloneNode(true);
 let numColumns = 2;
 
+const convertedValuesToggle = document.getElementById("converted-values-toggle");
+
 document.getElementById("column-template").remove();
 for (let i = 0; i < numColumns; i++) {
     const clone = columntemplate.cloneNode(true);
@@ -102,6 +104,10 @@ function setupColumn(column) {
         onModeChange(column);
     };
 
+    convertedValuesToggle.addEventListener('change', e => {
+        onModeChange(column);
+    });
+
     seasonDropdown.dispatchEvent(new Event('change'));
 }
 
@@ -142,8 +148,14 @@ function onModeChange(column) {
 
     column.querySelector("#firing-mode").textContent = column.mode.Firing.FireMode;
 
-    column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, x => Math.round(x * 60));
-
+    if (!convertedValuesToggle.checked){
+        column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, x => Math.round(x * 60));
+        column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span style=\"font-size: 0.5rem; opacity: 0.7;\">RPM</span>";
+    }
+    else {
+        column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic);
+        column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span style=\"font-size: 0.5rem; opacity: 0.7;\">RPS</span>";
+    }
 
 }
 
