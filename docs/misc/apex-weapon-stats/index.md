@@ -261,6 +261,34 @@ ___
       <span class="label">Projectile Speed</span>
       <span class="value" id="projectile-speed">-</span>
     </div>
-
+    <div class="stat">
+      <span class="label">Drag Coefficient</span>
+      <span class="value" id="drag-coefficient">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Gravity Multiplier</span>
+      <span class="value" id="gravity-multiplier">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Max Headshot Distance</span>
+      <span class="value" id="max-headshot-distance">-</span>
+    </div>
+    <h3>Projectile Size</h3>
+    <div class="stat">
+      <span class="label">Initial Size</span>
+      <span class="value" id="initial-size">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Step 1</span>
+      <span class="value" id="step-1">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Step 2</span>
+      <span class="value" id="step-2">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Final Step</span>
+      <span class="value" id="final-step">-</span>
+    </div>
   </div>
 </div>

@@ -185,7 +185,55 @@ function onModeChange(column) {
         column.querySelector("#projectile-speed").textContent = column.mode.Firing.Shot.Speed ?? "-";
         column.querySelector("#projectile-speed").previousElementSibling.innerHTML = "Projectile Speed <span style=\"font-size: 0.5rem; opacity: 0.7;\">H/S</span>";
     }
+    
+    column.querySelector("#drag-coefficient").textContent = column.mode.Firing.Shot.DragCoefficient ?? "-";
 
+    column.querySelector("#gravity-multiplier").textContent = column.mode.Firing.Shot.GravityMultiplier ?? "-";
+
+    if (!convertedValuesToggle.checked) {
+        column.querySelector("#max-headshot-distance").textContent = column.mode.Firing.Shot.MaxHeadshotDistance != null ? (column.mode.Firing.Shot.MaxHeadshotDistance * 0.0254).toFixed(2) / 1 : "-";
+        column.querySelector("#max-headshot-distance").previousElementSibling.innerHTML = "Max Headshot Distance <span style=\"font-size: 0.5rem; opacity: 0.7;\">METER</span>";
+    }
+    else {
+        column.querySelector("#max-headshot-distance").textContent = column.mode.Firing.Shot.MaxHeadshotDistance ?? "-";
+        column.querySelector("#max-headshot-distance").previousElementSibling.innerHTML = "Max Headshot Distance <span style=\"font-size: 0.5rem; opacity: 0.7;\">HAMMER</span>";
+    }
+
+    column.querySelector("#initial-size").textContent = column.mode.Firing.Shot.ProjectileSize.InitialSize ?? "-";
+
+    if (column.mode.Firing.Shot.ProjectileSize.Step1 == null) {
+        column.querySelector("#step-1").parentElement.style.display = "none";
+        column.querySelector("#step-1").textContent = "-";
+        column.querySelector("#step-1").previousElementSibling.textContent = "Step 1";
+    }
+    else {
+        column.querySelector("#step-1").parentElement.style.display = "flex";
+        column.querySelector("#step-1").textContent = column.mode.Firing.Shot.ProjectileSize.Step1?.Size ?? "-";
+        column.querySelector("#step-1").previousElementSibling.innerHTML = `Step 1 <span style="font-size: 0.55rem; opacity: 0.75;">${column.mode.Firing.Shot.ProjectileSize.Step1.Time}sec</span>`;
+    }
+
+    if (column.mode.Firing.Shot.ProjectileSize.Step2 == null) {
+        column.querySelector("#step-2").parentElement.style.display = "none";
+        column.querySelector("#step-2").textContent = "-";
+        column.querySelector("#step-2").previousElementSibling.textContent = "-";
+    }
+    else {
+        column.querySelector("#step-2").parentElement.style.display = "flex";
+        column.querySelector("#step-2").textContent = column.mode.Firing.Shot.ProjectileSize.Step2?.Size ?? "-";
+        column.querySelector("#step-2").previousElementSibling.innerHTML = `Step 2 <span style="font-size: 0.55rem; opacity: 0.75;">${column.mode.Firing.Shot.ProjectileSize.Step2.Time}sec</span>`;
+    }
+
+    if (column.mode.Firing.Shot.ProjectileSize.Final == null) {
+        column.querySelector("#final-step").parentElement.style.display = "none";
+        column.querySelector("#final-step").textContent = "-";
+        column.querySelector("#final-step").previousElementSibling.textContent = "-";
+    }
+    else {
+        column.querySelector("#final-step").parentElement.style.display = "flex";
+        column.querySelector("#final-step").textContent = column.mode.Firing.Shot.ProjectileSize.Final?.Size ?? "-";
+        column.querySelector("#final-step").previousElementSibling.innerHTML = `Final Step <span style="font-size: 0.55rem; opacity: 0.75;">${column.mode.Firing.Shot.ProjectileSize.Final.Time}sec</span>`;
+    }
+    
 
 }
 
