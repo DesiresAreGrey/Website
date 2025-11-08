@@ -213,11 +213,15 @@ function onModeChange(column) {
     const fleshMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Flesh ?? 1;
     const shieldMultiplier = column.mode.Firing.Shot.Damage.Multipliers.Shield ?? 1;
 
+    const critHitMultiplier = column.mode.Firing.Shot.Damage.Multipliers.CriticalHit ?? 1;
+
     column.querySelector("#damage-amount").textContent = `${baseDamage} / ${(headMultiplier * baseDamage).toFixed(2) / 1} / ${(legMultiplier * baseDamage).toFixed(2) / 1}`;
 
     column.querySelector("#damage-flesh").textContent = `${baseDamage * fleshMultiplier} / ${(headMultiplier * baseDamage * fleshMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * fleshMultiplier).toFixed(2) / 1}`;
 
     column.querySelector("#damage-shield").textContent = `${baseDamage * shieldMultiplier} / ${(headMultiplier * baseDamage * shieldMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * shieldMultiplier).toFixed(2) / 1}`;
+
+    column.querySelector("#damage-critical").textContent = `${(baseDamage * critHitMultiplier).toFixed(2) / 1} / ${(headMultiplier * baseDamage * critHitMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * critHitMultiplier).toFixed(2) / 1}`;
 
     // Projectile Size
 

@@ -289,6 +289,10 @@ ___
       <span class="label">Shield</span>
       <span class="value" id="damage-shield">-</span>
     </div>
+    <div class="stat">
+      <span class="label">Critical Hit</span>
+      <span class="value" id="damage-critical">-</span>
+    </div>
 
     <h3>Projectile Size</h3>
     <div class="stat">
