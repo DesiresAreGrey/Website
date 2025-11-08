@@ -322,6 +322,18 @@ ___
       <span class="label">Rechamber Time</span>
       <span class="value" id="rechamber-time">-</span>
     </div>
+    <div class="stat">
+      <span class="label">Burst Count</span>
+      <span class="value" id="burst-count">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Burst Delay</span>
+      <span class="value" id="burst-delay">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Burst Firerate</span>
+      <span class="value" id="burst-firerate">-</span>
+    </div>
     <h3>Shot</h3>
     <div class="stat">
       <span class="label">Projectiles Per Shot</span>

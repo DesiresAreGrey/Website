@@ -1,3 +1,5 @@
+// big disclaimer im not a js/web dev so i dont know whats the proper way to be doing anything. if for some reason anyone actually looks at and/or contributes to this code youll prob be sad
+
 const seasons = [];
 
 await loadSeasons();
@@ -157,6 +159,8 @@ function onModeChange(column) {
         column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             if (column.mode.Firing.RechamberTime?.[key] != null)
                 x = 1 / Math.max(1 / x, column.mode.Firing.RechamberTime[key]);
+            if (column.mode.Firing.BurstCount > 1)
+                x = column.mode.Firing.BurstCount / ((column.mode.Firing.BurstCount) / x + column.mode.Firing.BurstDelay);
             return Math.round(x * 60);
         });
         column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span class=\"label-subtitle\">RPM</span>";
@@ -176,6 +180,35 @@ function onModeChange(column) {
     }
     else {
         column.querySelector("#rechamber-time").parentElement.style.display = "none";
+    }
+
+    column.querySelector("#burst-count").textContent = column.mode.Firing.BurstCount ?? "-";
+
+    if (column.mode.Firing.BurstDelay != null) {
+        column.querySelector("#burst-delay").innerHTML = column.mode.Firing.BurstDelay;
+
+        if (usingConvertedValues()) {
+           column.querySelector("#burst-firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+               if (column.mode.Firing.RechamberTime?.[key] != null)
+                   x = 1 / Math.max(1 / x, column.mode.Firing.RechamberTime[key]);
+               return Math.round(x * 60);
+           });
+           column.querySelector("#burst-firerate").previousElementSibling.innerHTML = "Burst Firerate <span class=\"label-subtitle\">RPM</span>";
+        }
+        else {
+           column.querySelector("#burst-firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic);
+           column.querySelector("#burst-firerate").previousElementSibling.innerHTML = "Burst Firerate <span class=\"label-subtitle\">RPS</span>";
+        }
+    }
+    else {
+        column.querySelector("#burst-delay").textContent = "-";
+        column.querySelector("#burst-firerate").textContent = "-";
+        if (usingConvertedValues()) {
+           column.querySelector("#burst-firerate").previousElementSibling.innerHTML = "Burst Firerate <span class=\"label-subtitle\">RPM</span>";
+        }
+        else {
+           column.querySelector("#burst-firerate").previousElementSibling.innerHTML = "Burst Firerate <span class=\"label-subtitle\">RPS</span>";
+        }
     }
 
     // Shot
