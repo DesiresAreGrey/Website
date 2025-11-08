@@ -155,7 +155,7 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     justify-content: center; 
     gap: 0.25rem; 
     align-items: flex-end;
-    margin: 0.5rem 0 1rem;
+    margin: 0.15rem 0 -0.2rem;
   }
 
   .tabs .toggle label {
@@ -163,7 +163,7 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     padding: 0 0.35rem; 
     cursor: pointer;
     font-variation-settings: 'wght' 400;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     opacity: 0.69;
     transition: opacity 200ms ease, color 200ms ease, font-variation-settings 200ms ease;
   }
@@ -176,7 +176,7 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
   .tabs .toggle label::before {
     content: ""; 
     position: absolute; 
-    inset: -0.25rem 0 auto;
+    inset: -0.1rem 0 auto;
     height: 0.2rem; 
     border-radius: 2px; 
     transform: scaleX(0);
@@ -229,7 +229,7 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     }
 
     .tabs .toggle label {
-      font-size: 0.65rem;
+      font-size: 0.6rem;
     }
   }
 
