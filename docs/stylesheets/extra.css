@@ -297,6 +297,26 @@ input::-webkit-inner-spin-button {
   box-shadow: var(--shadow-s);
 }
 
+.dropdown {
+  padding: .15rem;
+  background: #252525;
+  border: .1rem solid;
+  border-radius: 0.5rem;
+  border-color: transparent;
+  font-weight: 200;
+  font-size: 17px;
+  font-family: Inter, sans-serif;
+  text-align: center;
+  color: #ccc;
+  transition: all 200ms ease;
+}
+.dropdown:hover {
+  border-color: var(--md-primary-fg-color);
+}
+.dropdown:focus {
+  border-color: #9152ff;
+}
+
 /* Apex charts stuff */
 .apexcharts-tooltip.apexcharts-theme-dark{
   background: rgba(8, 8, 8, .8) !important;

@@ -1,19 +1,16 @@
 const seasons = [];
 
 async function loadSeasons() {
-  const res = await fetch('../../assets/misc/apex-weapon-stats/data/_index.json');
-  const files = await res.json();
+  const files = await(await fetch('../../assets/misc/apex-weapon-stats/data/_index.json')).json();
 
-  const jsonData = await Promise.all(
-    files.map(async file => {
-      const res = await fetch(`../../assets/misc/apex-weapon-stats/data/${file}`);
-      return res.json();
-    })
-  );
-
-  seasons.push(jsonData);
+  for (const file of files) {
+    const json = await (await fetch(`/assets/misc/apex-weapon-stats/data/${file}`)).json();
+    seasons.push(json);
+  }
 }
 
-loadSeasons();
+await loadSeasons();
+await new Promise(resolve => document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", resolve) : resolve());
 
 console.log(seasons);
+
