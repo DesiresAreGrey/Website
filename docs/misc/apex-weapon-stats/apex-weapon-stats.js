@@ -214,7 +214,12 @@ function onModeChange(column) {
 
     console.log(column.mode.Firing.Shot.Damage.Distance.Near);
 
-    column.querySelector("#damage-distance-near-tab").nextSibling.textContent = damageDistanceNear;
+    if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
+        column.querySelector("#damage-distance-near-tab").nextSibling.textContent = "Any Distance";
+    }
+    else {
+        column.querySelector("#damage-distance-near-tab").nextSibling.textContent = damageDistanceNear;
+    }
 
     if (column.mode.Firing.Shot.Damage.Amount.Far != null) {
         column.querySelector("#damage-distance-far-tab").parentElement.style.display = "block";

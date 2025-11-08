@@ -285,8 +285,8 @@ ___
     <div class="label">Units</div>
     <input type="checkbox" id="converted-values-toggle" class="toggleCheckbox" />
     <label for="converted-values-toggle" class='toggleContainer'>
-      <div class="noselect">Converted</div>   
-      <div class="noselect">Respawn</div>
+      <div class="noselect" style="margin-right: 48px;margin-left: 24px;padding-left: 0px;padding-right: 16px;">Converted</div>   
+      <div class="noselect" style="margin-right: 24px;margin-left: 0px;padding-left: 0px;padding-right: 16px;">Engine</div>
     </label>
   </div>
 </div>
