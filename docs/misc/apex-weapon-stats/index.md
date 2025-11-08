@@ -197,6 +197,57 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     border: 0;
     background: transparent !important;
   }
+
+  .tabs .toggle {
+    display: flex; 
+    justify-content: center; 
+    gap: 0.5rem; 
+    align-items: flex-end;
+    margin: 0.5rem 0 1rem;
+  }
+
+  .tabs .toggle label {
+    position: relative;
+    padding: 0.1rem 0.5rem; 
+    cursor: pointer;
+    font-variation-settings: 'wght' 400;
+    opacity: 0.69;
+    transition: opacity 200ms ease, color 200ms ease, font-variation-settings 200ms ease;
+  }
+
+  .tabs .toggle label:hover {
+    opacity: 1;
+    font-variation-settings: 'wght' 500;
+  }
+
+  .tabs .toggle label::before {
+    content: ""; 
+    position: absolute; 
+    inset: -0.25rem 0 auto;
+    height: 0.2rem; 
+    border-radius: 2px; 
+    transform: scaleX(0);
+    transition: transform 200ms ease, background-color 200ms ease;
+  }
+  .tabs .toggle label::after {
+    content: '';
+    position: absolute;
+    inset: -.4rem 0 auto;
+    height: 2.25rem; 
+    cursor: pointer;
+    transform: scaleX(1);
+  }
+
+  .tabs .toggle label:has(> input:checked) { 
+    color: #fff;
+    opacity: 1;
+    font-variation-settings: 'wght' 750;
+  }
+
+  .tabs .toggle label:has(> input:checked)::before {
+    background: var(--md-primary-fg-color);
+    transform: scaleX(1);
+  }
 </style>
 
 ___
@@ -297,6 +348,13 @@ ___
       <span class="label">Critical Hit</span>
       <span class="value" id="damage-critical">-</span>
     </div>
+    <form class="tabs">
+      <div class="toggle">
+        <label class="noselect"><input id="damage-distance-near-tab" class="vh" type="radio" name="damage-distance" checked>Near</label>
+        <label class="noselect"><input id="damage-distance-far-tab" class="vh" type="radio" name="damage-distance">Far</label>
+        <label class="noselect"><input id="damage-distance-very-far-tab" class="vh" type="radio" name="damage-distance">Very Far</label>
+      </div>
+    </form>
 
     <h3>Projectile Size</h3>
     <div class="stat">
