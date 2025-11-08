@@ -155,14 +155,16 @@ function updateWeaponStats(column) {
 
     column.querySelector("#firing-mode").textContent = column.mode.Firing.FireMode ?? "-";
 
+    function rpm(fireRate = column.mode.Firing.FireRate, key = "Base") {
+        if (column.mode.Firing.RechamberTime?.[key] != null)
+            fireRate = 1 / Math.max(1 / fireRate, column.mode.Firing.RechamberTime[key]);
+        else if (column.mode.Firing.BurstCount > 1)
+            fireRate = column.mode.Firing.BurstCount / (column.mode.Firing.BurstCount / fireRate + column.mode.Firing.BurstDelay);
+        return Math.round(fireRate * 60);
+    }
+
     if (usingConvertedValues()) {
-        column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
-            if (column.mode.Firing.RechamberTime?.[key] != null)
-                x = 1 / Math.max(1 / x, column.mode.Firing.RechamberTime[key]);
-            else if (column.mode.Firing.BurstCount > 1)
-                x = column.mode.Firing.BurstCount / (column.mode.Firing.BurstCount / x + column.mode.Firing.BurstDelay);
-            return Math.round(x * 60);
-        });
+        column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, rpm);
         column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span class=\"label-subtitle\">RPM</span>";
     }
     else {
@@ -245,8 +247,6 @@ function updateWeaponStats(column) {
     const damageDistanceFar = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.Far * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.Far + "h";
     const damageDistanceVeryFar = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.VeryFar * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.VeryFar + "h";
 
-    console.log(column.mode.Firing.Shot.Damage.Distance.Near);
-
     if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
         column.querySelector("#damage-distance-near-tab").nextSibling.textContent = "Any Distance";
     }
@@ -299,13 +299,11 @@ function updateWeaponStats(column) {
     damageDistanceTabChanged();
     column.querySelectorAll('input[name="damage-distance"]').forEach(input => input.onchange = damageDistanceTabChanged);
 
-    // Projectile Damage
+    // Shot Damage
 
     const shotDamageDistanceNear = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.Near * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.Near + "h";
     const shotDamageDistanceFar = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.Far * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.Far + "h";
     const shotDamageDistanceVeryFar = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.VeryFar * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.VeryFar + "h";
-
-    console.log(column.mode.Firing.Shot.Damage.Distance.Near);
 
     if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
         column.querySelector("#shot-damage-distance-near-tab").nextSibling.textContent = "Any Distance";

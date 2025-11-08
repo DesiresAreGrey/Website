@@ -381,9 +381,9 @@ ___
     </div>
     <form class="tabs">
       <div class="toggle">
-        <label class="noselect"><input id="damage-distance-near-tab" class="vh" type="radio" name="damage-distance" checked>100m</label>
-        <label class="noselect"><input id="damage-distance-far-tab" class="vh" type="radio" name="damage-distance">200m</label>
-        <label class="noselect"><input id="damage-distance-very-far-tab" class="vh" type="radio" name="damage-distance">300m</label>
+        <label class="noselect"><input id="damage-distance-near-tab" class="vh" type="radio" name="damage-distance" checked>Near</label>
+        <label class="noselect"><input id="damage-distance-far-tab" class="vh" type="radio" name="damage-distance">Far</label>
+        <label class="noselect"><input id="damage-distance-very-far-tab" class="vh" type="radio" name="damage-distance">Very Far</label>
       </div>
     </form>
     <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
@@ -408,9 +408,36 @@ ___
     </div>
     <form class="tabs">
       <div class="toggle">
-        <label class="noselect"><input id="shot-damage-distance-near-tab" class="vh" type="radio" name="shot-damage-distance" checked>100m</label>
-        <label class="noselect"><input id="shot-damage-distance-far-tab" class="vh" type="radio" name="shot-damage-distance">200m</label>
-        <label class="noselect"><input id="shot-damage-distance-very-far-tab" class="vh" type="radio" name="shot-damage-distance">300m</label>
+        <label class="noselect"><input id="shot-damage-distance-near-tab" class="vh" type="radio" name="shot-damage-distance" checked>Near</label>
+        <label class="noselect"><input id="shot-damage-distance-far-tab" class="vh" type="radio" name="shot-damage-distance">Far</label>
+        <label class="noselect"><input id="shot-damage-distance-very-far-tab" class="vh" type="radio" name="shot-damage-distance">Very Far</label>
+      </div>
+    </form>
+    <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+      <h3 style="border-bottom: none;">DPS</h3>
+      <div style="font-size: 0.5rem; opacity: 0.7; margin-top: 0; display: flex; align-items: center; justify-content: center;">Body / Head / Limb</div>
+    </div>
+    <div class="stat">
+      <span class="label">Base</span>
+      <span class="value" id="dps-amount">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Flesh</span>
+      <span class="value" id="dps-flesh">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Shield</span>
+      <span class="value" id="dps-shield">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Critical Hit</span>
+      <span class="value" id="dps-critical">-</span>
+    </div>
+    <form class="tabs">
+      <div class="toggle">
+        <label class="noselect"><input id="dps-distance-near-tab" class="vh" type="radio" name="dps-distance" checked>Near</label>
+        <label class="noselect"><input id="dps-distance-far-tab" class="vh" type="radio" name="dps-distance">Far</label>
+        <label class="noselect"><input id="dps-distance-very-far-tab" class="vh" type="radio" name="dps-distance">Very Far</label>
       </div>
     </form>
 
