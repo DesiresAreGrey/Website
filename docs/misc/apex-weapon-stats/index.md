@@ -1,5 +1,5 @@
 ---
-description: Compare detailed weapon stats for Apex Legends weapons across different seasons and game modes.
+description: Compare detailed weapon stats for Apex Legends weapons across across seasons, firing modes, and weapon variants.
 image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
 ---
 # Apex Legends Weapon Stats
