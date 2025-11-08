@@ -248,5 +248,19 @@ ___
       <span class="label">Rechamber Time</span>
       <span class="value" id="rechamber-time">-</span>
     </div>
+    <h3>Shot</h3>
+    <div class="stat">
+      <span class="label">Projectiles Per Shot</span>
+      <span class="value" id="projectiles-per-shot">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Ammo Consumed</span>
+      <span class="value" id="ammo-consumed">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Projectile Speed</span>
+      <span class="value" id="projectile-speed">-</span>
+    </div>
+
   </div>
 </div>

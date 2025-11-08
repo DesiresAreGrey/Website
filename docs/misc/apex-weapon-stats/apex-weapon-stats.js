@@ -142,13 +142,13 @@ function onWeaponChange(column) {
 function onModeChange(column) {
     console.log(column.weapon);
 
-    column.querySelector("#ammo-type").textContent = column.mode.Ammo.Type;
+    column.querySelector("#ammo-type").textContent = column.mode.Ammo.Type ?? "-";
     
     column.querySelector("#magazine-size").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, column.weapon.IsMythic, "Epic");
 
-    column.querySelector("#firing-mode").textContent = column.mode.Firing.FireMode;
+    column.querySelector("#firing-mode").textContent = column.mode.Firing.FireMode ?? "-";
 
-    if (!convertedValuesToggle.checked){
+    if (!convertedValuesToggle.checked) {
         column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             if (column.mode.Firing.RechamberTime?.[key] != null)
                 x = 1 / Math.max(1 / x, column.mode.Firing.RechamberTime[key]);
@@ -172,6 +172,21 @@ function onModeChange(column) {
     else {
         column.querySelector("#rechamber-time").parentElement.style.display = "none";
     }
+
+    column.querySelector("#projectiles-per-shot").textContent = column.mode.Firing.Shot.Projectiles ?? "-";
+
+    column.querySelector("#ammo-consumed").textContent = column.mode.Firing.Shot.AmmoConsumed ?? "-";
+
+    if (!convertedValuesToggle.checked) {
+        column.querySelector("#projectile-speed").textContent = column.mode.Firing.Shot.Speed != null ? (column.mode.Firing.Shot.Speed * 0.0254).toFixed(2) / 1 : "-";
+        column.querySelector("#projectile-speed").previousElementSibling.innerHTML = "Projectile Speed <span style=\"font-size: 0.5rem; opacity: 0.7;\">M/S</span>";
+    }
+    else {
+        column.querySelector("#projectile-speed").textContent = column.mode.Firing.Shot.Speed ?? "-";
+        column.querySelector("#projectile-speed").previousElementSibling.innerHTML = "Projectile Speed <span style=\"font-size: 0.5rem; opacity: 0.7;\">H/S</span>";
+    }
+
+
 }
 
 
