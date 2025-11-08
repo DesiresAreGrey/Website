@@ -131,6 +131,7 @@
     width: calc(50% - 2px); 
     border-radius: 100vh;
     background: var(--md-primary-fg-color);
+    transition: all 0.3s;
   }
   .toggleCheckbox:checked + .toggleContainer::before {
     transform: translateX(100%);
@@ -201,14 +202,13 @@ ___
 <div style="margin: -0.5rem 0; gap: 1rem;">
   <div class="side">
     <div class="label">Columns</div>
-    <input type="checkbox" id="toggle" class="toggleCheckbox" />
     <div class="side">
       <a id="decrease-columns" class="big-button circle-button noselect">-</a>
       <p id="column-count" class="noselect" style="margin: 0; font-size: 0.9rem;">2</p>
       <a id="increase-columns" class="big-button circle-button noselect">+</a>
     </div>
   </div>
-  <div style="height: 1rem;"></div>
+  <div style="height: 0.5rem;"></div>
   <div class="side">
     <div class="label">Display Converted Values</div>
     <input type="checkbox" id="toggle" class="toggleCheckbox" />
@@ -217,6 +217,7 @@ ___
       <div class="noselect">Respawn</div>
     </label>
   </div>
+  
 </div>
 
 ___
