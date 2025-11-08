@@ -24,19 +24,12 @@ test
 
 <div class="comparison">
 
-  <div class="column" id="column-1">
+  <div class="column" id="column-template">
     <div class="dropdowns">
-      <select class="dropdown season-dropdown" style="width: 100%;"></select>
-      <select class="dropdown weapon-dropdown" style="width: 100%;"></select>
-      <select class="dropdown mode-dropdown" style="width: 100%;"></select>
+      <select class="dropdown season-dropdown" style="width: 100%;"><option value="">Season</option></select>
+      <select class="dropdown weapon-dropdown" style="width: 100%;"><option value="">Weapon</option></select>
+      <select class="dropdown mode-dropdown" style="width: 100%;"><option value="">Mode</option></select>
     </div>
-    
-  </div>
-  <div class="column" id="column-2">
-    <div class="dropdowns">
-      <select class="dropdown season-dropdown" style="width: 100%;"></select>
-      <select class="dropdown weapon-dropdown" style="width: 100%;"></select>
-      <select class="dropdown mode-dropdown" style="width: 100%;"></select>
-    </div>
+    <h3>Stats</h3>
   </div>
 </div>

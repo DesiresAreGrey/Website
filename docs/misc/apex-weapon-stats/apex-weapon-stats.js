@@ -14,7 +14,16 @@ async function loadSeasons() {
 await loadSeasons();
 await new Promise(resolve => document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", resolve) : resolve());
 
-//console.log(seasons);
+const comparison = document.querySelector(".comparison");
+const columntemplate = document.getElementById("column-template").cloneNode(true);
+const numColumns = 2;
+
+document.getElementById("column-template").remove();
+for (let i = 0; i < numColumns; i++) {
+    const clone = columntemplate.cloneNode(true);
+    clone.id = `column-${i + 1}`;
+    comparison.appendChild(clone);
+}
 
 const columns = document.querySelectorAll(".column");
 for (const column of columns) {
@@ -30,7 +39,7 @@ for (const column of columns) {
         opt.textContent = season.FullName;
         seasonDropdown.appendChild(opt);
     }
-    
+
     seasonDropdown.onchange = e => {
         column.season = seasons.find(s => s.ID === e.target.value);
         onSeasonChange(column);
