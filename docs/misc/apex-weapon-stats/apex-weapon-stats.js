@@ -238,7 +238,7 @@ function onModeChange(column) {
 
     if (column.mode.Firing.Shot.ProjectileSize.Step2 == null) {
         column.querySelector("#step-2").textContent = "-";
-        column.querySelector("#step-2").previousElementSibling.textContent = "-";
+        column.querySelector("#step-2").previousElementSibling.textContent = "Step 2";
     }
     else {
         column.querySelector("#step-2").textContent = column.mode.Firing.Shot.ProjectileSize.Step2?.Size ?? "-";
@@ -247,7 +247,7 @@ function onModeChange(column) {
 
     if (column.mode.Firing.Shot.ProjectileSize.Final == null) {
         column.querySelector("#final-step").textContent = "-";
-        column.querySelector("#final-step").previousElementSibling.textContent = "-";
+        column.querySelector("#final-step").previousElementSibling.textContent = "Final Step";
     }
     else {
         column.querySelector("#final-step").textContent = column.mode.Firing.Shot.ProjectileSize.Final?.Size ?? "-";
