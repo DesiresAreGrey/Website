@@ -345,6 +345,56 @@ function updateWeaponStats(column) {
     shotDamageDistanceTabChanged();
     column.querySelectorAll('input[name="shot-damage-distance"]').forEach(input => input.onchange = shotDamageDistanceTabChanged);
 
+    // Shots to Kill
+
+    if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
+        column.querySelector("#shotstokill-distance-near-tab").nextSibling.textContent = "Any Distance";
+    }
+    else {
+        column.querySelector("#shotstokill-distance-near-tab").nextSibling.textContent = distanceNear;
+    }
+
+    if (column.mode.Firing.Shot.Damage.Amount.Far != null) {
+        column.querySelector("#shotstokill-distance-far-tab").parentElement.style.display = "block";
+        column.querySelector("#shotstokill-distance-far-tab").nextSibling.textContent = distanceFar;
+    }
+    else {
+        column.querySelector("#shotstokill-distance-far-tab").parentElement.style.display = "none";
+    }
+    if (column.mode.Firing.Shot.Damage.Amount.VeryFar != null) {
+        column.querySelector("#shotstokill-distance-very-far-tab").parentElement.style.display = "block";
+        column.querySelector("#shotstokill-distance-very-far-tab").nextSibling.textContent = distanceVeryFar;
+    }
+    else {
+        column.querySelector("#shotstokill-distance-very-far-tab").parentElement.style.display = "none";
+    }
+
+    function shotstokillDistanceTabChanged() {
+        let baseDamage = column.mode.Firing.Shot.Damage.Amount.Near;
+
+        if (column.querySelector("#shotstokill-distance-near-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
+        else if (column.querySelector("#shotstokill-distance-far-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Far;
+        else if (column.querySelector("#shotstokill-distance-very-far-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.VeryFar;
+
+        const stkFlesh = Math.ceil(100 / (baseDamage * fleshMultiplier));
+
+        function stkCalc(health, baseMultiplier, partMultiplier = 1) {
+            return Math.ceil(health / (baseDamage * baseMultiplier * partMultiplier));
+        }
+
+        console.log(column.weapon.Name, headMultiplier);
+        column.querySelector("#shotstokill-base").textContent = `${stkCalc(100, fleshMultiplier)} / ${stkCalc(100, fleshMultiplier, headMultiplier)} / ${Math.round(stkCalc(100, fleshMultiplier, legMultiplier))}`;
+
+        column.querySelector("#shotstokill-common").textContent = `${stkCalc(100, fleshMultiplier) + stkCalc(50, shieldMultiplier)} / ${stkCalc(100, fleshMultiplier, headMultiplier) + stkCalc(50, shieldMultiplier, headMultiplier)} / ${Math.round(stkCalc(100, fleshMultiplier, legMultiplier) + stkCalc(50, shieldMultiplier, legMultiplier))}`;
+
+    }   
+
+    shotstokillDistanceTabChanged();
+    column.querySelectorAll('input[name="shotstokill-distance"]').forEach(input => input.onchange = shotstokillDistanceTabChanged);
+
     // DPS
     
     if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {

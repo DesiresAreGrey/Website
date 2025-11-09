@@ -413,41 +413,72 @@ ___
         <label class="noselect"><input id="shot-damage-distance-very-far-tab" class="vh" type="radio" name="shot-damage-distance">Very Far</label>
       </div>
     </form>
+    <div style="border-bottom: 1px solid rgba(255,255,255,0.125);">
+      <h3 style="border-bottom: none;">Shots To Kill</h3>
+      <div style="font-size: 0.5rem; opacity: 0.7; margin-top: 0; display: flex; align-items: center; justify-content: center;">Body / Head / Limb</div>
+    </div>
+    <div class="stat">
+      <span class="label" style="color:var(--base);">No Armor</span>
+      <span class="value" id="shotstokill-base">-</span>
+    </div>
+    <div class="stat">
+      <span class="label" style="color:var(--common);">Common</span>
+      <span class="value" id="shotstokill-common">-</span>
+    </div>
+    <div class="stat">
+      <span class="label" style="color:var(--rare);">Rare</span>
+      <span class="value" id="shotstokill-rare">-</span>
+    </div>
+    <div class="stat">
+      <span class="label" style="color:var(--epic);">Epic</span>
+      <span class="value" id="shotstokill-epic">-</span>
+    </div>
+    <div class="stat">
+      <span class="label" style="color:var(--mythic);">Mythic</span>
+      <span class="value" id="shotstokill-mythic">-</span>
+    </div>
+    <form class="tabs">
+      <div class="toggle">
+        <label class="noselect"><input id="shotstokill-distance-near-tab" class="vh" type="radio" name="shotstokill-distance" checked>Near</label>
+        <label class="noselect"><input id="shotstokill-distance-far-tab" class="vh" type="radio" name="shotstokill-distance">Far</label>
+        <label class="noselect"><input id="shotstokill-distance-very-far-tab" class="vh" type="radio" name="shotstokill-distance">Very Far</label>
+      </div>
+    </form>
     <h3>DPS</h3>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
-      <span class="label">Base [Body]</span>
+      <span class="label">Body <span class="label-subtitle">BASE</span></span>
       <span class="value" id="dps-base-body">-</span>
     </div>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
-      <span class="label">Base [Head]</span>
+      <span class="label">Head <span class="label-subtitle">BASE</span></span>
       <span class="value" id="dps-base-head">-</span>
     </div>
     <div class="stat">
-      <span class="label">Base [Limb]</span>
+      <span class="label">Limb <span class="label-subtitle">BASE</span></span>
       <span class="value" id="dps-base-limb">-</span>
     </div>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
-      <span class="label">Flesh [Body]</span>
+      <span class="label">Body <span class="label-subtitle">FLESH</span></span>
       <span class="value" id="dps-flesh-body">-</span>
     </div>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
-      <span class="label">Flesh [Head]</span>
+      <span class="label">Head <span class="label-subtitle">FLESH</span></span>
       <span class="value" id="dps-flesh-head">-</span>
     </div>
     <div class="stat">
-      <span class="label">Flesh [Limb]</span>
+      <span class="label">Limb <span class="label-subtitle">FLESH</span></span>
       <span class="value" id="dps-flesh-limb">-</span>
     </div>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
-      <span class="label">Shield [Body]</span>
+      <span class="label">Body <span class="label-subtitle">SHIELD</span></span>
       <span class="value" id="dps-shield-body">-</span>
     </div>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
-      <span class="label">Shield [Head]</span>
+      <span class="label">Head <span class="label-subtitle">SHIELD</span></span>
       <span class="value" id="dps-shield-head">-</span>
     </div>
     <div class="stat">
-      <span class="label">Shield [Limb]</span>
+      <span class="label">Limb <span class="label-subtitle">SHIELD</span></span>
       <span class="value" id="dps-shield-limb">-</span>
     </div>
     <form class="tabs">
