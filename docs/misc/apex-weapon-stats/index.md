@@ -56,11 +56,17 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
   }
   .stat .label { 
     color: #aaa;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .stat .value { 
     color: #fff;
     font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .toggleContainer {
@@ -583,6 +589,6 @@ ___
   <div style="display: flex; align-items: center; justify-content: center;">
     <a href="https://github.com/DesiresAreGrey/Website/tree/main/docs/assets/misc/apex-weapon-stats/data">Browse/Download data</a>
   </div>
-  <p style="margin-top: 0.25rem; font-size: 0.6rem; opacity: 0.7;">Data was extracted through RSX as .vdf files, then later parsed into json using a C# program. The folder linked above contains a _index.json file, which is the list of all the seasons. sXX.json is the json file loaded by the site, while the sXX-archive.zip file contains all the vdf files, individual weapon json files, and csv files of all the blast/recoil patterns.</p>
+  <p style="margin-top: 0.25rem; font-size: 0.6rem; opacity: 0.7;">Data was extracted from the game using RSX (exported as .vdf files), then later parsed into json using a C# program. The folder linked above contains a _index.json file, which is the list of all the seasons. sXX.json is the json file loaded by the site, while the sXX-archive.zip file contains all the vdf files, individual weapon json files, and csv files of all the blast/recoil patterns.</p>
   <p style="margin-top: 0; font-size: 0.6rem; opacity: 0.7;">The process is automated so it should be very easy to update as Apex updates with new seasons/splits.</p>
 </div>

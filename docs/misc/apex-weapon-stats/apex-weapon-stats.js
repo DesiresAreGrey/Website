@@ -566,6 +566,19 @@ function updateWeaponStats(column) {
             x = rpm(x, key) / 60;
             return ((stkHealthAndShield(100, 100, baseDamage, legMultiplier) - 1) / x).toFixed(3) / 1;
         });
+
+        column.querySelector("#ttk-mythic-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return ((stkHealthAndShield(100, 125, baseDamage) - 1) / x).toFixed(3) / 1;
+        });
+        column.querySelector("#ttk-mythic-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return ((stkHealthAndShield(100, 125, baseDamage, headMultiplier) - 1) / x).toFixed(3) / 1;
+        });
+        column.querySelector("#ttk-mythic-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return ((stkHealthAndShield(100, 125, baseDamage, legMultiplier) - 1) / x).toFixed(3) / 1;
+        });
     }
 
     ttkTabChanged();
