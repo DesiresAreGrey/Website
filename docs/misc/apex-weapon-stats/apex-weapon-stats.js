@@ -249,9 +249,9 @@ function updateWeaponStats(column) {
 
     // Projectile Damage
 
-    const distanceNear = usingConvertedValues() ? column.mode.Firing.Shot.Damage.Distance.Near.toMeters(1) + "m" : column.mode.Firing.Shot.Damage.Distance.Near + "h";
-    const distanceFar = usingConvertedValues() ? column.mode.Firing.Shot.Damage.Distance.Far.toMeters(1) + "m" : column.mode.Firing.Shot.Damage.Distance.Far + "h";
-    const distanceVeryFar = usingConvertedValues() ? column.mode.Firing.Shot.Damage.Distance.VeryFar.toMeters(1) + "m" : column.mode.Firing.Shot.Damage.Distance.VeryFar + "h";
+    const distanceNear = usingConvertedValues() ? column.mode.Firing.Shot.Damage.Distance.Near?.toMeters(1) + "m" : column.mode.Firing.Shot.Damage.Distance.Near + "h";
+    const distanceFar = usingConvertedValues() ? column.mode.Firing.Shot.Damage.Distance.Far?.toMeters(1) + "m" : column.mode.Firing.Shot.Damage.Distance.Far + "h";
+    const distanceVeryFar = usingConvertedValues() ? column.mode.Firing.Shot.Damage.Distance.VeryFar?.toMeters(1) + "m" : column.mode.Firing.Shot.Damage.Distance.VeryFar + "h";
 
     if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
         column.querySelector("#damage-distance-near-tab").nextSibling.textContent = "Any Distance";
@@ -626,7 +626,9 @@ function updateWeaponStats(column) {
 
     column.querySelector("#recoil-pattern").drawPattern(column.mode.Firing.Shot.RecoilPattern, [-7.75, -14.75, 7.75, 0.75], true, true, 0.15, 0.1, '#fff', '#666');
 
-    column.querySelector("#blast-pattern").drawPattern(column.mode.Firing.Shot.BlastPattern, undefined, false, false, 1);
+    column.querySelector("#blast-pattern").drawPattern(column.mode.Firing.Shot.BlastPattern, undefined, false, false, 1.25);
+
+    // fix distance tabs visibility if all distances are the same
 
     column.querySelectorAll("[id$='-distance-near-tab']").forEach(tab => {
         if (u.columns.toArray().every(c => c.querySelector(`#${tab.id}`).nextSibling.textContent === "Any Distance"))
