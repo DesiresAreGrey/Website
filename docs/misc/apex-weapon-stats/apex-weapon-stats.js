@@ -1,5 +1,7 @@
 // big disclaimer im not a js/web dev so i dont know whats the proper way to be doing anything. if for some reason anyone actually looks at and/or contributes to this code youll prob be sad
 
+const u = utils();
+
 const seasons = [];
 
 await new Promise(resolve => document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", resolve) : resolve());
@@ -23,11 +25,7 @@ function usingConvertedValues() {
     return !convertedValuesToggle.checked;
 }
 
-function columns() {
-    return [...document.querySelectorAll(".column")];
-}
-
-for (const column of columns()) {
+for (const column of u.columns) {
     setupColumn(column);
 }
 updateColumnButtonStyles();
@@ -620,16 +618,16 @@ function updateWeaponStats(column) {
     }
     
     // Patterns
-    
-    drawPattern(column.querySelector("#recoil-pattern"), column.mode.Firing.Shot.RecoilPattern, [-7, -13, 7, 1], true, true, 0.15, 0.1, '#fff', '#666');
 
-    drawPattern(column.querySelector("#blast-pattern"), column.mode.Firing.Shot.BlastPattern, undefined, false, false, 1);
+    column.querySelector("#recoil-pattern").drawPattern(column.mode.Firing.Shot.RecoilPattern, [-7, -13, 7, 1], true, true, 0.15, 0.1, '#fff', '#666');
+
+    column.querySelector("#blast-pattern").drawPattern(column.mode.Firing.Shot.BlastPattern, undefined, false, false, 1);
 
     column.querySelectorAll("[id$='-distance-near-tab']").forEach(tab => {
-        if (columns().every(c => c.querySelector(`#${tab.id}`).nextSibling.textContent === "Any Distance"))
-            columns().forEach(c => c.querySelector(`#${tab.id}`).parentElement.style.display = "none");
+        if (u.columns.toArray().every(c => c.querySelector(`#${tab.id}`).nextSibling.textContent === "Any Distance"))
+            u.columns.forEach(c => c.querySelector(`#${tab.id}`).parentElement.style.display = "none");
         else
-            columns().forEach(c => c.querySelector(`#${tab.id}`).parentElement.style.display = "flex");
+            u.columns.forEach(c => c.querySelector(`#${tab.id}`).parentElement.style.display = "flex");
     });
 }
 
@@ -666,6 +664,52 @@ async function loadSeasons() {
 
     seasons.sort((a, b) => new Date(b.GeneratedDate) - new Date(a.GeneratedDate));
 }
+
+function utils() {
+    const utils = {
+        get columns() { return document.querySelectorAll(".column"); }
+    };
+
+    Object.defineProperty(NodeList.prototype, 'toArray', { value: function() { return [...this]; } });
+
+    Object.defineProperty(Element.prototype, 'drawPattern', {
+        value: function(points = [], bounds = [-20, -20, 20, 20], drawAxes = true, connectPoints = false, pointRadius = 1, lineWidth = 0.1, pointColor = '#ffffff', lineColor = '#666666') {
+            const axisColor = '#444444';
+            this.setAttribute('viewBox', `${bounds[0]} ${bounds[1]} ${bounds[2] - bounds[0]} ${bounds[3] - bounds[1]}`);
+            this.innerHTML = '';
+            if (drawAxes)
+                this.innerHTML = `<line x1="${bounds[0]}" y1="0" x2="${bounds[2]}" y2="0" stroke="${axisColor}" stroke-width="0.04" /><line x1="0.01" y1="${bounds[1]}" x2="0.01" y2="${bounds[3]}" stroke="${axisColor}" stroke-width="0.04" />`;
+            const NS  = 'http://www.w3.org/2000/svg';
+
+            if (connectPoints && points.length > 1) {
+                for (let i = 1; i < points.length; i++) {
+                    const p1 = points[i - 1];
+                    const p2 = points[i];
+                    const line = document.createElementNS(NS, 'line');
+                    line.setAttribute('x1', p1.X);
+                    line.setAttribute('y1', -p1.Y);
+                    line.setAttribute('x2', p2.X);
+                    line.setAttribute('y2', -p2.Y);
+                    line.setAttribute('stroke', lineColor);
+                    line.setAttribute('stroke-width', lineWidth);
+                    this.appendChild(line);
+                }
+            }
+
+            for (const point of points) {
+                const dot = document.createElementNS(NS, 'circle');
+                dot.setAttribute('cx', point.X);
+                dot.setAttribute('cy', -point.Y);
+                dot.setAttribute('r', pointRadius + "px");
+                dot.setAttribute('fill', pointColor);
+                this.appendChild(dot);
+            }
+        }
+    });
+
+    return utils;
+}
+
 
 function drawPattern(svg, points = [], bounds = [-20, -20, 20, 20], drawAxes = true, connectPoints = false, pointRadius = 1, lineWidth = 0.1, pointColor = '#ffffff', lineColor = '#666666') {
     const axisColor = '#444444';
