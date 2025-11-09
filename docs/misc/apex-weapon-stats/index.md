@@ -7,6 +7,8 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
 <script type="module" src="apex-weapon-stats.js?v={{ now() }}"></script>
 
 <style>
+  /* colors */
+
   :root {
     --base: #7A7A7A;
     --common: #D1D7D7;
@@ -15,6 +17,8 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     --legendary: #FFCD3C;
     --mythic: #E72323;
   }
+
+  /* columns */
 
   .comparison {
     display: flex;
@@ -36,6 +40,8 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     color: #ccc;
     transition: none;
   }
+
+  /* dropdowns */
 
   .dropdowns {
     display: flex;
@@ -67,6 +73,8 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     border-radius: 50vw;
   }
 
+  /* stats */
+
   .stat {
     display: flex;
     justify-content: space-between;
@@ -89,6 +97,8 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     overflow: clip;
     text-overflow: ellipsis;
   }
+
+  /* toggle switch */
 
   .toggleContainer {
     position: relative;
@@ -164,7 +174,9 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     justify-content: center;
   }
 
-  .circle-button {
+  /* plus/minus buttons */
+
+  .plusminus-button {
     padding: 4px;
     display: inline-flex;
     align-items: center;
@@ -176,6 +188,8 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     border: 0;
     background: transparent !important;
   }
+
+  /* distance tabs */
 
   .tabs .toggle {
     display: flex; 
@@ -229,16 +243,24 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     transform: scaleX(1);
   }
 
+  /* recoil pattern and blast pattern */
+
   .pattern {
-    width: 250px !important;
-    height: 250px !important;
+    width: 300px !important;
+    height: 300px !important;
     margin: 0.2rem 0;
+    aspect-ratio: 1 / 1;
   }
   
+  /* mobile */
   @media (max-width: 640px) {
+    /* columns */
+
     .column h3 {
       font-size: 1.1rem;
     }
+
+    /* stats */
 
     .stat {
       flex-direction: column;
@@ -261,9 +283,13 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
       font-size: 0.9rem;
     }
 
+    /* distance tabs */
+
     .tabs .toggle label {
       font-size: 0.6rem;
     }
+
+    /* recoil pattern and blast pattern */
     
     .pattern {
       width: 100% !important;
@@ -271,14 +297,22 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     }
   }
 
-  @container (max-width: 300px) {
-    .dropdown {
-      font-size: 16px;
-    }
+  /* small columns */
+  @container (max-width: 400px) {
+  
+    /* columns */
 
     .column h3 {
       font-size: 0.95rem;
     }
+
+    /* dropdowns */
+
+    .dropdown {
+      font-size: 16px;
+    }
+
+    /* stats */
 
     .stat {
       flex-direction: column;
@@ -301,9 +335,14 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
       font-size: 0.75rem;
     }
 
+    /* distance tabs */
+
     .tabs .toggle label {
       font-size: 0.6rem;
     }
+
+    /* recoil pattern and blast pattern */
+
     .pattern {
       width: 100% !important;
       height: 100% !important;
@@ -317,9 +356,9 @@ ___
   <div class="side">
     <div class="label">Columns</div>
     <div class="side">
-      <a id="decrease-columns" class="big-button circle-button noselect" style="opacity: 0.5; pointer-events: none;">-</a>
+      <a id="decrease-columns" class="big-button plusminus-button noselect" style="opacity: 0.5; pointer-events: none;">-</a>
       <p id="column-count" class="noselect" style="margin: 0; font-size: 0.9rem;">2</p>
-      <a id="increase-columns" class="big-button circle-button noselect" style="opacity: 0.5; pointer-events: none;">+</a>
+      <a id="increase-columns" class="big-button plusminus-button noselect" style="opacity: 0.5; pointer-events: none;">+</a>
     </div>
   </div>
   <div style="height: 0.5rem;"></div>
