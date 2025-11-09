@@ -624,17 +624,10 @@ function updateWeaponStats(column) {
 
     // get rid of tabs if all weapons have only one damage distance
     column.querySelectorAll("[id$='-distance-near-tab']").forEach(tab => {
-        console.log(tab.id); 
-
-        //console.log(columns.querySelectorAll(`[name='${tab.name}']`).every(t => t.nextSibling.textContent === "Any Distance"));
-        console.log([...columns].every(c => c.querySelector(`#${tab.id}`).nextSibling.textContent === "Any Distance"));
-
-        if ([...columns].every(c => c.querySelector(`#${tab.id}`).nextSibling.textContent === "Any Distance")) {
+        if ([...columns].every(c => c.querySelector(`#${tab.id}`).nextSibling.textContent === "Any Distance"))
             columns.forEach(c => c.querySelector(`#${tab.id}`).parentElement.style.display = "none");
-        }
-        else {
+        else
             columns.forEach(c => c.querySelector(`#${tab.id}`).parentElement.style.display = "flex");
-        }
     });
 }
 
