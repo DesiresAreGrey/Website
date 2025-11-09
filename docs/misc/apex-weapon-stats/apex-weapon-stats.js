@@ -379,28 +379,28 @@ function updateWeaponStats(column) {
         else if (column.querySelector("#shotstokill-distance-very-far-tab").checked)
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.VeryFar;
 
-        function stkCalcInternal(hp, baseMultiplier, partMultiplier = 1) {
+        function stkCalc(hp, baseMultiplier, partMultiplier = 1) {
             return hp / (baseDamage * baseMultiplier * partMultiplier);
         }
 
-        function stkCalc(health, partMultiplier = 1) {
-            return Math.ceil(stkCalcInternal(health, fleshMultiplier, partMultiplier));
+        function stkHealth(health, partMultiplier = 1) {
+            return Math.ceil(stkCalc(health, fleshMultiplier, partMultiplier));
         }
 
-        function stkWithShield(health, shield, partMultiplier = 1) {
-            return Math.ceil(stkCalcInternal(health, fleshMultiplier, partMultiplier) + stkCalcInternal(shield, shieldMultiplier, partMultiplier));
+        function stkHealthAndShield(health, shield, partMultiplier = 1) {
+            return Math.ceil(stkCalc(health, fleshMultiplier, partMultiplier) + stkCalc(shield, shieldMultiplier, partMultiplier));
         }
 
         console.log(column.weapon.Name, headMultiplier);
-        column.querySelector("#shotstokill-base").textContent = `${stkCalc(100)} / ${stkCalc(100, headMultiplier)} / ${stkCalc(100, legMultiplier)}`;
+        column.querySelector("#shotstokill-base").textContent = `${stkHealth(100)} / ${stkHealth(100, headMultiplier)} / ${stkHealth(100, legMultiplier)}`;
 
-        column.querySelector("#shotstokill-common").textContent = `${stkWithShield(100, 50)} / ${stkWithShield(100, 50, headMultiplier)} / ${stkWithShield(100, 50, legMultiplier)}`;
+        column.querySelector("#shotstokill-common").textContent = `${stkHealthAndShield(100, 50)} / ${stkHealthAndShield(100, 50, headMultiplier)} / ${stkHealthAndShield(100, 50, legMultiplier)}`;
 
-        column.querySelector("#shotstokill-rare").textContent = `${stkWithShield(100, 75)} / ${stkWithShield(100, 75, headMultiplier)} / ${stkWithShield(100, 75, legMultiplier)}`;
+        column.querySelector("#shotstokill-rare").textContent = `${stkHealthAndShield(100, 75)} / ${stkHealthAndShield(100, 75, headMultiplier)} / ${stkHealthAndShield(100, 75, legMultiplier)}`;
 
-        column.querySelector("#shotstokill-epic").textContent = `${stkWithShield(100, 100)} / ${stkWithShield(100, 100, headMultiplier)} / ${stkWithShield(100, 100, legMultiplier)}`;
+        column.querySelector("#shotstokill-epic").textContent = `${stkHealthAndShield(100, 100)} / ${stkHealthAndShield(100, 100, headMultiplier)} / ${stkHealthAndShield(100, 100, legMultiplier)}`;
 
-        column.querySelector("#shotstokill-mythic").textContent = `${stkWithShield(100, 125)} / ${stkWithShield(100, 125, headMultiplier)} / ${stkWithShield(100, 125, legMultiplier)}`;
+        column.querySelector("#shotstokill-mythic").textContent = `${stkHealthAndShield(100, 125)} / ${stkHealthAndShield(100, 125, headMultiplier)} / ${stkHealthAndShield(100, 125, legMultiplier)}`;
     }
 
     shotstokillDistanceTabChanged();
