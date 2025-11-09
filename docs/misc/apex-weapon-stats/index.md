@@ -247,7 +247,7 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
 
   .pattern {
     width: 300px !important;
-    height: 300px !important;
+    height: auto !important;
     margin: 0.2rem 0;
     aspect-ratio: 1 / 1;
   }
