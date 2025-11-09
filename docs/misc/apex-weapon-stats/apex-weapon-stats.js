@@ -369,6 +369,16 @@ function updateWeaponStats(column) {
         column.querySelector("#shotstokill-distance-very-far-tab").parentElement.style.display = "none";
     }
 
+    function stkCalc(hp, baseDamage, baseMultiplier, partMultiplier = 1) {
+        return hp / (baseDamage * baseMultiplier * partMultiplier);
+    }
+    function stkHealth(health, baseDamage, partMultiplier = 1) {
+        return Math.ceil(stkCalc(health, baseDamage, fleshMultiplier, partMultiplier));
+    }
+    function stkHealthAndShield(health, shield, baseDamage, partMultiplier = 1) {
+        return Math.ceil(stkCalc(health, baseDamage, fleshMultiplier, partMultiplier) + stkCalc(shield, baseDamage, shieldMultiplier, partMultiplier));
+    }
+
     function shotstokillDistanceTabChanged() {
         let baseDamage = column.mode.Firing.Shot.Damage.Amount.Near;
 
@@ -379,28 +389,16 @@ function updateWeaponStats(column) {
         else if (column.querySelector("#shotstokill-distance-very-far-tab").checked)
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.VeryFar;
 
-        function stkCalc(hp, baseMultiplier, partMultiplier = 1) {
-            return hp / (baseDamage * baseMultiplier * partMultiplier);
-        }
-
-        function stkHealth(health, partMultiplier = 1) {
-            return Math.ceil(stkCalc(health, fleshMultiplier, partMultiplier));
-        }
-
-        function stkHealthAndShield(health, shield, partMultiplier = 1) {
-            return Math.ceil(stkCalc(health, fleshMultiplier, partMultiplier) + stkCalc(shield, shieldMultiplier, partMultiplier));
-        }
-
         console.log(column.weapon.Name, headMultiplier);
-        column.querySelector("#shotstokill-base").textContent = `${stkHealth(100)} / ${stkHealth(100, headMultiplier)} / ${stkHealth(100, legMultiplier)}`;
+        column.querySelector("#shotstokill-base").textContent = `${stkHealth(100, baseDamage)} / ${stkHealth(100, baseDamage, headMultiplier)} / ${stkHealth(100, baseDamage, legMultiplier)}`;
 
-        column.querySelector("#shotstokill-common").textContent = `${stkHealthAndShield(100, 50)} / ${stkHealthAndShield(100, 50, headMultiplier)} / ${stkHealthAndShield(100, 50, legMultiplier)}`;
+        column.querySelector("#shotstokill-common").textContent = `${stkHealthAndShield(100, 50, baseDamage)} / ${stkHealthAndShield(100, 50, baseDamage, headMultiplier)} / ${stkHealthAndShield(100, 50, baseDamage, legMultiplier)}`;
 
-        column.querySelector("#shotstokill-rare").textContent = `${stkHealthAndShield(100, 75)} / ${stkHealthAndShield(100, 75, headMultiplier)} / ${stkHealthAndShield(100, 75, legMultiplier)}`;
+        column.querySelector("#shotstokill-rare").textContent = `${stkHealthAndShield(100, 75, baseDamage)} / ${stkHealthAndShield(100, 75, baseDamage, headMultiplier)} / ${stkHealthAndShield(100, 75, baseDamage, legMultiplier)}`;
 
-        column.querySelector("#shotstokill-epic").textContent = `${stkHealthAndShield(100, 100)} / ${stkHealthAndShield(100, 100, headMultiplier)} / ${stkHealthAndShield(100, 100, legMultiplier)}`;
+        column.querySelector("#shotstokill-epic").textContent = `${stkHealthAndShield(100, 100, baseDamage)} / ${stkHealthAndShield(100, 100, baseDamage, headMultiplier)} / ${stkHealthAndShield(100, 100, baseDamage, legMultiplier)}`;
 
-        column.querySelector("#shotstokill-mythic").textContent = `${stkHealthAndShield(100, 125)} / ${stkHealthAndShield(100, 125, headMultiplier)} / ${stkHealthAndShield(100, 125, legMultiplier)}`;
+        column.querySelector("#shotstokill-mythic").textContent = `${stkHealthAndShield(100, 125, baseDamage)} / ${stkHealthAndShield(100, 125, baseDamage, headMultiplier)} / ${stkHealthAndShield(100, 125, baseDamage, legMultiplier)}`;
     }
 
     shotstokillDistanceTabChanged();
@@ -482,6 +480,96 @@ function updateWeaponStats(column) {
 
     dpsTabChanged();
     column.querySelectorAll('input[name="dps-"]').forEach(input => input.onchange = dpsTabChanged);
+
+    // TTK :(
+
+    if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
+        column.querySelector("#ttk-distance-near-tab").nextSibling.textContent = "Any Distance";
+    }
+    else {
+        column.querySelector("#ttk-distance-near-tab").nextSibling.textContent = distanceNear;
+    }
+
+    if (column.mode.Firing.Shot.Damage.Amount.Far != null) {
+        column.querySelector("#ttk-distance-far-tab").parentElement.style.display = "block";
+        column.querySelector("#ttk-distance-far-tab").nextSibling.textContent = distanceFar;
+    }
+    else {
+        column.querySelector("#ttk-distance-far-tab").parentElement.style.display = "none";
+    }
+    if (column.mode.Firing.Shot.Damage.Amount.VeryFar != null) {
+        column.querySelector("#ttk-distance-very-far-tab").parentElement.style.display = "block";
+        column.querySelector("#ttk-distance-very-far-tab").nextSibling.textContent = distanceVeryFar;
+    }
+    else {
+        column.querySelector("#ttk-distance-very-far-tab").parentElement.style.display = "none";
+    }
+
+    function ttkTabChanged() {
+        let baseDamage = column.mode.Firing.Shot.Damage.Amount.Near;
+    
+        if (column.querySelector("#ttk-distance-near-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
+        else if (column.querySelector("#ttk-distance-far-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Far;
+        else if (column.querySelector("#ttk-distance-very-far-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.VeryFar;
+
+        column.querySelector("#ttk-no-armor-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return ((stkHealth(100, baseDamage) - 1) / x).toFixed(3) / 1;
+        });
+        column.querySelector("#ttk-no-armor-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return ((stkHealth(100, baseDamage, headMultiplier) - 1) / x).toFixed(3) / 1;
+        });
+        column.querySelector("#ttk-no-armor-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return ((stkHealth(100, baseDamage, legMultiplier) - 1) / x).toFixed(3) / 1;
+        });
+
+        column.querySelector("#ttk-common-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return ((stkHealthAndShield(100, 50, baseDamage) - 1) / x).toFixed(3) / 1;
+        });
+        column.querySelector("#ttk-common-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return ((stkHealthAndShield(100, 50, baseDamage, headMultiplier) - 1) / x).toFixed(3) / 1;
+        });
+        column.querySelector("#ttk-common-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return ((stkHealthAndShield(100, 50, baseDamage, legMultiplier) - 1) / x).toFixed(3) / 1;
+        });
+
+        column.querySelector("#ttk-rare-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return ((stkHealthAndShield(100, 75, baseDamage) - 1) / x).toFixed(3) / 1;
+        });
+        column.querySelector("#ttk-rare-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return ((stkHealthAndShield(100, 75, baseDamage, headMultiplier) - 1) / x).toFixed(3) / 1;
+        });
+        column.querySelector("#ttk-rare-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return ((stkHealthAndShield(100, 75, baseDamage, legMultiplier) - 1) / x).toFixed(3) / 1;
+        });
+
+        column.querySelector("#ttk-epic-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return ((stkHealthAndShield(100, 100, baseDamage) - 1) / x).toFixed(3) / 1;
+        });
+        column.querySelector("#ttk-epic-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return ((stkHealthAndShield(100, 100, baseDamage, headMultiplier) - 1) / x).toFixed(3) / 1;
+        });
+        column.querySelector("#ttk-epic-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return ((stkHealthAndShield(100, 100, baseDamage, legMultiplier) - 1) / x).toFixed(3) / 1;
+        });
+    }
+
+    ttkTabChanged();
+    column.querySelectorAll('input[name="ttk-"]').forEach(input => input.onchange = ttkTabChanged);
 
     // Projectile Size
 

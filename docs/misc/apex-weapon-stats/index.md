@@ -444,7 +444,7 @@ ___
         <label class="noselect"><input id="shotstokill-distance-very-far-tab" class="vh" type="radio" name="shotstokill-distance">Very Far</label>
       </div>
     </form>
-    <h3>DPS</h3>
+    <h3>Damage Per Second</h3>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
       <span class="label">Body <span class="label-subtitle">BASE</span></span>
       <span class="value" id="dps-base-body">-</span>
@@ -486,6 +486,74 @@ ___
         <label class="noselect"><input id="dps-distance-near-tab" class="vh" type="radio" name="dps-distance" checked>Near</label>
         <label class="noselect"><input id="dps-distance-far-tab" class="vh" type="radio" name="dps-distance">Far</label>
         <label class="noselect"><input id="dps-distance-very-far-tab" class="vh" type="radio" name="dps-distance">Very Far</label>
+      </div>
+    </form>
+    <h3>Time To Kill</h3>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Body <span class="label-subtitle" style="color:var(--base);">NO ARMOR</span></span>
+      <span class="value" id="ttk-no-armor-body">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Head <span class="label-subtitle" style="color:var(--base);">NO ARMOR</span></span>
+      <span class="value" id="ttk-no-armor-head">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Limb <span class="label-subtitle" style="color:var(--base);">NO ARMOR</span></span>
+      <span class="value" id="ttk-no-armor-limb">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Body <span class="label-subtitle" style="color:var(--common);">COMMON</span></span>
+      <span class="value" id="ttk-common-body">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Head <span class="label-subtitle" style="color:var(--common);">COMMON</span></span>
+      <span class="value" id="ttk-common-head">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Limb <span class="label-subtitle" style="color:var(--common);">COMMON</span></span>
+      <span class="value" id="ttk-common-limb">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Body <span class="label-subtitle" style="color:var(--rare);">RARE</span></span>
+      <span class="value" id="ttk-rare-body">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Head <span class="label-subtitle" style="color:var(--rare);">RARE</span></span>
+      <span class="value" id="ttk-rare-head">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Limb <span class="label-subtitle" style="color:var(--rare);">RARE</span></span>
+      <span class="value" id="ttk-rare-limb">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Body <span class="label-subtitle" style="color:var(--epic);">EPIC</span></span>
+      <span class="value" id="ttk-epic-body">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Head <span class="label-subtitle" style="color:var(--epic);">EPIC</span></span>
+      <span class="value" id="ttk-epic-head">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Limb <span class="label-subtitle" style="color:var(--epic);">EPIC</span></span>
+      <span class="value" id="ttk-epic-limb">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Body <span class="label-subtitle" style="color:var(--mythic);">MYTHIC</span></span>
+      <span class="value" id="ttk-mythic-body">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Head <span class="label-subtitle" style="color:var(--mythic);">MYTHIC</span></span>
+      <span class="value" id="ttk-mythic-head">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Limb <span class="label-subtitle" style="color:var(--mythic);">MYTHIC</span></span>
+      <span class="value" id="ttk-mythic-limb">-</span>
+    </div>
+    <form class="tabs">
+      <div class="toggle">
+        <label class="noselect"><input id="ttk-distance-near-tab" class="vh" type="radio" name="ttk-distance" checked>Near</label>
+        <label class="noselect"><input id="ttk-distance-far-tab" class="vh" type="radio" name="ttk-distance">Far</label>
+        <label class="noselect"><input id="ttk-distance-very-far-tab" class="vh" type="radio" name="ttk-distance">Very Far</label>
       </div>
     </form>
 
