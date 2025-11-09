@@ -616,9 +616,11 @@ function updateWeaponStats(column) {
         column.querySelector("#final-step").previousElementSibling.innerHTML = `Final Step <span class="label-subtitle">${column.mode.Firing.Shot.ProjectileSize.Final.Time}sec</span>`;
     }
     
-    // Blast Pattern
+    // Patterns
+    
+    drawPattern(column.querySelector("#recoil-pattern"), column.mode.Firing.Shot.RecoilPattern, [-7, -13, 7, 1], true, true, 0.15, 0.1, '#fff', '#666');
 
-    drawPattern(column.querySelector("#blast-pattern"), column.mode.Firing.Shot.BlastPattern);
+    drawPattern(column.querySelector("#blast-pattern"), column.mode.Firing.Shot.BlastPattern, undefined, false, false, 1);
 }
 
 
@@ -628,9 +630,6 @@ function rarityFormat(value, isMythic = false, highestRarity = undefined, operat
     const totalRarities = Object.keys(value).length;
 
     const rarities = [];
-
-    //if (isMythic && totalRarities == 1)
-        //return `<span style="color:var(--mythic);">${operation(value["Base"], "Base")}</span>`;
 
     if (totalRarities == 1)
         return `<span>${operation(value["Base"], "Base")}</span>`;
@@ -658,20 +657,35 @@ async function loadSeasons() {
     seasons.sort((a, b) => new Date(b.GeneratedDate) - new Date(a.GeneratedDate));
 }
 
-function drawPattern(svg, points, bounds = [-20, -20, 20, 20], pointRadius = 1) {
-    points ??= [{ X: 0, Y: 0 }];
-    
-    const axisColor = '#999';
+function drawPattern(svg, points = [], bounds = [-20, -20, 20, 20], drawAxes = true, connectPoints = false, pointRadius = 1, lineWidth = 0.1, pointColor = '#ffffff', lineColor = '#666666') {
+    const axisColor = '#444444';
     svg.setAttribute('viewBox', `${bounds[0]} ${bounds[1]} ${bounds[2] - bounds[0]} ${bounds[3] - bounds[1]}`);
-    //svg.innerHTML = `<line x1="${bounds[0]}" y1="0" x2="${bounds[2]}" y2="0" stroke="${axisColor}" stroke-width="0.05" /><line x1="0" y1="${bounds[1]}" x2="0" y2="${bounds[3]}" stroke="${axisColor}" stroke-width="0.1"/>`;
     svg.innerHTML = '';
+    if (drawAxes)
+        svg.innerHTML = `<line x1="${bounds[0]}" y1="0" x2="${bounds[2]}" y2="0" stroke="${axisColor}" stroke-width="0.04" /><line x1="0.01" y1="${bounds[1]}" x2="0.01" y2="${bounds[3]}" stroke="${axisColor}" stroke-width="0.04" />`;
     const NS  = 'http://www.w3.org/2000/svg';
+
+    if (connectPoints && points.length > 1) {
+        for (let i = 1; i < points.length; i++) {
+            const p1 = points[i - 1];
+            const p2 = points[i];
+            const line = document.createElementNS(NS, 'line');
+            line.setAttribute('x1', p1.X);
+            line.setAttribute('y1', -p1.Y);
+            line.setAttribute('x2', p2.X);
+            line.setAttribute('y2', -p2.Y);
+            line.setAttribute('stroke', lineColor);
+            line.setAttribute('stroke-width', lineWidth);
+            svg.appendChild(line);
+        }
+    }
+
     for (const point of points) {
         const dot = document.createElementNS(NS, 'circle');
         dot.setAttribute('cx', point.X);
         dot.setAttribute('cy', -point.Y);
         dot.setAttribute('r', pointRadius + "px");
-        dot.setAttribute('fill', '#fff'); 
+        dot.setAttribute('fill', pointColor);
         svg.appendChild(dot);
     }
 }

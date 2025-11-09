@@ -210,8 +210,9 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
   }
 
   .pattern {
-    width: 150px !important;
-    height: 150px !important;
+    width: 250px !important;
+    height: 250px !important;
+    margin: 0.2rem 0;
   }
   
   @media (max-width: 640px) {
@@ -596,7 +597,11 @@ ___
     </div>
     <h3>Patterns</h3>
     <div class="stat">
-      <span class="label">Blast Pattern</span></span>
+      <span class="label">Recoil Pattern</span>
+      <svg class="pattern" id="recoil-pattern" style="background:#111;border:1px solid #333"></svg>
+    </div>
+    <div class="stat">
+      <span class="label">Blast Pattern</span>
       <svg class="pattern" id="blast-pattern" style="background:#111;border:1px solid #333"></svg>
     </div>
   </div>
