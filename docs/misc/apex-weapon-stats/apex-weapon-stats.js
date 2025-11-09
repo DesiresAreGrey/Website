@@ -249,11 +249,9 @@ function updateWeaponStats(column) {
 
     if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
         column.querySelector("#damage-distance-near-tab").nextSibling.textContent = "Any Distance";
-        column.querySelector("#damage-distance-near-tab").parentElement.style.opacity = "0";
     }
     else {
         column.querySelector("#damage-distance-near-tab").nextSibling.textContent = distanceNear;
-        column.querySelector("#damage-distance-near-tab").parentElement.style.opacity = "1";
     }
 
     if (column.mode.Firing.Shot.Damage.Amount.Far != null) {
@@ -305,11 +303,9 @@ function updateWeaponStats(column) {
 
     if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
         column.querySelector("#shot-damage-distance-near-tab").nextSibling.textContent = "Any Distance";
-        column.querySelector("#shot-damage-distance-near-tab").parentElement.style.opacity = "0";
     }
     else {
         column.querySelector("#shot-damage-distance-near-tab").nextSibling.textContent = distanceNear;
-        column.querySelector("#shot-damage-distance-near-tab").parentElement.style.opacity = "1";
     }
 
     if (column.mode.Firing.Shot.Damage.Amount.Far != null) {
@@ -353,11 +349,9 @@ function updateWeaponStats(column) {
 
     if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
         column.querySelector("#shotstokill-distance-near-tab").nextSibling.textContent = "Any Distance";
-        column.querySelector("#shotstokill-distance-near-tab").parentElement.style.opacity = "0";
     }
     else {
         column.querySelector("#shotstokill-distance-near-tab").nextSibling.textContent = distanceNear;
-        column.querySelector("#shotstokill-distance-near-tab").parentElement.style.opacity = "1";
     }
 
     if (column.mode.Firing.Shot.Damage.Amount.Far != null) {
@@ -413,11 +407,9 @@ function updateWeaponStats(column) {
     
     if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
         column.querySelector("#dps-distance-near-tab").nextSibling.textContent = "Any Distance";
-        column.querySelector("#dps-distance-near-tab").parentElement.style.opacity = "0";
     }
     else {
         column.querySelector("#dps-distance-near-tab").nextSibling.textContent = distanceNear;
-        column.querySelector("#dps-distance-near-tab").parentElement.style.opacity = "1";
     }
 
     if (column.mode.Firing.Shot.Damage.Amount.Far != null) {
@@ -492,11 +484,9 @@ function updateWeaponStats(column) {
 
     if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
         column.querySelector("#ttk-distance-near-tab").nextSibling.textContent = "Any Distance";
-        column.querySelector("#ttk-distance-near-tab").parentElement.style.opacity = "0";
     }
     else {
         column.querySelector("#ttk-distance-near-tab").nextSibling.textContent = distanceNear;
-        column.querySelector("#ttk-distance-near-tab").parentElement.style.opacity = "1";
     }
 
     if (column.mode.Firing.Shot.Damage.Amount.Far != null) {
@@ -631,6 +621,21 @@ function updateWeaponStats(column) {
     drawPattern(column.querySelector("#recoil-pattern"), column.mode.Firing.Shot.RecoilPattern, [-7, -13, 7, 1], true, true, 0.15, 0.1, '#fff', '#666');
 
     drawPattern(column.querySelector("#blast-pattern"), column.mode.Firing.Shot.BlastPattern, undefined, false, false, 1);
+
+    // get rid of tabs if all weapons have only one damage distance
+    column.querySelectorAll("[id$='-distance-near-tab']").forEach(tab => {
+        console.log(tab.id); 
+
+        //console.log(columns.querySelectorAll(`[name='${tab.name}']`).every(t => t.nextSibling.textContent === "Any Distance"));
+        console.log([...columns].every(c => c.querySelector(`#${tab.id}`).nextSibling.textContent === "Any Distance"));
+
+        if ([...columns].every(c => c.querySelector(`#${tab.id}`).nextSibling.textContent === "Any Distance")) {
+            columns.forEach(c => c.querySelector(`#${tab.id}`).parentElement.style.display = "none");
+        }
+        else {
+            columns.forEach(c => c.querySelector(`#${tab.id}`).parentElement.style.display = "flex");
+        }
+    });
 }
 
 
