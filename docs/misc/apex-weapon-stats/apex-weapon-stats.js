@@ -243,27 +243,27 @@ function updateWeaponStats(column) {
 
     // Projectile Damage
 
-    const damageDistanceNear = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.Near * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.Near + "h";
-    const damageDistanceFar = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.Far * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.Far + "h";
-    const damageDistanceVeryFar = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.VeryFar * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.VeryFar + "h";
+    const distanceNear = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.Near * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.Near + "h";
+    const distanceFar = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.Far * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.Far + "h";
+    const distanceVeryFar = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.VeryFar * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.VeryFar + "h";
 
     if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
         column.querySelector("#damage-distance-near-tab").nextSibling.textContent = "Any Distance";
     }
     else {
-        column.querySelector("#damage-distance-near-tab").nextSibling.textContent = damageDistanceNear;
+        column.querySelector("#damage-distance-near-tab").nextSibling.textContent = distanceNear;
     }
 
     if (column.mode.Firing.Shot.Damage.Amount.Far != null) {
         column.querySelector("#damage-distance-far-tab").parentElement.style.display = "block";
-        column.querySelector("#damage-distance-far-tab").nextSibling.textContent = damageDistanceFar;
+        column.querySelector("#damage-distance-far-tab").nextSibling.textContent = distanceFar;
     }
     else {
         column.querySelector("#damage-distance-far-tab").parentElement.style.display = "none";
     }
     if (column.mode.Firing.Shot.Damage.Amount.VeryFar != null) {
         column.querySelector("#damage-distance-very-far-tab").parentElement.style.display = "block";
-        column.querySelector("#damage-distance-very-far-tab").nextSibling.textContent = damageDistanceVeryFar;
+        column.querySelector("#damage-distance-very-far-tab").nextSibling.textContent = distanceVeryFar;
     }
     else {
         column.querySelector("#damage-distance-very-far-tab").parentElement.style.display = "none";
@@ -287,13 +287,13 @@ function updateWeaponStats(column) {
         else if (column.querySelector("#damage-distance-very-far-tab").checked)
             baseDamage = column.mode.Firing.Shot.Damage.Amount.VeryFar;
 
-        column.querySelector("#damage-amount").textContent = `${baseDamage} / ${(headMultiplier * baseDamage).toFixed(2) / 1} / ${(legMultiplier * baseDamage).toFixed(2) / 1}`;
+        column.querySelector("#damage-amount").textContent = `${baseDamage} / ${Math.round(headMultiplier * baseDamage)} / ${Math.round(legMultiplier * baseDamage)}`;
 
-        column.querySelector("#damage-flesh").textContent = `${baseDamage * fleshMultiplier} / ${(headMultiplier * baseDamage * fleshMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * fleshMultiplier).toFixed(2) / 1}`;
+        column.querySelector("#damage-flesh").textContent = `${Math.round(baseDamage * fleshMultiplier)} / ${Math.round(headMultiplier * baseDamage * fleshMultiplier)} / ${Math.round(legMultiplier * baseDamage * fleshMultiplier)}`;
 
-        column.querySelector("#damage-shield").textContent = `${baseDamage * shieldMultiplier} / ${(headMultiplier * baseDamage * shieldMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * shieldMultiplier).toFixed(2) / 1}`;
+        column.querySelector("#damage-shield").textContent = `${Math.round(baseDamage * shieldMultiplier)} / ${Math.round(headMultiplier * baseDamage * shieldMultiplier)} / ${Math.round(legMultiplier * baseDamage * shieldMultiplier)}`;
 
-        column.querySelector("#damage-critical").textContent = `${(baseDamage * critHitMultiplier).toFixed(2) / 1} / ${(headMultiplier * baseDamage * critHitMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * critHitMultiplier).toFixed(2) / 1}`;
+        column.querySelector("#damage-critical").textContent = `${Math.round(baseDamage * critHitMultiplier)} / ${Math.round(headMultiplier * baseDamage * critHitMultiplier)} / ${Math.round(legMultiplier * baseDamage * critHitMultiplier)}`;
     }
 
     damageDistanceTabChanged();
@@ -301,27 +301,23 @@ function updateWeaponStats(column) {
 
     // Shot Damage
 
-    const shotDamageDistanceNear = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.Near * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.Near + "h";
-    const shotDamageDistanceFar = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.Far * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.Far + "h";
-    const shotDamageDistanceVeryFar = usingConvertedValues() ? (column.mode.Firing.Shot.Damage.Distance.VeryFar * 0.0254).toFixed(1) / 1 + "m" : column.mode.Firing.Shot.Damage.Distance.VeryFar + "h";
-
     if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
         column.querySelector("#shot-damage-distance-near-tab").nextSibling.textContent = "Any Distance";
     }
     else {
-        column.querySelector("#shot-damage-distance-near-tab").nextSibling.textContent = shotDamageDistanceNear;
+        column.querySelector("#shot-damage-distance-near-tab").nextSibling.textContent = distanceNear;
     }
 
     if (column.mode.Firing.Shot.Damage.Amount.Far != null) {
         column.querySelector("#shot-damage-distance-far-tab").parentElement.style.display = "block";
-        column.querySelector("#shot-damage-distance-far-tab").nextSibling.textContent = shotDamageDistanceFar;
+        column.querySelector("#shot-damage-distance-far-tab").nextSibling.textContent = distanceFar;
     }
     else {
         column.querySelector("#shot-damage-distance-far-tab").parentElement.style.display = "none";
     }
     if (column.mode.Firing.Shot.Damage.Amount.VeryFar != null) {
         column.querySelector("#shot-damage-distance-very-far-tab").parentElement.style.display = "block";
-        column.querySelector("#shot-damage-distance-very-far-tab").nextSibling.textContent = shotDamageDistanceVeryFar;
+        column.querySelector("#shot-damage-distance-very-far-tab").nextSibling.textContent = distanceVeryFar;
     }
     else {
         column.querySelector("#shot-damage-distance-very-far-tab").parentElement.style.display = "none";
@@ -331,23 +327,100 @@ function updateWeaponStats(column) {
         let baseDamage = column.mode.Firing.Shot.Damage.Amount.Near;
     
         if (column.querySelector("#shot-damage-distance-near-tab").checked)
-            baseDamage = column.mode.Firing.Shot.Projectiles *column.mode.Firing.Shot.Damage.Amount.Near;
+            baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
         else if (column.querySelector("#shot-damage-distance-far-tab").checked)
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Far;
         else if (column.querySelector("#shot-damage-distance-very-far-tab").checked)
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.VeryFar;
 
-        column.querySelector("#shot-damage-amount").textContent = `${baseDamage} / ${(headMultiplier * baseDamage).toFixed(2) / 1} / ${(legMultiplier * baseDamage).toFixed(2) / 1}`;
+        column.querySelector("#shot-damage-amount").textContent = `${baseDamage} / ${Math.round(headMultiplier * baseDamage)} / ${Math.round(legMultiplier * baseDamage)}`;
 
-        column.querySelector("#shot-damage-flesh").textContent = `${baseDamage * fleshMultiplier} / ${(headMultiplier * baseDamage * fleshMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * fleshMultiplier).toFixed(2) / 1}`;
+        column.querySelector("#shot-damage-flesh").textContent = `${Math.round(baseDamage * fleshMultiplier)} / ${Math.round(headMultiplier * baseDamage * fleshMultiplier)} / ${Math.round(legMultiplier * baseDamage * fleshMultiplier)}`;
 
-        column.querySelector("#shot-damage-shield").textContent = `${baseDamage * shieldMultiplier} / ${(headMultiplier * baseDamage * shieldMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * shieldMultiplier).toFixed(2) / 1}`;
+        column.querySelector("#shot-damage-shield").textContent = `${Math.round(baseDamage * shieldMultiplier)} / ${Math.round(headMultiplier * baseDamage * shieldMultiplier)} / ${Math.round(legMultiplier * baseDamage * shieldMultiplier)}`;
 
-        column.querySelector("#shot-damage-critical").textContent = `${(baseDamage * critHitMultiplier).toFixed(2) / 1} / ${(headMultiplier * baseDamage * critHitMultiplier).toFixed(2) / 1} / ${(legMultiplier * baseDamage * critHitMultiplier).toFixed(2) / 1}`;
+        column.querySelector("#shot-damage-critical").textContent = `${Math.round(baseDamage * critHitMultiplier)} / ${Math.round(headMultiplier * baseDamage * critHitMultiplier)} / ${Math.round(legMultiplier * baseDamage * critHitMultiplier)}`;
     }
 
     shotDamageDistanceTabChanged();
     column.querySelectorAll('input[name="shot-damage-distance"]').forEach(input => input.onchange = shotDamageDistanceTabChanged);
+
+    // DPS
+    
+    if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
+        column.querySelector("#dps-distance-near-tab").nextSibling.textContent = "Any Distance";
+    }
+    else {
+        column.querySelector("#dps-distance-near-tab").nextSibling.textContent = distanceNear;
+    }
+
+    if (column.mode.Firing.Shot.Damage.Amount.Far != null) {
+        column.querySelector("#dps-distance-far-tab").parentElement.style.display = "block";
+        column.querySelector("#dps-distance-far-tab").nextSibling.textContent = distanceFar;
+    }
+    else {
+        column.querySelector("#dps-distance-far-tab").parentElement.style.display = "none";
+    }
+    if (column.mode.Firing.Shot.Damage.Amount.VeryFar != null) {
+        column.querySelector("#dps-distance-very-far-tab").parentElement.style.display = "block";
+        column.querySelector("#dps-distance-very-far-tab").nextSibling.textContent = distanceVeryFar;
+    }
+    else {
+        column.querySelector("#dps-distance-very-far-tab").parentElement.style.display = "none";
+    }
+
+    function dpsTabChanged() {
+        let baseDamage = column.mode.Firing.Shot.Damage.Amount.Near;
+    
+        if (column.querySelector("#dps-distance-near-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
+        else if (column.querySelector("#dps-distance-far-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Far;
+        else if (column.querySelector("#dps-distance-very-far-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.VeryFar;
+
+        column.querySelector("#dps-base-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return Math.round(baseDamage * x);
+        });
+        column.querySelector("#dps-base-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return Math.round(baseDamage * x * headMultiplier);
+        });
+        column.querySelector("#dps-base-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return Math.round(baseDamage * x * legMultiplier);
+        });
+
+        column.querySelector("#dps-flesh-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return Math.round(baseDamage * x * fleshMultiplier);
+        });
+        column.querySelector("#dps-flesh-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return Math.round(baseDamage * x * headMultiplier * fleshMultiplier);
+        });
+        column.querySelector("#dps-flesh-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return Math.round(baseDamage * x * legMultiplier * fleshMultiplier);
+        });
+
+        column.querySelector("#dps-shield-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return Math.round(baseDamage * x * shieldMultiplier);
+        });
+        column.querySelector("#dps-shield-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return Math.round(baseDamage * x * headMultiplier * shieldMultiplier);
+        });
+        column.querySelector("#dps-shield-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+            x = rpm(x, key) / 60;
+            return Math.round(baseDamage * x * legMultiplier * shieldMultiplier);
+        });
+    }
+
+    dpsTabChanged();
+    column.querySelectorAll('input[name="dps-"]').forEach(input => input.onchange = dpsTabChanged);
 
     // Projectile Size
 
