@@ -479,7 +479,7 @@ function updateWeaponStats(column) {
     }
 
     dpsTabChanged();
-    column.querySelectorAll('input[name="dps-"]').forEach(input => input.onchange = dpsTabChanged);
+    column.querySelectorAll('input[name="dps-distance"]').forEach(input => input.onchange = dpsTabChanged);
 
     // TTK :(
 
@@ -515,74 +515,78 @@ function updateWeaponStats(column) {
         else if (column.querySelector("#ttk-distance-very-far-tab").checked)
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.VeryFar;
 
+        const precision = column.offsetWidth <= 300 ? 2 : 3;
+
+        console.log(column.offsetWidth);
+
         column.querySelector("#ttk-no-armor-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             x = rpm(x, key) / 60;
-            return ((stkHealth(100, baseDamage) - 1) / x).toFixed(3) / 1;
+            return ((stkHealth(100, baseDamage) - 1) / x).toFixed(precision) / 1;
         });
         column.querySelector("#ttk-no-armor-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             x = rpm(x, key) / 60;
-            return ((stkHealth(100, baseDamage, headMultiplier) - 1) / x).toFixed(3) / 1;
+            return ((stkHealth(100, baseDamage, headMultiplier) - 1) / x).toFixed(precision) / 1;
         });
         column.querySelector("#ttk-no-armor-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             x = rpm(x, key) / 60;
-            return ((stkHealth(100, baseDamage, legMultiplier) - 1) / x).toFixed(3) / 1;
+            return ((stkHealth(100, baseDamage, legMultiplier) - 1) / x).toFixed(precision) / 1;
         });
 
         column.querySelector("#ttk-common-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             x = rpm(x, key) / 60;
-            return ((stkHealthAndShield(100, 50, baseDamage) - 1) / x).toFixed(3) / 1;
+            return ((stkHealthAndShield(100, 50, baseDamage) - 1) / x).toFixed(precision) / 1;
         });
         column.querySelector("#ttk-common-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             x = rpm(x, key) / 60;
-            return ((stkHealthAndShield(100, 50, baseDamage, headMultiplier) - 1) / x).toFixed(3) / 1;
+            return ((stkHealthAndShield(100, 50, baseDamage, headMultiplier) - 1) / x).toFixed(precision) / 1;
         });
         column.querySelector("#ttk-common-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             x = rpm(x, key) / 60;
-            return ((stkHealthAndShield(100, 50, baseDamage, legMultiplier) - 1) / x).toFixed(3) / 1;
+            return ((stkHealthAndShield(100, 50, baseDamage, legMultiplier) - 1) / x).toFixed(precision) / 1;
         });
 
         column.querySelector("#ttk-rare-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             x = rpm(x, key) / 60;
-            return ((stkHealthAndShield(100, 75, baseDamage) - 1) / x).toFixed(3) / 1;
+            return ((stkHealthAndShield(100, 75, baseDamage) - 1) / x).toFixed(precision) / 1;
         });
         column.querySelector("#ttk-rare-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             x = rpm(x, key) / 60;
-            return ((stkHealthAndShield(100, 75, baseDamage, headMultiplier) - 1) / x).toFixed(3) / 1;
+            return ((stkHealthAndShield(100, 75, baseDamage, headMultiplier) - 1) / x).toFixed(precision) / 1;
         });
         column.querySelector("#ttk-rare-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             x = rpm(x, key) / 60;
-            return ((stkHealthAndShield(100, 75, baseDamage, legMultiplier) - 1) / x).toFixed(3) / 1;
+            return ((stkHealthAndShield(100, 75, baseDamage, legMultiplier) - 1) / x).toFixed(precision) / 1;
         });
 
         column.querySelector("#ttk-epic-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             x = rpm(x, key) / 60;
-            return ((stkHealthAndShield(100, 100, baseDamage) - 1) / x).toFixed(3) / 1;
+            return ((stkHealthAndShield(100, 100, baseDamage) - 1) / x).toFixed(precision) / 1;
         });
         column.querySelector("#ttk-epic-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             x = rpm(x, key) / 60;
-            return ((stkHealthAndShield(100, 100, baseDamage, headMultiplier) - 1) / x).toFixed(3) / 1;
+            return ((stkHealthAndShield(100, 100, baseDamage, headMultiplier) - 1) / x).toFixed(precision) / 1;
         });
         column.querySelector("#ttk-epic-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             x = rpm(x, key) / 60;
-            return ((stkHealthAndShield(100, 100, baseDamage, legMultiplier) - 1) / x).toFixed(3) / 1;
+            return ((stkHealthAndShield(100, 100, baseDamage, legMultiplier) - 1) / x).toFixed(precision) / 1;
         });
 
         column.querySelector("#ttk-mythic-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             x = rpm(x, key) / 60;
-            return ((stkHealthAndShield(100, 125, baseDamage) - 1) / x).toFixed(3) / 1;
+            return ((stkHealthAndShield(100, 125, baseDamage) - 1) / x).toFixed(precision) / 1;
         });
         column.querySelector("#ttk-mythic-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             x = rpm(x, key) / 60;
-            return ((stkHealthAndShield(100, 125, baseDamage, headMultiplier) - 1) / x).toFixed(3) / 1;
+            return ((stkHealthAndShield(100, 125, baseDamage, headMultiplier) - 1) / x).toFixed(precision) / 1;
         });
         column.querySelector("#ttk-mythic-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             x = rpm(x, key) / 60;
-            return ((stkHealthAndShield(100, 125, baseDamage, legMultiplier) - 1) / x).toFixed(3) / 1;
+            return ((stkHealthAndShield(100, 125, baseDamage, legMultiplier) - 1) / x).toFixed(precision) / 1;
         });
     }
 
     ttkTabChanged();
-    column.querySelectorAll('input[name="ttk-"]').forEach(input => input.onchange = ttkTabChanged);
+    column.querySelectorAll('input[name="ttk-distance"]').forEach(input => input.onchange = ttkTabChanged);
 
     // Projectile Size
 
