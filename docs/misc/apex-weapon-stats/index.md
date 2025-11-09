@@ -62,7 +62,9 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
   }
 
   .dropdowns .dropdown {
-    transition: none !important;
+    transition: border 200ms ease !important;
+    font-size: 16px;
+    border-radius: 50vw;
   }
 
   .stat {
