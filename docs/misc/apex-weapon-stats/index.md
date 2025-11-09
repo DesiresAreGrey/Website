@@ -53,11 +53,12 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     padding: 0.25rem 0;
     border-bottom: 1px solid rgba(255,255,255,0.125);
     font-size: 0.75rem;
+    overflow: clip;
   }
   .stat .label { 
     color: #aaa;
     white-space: nowrap;
-    overflow: hidden;
+    overflow: clip;
     text-overflow: ellipsis;
   }
 
@@ -65,7 +66,7 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     color: #fff;
     font-weight: 500;
     white-space: nowrap;
-    overflow: hidden;
+    overflow: clip;
     text-overflow: ellipsis;
   }
 
