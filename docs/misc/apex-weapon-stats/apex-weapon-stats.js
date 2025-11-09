@@ -150,7 +150,7 @@ function updateWeaponStats(column) {
 
     column.querySelector("#ammo-type").textContent = column.mode.Ammo.Type ?? "-";
     
-    column.querySelector("#magazine-size").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, column.weapon.IsMythic, "Epic");
+    column.querySelector("#magazine-size").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, undefined, "Epic");
 
     // Firing
 
@@ -165,16 +165,16 @@ function updateWeaponStats(column) {
     }
 
     if (usingConvertedValues()) {
-        column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, rpm);
+        column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, rpm);
         column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span class=\"label-subtitle\">RPM</span>";
     }
     else {
-        column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic);
+        column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate);
         column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span class=\"label-subtitle\">RPS</span>";
     }
 
     if (!usingConvertedValues() && column.mode.Firing.RechamberTime != null) {
-        column.querySelector("#rechamber-time").innerHTML = rarityFormat(column.mode.Firing.RechamberTime, column.weapon.IsMythic);
+        column.querySelector("#rechamber-time").innerHTML = rarityFormat(column.mode.Firing.RechamberTime);
         column.querySelector("#rechamber-time").parentElement.style.display = "flex";
     }
     else if (!usingConvertedValues() && column.mode.Firing.RechamberTime == null) {
@@ -191,7 +191,12 @@ function updateWeaponStats(column) {
         column.querySelector("#burst-delay").innerHTML = column.mode.Firing.BurstDelay;
 
         if (usingConvertedValues()) {
-           column.querySelector("#burst-firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+           column.querySelector("#burst-firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
+               if (column.mode.Firing.RechamberTime?.[key] != null)
+                   x = 1 / Math.max(1 / x, column.mode.Firing.RechamberTime[key]);
+               return Math.round(x * 60);
+           });
+           column.querySelector("#burst-firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
                if (column.mode.Firing.RechamberTime?.[key] != null)
                    x = 1 / Math.max(1 / x, column.mode.Firing.RechamberTime[key]);
                return Math.round(x * 60);
@@ -199,7 +204,7 @@ function updateWeaponStats(column) {
            column.querySelector("#burst-firerate").previousElementSibling.innerHTML = "Burst Firerate <span class=\"label-subtitle\">RPM</span>";
         }
         else {
-           column.querySelector("#burst-firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic);
+           column.querySelector("#burst-firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate);
            column.querySelector("#burst-firerate").previousElementSibling.innerHTML = "Burst Firerate <span class=\"label-subtitle\">RPS</span>";
         }
     }
@@ -438,41 +443,41 @@ function updateWeaponStats(column) {
         else if (column.querySelector("#dps-distance-very-far-tab").checked)
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.VeryFar;
 
-        column.querySelector("#dps-base-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#dps-base-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return Math.round(baseDamage * x);
         });
-        column.querySelector("#dps-base-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#dps-base-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return Math.round(baseDamage * x * headMultiplier);
         });
-        column.querySelector("#dps-base-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#dps-base-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return Math.round(baseDamage * x * legMultiplier);
         });
 
-        column.querySelector("#dps-flesh-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#dps-flesh-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return Math.round(baseDamage * x * fleshMultiplier);
         });
-        column.querySelector("#dps-flesh-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#dps-flesh-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return Math.round(baseDamage * x * headMultiplier * fleshMultiplier);
         });
-        column.querySelector("#dps-flesh-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#dps-flesh-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return Math.round(baseDamage * x * legMultiplier * fleshMultiplier);
         });
 
-        column.querySelector("#dps-shield-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#dps-shield-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return Math.round(baseDamage * x * shieldMultiplier);
         });
-        column.querySelector("#dps-shield-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#dps-shield-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return Math.round(baseDamage * x * headMultiplier * shieldMultiplier);
         });
-        column.querySelector("#dps-shield-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#dps-shield-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return Math.round(baseDamage * x * legMultiplier * shieldMultiplier);
         });
@@ -517,67 +522,67 @@ function updateWeaponStats(column) {
 
         const precision = column.offsetWidth <= 300 ? 2 : 3;
 
-        column.querySelector("#ttk-no-armor-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#ttk-no-armor-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return ((stkHealth(100, baseDamage) - 1) / x).toFixed(precision) / 1;
         });
-        column.querySelector("#ttk-no-armor-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#ttk-no-armor-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return ((stkHealth(100, baseDamage, headMultiplier) - 1) / x).toFixed(precision) / 1;
         });
-        column.querySelector("#ttk-no-armor-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#ttk-no-armor-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return ((stkHealth(100, baseDamage, legMultiplier) - 1) / x).toFixed(precision) / 1;
         });
 
-        column.querySelector("#ttk-common-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#ttk-common-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return ((stkHealthAndShield(100, 50, baseDamage) - 1) / x).toFixed(precision) / 1;
         });
-        column.querySelector("#ttk-common-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#ttk-common-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return ((stkHealthAndShield(100, 50, baseDamage, headMultiplier) - 1) / x).toFixed(precision) / 1;
         });
-        column.querySelector("#ttk-common-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#ttk-common-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return ((stkHealthAndShield(100, 50, baseDamage, legMultiplier) - 1) / x).toFixed(precision) / 1;
         });
 
-        column.querySelector("#ttk-rare-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#ttk-rare-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return ((stkHealthAndShield(100, 75, baseDamage) - 1) / x).toFixed(precision) / 1;
         });
-        column.querySelector("#ttk-rare-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#ttk-rare-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return ((stkHealthAndShield(100, 75, baseDamage, headMultiplier) - 1) / x).toFixed(precision) / 1;
         });
-        column.querySelector("#ttk-rare-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#ttk-rare-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return ((stkHealthAndShield(100, 75, baseDamage, legMultiplier) - 1) / x).toFixed(precision) / 1;
         });
 
-        column.querySelector("#ttk-epic-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#ttk-epic-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return ((stkHealthAndShield(100, 100, baseDamage) - 1) / x).toFixed(precision) / 1;
         });
-        column.querySelector("#ttk-epic-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#ttk-epic-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return ((stkHealthAndShield(100, 100, baseDamage, headMultiplier) - 1) / x).toFixed(precision) / 1;
         });
-        column.querySelector("#ttk-epic-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#ttk-epic-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return ((stkHealthAndShield(100, 100, baseDamage, legMultiplier) - 1) / x).toFixed(precision) / 1;
         });
 
-        column.querySelector("#ttk-mythic-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#ttk-mythic-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return ((stkHealthAndShield(100, 125, baseDamage) - 1) / x).toFixed(precision) / 1;
         });
-        column.querySelector("#ttk-mythic-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#ttk-mythic-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return ((stkHealthAndShield(100, 125, baseDamage, headMultiplier) - 1) / x).toFixed(precision) / 1;
         });
-        column.querySelector("#ttk-mythic-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
+        column.querySelector("#ttk-mythic-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
             return ((stkHealthAndShield(100, 125, baseDamage, legMultiplier) - 1) / x).toFixed(precision) / 1;
         });
@@ -632,7 +637,7 @@ function updateWeaponStats(column) {
 }
 
 
-function rarityFormat(value, isMythic = false, highestRarity = undefined, operation = x => x) {
+function rarityFormat(value, operation = x => x, highestRarity = undefined) {
     const order = ['Base', 'Common', 'Rare', 'Epic', 'Legendary', 'Mythic'];
     const stopIndex = order.indexOf(highestRarity) >= 0 ? order.indexOf(highestRarity) : order.length - 1;
     const totalRarities = Object.keys(value).length;
@@ -708,38 +713,4 @@ function utils() {
     });
 
     return utils;
-}
-
-
-function drawPattern(svg, points = [], bounds = [-20, -20, 20, 20], drawAxes = true, connectPoints = false, pointRadius = 1, lineWidth = 0.1, pointColor = '#ffffff', lineColor = '#666666') {
-    const axisColor = '#444444';
-    svg.setAttribute('viewBox', `${bounds[0]} ${bounds[1]} ${bounds[2] - bounds[0]} ${bounds[3] - bounds[1]}`);
-    svg.innerHTML = '';
-    if (drawAxes)
-        svg.innerHTML = `<line x1="${bounds[0]}" y1="0" x2="${bounds[2]}" y2="0" stroke="${axisColor}" stroke-width="0.04" /><line x1="0.01" y1="${bounds[1]}" x2="0.01" y2="${bounds[3]}" stroke="${axisColor}" stroke-width="0.04" />`;
-    const NS  = 'http://www.w3.org/2000/svg';
-
-    if (connectPoints && points.length > 1) {
-        for (let i = 1; i < points.length; i++) {
-            const p1 = points[i - 1];
-            const p2 = points[i];
-            const line = document.createElementNS(NS, 'line');
-            line.setAttribute('x1', p1.X);
-            line.setAttribute('y1', -p1.Y);
-            line.setAttribute('x2', p2.X);
-            line.setAttribute('y2', -p2.Y);
-            line.setAttribute('stroke', lineColor);
-            line.setAttribute('stroke-width', lineWidth);
-            svg.appendChild(line);
-        }
-    }
-
-    for (const point of points) {
-        const dot = document.createElementNS(NS, 'circle');
-        dot.setAttribute('cx', point.X);
-        dot.setAttribute('cy', -point.Y);
-        dot.setAttribute('r', pointRadius + "px");
-        dot.setAttribute('fill', pointColor);
-        svg.appendChild(dot);
-    }
 }
