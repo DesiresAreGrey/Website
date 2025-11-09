@@ -609,8 +609,8 @@ ___
 
 ___
 
-<div style="display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-  <h1>this is still WIP</h1>
+<div style="display: flex; text-align: center; align-items: center; justify-content: center; margin-bottom: 1rem;">
+  <h1>this is still WIP/unfinished and not all stats are implemented and etc</h1>
 </div>
 
 ___
