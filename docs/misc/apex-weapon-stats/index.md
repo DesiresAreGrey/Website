@@ -184,7 +184,7 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     content: ""; 
     position: absolute; 
     inset: -0.1rem 0 auto;
-    height: 0.2rem; 
+    height: 0.15rem; 
     border-radius: 2px; 
     transform: scaleX(0);
     transition: transform 200ms ease, background-color 200ms ease;
