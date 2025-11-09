@@ -630,8 +630,8 @@ function rarityFormat(value, isMythic = false, highestRarity = undefined, operat
 
     const rarities = [];
 
-    if (isMythic && totalRarities == 1)
-        return `<span style="color:var(--mythic);">${operation(value["Base"], "Base")}</span>`;
+    //if (isMythic && totalRarities == 1)
+        //return `<span style="color:var(--mythic);">${operation(value["Base"], "Base")}</span>`;
 
     if (totalRarities == 1)
         return `<span>${operation(value["Base"], "Base")}</span>`;

@@ -8,12 +8,12 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
 
 <style>
   :root {
-    --base: #949494;
-    --common: #cacaca;
-    --rare: #62c8ff;
-    --epic: #c84dff;
-    --legendary: #ffcd3c;
-    --mythic: #ff4e1d;
+    --base: #7A7A7A;
+    --common: #D1D7D7;
+    --rare: #31C1FF;
+    --epic: #C85CFF;
+    --legendary: #FFCD3C;
+    --mythic: #E72323;
   }
 
   .comparison {
@@ -497,63 +497,63 @@ ___
     </form>
     <h3>Time To Kill</h3>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
-      <span class="label">Body <span class="label-subtitle" style="color:var(--base);">NO ARMOR</span></span>
+      <span class="label">Body <span class="label-subtitle" style="color:var(--base); opacity: 0.8;">NO ARMOR</span></span>
       <span class="value" id="ttk-no-armor-body">-</span>
     </div>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
-      <span class="label">Head <span class="label-subtitle" style="color:var(--base);">NO ARMOR</span></span>
+      <span class="label">Head <span class="label-subtitle" style="color:var(--base); opacity: 0.8;">NO ARMOR</span></span>
       <span class="value" id="ttk-no-armor-head">-</span>
     </div>
     <div class="stat">
-      <span class="label">Limb <span class="label-subtitle" style="color:var(--base);">NO ARMOR</span></span>
+      <span class="label">Limb <span class="label-subtitle" style="color:var(--base); opacity: 0.8;">NO ARMOR</span></span>
       <span class="value" id="ttk-no-armor-limb">-</span>
     </div>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
-      <span class="label">Body <span class="label-subtitle" style="color:var(--common);">COMMON</span></span>
+      <span class="label">Body <span class="label-subtitle" style="color:var(--common); opacity: 0.8;">COMMON</span></span>
       <span class="value" id="ttk-common-body">-</span>
     </div>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
-      <span class="label">Head <span class="label-subtitle" style="color:var(--common);">COMMON</span></span>
+      <span class="label">Head <span class="label-subtitle" style="color:var(--common); opacity: 0.8;">COMMON</span></span>
       <span class="value" id="ttk-common-head">-</span>
     </div>
     <div class="stat">
-      <span class="label">Limb <span class="label-subtitle" style="color:var(--common);">COMMON</span></span>
+      <span class="label">Limb <span class="label-subtitle" style="color:var(--common); opacity: 0.8;">COMMON</span></span>
       <span class="value" id="ttk-common-limb">-</span>
     </div>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
-      <span class="label">Body <span class="label-subtitle" style="color:var(--rare);">RARE</span></span>
+      <span class="label">Body <span class="label-subtitle" style="color:var(--rare); opacity: 0.8;">RARE</span></span>
       <span class="value" id="ttk-rare-body">-</span>
     </div>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
-      <span class="label">Head <span class="label-subtitle" style="color:var(--rare);">RARE</span></span>
+      <span class="label">Head <span class="label-subtitle" style="color:var(--rare); opacity: 0.8;">RARE</span></span>
       <span class="value" id="ttk-rare-head">-</span>
     </div>
     <div class="stat">
-      <span class="label">Limb <span class="label-subtitle" style="color:var(--rare);">RARE</span></span>
+      <span class="label">Limb <span class="label-subtitle" style="color:var(--rare); opacity: 0.8;">RARE</span></span>
       <span class="value" id="ttk-rare-limb">-</span>
     </div>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
-      <span class="label">Body <span class="label-subtitle" style="color:var(--epic);">EPIC</span></span>
+      <span class="label">Body <span class="label-subtitle" style="color:var(--epic); opacity: 0.8;">EPIC</span></span>
       <span class="value" id="ttk-epic-body">-</span>
     </div>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
-      <span class="label">Head <span class="label-subtitle" style="color:var(--epic);">EPIC</span></span>
+      <span class="label">Head <span class="label-subtitle" style="color:var(--epic); opacity: 0.8;">EPIC</span></span>
       <span class="value" id="ttk-epic-head">-</span>
     </div>
     <div class="stat">
-      <span class="label">Limb <span class="label-subtitle" style="color:var(--epic);">EPIC</span></span>
+      <span class="label">Limb <span class="label-subtitle" style="color:var(--epic); opacity: 0.8;">EPIC</span></span>
       <span class="value" id="ttk-epic-limb">-</span>
     </div>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
-      <span class="label">Body <span class="label-subtitle" style="color:var(--mythic);">MYTHIC</span></span>
+      <span class="label">Body <span class="label-subtitle" style="color:var(--mythic); opacity: 0.8;">MYTHIC</span></span>
       <span class="value" id="ttk-mythic-body">-</span>
     </div>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
-      <span class="label">Head <span class="label-subtitle" style="color:var(--mythic);">MYTHIC</span></span>
+      <span class="label">Head <span class="label-subtitle" style="color:var(--mythic); opacity: 0.8;">MYTHIC</span></span>
       <span class="value" id="ttk-mythic-head">-</span>
     </div>
     <div class="stat">
-      <span class="label">Limb <span class="label-subtitle" style="color:var(--mythic);">MYTHIC</span></span>
+      <span class="label">Limb <span class="label-subtitle" style="color:var(--mythic); opacity: 0.8;">MYTHIC</span></span>
       <span class="value" id="ttk-mythic-limb">-</span>
     </div>
     <form class="tabs">
