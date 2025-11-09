@@ -251,7 +251,7 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     }
   }
 
-  @container (max-width: 280px) {
+  @container (max-width: 300px) {
     .dropdown {
       font-size: 16px;
     }

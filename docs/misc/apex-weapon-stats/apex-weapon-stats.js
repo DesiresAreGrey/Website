@@ -23,8 +23,11 @@ function usingConvertedValues() {
     return !convertedValuesToggle.checked;
 }
 
-const columns = document.querySelectorAll(".column");
-for (const column of columns) {
+function columns() {
+    return [...document.querySelectorAll(".column")];
+}
+
+for (const column of columns()) {
     setupColumn(column);
 }
 updateColumnButtonStyles();
@@ -622,12 +625,11 @@ function updateWeaponStats(column) {
 
     drawPattern(column.querySelector("#blast-pattern"), column.mode.Firing.Shot.BlastPattern, undefined, false, false, 1);
 
-    // get rid of tabs if all weapons have only one damage distance
     column.querySelectorAll("[id$='-distance-near-tab']").forEach(tab => {
-        if ([...columns].every(c => c.querySelector(`#${tab.id}`).nextSibling.textContent === "Any Distance"))
-            columns.forEach(c => c.querySelector(`#${tab.id}`).parentElement.style.display = "none");
+        if (columns().every(c => c.querySelector(`#${tab.id}`).nextSibling.textContent === "Any Distance"))
+            columns().forEach(c => c.querySelector(`#${tab.id}`).parentElement.style.display = "none");
         else
-            columns.forEach(c => c.querySelector(`#${tab.id}`).parentElement.style.display = "flex");
+            columns().forEach(c => c.querySelector(`#${tab.id}`).parentElement.style.display = "flex");
     });
 }
 
