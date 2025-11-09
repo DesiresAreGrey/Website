@@ -41,6 +41,24 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     display: flex;
     flex-direction: column;
     gap: 10px;
+    position: sticky;
+    z-index: 20; 
+    top: 2.8rem;
+    isolation: isolate;
+  }
+  .dropdowns::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--md-default-bg-color);
+    pointer-events: none;
+    z-index: -1; 
+    width: calc(100% + 1rem);
+    height: calc(100% + 1rem);
+    left: 50%;
+    top: 47.5%;
+    transform: translateX(-50%) translateY(-50%);
+    isolation: isolate;
   }
 
   .dropdowns .dropdown {
