@@ -208,6 +208,11 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     background: var(--md-primary-fg-color);
     transform: scaleX(1);
   }
+
+  .pattern {
+    width: 150px !important;
+    height: 150px !important;
+  }
   
   @media (max-width: 640px) {
     .column h3 {
@@ -237,6 +242,11 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
 
     .tabs .toggle label {
       font-size: 0.6rem;
+    }
+    
+    .pattern {
+      width: 100% !important;
+      height: 100% !important;
     }
   }
 
@@ -272,6 +282,10 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
 
     .tabs .toggle label {
       font-size: 0.6rem;
+    }
+    .pattern {
+      width: 100% !important;
+      height: 100% !important;
     }
   }
 </style>
@@ -563,7 +577,6 @@ ___
         <label class="noselect"><input id="ttk-distance-very-far-tab" class="vh" type="radio" name="ttk-distance">Very Far</label>
       </div>
     </form>
-
     <h3>Projectile Size</h3>
     <div class="stat">
       <span class="label">Initial Size</span>
@@ -580,6 +593,11 @@ ___
     <div class="stat">
       <span class="label">Final Step</span>
       <span class="value" id="final-step">-</span>
+    </div>
+    <h3>Patterns</h3>
+    <div class="stat">
+      <span class="label">Blast Pattern</span></span>
+      <svg class="pattern" id="blast-pattern" style="background:#111;border:1px solid #333"></svg>
     </div>
   </div>
 </div>

@@ -388,8 +388,7 @@ function updateWeaponStats(column) {
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Far;
         else if (column.querySelector("#shotstokill-distance-very-far-tab").checked)
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.VeryFar;
-
-        console.log(column.weapon.Name, headMultiplier);
+        
         column.querySelector("#shotstokill-base").textContent = `${stkHealth(100, baseDamage)} / ${stkHealth(100, baseDamage, headMultiplier)} / ${stkHealth(100, baseDamage, legMultiplier)}`;
 
         column.querySelector("#shotstokill-common").textContent = `${stkHealthAndShield(100, 50, baseDamage)} / ${stkHealthAndShield(100, 50, baseDamage, headMultiplier)} / ${stkHealthAndShield(100, 50, baseDamage, legMultiplier)}`;
@@ -517,8 +516,6 @@ function updateWeaponStats(column) {
 
         const precision = column.offsetWidth <= 300 ? 2 : 3;
 
-        console.log(column.offsetWidth);
-
         column.querySelector("#ttk-no-armor-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, column.weapon.IsMythic, undefined, (x, key) => {
             x = rpm(x, key) / 60;
             return ((stkHealth(100, baseDamage) - 1) / x).toFixed(precision) / 1;
@@ -619,7 +616,9 @@ function updateWeaponStats(column) {
         column.querySelector("#final-step").previousElementSibling.innerHTML = `Final Step <span class="label-subtitle">${column.mode.Firing.Shot.ProjectileSize.Final.Time}sec</span>`;
     }
     
+    // Blast Pattern
 
+    drawPattern(column.querySelector("#blast-pattern"), column.mode.Firing.Shot.BlastPattern);
 }
 
 
@@ -657,4 +656,22 @@ async function loadSeasons() {
     }
 
     seasons.sort((a, b) => new Date(b.GeneratedDate) - new Date(a.GeneratedDate));
+}
+
+function drawPattern(svg, points, bounds = [-20, -20, 20, 20], pointRadius = 1) {
+    points ??= [{ X: 0, Y: 0 }];
+    
+    const axisColor = '#999';
+    svg.setAttribute('viewBox', `${bounds[0]} ${bounds[1]} ${bounds[2] - bounds[0]} ${bounds[3] - bounds[1]}`);
+    //svg.innerHTML = `<line x1="${bounds[0]}" y1="0" x2="${bounds[2]}" y2="0" stroke="${axisColor}" stroke-width="0.05" /><line x1="0" y1="${bounds[1]}" x2="0" y2="${bounds[3]}" stroke="${axisColor}" stroke-width="0.1"/>`;
+    svg.innerHTML = '';
+    const NS  = 'http://www.w3.org/2000/svg';
+    for (const point of points) {
+        const dot = document.createElementNS(NS, 'circle');
+        dot.setAttribute('cx', point.X);
+        dot.setAttribute('cy', -point.Y);
+        dot.setAttribute('r', pointRadius + "px");
+        dot.setAttribute('fill', '#fff'); 
+        svg.appendChild(dot);
+    }
 }
