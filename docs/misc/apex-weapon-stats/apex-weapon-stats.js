@@ -826,6 +826,9 @@ function updateWeaponStats(column) {
 
 
 function rarityFormat(value, operation = x => x, highestRarity = undefined) {
+    if (value == null || Object.keys(value).length == 0)
+        return "-";
+
     const order = ['Base', 'Common', 'Rare', 'Epic', 'Legendary', 'Mythic'];
     const stopIndex = order.indexOf(highestRarity) >= 0 ? order.indexOf(highestRarity) : order.length - 1;
     const totalRarities = Object.keys(value).length;
