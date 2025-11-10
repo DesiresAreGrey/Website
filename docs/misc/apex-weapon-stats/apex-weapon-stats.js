@@ -152,20 +152,30 @@ function updateWeaponStats(column) {
     
     column.querySelector("#magazine-size").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, undefined, "Epic");
 
+    const timeToEmptyVariableMag = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
+        return (x / (column.mode.Firing.Shot.AmmoConsumed * (rpm(column.mode.Firing.FireRate.Base, "Base") / 60))).roundTo(2);
+    }, "Epic");
+
+    const timeToEmptyVariableFire = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
+        return (column.mode.Ammo.MagazineSize.Base / (column.mode.Firing.Shot.AmmoConsumed * (rpm(column.mode.Firing.FireRate.Base, key) / 60))).roundTo(2);
+    }, "Epic");
+
+    column.querySelector("#time-to-empty").innerHTML = timeToEmptyVariableMag.length > timeToEmptyVariableFire.length ? timeToEmptyVariableMag : timeToEmptyVariableFire;
+
     // Firing
 
     column.querySelector("#firing-mode").textContent = column.mode.Firing.FireMode ?? "-";
 
-    function rpm(fireRate = column.mode.Firing.FireRate, key = "Base") {
+    function rpm(fireRate = column.mode.Firing.FireRate, key = "Base", round = false) {
         if (column.mode.Firing.RechamberTime?.[key] != null)
             fireRate = 1 / Math.max(1 / fireRate, column.mode.Firing.RechamberTime[key]);
         else if (column.mode.Firing.BurstCount > 1)
             fireRate = column.mode.Firing.BurstCount / (column.mode.Firing.BurstCount / fireRate + column.mode.Firing.BurstDelay);
-        return fireRate.mult(60).roundTo(0);
+        return round ? fireRate.mult(60).roundTo(0) : fireRate.mult(60);
     }
 
     if (usingConvertedValues()) {
-        column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, rpm);
+        column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => rpm(x, key, true));
         column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span class=\"label-subtitle\">RPM</span>";
     }
     else {

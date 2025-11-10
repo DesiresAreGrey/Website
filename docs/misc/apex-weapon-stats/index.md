@@ -390,6 +390,10 @@ ___
       <span class="label">Magazine Size</span>
       <span class="value" id="magazine-size">-</span>
     </div>
+    <div class="stat">
+      <span class="label">Time to Empty</span>
+      <span class="value" id="time-to-empty">-</span>
+    </div>
     <h3>Firing</h3>
     <div class="stat">
       <span class="label">Firing Mode</span>
