@@ -704,7 +704,7 @@ function updateWeaponStats(column) {
 
     column.querySelector("#recoil-pattern").drawPattern(column.mode.Firing.Shot.RecoilPattern, [-7.75, -14.75, 7.75, 0.75], true, true, 0.15, 0.1, '#fff', '#666');
 
-    column.querySelector("#blast-pattern").drawPattern(column.mode.Firing.Shot.BlastPattern, undefined, false, false, 1.25);
+    column.querySelector("#blast-pattern").drawPattern(column.mode.Firing.Shot.BlastPattern, undefined, false, false, 1);
 
     // Reload Time
 
