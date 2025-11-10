@@ -26,7 +26,7 @@ for (const column of u.columns) {
 }
 updateColumnButtonStyles();
 
-document.getElementById("decrease-columns").onclick = e => {
+document.getElementById("decrease-columns").onclick = () => {
     if (numColumns > 1) {
         numColumns--;
         removeColumn();
@@ -36,7 +36,7 @@ document.getElementById("decrease-columns").onclick = e => {
     saveToURL();
 };
 
-document.getElementById("increase-columns").onclick = e => {
+document.getElementById("increase-columns").onclick = () => {
     if (numColumns < 5) {
         numColumns++;
         addColumn();
