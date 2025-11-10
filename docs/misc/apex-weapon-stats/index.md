@@ -365,13 +365,22 @@ ___
       <a id="increase-columns" class="big-button plusminus-button noselect" style="opacity: 0.5; pointer-events: none;">+</a>
     </div>
   </div>
-  <div style="height: 0.5rem;"></div>
+  <div style="height: 0.35rem;"></div>
   <div class="side">
     <div class="label">Units</div>
     <input type="checkbox" id="converted-values-toggle" class="toggleCheckbox" />
     <label for="converted-values-toggle" class='toggleContainer'>
       <div class="noselect" style="margin-right: 48px;margin-left: 24px;padding-left: 0px;padding-right: 16px;">Converted</div>   
       <div class="noselect" style="margin-right: 24px;margin-left: 0px;padding-left: 0px;padding-right: 16px;">Engine</div>
+    </label>
+  </div>
+  <div style="height: 0.35rem;"></div>
+  <div class="side">
+    <div class="label">Auto Hide Rows</div>
+    <input type="checkbox" id="auto-hide-rows-toggle" class="toggleCheckbox" />
+    <label for="auto-hide-rows-toggle" class='toggleContainer'>
+      <div class="noselect" style="margin-right: 48px;margin-left: 24px;padding-left: 0px;padding-right: 5px;">Yes</div>   
+      <div class="noselect" style="margin-right: 24px;margin-left: 0px;padding-left: 0px;padding-right: 5px;">No</div>
     </label>
   </div>
 </div>

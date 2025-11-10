@@ -20,11 +20,6 @@ for (let i = 0; i < numColumns; i++) {
 
 await loadSeasons();
 
-const convertedValuesToggle = document.getElementById("converted-values-toggle");
-function usingConvertedValues() {
-    return !convertedValuesToggle.checked;
-}
-
 for (const column of u.columns) {
     setupColumn(column);
 }
@@ -110,7 +105,10 @@ function setupColumn(column) {
         updateWeaponStats(column);
     };
 
-    convertedValuesToggle.addEventListener('change', e => {
+    document.getElementById("converted-values-toggle").addEventListener('change', e => {
+        updateWeaponStats(column);
+    });
+    document.getElementById("auto-hide-rows-toggle").addEventListener('change', e => {
         updateWeaponStats(column);
     });
 
@@ -146,6 +144,7 @@ function onWeaponChange(column) {
 }
 
 function updateWeaponStats(column) {
+    console.log("Updating weapon stats for", column.weapon.Name, "-", column.mode.Name);
     // Ammo
 
     column.querySelector("#ammo-type").textContent = column.mode.Ammo.Type ?? "-";
@@ -174,7 +173,7 @@ function updateWeaponStats(column) {
         return round ? fireRate.mult(60).roundTo(0) : fireRate.mult(60);
     }
 
-    if (usingConvertedValues()) {
+    if (u.usingConvertedValues) {
         column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => rpm(x, key, true));
         column.querySelector("#firerate").previousElementSibling.innerHTML = "Effective Firerate <span class=\"label-subtitle\">RPM</span>";
     }
@@ -183,11 +182,11 @@ function updateWeaponStats(column) {
         column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span class=\"label-subtitle\">RPS</span>";
     }
 
-    if (!usingConvertedValues() && column.mode.Firing.RechamberTime != null) {
+    if (!u.usingConvertedValues && column.mode.Firing.RechamberTime != null) {
         column.querySelector("#rechamber-time").innerHTML = rarityFormat(column.mode.Firing.RechamberTime);
         column.querySelector("#rechamber-time").parentElement.style.display = "flex";
     }
-    else if (!usingConvertedValues() && column.mode.Firing.RechamberTime == null) {
+    else if (!u.usingConvertedValues && column.mode.Firing.RechamberTime == null) {
         column.querySelector("#rechamber-time").textContent = "-";
         column.querySelector("#rechamber-time").parentElement.style.display = "flex";
     }
@@ -200,7 +199,7 @@ function updateWeaponStats(column) {
     if (column.mode.Firing.BurstDelay != null) {
         column.querySelector("#burst-delay").innerHTML = column.mode.Firing.BurstDelay;
 
-        if (usingConvertedValues()) {
+        if (u.usingConvertedValues) {
            column.querySelector("#burst-firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
                if (column.mode.Firing.RechamberTime?.[key] != null)
                    x = 1 / Math.max(1 / x, column.mode.Firing.RechamberTime[key]);
@@ -221,7 +220,7 @@ function updateWeaponStats(column) {
     else {
         column.querySelector("#burst-delay").textContent = "-";
         column.querySelector("#burst-firerate").textContent = "-";
-        if (usingConvertedValues()) {
+        if (u.usingConvertedValues) {
            column.querySelector("#burst-firerate").previousElementSibling.innerHTML = "Burst Firerate <span class=\"label-subtitle\">RPM</span>";
         }
         else {
@@ -235,7 +234,7 @@ function updateWeaponStats(column) {
 
     column.querySelector("#ammo-consumed").textContent = column.mode.Firing.Shot.AmmoConsumed ?? "-";
 
-    if (usingConvertedValues()) {
+    if (u.usingConvertedValues) {
         column.querySelector("#projectile-speed").textContent = column.mode.Firing.Shot.Speed != null ? column.mode.Firing.Shot.Speed.toMeters(1) : "-";
         column.querySelector("#projectile-speed").previousElementSibling.innerHTML = "Projectile Speed <span class=\"label-subtitle\">M/S</span>";
     }
@@ -248,7 +247,7 @@ function updateWeaponStats(column) {
 
     column.querySelector("#gravity-multiplier").textContent = column.mode.Firing.Shot.GravityMultiplier ?? "-";
 
-    if (usingConvertedValues()) {
+    if (u.usingConvertedValues) {
         column.querySelector("#max-headshot-distance").textContent = column.mode.Firing.Shot.MaxHeadshotDistance != null ? column.mode.Firing.Shot.MaxHeadshotDistance.toMeters(1) : "-";
         column.querySelector("#max-headshot-distance").previousElementSibling.innerHTML = "Max Headshot Distance <span class=\"label-subtitle\">METER</span>";
     }
@@ -259,9 +258,9 @@ function updateWeaponStats(column) {
 
     // Projectile Damage
 
-    const distanceNear = usingConvertedValues() ? column.mode.Firing.Shot.Damage.Distance.Near?.toMeters(1) + "m" : column.mode.Firing.Shot.Damage.Distance.Near + "h";
-    const distanceFar = usingConvertedValues() ? column.mode.Firing.Shot.Damage.Distance.Far?.toMeters(1) + "m" : column.mode.Firing.Shot.Damage.Distance.Far + "h";
-    const distanceVeryFar = usingConvertedValues() ? column.mode.Firing.Shot.Damage.Distance.VeryFar?.toMeters(1) + "m" : column.mode.Firing.Shot.Damage.Distance.VeryFar + "h";
+    const distanceNear = u.usingConvertedValues ? column.mode.Firing.Shot.Damage.Distance.Near?.toMeters(1) + "m" : column.mode.Firing.Shot.Damage.Distance.Near + "h";
+    const distanceFar = u.usingConvertedValues ? column.mode.Firing.Shot.Damage.Distance.Far?.toMeters(1) + "m" : column.mode.Firing.Shot.Damage.Distance.Far + "h";
+    const distanceVeryFar = u.usingConvertedValues ? column.mode.Firing.Shot.Damage.Distance.VeryFar?.toMeters(1) + "m" : column.mode.Firing.Shot.Damage.Distance.VeryFar + "h";
 
     if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
         column.querySelector("#damage-distance-near-tab").nextSibling.textContent = "Any Distance";
@@ -753,14 +752,46 @@ function updateWeaponStats(column) {
     column.querySelector("#spread-in-air-ads").textContent = column.mode.Spread.ADS.InAir.roundTo(2);
     column.querySelector("#spread-hovering-ads").textContent = column.mode.Spread.ADS.Hovering.roundTo(2);
 
+    // hiding rows that are the same across all whatever
+
+    const oldScrollTop = document.documentElement.scrollTop;
+    const oldScrollHeight = document.documentElement.scrollHeight;
+
     // fix distance tabs visibility if all distances are the same
 
-    column.querySelectorAll("[id$='-distance-near-tab']").forEach(tab => {
-        if (u.columns.toArray().every(c => c.querySelector(`#${tab.id}`).nextSibling.textContent === "Any Distance"))
-            u.columns.forEach(c => c.querySelector(`#${tab.id}`).parentElement.style.display = "none");
-        else
-            u.columns.forEach(c => c.querySelector(`#${tab.id}`).parentElement.style.display = "flex");
-    });
+    if (u.columns.toArray().every(c => Object.keys(c.mode?.Firing.Shot.Damage.Amount ?? []).length == 1))
+        u.columns.forEach(c => c.querySelectorAll("[id$='-distance-near-tab']").forEach(el => el.parentElement.style.display = "none"));
+    else
+        u.columns.forEach(c => c.querySelectorAll("[id$='-distance-near-tab']").forEach(el => el.parentElement.style.display = "flex"));
+    
+    // auto hide rows
+
+    const allNoFleshMult = u.columns.toArray().every(c => c.mode?.Firing.Shot.Damage.Multipliers.Flesh == 1);
+    const allNoShieldMult = u.columns.toArray().every(c => c.mode?.Firing.Shot.Damage.Multipliers.Shield == 1);
+
+    if (allNoFleshMult && u.usingAutoHideRows)
+        u.columns.forEach(c => c.querySelectorAll("[id*='-flesh'].value").forEach(el => el.parentElement.style.display = "none"));
+    else
+        u.columns.forEach(c => c.querySelectorAll("[id*='-flesh'].value").forEach(el => el.parentElement.style.display = "flex"));
+
+    if (allNoShieldMult && u.usingAutoHideRows)
+        u.columns.forEach(c => c.querySelectorAll("[id*='-shield'].value").forEach(el => el.parentElement.style.display = "none"));
+    else
+        u.columns.forEach(c => c.querySelectorAll("[id*='-shield'].value").forEach(el => el.parentElement.style.display = "flex"));
+
+    if (allNoFleshMult && allNoShieldMult && u.usingAutoHideRows) {
+        u.columns.forEach(c => c.querySelectorAll(".label-subtitle").forEach(el => {
+            if (el.textContent === "BASE")  el.style.display = "none";
+        }));
+    }
+    else {
+        u.columns.forEach(c => c.querySelectorAll(".label-subtitle").forEach(el => {
+            if (el.textContent === "BASE")  el.style.display = "inline";
+        }));
+    }
+
+    // fix scroll jump after hiding rows
+    document.documentElement.scrollTop = oldScrollTop + (document.documentElement.scrollHeight - oldScrollHeight);
 }
 
 
@@ -799,7 +830,9 @@ async function loadSeasons() {
 
 function utils() {
     const utils = {
-        get columns() { return document.querySelectorAll(".column"); }
+        get columns() { return document.querySelectorAll(".column"); },
+        get usingConvertedValues() { return !document.getElementById("converted-values-toggle").checked; },
+        get usingAutoHideRows() { return !document.getElementById("auto-hide-rows-toggle").checked; },
     };
 
     Object.defineProperty(NodeList.prototype, 'toArray', { value: function() { return [...this]; } });
