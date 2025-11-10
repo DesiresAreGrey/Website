@@ -702,8 +702,17 @@ function updateWeaponStats(column) {
     
     // Patterns
 
-    column.querySelector("#recoil-pattern").drawPattern(column.mode.Firing.Shot.RecoilPattern, [-7.75, -14.75, 7.75, 0.75], true, true, 0.15, 0.1, '#fff', '#666');
+    column.querySelector("#recoil-pattern").innerHTML = '';
+    if (column.mode.Firing.Shot.BlastPattern != null && column.mode.Firing.Shot.BlastPattern.length > 0) {
+        column.mode.Firing.Shot.BlastPattern.forEach(point => {
+            column.querySelector("#recoil-pattern").drawPattern(column.mode.Firing.Shot.RecoilPattern, [-7.75, -14.75, 7.75, 0.75], true, true, 0.15, 0.1, '#fff', '#666', point.X/10, point.Y/10);
+        });
+    }
+    else {
+        column.querySelector("#recoil-pattern").drawPattern(column.mode.Firing.Shot.RecoilPattern, [-7.75, -14.75, 7.75, 0.75], true, true, 0.15, 0.1, '#fff', '#666');
+    }
 
+    column.querySelector("#blast-pattern").innerHTML = '';
     column.querySelector("#blast-pattern").drawPattern(column.mode.Firing.Shot.BlastPattern, undefined, false, false, 1);
 
     // Reload Time
@@ -801,12 +810,11 @@ function utils() {
     Object.defineProperty(Number.prototype, 'toMeters', { value: function(precision = 0) { return (this * 0.0254).roundTo(precision) } });
 
     Object.defineProperty(Element.prototype, 'drawPattern', {
-        value: function(points = [], bounds = [-20, -20, 20, 20], drawAxes = true, connectPoints = false, pointRadius = 1, lineWidth = 0.1, pointColor = '#ffffff', lineColor = '#666666') {
+        value: function(points = [], bounds = [-20, -20, 20, 20], drawAxes = true, connectPoints = false, pointRadius = 1, lineWidth = 0.1, pointColor = '#ffffff', lineColor = '#666666', shiftX = 0, shiftY = 0) {
             const axisColor = '#444444';
             this.setAttribute('viewBox', `${bounds[0]} ${bounds[1]} ${bounds[2] - bounds[0]} ${bounds[3] - bounds[1]}`);
-            this.innerHTML = '';
             if (drawAxes)
-                this.innerHTML = `<line x1="${bounds[0]}" y1="0" x2="${bounds[2]}" y2="0" stroke="${axisColor}" stroke-width="0.04" /><line x1="0.01" y1="${bounds[1]}" x2="0.01" y2="${bounds[3]}" stroke="${axisColor}" stroke-width="0.04" />`;
+                this.innerHTML += `<line x1="${bounds[0]}" y1="0" x2="${bounds[2]}" y2="0" stroke="${axisColor}" stroke-width="0.04" /><line x1="0.01" y1="${bounds[1]}" x2="0.01" y2="${bounds[3]}" stroke="${axisColor}" stroke-width="0.04" />`;
             const NS  = 'http://www.w3.org/2000/svg';
 
             if (connectPoints && points.length > 1) {
@@ -814,10 +822,10 @@ function utils() {
                     const p1 = points[i - 1];
                     const p2 = points[i];
                     const line = document.createElementNS(NS, 'line');
-                    line.setAttribute('x1', p1.X);
-                    line.setAttribute('y1', -p1.Y);
-                    line.setAttribute('x2', p2.X);
-                    line.setAttribute('y2', -p2.Y);
+                    line.setAttribute('x1', p1.X + shiftX);
+                    line.setAttribute('y1', -(p1.Y + shiftY));
+                    line.setAttribute('x2', p2.X + shiftX);
+                    line.setAttribute('y2', -(p2.Y + shiftY));
                     line.setAttribute('stroke', lineColor);
                     line.setAttribute('stroke-width', lineWidth);
                     this.appendChild(line);
@@ -826,8 +834,8 @@ function utils() {
 
             for (const point of points) {
                 const dot = document.createElementNS(NS, 'circle');
-                dot.setAttribute('cx', point.X);
-                dot.setAttribute('cy', -point.Y);
+                dot.setAttribute('cx', point.X + shiftX);
+                dot.setAttribute('cy', -(point.Y + shiftY));
                 dot.setAttribute('r', pointRadius + "px");
                 dot.setAttribute('fill', pointColor);
                 this.appendChild(dot);
