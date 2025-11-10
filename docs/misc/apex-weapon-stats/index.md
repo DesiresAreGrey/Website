@@ -18,6 +18,12 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     --mythic: #E72323;
   }
 
+  h1 {
+    text-align: center;
+    font-size: 2rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
   /* columns */
 
   .comparison {
