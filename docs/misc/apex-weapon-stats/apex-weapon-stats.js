@@ -706,6 +706,11 @@ function updateWeaponStats(column) {
 
     column.querySelector("#blast-pattern").drawPattern(column.mode.Firing.Shot.BlastPattern, undefined, false, false, 1.25);
 
+    // Reload Time
+
+    column.querySelector("#reload-tac").innerHTML = rarityFormat(column.mode.Handling.TacReloadTime, x => x.roundTo(2), "Epic");
+    column.querySelector("#reload-empty").innerHTML = rarityFormat(column.mode.Handling.FullReloadTime, x => x.roundTo(2), "Epic");
+
     // fix distance tabs visibility if all distances are the same
 
     column.querySelectorAll("[id$='-distance-near-tab']").forEach(tab => {

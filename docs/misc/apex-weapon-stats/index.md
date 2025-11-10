@@ -98,6 +98,10 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     text-overflow: ellipsis;
   }
 
+  .thin-divider {
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
   /* toggle switch */
 
   .toggleContainer {
@@ -386,7 +390,7 @@ ___
       <span class="label">Type</span>
       <span class="value" id="ammo-type">-</span>
     </div>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label">Magazine Size</span>
       <span class="value" id="magazine-size">-</span>
     </div>
@@ -407,11 +411,11 @@ ___
       <span class="label">Rechamber Time</span>
       <span class="value" id="rechamber-time">-</span>
     </div>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label">Burst Count</span>
       <span class="value" id="burst-count">-</span>
     </div>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label">Burst Delay</span>
       <span class="value" id="burst-delay">-</span>
     </div>
@@ -420,7 +424,7 @@ ___
       <span class="value" id="burst-firerate">-</span>
     </div>
     <h3>Shot</h3>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label">Projectiles Per Shot</span>
       <span class="value" id="projectiles-per-shot">-</span>
     </div>
@@ -428,11 +432,11 @@ ___
       <span class="label">Ammo Consumed</span>
       <span class="value" id="ammo-consumed">-</span>
     </div>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label">Projectile Speed</span>
       <span class="value" id="projectile-speed">-</span>
     </div>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label">Drag Coefficient</span>
       <span class="value" id="drag-coefficient">-</span>
     </div>
@@ -452,7 +456,7 @@ ___
       <span class="label">Base</span>
       <span class="value" id="damage-amount">-</span>
     </div>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label">Flesh</span>
       <span class="value" id="damage-flesh">-</span>
     </div>
@@ -479,7 +483,7 @@ ___
       <span class="label">Base</span>
       <span class="value" id="shot-damage-amount">-</span>
     </div>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label">Flesh</span>
       <span class="value" id="shot-damage-flesh">-</span>
     </div>
@@ -502,19 +506,19 @@ ___
       <h3 style="border-bottom: none;">Shots To Kill</h3>
       <div style="font-size: 0.5rem; opacity: 0.7; margin-top: 0; display: flex; align-items: center; justify-content: center;">Body / Head / Limb</div>
     </div>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label" style="color:var(--base);">No Armor</span>
       <span class="value" id="shotstokill-base">-</span>
     </div>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label" style="color:var(--common);">Common</span>
       <span class="value" id="shotstokill-common">-</span>
     </div>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label" style="color:var(--rare);">Rare</span>
       <span class="value" id="shotstokill-rare">-</span>
     </div>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label" style="color:var(--epic);">Epic</span>
       <span class="value" id="shotstokill-epic">-</span>
     </div>
@@ -530,11 +534,11 @@ ___
       </div>
     </form>
     <h3>Damage Per Second</h3>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Body <span class="label-subtitle">BASE</span></span>
       <span class="value" id="dps-base-body">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Head <span class="label-subtitle">BASE</span></span>
       <span class="value" id="dps-base-head">-</span>
     </div>
@@ -542,11 +546,11 @@ ___
       <span class="label">Limb <span class="label-subtitle">BASE</span></span>
       <span class="value" id="dps-base-limb">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Body <span class="label-subtitle">FLESH</span></span>
       <span class="value" id="dps-flesh-body">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Head <span class="label-subtitle">FLESH</span></span>
       <span class="value" id="dps-flesh-head">-</span>
     </div>
@@ -554,11 +558,11 @@ ___
       <span class="label">Limb <span class="label-subtitle">FLESH</span></span>
       <span class="value" id="dps-flesh-limb">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Body <span class="label-subtitle">SHIELD</span></span>
       <span class="value" id="dps-shield-body">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Head <span class="label-subtitle">SHIELD</span></span>
       <span class="value" id="dps-shield-head">-</span>
     </div>
@@ -574,11 +578,11 @@ ___
       </div>
     </form>
     <h3>Total Damage Per Magazine</h3>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Body <span class="label-subtitle">BASE</span></span>
       <span class="value" id="tdpm-base-body">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Head <span class="label-subtitle">BASE</span></span>
       <span class="value" id="tdpm-base-head">-</span>
     </div>
@@ -586,11 +590,11 @@ ___
       <span class="label">Limb <span class="label-subtitle">BASE</span></span>
       <span class="value" id="tdpm-base-limb">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Body <span class="label-subtitle">FLESH</span></span>
       <span class="value" id="tdpm-flesh-body">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Head <span class="label-subtitle">FLESH</span></span>
       <span class="value" id="tdpm-flesh-head">-</span>
     </div>
@@ -598,11 +602,11 @@ ___
       <span class="label">Limb <span class="label-subtitle">FLESH</span></span>
       <span class="value" id="tdpm-flesh-limb">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Body <span class="label-subtitle">SHIELD</span></span>
       <span class="value" id="tdpm-shield-body">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Head <span class="label-subtitle">SHIELD</span></span>
       <span class="value" id="tdpm-shield-head">-</span>
     </div>
@@ -618,11 +622,11 @@ ___
       </div>
     </form>
     <h3>Time To Kill</h3>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Body <span class="label-subtitle" style="color:var(--base); opacity: 0.8;">NO ARMOR</span></span>
       <span class="value" id="ttk-no-armor-body">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Head <span class="label-subtitle" style="color:var(--base); opacity: 0.8;">NO ARMOR</span></span>
       <span class="value" id="ttk-no-armor-head">-</span>
     </div>
@@ -630,11 +634,11 @@ ___
       <span class="label">Limb <span class="label-subtitle" style="color:var(--base); opacity: 0.8;">NO ARMOR</span></span>
       <span class="value" id="ttk-no-armor-limb">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Body <span class="label-subtitle" style="color:var(--common); opacity: 0.8;">COMMON</span></span>
       <span class="value" id="ttk-common-body">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Head <span class="label-subtitle" style="color:var(--common); opacity: 0.8;">COMMON</span></span>
       <span class="value" id="ttk-common-head">-</span>
     </div>
@@ -642,11 +646,11 @@ ___
       <span class="label">Limb <span class="label-subtitle" style="color:var(--common); opacity: 0.8;">COMMON</span></span>
       <span class="value" id="ttk-common-limb">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Body <span class="label-subtitle" style="color:var(--rare); opacity: 0.8;">RARE</span></span>
       <span class="value" id="ttk-rare-body">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Head <span class="label-subtitle" style="color:var(--rare); opacity: 0.8;">RARE</span></span>
       <span class="value" id="ttk-rare-head">-</span>
     </div>
@@ -654,11 +658,11 @@ ___
       <span class="label">Limb <span class="label-subtitle" style="color:var(--rare); opacity: 0.8;">RARE</span></span>
       <span class="value" id="ttk-rare-limb">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Body <span class="label-subtitle" style="color:var(--epic); opacity: 0.8;">EPIC</span></span>
       <span class="value" id="ttk-epic-body">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Head <span class="label-subtitle" style="color:var(--epic); opacity: 0.8;">EPIC</span></span>
       <span class="value" id="ttk-epic-head">-</span>
     </div>
@@ -666,11 +670,11 @@ ___
       <span class="label">Limb <span class="label-subtitle" style="color:var(--epic); opacity: 0.8;">EPIC</span></span>
       <span class="value" id="ttk-epic-limb">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Body <span class="label-subtitle" style="color:var(--mythic); opacity: 0.8;">MYTHIC</span></span>
       <span class="value" id="ttk-mythic-body">-</span>
     </div>
-    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+    <div class="stat thin-divider">
       <span class="label">Head <span class="label-subtitle" style="color:var(--mythic); opacity: 0.8;">MYTHIC</span></span>
       <span class="value" id="ttk-mythic-head">-</span>
     </div>
@@ -710,6 +714,32 @@ ___
     <div class="stat">
       <span class="label">Blast Pattern</span>
       <svg class="pattern" id="blast-pattern" style="background:#111;border:1px solid #333"></svg>
+    </div>
+    <h3>Reload Time</h3>
+    <div class="stat thin-divider">
+      <span class="label">Tac Reload</span>
+      <span class="value" id="reload-tac">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Empty Reload</span>
+      <span class="value" id="reload-empty">-</span>
+    </div>
+    <h3>Handling</h3>
+    <div class="stat thin-divider">
+      <span class="label">First Pickup Time</span>
+      <span class="value" id="pickup-time">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Equip Time</span>
+      <span class="value" id="equip-time">-</span>
+    </div>
+    <div class="stat thin-divider">
+      <span class="label">Holster Time</span>
+      <span class="value" id="holster-time">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Raise Time</span>
+      <span class="value" id="raise-time">-</span>
     </div>
   </div>
 </div>
