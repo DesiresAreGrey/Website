@@ -952,7 +952,16 @@ function saveToURL() {
     if (u.columns.toArray().every(c => !c.loaded))
         return;
     
-    const cols = u.columns.toArray().map(c => [c.season?.ID.replaceAll(".", "p"), c.weapon?.ID.replaceAll("_", "-"), c.mode?.Name.replaceAll(" ", "-").toLowerCase()]);
+    const cols = u.columns.toArray().map(c => {
+        const seasonID = c.season?.ID.replaceAll(".", "p");
+        const weaponID = c.weapon?.ID.replaceAll("_", "-");
+        const modeName = c.mode?.Name.replaceAll(" ", "-").toLowerCase();
+
+        if (modeName === "default") 
+            return [seasonID, weaponID];
+        else
+            return [seasonID, weaponID, modeName];
+    });
 
     const params = new URLSearchParams();
     cols.forEach(c => params.append("w", c.join(".")));
@@ -994,7 +1003,7 @@ function loadURLParams() {
         u.columns[index].weapon = u.columns[index].season.Weapons[weaponDropdown.value];
         onWeaponChange(u.columns[index], false);
             
-        const modeIndex = modeDropdown.children.toArray().findIndex(c => c.value.toLowerCase() === modeName?.replaceAll("-", " "));
+        const modeIndex = modeDropdown.children.toArray().findIndex(c => c.value.toLowerCase() === (modeName?.replaceAll("-", " ") ?? "default"));
         modeDropdown.selectedIndex = modeIndex >= 0 ? modeIndex : 0;
 
         u.columns[index].season = seasons.find(s => s.ID === seasonDropdown.value);
