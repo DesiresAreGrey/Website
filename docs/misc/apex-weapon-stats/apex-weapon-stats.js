@@ -679,7 +679,7 @@ function updateWeaponStats(column) {
     }
     else {
         column.querySelector("#step-1").textContent = column.mode.Firing.Shot.ProjectileSize.Step1?.Size ?? "-";
-        column.querySelector("#step-1").previousElementSibling.innerHTML = `Step 1 <span class="label-subtitle">${column.mode.Firing.Shot.ProjectileSize.Step1.Time}<span style="font-size: 0.85em;">sec</span></span>`;
+        column.querySelector("#step-1").previousElementSibling.innerHTML = `Step 1 <span class="label-subtitle">${column.mode.Firing.Shot.ProjectileSize.Step1.Time}<span class="label-subtitle" style="font-size: 0.85em;">sec</span></span>`;
     }
 
     if (column.mode.Firing.Shot.ProjectileSize.Step2 == null) {
@@ -688,7 +688,7 @@ function updateWeaponStats(column) {
     }
     else {
         column.querySelector("#step-2").textContent = column.mode.Firing.Shot.ProjectileSize.Step2?.Size ?? "-";
-        column.querySelector("#step-2").previousElementSibling.innerHTML = `Step 2 <span class="label-subtitle">${column.mode.Firing.Shot.ProjectileSize.Step2.Time}<span style="font-size: 0.85em;">sec</span></span>`;
+        column.querySelector("#step-2").previousElementSibling.innerHTML = `Step 2 <span class="label-subtitle">${column.mode.Firing.Shot.ProjectileSize.Step2.Time}<span class="label-subtitle" style="font-size: 0.85em;">sec</span></span>`;
     }
 
     if (column.mode.Firing.Shot.ProjectileSize.Final == null) {
@@ -697,7 +697,7 @@ function updateWeaponStats(column) {
     }
     else {
         column.querySelector("#final-step").textContent = column.mode.Firing.Shot.ProjectileSize.Final?.Size ?? "-";
-        column.querySelector("#final-step").previousElementSibling.innerHTML = `Final Step <span class="label-subtitle">${column.mode.Firing.Shot.ProjectileSize.Final.Time}<span style="font-size: 0.85em;">sec</span></span>`;
+        column.querySelector("#final-step").previousElementSibling.innerHTML = `Final Step <span class="label-subtitle">${column.mode.Firing.Shot.ProjectileSize.Final.Time}<span class="label-subtitle" style="font-size: 0.85em;">sec</span></span>`;
     }
     
     // Patterns
