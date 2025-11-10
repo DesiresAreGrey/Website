@@ -246,7 +246,7 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
   /* recoil pattern and blast pattern */
 
   .pattern {
-    width: 300px !important;
+    width: 280px !important;
     height: auto !important;
     margin: 0.2rem 0;
     aspect-ratio: 1 / 1;
@@ -298,7 +298,7 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
   }
 
   /* small columns */
-  @container (max-width: 400px) {
+  @container (max-width: 380px) {
   
     /* columns */
 
