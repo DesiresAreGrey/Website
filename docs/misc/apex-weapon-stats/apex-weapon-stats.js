@@ -145,7 +145,7 @@ function setupColumn(column) {
     onSeasonChange(column);
 }
 
-function onSeasonChange(column) {
+function onSeasonChange(column, updateStats = true) {
     const weaponDropdown = column.querySelector(".weapon-dropdown");
     weaponDropdown.innerHTML = '';
 
@@ -160,10 +160,10 @@ function onSeasonChange(column) {
     weaponDropdown.selectedIndex = weaponIndex >= 0 ? weaponIndex : 0;
     
     column.weapon = column.season.Weapons[column.querySelector(".weapon-dropdown").value];
-    onWeaponChange(column);
+    onWeaponChange(column, updateStats);
 }
 
-function onWeaponChange(column) {
+function onWeaponChange(column, updateStats = true) {
     const modeDropdown = column.querySelector(".mode-dropdown");
     modeDropdown.innerHTML = '';
 
@@ -178,7 +178,8 @@ function onWeaponChange(column) {
     modeDropdown.selectedIndex = modeIndex >= 0 ? modeIndex : 0;
 
     column.mode = column.weapon.WeaponModes[column.querySelector(".mode-dropdown").value];
-    updateWeaponStats(column);
+    if (updateStats)
+        updateWeaponStats(column);
 }
 
 function updateWeaponStats(column) {
@@ -952,43 +953,48 @@ function saveToURL() {
 
 function loadURLParams() {
     const params = new URLSearchParams(location.search);
+    const weaponParams = params.getAll("w");
 
-    while (numColumns < params.size) {
+    while (numColumns < weaponParams.length) {
         numColumns++;
         addColumn();
-        document.getElementById("column-count").textContent = numColumns;
-        updateColumnButtonStyles();
     }
+    while (numColumns > weaponParams.length && weaponParams.length > 0) {
+        numColumns--;
+        removeColumn();
+    }
+    document.getElementById("column-count").textContent = numColumns;
+    updateColumnButtonStyles();
     
     let index = 0;
-    params.forEach((value, key) => {
-        if (key === "w") {
-            const [seasonID, weaponID, modeName] = value.split(".");
+    weaponParams.forEach(param => {
+        const [seasonID, weaponID, modeName] = param.split(".");
 
-            const seasonDropdown = u.columns[index].querySelector(".season-dropdown");
-            const weaponDropdown = u.columns[index].querySelector(".weapon-dropdown");
-            const modeDropdown = u.columns[index].querySelector(".mode-dropdown");
+        const seasonDropdown = u.columns[index].querySelector(".season-dropdown");
+        const weaponDropdown = u.columns[index].querySelector(".weapon-dropdown");
+        const modeDropdown = u.columns[index].querySelector(".mode-dropdown");
 
-            const seasonIndex = seasonDropdown.children.toArray().findIndex(c => c.value === seasonID.replaceAll("p", "."));
-            seasonDropdown.selectedIndex = seasonIndex >= 0 ? seasonIndex : 0;
+        const seasonIndex = seasonDropdown.children.toArray().findIndex(c => c.value === seasonID?.replaceAll("p", "."));
+        seasonDropdown.selectedIndex = seasonIndex >= 0 ? seasonIndex : 0;
 
-            u.columns[index].season = seasons.find(s => s.ID === seasonDropdown.value);
-            onSeasonChange(u.columns[index]);
+        u.columns[index].season = seasons.find(s => s.ID === seasonDropdown.value);
+        onSeasonChange(u.columns[index], false);
 
-            const weaponIndex = weaponDropdown.children.toArray().findIndex(c => c.value === weaponID.replaceAll("-", "_"));
-            weaponDropdown.selectedIndex = weaponIndex >= 0 ? weaponIndex : 0;
+        const weaponIndex = weaponDropdown.children.toArray().findIndex(c => c.value === weaponID?.replaceAll("-", "_"));
+        weaponDropdown.selectedIndex = weaponIndex >= 0 ? weaponIndex : 0;
+
+        u.columns[index].weapon = u.columns[index].season.Weapons[weaponDropdown.value];
+        onWeaponChange(u.columns[index], false);
             
-            const modeIndex = modeDropdown.children.toArray().findIndex(c => c.value.toLowerCase() === modeName);
-            modeDropdown.selectedIndex = modeIndex >= 0 ? modeIndex : 0;
+        const modeIndex = modeDropdown.children.toArray().findIndex(c => c.value.toLowerCase() === modeName);
+        modeDropdown.selectedIndex = modeIndex >= 0 ? modeIndex : 0;
 
-            u.columns[index].season = seasons.find(s => s.ID === seasonDropdown.value);
-            u.columns[index].weapon = u.columns[index].season.Weapons[weaponDropdown.value];
-            u.columns[index].mode = u.columns[index].weapon.WeaponModes[modeDropdown.value];
+        u.columns[index].season = seasons.find(s => s.ID === seasonDropdown.value);
+        u.columns[index].weapon = u.columns[index].season.Weapons[weaponDropdown.value];
+        u.columns[index].mode = u.columns[index].weapon.WeaponModes[modeDropdown.value];
+        
+        updateWeaponStats(u.columns[index]);
 
-            //updateWeaponStats(u.columns[index]);
-            onWeaponChange(u.columns[index]);
-
-            index++;
-        }
+        index++;
     });
 }
