@@ -140,6 +140,9 @@ function setupColumn(column) {
     document.getElementById("auto-hide-rows-toggle").addEventListener('change', e => {
         updateWeaponStats(column);
     });
+    document.getElementById("save-to-url-toggle").addEventListener('change', e => {
+        saveToURL();
+    });
 
     column.season = seasons.find(s => s.ID === seasonDropdown.value);
     onSeasonChange(column);
@@ -873,6 +876,7 @@ function utils() {
         get columns() { return document.querySelectorAll(".column"); },
         get usingConvertedValues() { return !document.getElementById("converted-values-toggle").checked; },
         get usingAutoHideRows() { return !document.getElementById("auto-hide-rows-toggle").checked; },
+        get saveToURL() { return !document.getElementById("save-to-url-toggle").checked; },
     };
 
     Object.defineProperty(NodeList.prototype, 'toArray', { value: function() { return [...this]; } });
@@ -941,6 +945,10 @@ function closestVisibleAnchor(stickyHeaderBottom) {
 
 
 function saveToURL() {
+    if (!u.saveToURL) {
+        history.replaceState(null, "", window.location.pathname);
+        return;
+    }
     if (u.columns.toArray().every(c => !c.loaded))
         return;
     

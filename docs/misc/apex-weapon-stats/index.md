@@ -389,6 +389,15 @@ ___
       <div class="noselect" style="margin-right: 24px;margin-left: 0px;padding-left: 0px;padding-right: 5px;">No</div>
     </label>
   </div>
+  <div style="height: 0.35rem;"></div>
+  <div class="side">
+    <div class="label">Save to URL</div>
+    <input type="checkbox" id="save-to-url-toggle" class="toggleCheckbox" />
+    <label for="save-to-url-toggle" class='toggleContainer'>
+      <div class="noselect" style="margin-right: 48px;margin-left: 24px;padding-left: 0px;padding-right: 5px;">Yes</div>   
+      <div class="noselect" style="margin-right: 24px;margin-left: 0px;padding-left: 0px;padding-right: 5px;">No</div>
+    </label>
+  </div>
 </div>
 
 ___
