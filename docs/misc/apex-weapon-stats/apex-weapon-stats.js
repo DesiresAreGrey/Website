@@ -810,17 +810,17 @@ function updateWeaponStats(column) {
     const allNoFleshMult = u.columns.toArray().every(c => c.mode?.Firing.Shot.Damage.Multipliers.Flesh == 1);
     const allNoShieldMult = u.columns.toArray().every(c => c.mode?.Firing.Shot.Damage.Multipliers.Shield == 1);
 
-    if (allNoFleshMult && u.usingAutoHideRows)
+    if (allNoFleshMult && u.autoHideRows)
         u.columns.forEach(c => c.querySelectorAll("[id*='-flesh'].value").forEach(el => el.parentElement.style.display = "none"));
     else
         u.columns.forEach(c => c.querySelectorAll("[id*='-flesh'].value").forEach(el => el.parentElement.style.display = "flex"));
 
-    if (allNoShieldMult && u.usingAutoHideRows)
+    if (allNoShieldMult && u.autoHideRows)
         u.columns.forEach(c => c.querySelectorAll("[id*='-shield'].value").forEach(el => el.parentElement.style.display = "none"));
     else
         u.columns.forEach(c => c.querySelectorAll("[id*='-shield'].value").forEach(el => el.parentElement.style.display = "flex"));
 
-    if (allNoFleshMult && allNoShieldMult && u.usingAutoHideRows) {
+    if (allNoFleshMult && allNoShieldMult && u.autoHideRows) {
         u.columns.forEach(c => c.querySelectorAll(".label-subtitle").forEach(el => {
             if (el.textContent === "BASE")  el.style.display = "none";
         }));
@@ -875,7 +875,7 @@ function utils() {
     const utils = {
         get columns() { return document.querySelectorAll(".column"); },
         get usingConvertedValues() { return !document.getElementById("converted-values-toggle").checked; },
-        get usingAutoHideRows() { return !document.getElementById("auto-hide-rows-toggle").checked; },
+        get autoHideRows() { return !document.getElementById("auto-hide-rows-toggle").checked; },
         get saveToURL() { return !document.getElementById("save-to-url-toggle").checked; },
     };
 
