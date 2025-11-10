@@ -176,7 +176,7 @@ function updateWeaponStats(column) {
 
     if (usingConvertedValues()) {
         column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => rpm(x, key, true));
-        column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span class=\"label-subtitle\">RPM</span>";
+        column.querySelector("#firerate").previousElementSibling.innerHTML = "Effective Firerate <span class=\"label-subtitle\">RPM</span>";
     }
     else {
         column.querySelector("#firerate").innerHTML = rarityFormat(column.mode.Firing.FireRate);
