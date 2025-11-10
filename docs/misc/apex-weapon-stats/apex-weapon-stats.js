@@ -33,6 +33,7 @@ document.getElementById("decrease-columns").onclick = e => {
         document.getElementById("column-count").textContent = numColumns;
     }
     updateColumnButtonStyles();
+    saveToURL();
 };
 
 document.getElementById("increase-columns").onclick = e => {
@@ -42,6 +43,7 @@ document.getElementById("increase-columns").onclick = e => {
         document.getElementById("column-count").textContent = numColumns;
     }
     updateColumnButtonStyles();
+    saveToURL();
 };
 
 loadURLParams();
