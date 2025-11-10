@@ -690,15 +690,15 @@ ___
       </div>
     </form>
     <h3>Projectile Size</h3>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label">Initial Size</span>
       <span class="value" id="initial-size">-</span>
     </div>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label">Step 1</span>
       <span class="value" id="step-1">-</span>
     </div>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label">Step 2</span>
       <span class="value" id="step-2">-</span>
     </div>
@@ -725,22 +725,39 @@ ___
       <span class="value" id="reload-empty">-</span>
     </div>
     <h3>Handling</h3>
-    <div class="stat thin-divider">
+    <div class="stat">
       <span class="label">First Pickup Time</span>
       <span class="value" id="pickup-time">-</span>
     </div>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label">Equip Time</span>
       <span class="value" id="equip-time">-</span>
     </div>
-    <div class="stat thin-divider">
+    <div class="stat">
       <span class="label">Holster Time</span>
       <span class="value" id="holster-time">-</span>
     </div>
-    <div class="stat">
+    <div class="stat thin-divider">
       <span class="label">Raise Time</span>
       <span class="value" id="raise-time">-</span>
     </div>
+    <div class="stat">
+      <span class="label">Lower Time</span>
+      <span class="value" id="lower-time">-</span>
+    </div>
+    <div class="stat thin-divider">
+      <span class="label">Zoom In Time</span>
+      <span class="value" id="zoom-in-time">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Zoom Out Time</span>
+      <span class="value" id="zoom-out-time">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">ADS Movement Speed Multiplier</span>
+      <span class="value" id="ads-movement-speed-multiplier">-</span>
+    </div>
+
   </div>
 </div>
 

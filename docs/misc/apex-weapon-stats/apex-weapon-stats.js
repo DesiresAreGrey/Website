@@ -708,8 +708,23 @@ function updateWeaponStats(column) {
 
     // Reload Time
 
-    column.querySelector("#reload-tac").innerHTML = rarityFormat(column.mode.Handling.TacReloadTime, x => x.roundTo(2), "Epic");
-    column.querySelector("#reload-empty").innerHTML = rarityFormat(column.mode.Handling.FullReloadTime, x => x.roundTo(2), "Epic");
+    column.querySelector("#reload-tac").innerHTML = rarityFormat(column.mode.Handling.TacReloadTime, x => x.roundTo(2));
+    column.querySelector("#reload-empty").innerHTML = rarityFormat(column.mode.Handling.FullReloadTime, x => x.roundTo(2));
+
+    // Handling
+
+    column.querySelector("#pickup-time").textContent = column.mode.Handling.PickupTime;
+
+    column.querySelector("#equip-time").innerHTML = rarityFormat(column.mode.Handling.EquipTime, x => x.roundTo(2));
+    column.querySelector("#holster-time").innerHTML = rarityFormat(column.mode.Handling.HolsterTime, x => x.roundTo(2));
+
+    column.querySelector("#raise-time").innerHTML = rarityFormat(column.mode.Handling.RaiseTime, x => x.roundTo(2));
+    column.querySelector("#lower-time").innerHTML = rarityFormat(column.mode.Handling.LowerTime, x => x.roundTo(2));
+
+    column.querySelector("#zoom-in-time").innerHTML = rarityFormat(column.mode.Handling.ZoomInTime, x => x.roundTo(2));
+    column.querySelector("#zoom-out-time").innerHTML = rarityFormat(column.mode.Handling.ZoomOutTime, x => x.roundTo(2));
+
+    column.querySelector("#ads-movement-speed-multiplier").textContent = column.mode.Handling.AdsMovementSpeedMultiplier;
 
     // fix distance tabs visibility if all distances are the same
 
