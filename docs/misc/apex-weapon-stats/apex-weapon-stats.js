@@ -91,18 +91,39 @@ function setupColumn(column) {
     }
 
     seasonDropdown.onchange = e => {
+        const anchor = closestVisibleAnchor(document.querySelector('.dropdowns').getBoundingClientRect().bottom);
+        const oldAnchorTop = anchor ? anchor.getBoundingClientRect().top : 0;
+
         column.season = seasons.find(s => s.ID === e.target.value);
         onSeasonChange(column);
+
+        const positionDifference = anchor?.getBoundingClientRect().top - oldAnchorTop;
+        if (positionDifference != 0)
+            document.documentElement.scrollTop += positionDifference;
     };
 
     weaponDropdown.onchange = e => {
+        const anchor = closestVisibleAnchor(document.querySelector('.dropdowns').getBoundingClientRect().bottom);
+        const oldAnchorTop = anchor ? anchor.getBoundingClientRect().top : 0;
+        
         column.weapon = column.season.Weapons[e.target.value];
         onWeaponChange(column);
+
+        const positionDifference = anchor?.getBoundingClientRect().top - oldAnchorTop;
+        if (positionDifference != 0)
+            document.documentElement.scrollTop += positionDifference;
     };
 
     modeDropdown.onchange = e => {
+        const anchor = closestVisibleAnchor(document.querySelector('.dropdowns').getBoundingClientRect().bottom);
+        const oldAnchorTop = anchor ? anchor.getBoundingClientRect().top : 0;
+
         column.mode = column.weapon.WeaponModes[e.target.value];
         updateWeaponStats(column);
+        
+        const positionDifference = anchor?.getBoundingClientRect().top - oldAnchorTop;
+        if (positionDifference != 0)
+            document.documentElement.scrollTop += positionDifference;
     };
 
     document.getElementById("converted-values-toggle").addEventListener('change', e => {
@@ -112,7 +133,8 @@ function setupColumn(column) {
         updateWeaponStats(column);
     });
 
-    seasonDropdown.dispatchEvent(new Event('change'));
+    column.season = seasons.find(s => s.ID === seasonDropdown.value);
+    onSeasonChange(column);
 }
 
 function onSeasonChange(column) {
@@ -125,8 +147,9 @@ function onSeasonChange(column) {
         opt.textContent = weapon.Name;
         weaponDropdown.appendChild(opt);
     }
-
-    weaponDropdown.dispatchEvent(new Event('change'));
+    
+    column.weapon = column.season.Weapons[column.querySelector(".weapon-dropdown").value];
+    onWeaponChange(column);
 }
 
 function onWeaponChange(column) {
@@ -139,12 +162,14 @@ function onWeaponChange(column) {
         opt.textContent = mode.Name;
         modeDropdown.appendChild(opt);
     }
-
-    modeDropdown.dispatchEvent(new Event('change'));
+    
+    column.mode = column.weapon.WeaponModes[column.querySelector(".mode-dropdown").value];
+    updateWeaponStats(column);
 }
 
 function updateWeaponStats(column) {
-    console.log("Updating weapon stats for", column.weapon.Name, "-", column.mode.Name);
+    console.log(`Updating weapon stats for ${column.season.Name} - ${column.weapon.Name} - ${column.mode.Name}`);
+    
     // Ammo
 
     column.querySelector("#ammo-type").textContent = column.mode.Ammo.Type ?? "-";
@@ -754,9 +779,6 @@ function updateWeaponStats(column) {
 
     // hiding rows that are the same across all whatever
 
-    const oldScrollTop = document.documentElement.scrollTop;
-    const oldScrollHeight = document.documentElement.scrollHeight;
-
     // fix distance tabs visibility if all distances are the same
 
     if (u.columns.toArray().every(c => Object.keys(c.mode?.Firing.Shot.Damage.Amount ?? []).length == 1))
@@ -789,9 +811,6 @@ function updateWeaponStats(column) {
             if (el.textContent === "BASE")  el.style.display = "inline";
         }));
     }
-
-    // fix scroll jump after hiding rows
-    document.documentElement.scrollTop = oldScrollTop + (document.documentElement.scrollHeight - oldScrollHeight);
 }
 
 
@@ -877,4 +896,23 @@ function utils() {
     });
 
     return utils;
+}
+
+function closestVisibleAnchor(stickyHeaderBottom) {
+    const headers = document.querySelectorAll('h3'); 
+    
+    let bestAnchor = null;
+    let smallestDistance = Infinity;
+
+    for (const header of headers) {
+        const rect = header.getBoundingClientRect();
+        const distance = rect.top - stickyHeaderBottom;
+        
+        if (rect.top >= stickyHeaderBottom && rect.bottom <= window.innerHeight && distance < smallestDistance) {
+            smallestDistance = distance;
+            bestAnchor = header;
+        }
+    }
+
+    return bestAnchor ?? headers.find(h => h.getBoundingClientRect().top >= stickyHeaderBottom);
 }
