@@ -496,6 +496,74 @@ function updateWeaponStats(column) {
     dpsTabChanged();
     column.querySelectorAll('input[name="dps-distance"]').forEach(input => input.onchange = dpsTabChanged);
 
+    // Total Damage Per Magazine
+    
+    if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {
+        column.querySelector("#tdpm-distance-near-tab").nextSibling.textContent = "Any Distance";
+    }
+    else {
+        column.querySelector("#tdpm-distance-near-tab").nextSibling.textContent = distanceNear;
+    }
+
+    if (column.mode.Firing.Shot.Damage.Amount.Far != null) {
+        column.querySelector("#tdpm-distance-far-tab").parentElement.style.display = "block";
+        column.querySelector("#tdpm-distance-far-tab").nextSibling.textContent = distanceFar;
+    }
+    else {
+        column.querySelector("#tdpm-distance-far-tab").parentElement.style.display = "none";
+    }
+    if (column.mode.Firing.Shot.Damage.Amount.VeryFar != null) {
+        column.querySelector("#tdpm-distance-very-far-tab").parentElement.style.display = "block";
+        column.querySelector("#tdpm-distance-very-far-tab").nextSibling.textContent = distanceVeryFar;
+    }
+    else {
+        column.querySelector("#tdpm-distance-very-far-tab").parentElement.style.display = "none";
+    }
+
+    function tdpmTabChanged() {
+        let baseDamage = column.mode.Firing.Shot.Damage.Amount.Near;
+
+        if (column.querySelector("#tdpm-distance-near-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
+        else if (column.querySelector("#tdpm-distance-far-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Far;
+        else if (column.querySelector("#tdpm-distance-very-far-tab").checked)
+            baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.VeryFar;
+
+        column.querySelector("#tdpm-base-body").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
+            return Math.round(baseDamage * x);
+        }, "Epic");
+        column.querySelector("#tdpm-base-head").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
+            return Math.round(baseDamage * x * headMultiplier);
+        }, "Epic");
+        column.querySelector("#tdpm-base-limb").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
+            return Math.round(baseDamage * x * legMultiplier);
+        }, "Epic");
+
+        column.querySelector("#tdpm-flesh-body").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
+            return Math.round(baseDamage * x * fleshMultiplier);
+        }, "Epic");
+        column.querySelector("#tdpm-flesh-head").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
+            return Math.round(baseDamage * x * headMultiplier * fleshMultiplier);
+        }, "Epic");
+        column.querySelector("#tdpm-flesh-limb").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
+            return Math.round(baseDamage * x * legMultiplier * fleshMultiplier);
+        }, "Epic");
+
+        column.querySelector("#tdpm-shield-body").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
+            return Math.round(baseDamage * x * shieldMultiplier);
+        }, "Epic");
+        column.querySelector("#tdpm-shield-head").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
+            return Math.round(baseDamage * x * headMultiplier * shieldMultiplier);
+        }, "Epic");
+        column.querySelector("#tdpm-shield-limb").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
+            return Math.round(baseDamage * x * legMultiplier * shieldMultiplier);
+        }, "Epic");
+    }
+
+    tdpmTabChanged();
+    column.querySelectorAll('input[name="tdpm-distance"]').forEach(input => input.onchange = tdpmTabChanged);
+
     // TTK :(
 
     if (column.mode.Firing.Shot.Damage.Amount.Far == null && column.mode.Firing.Shot.Damage.Amount.VeryFar == null) {

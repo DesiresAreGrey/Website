@@ -573,6 +573,50 @@ ___
         <label class="noselect"><input id="dps-distance-very-far-tab" class="vh" type="radio" name="dps-distance">Very Far</label>
       </div>
     </form>
+    <h3>Total Damage Per Magazine</h3>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Body <span class="label-subtitle">BASE</span></span>
+      <span class="value" id="tdpm-base-body">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Head <span class="label-subtitle">BASE</span></span>
+      <span class="value" id="tdpm-base-head">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Limb <span class="label-subtitle">BASE</span></span>
+      <span class="value" id="tdpm-base-limb">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Body <span class="label-subtitle">FLESH</span></span>
+      <span class="value" id="tdpm-flesh-body">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Head <span class="label-subtitle">FLESH</span></span>
+      <span class="value" id="tdpm-flesh-head">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Limb <span class="label-subtitle">FLESH</span></span>
+      <span class="value" id="tdpm-flesh-limb">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Body <span class="label-subtitle">SHIELD</span></span>
+      <span class="value" id="tdpm-shield-body">-</span>
+    </div>
+    <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
+      <span class="label">Head <span class="label-subtitle">SHIELD</span></span>
+      <span class="value" id="tdpm-shield-head">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Limb <span class="label-subtitle">SHIELD</span></span>
+      <span class="value" id="tdpm-shield-limb">-</span>
+    </div>
+    <form class="tabs">
+      <div class="toggle">
+        <label class="noselect"><input id="tdpm-distance-near-tab" class="vh" type="radio" name="tdpm-distance" checked>Near</label>
+        <label class="noselect"><input id="tdpm-distance-far-tab" class="vh" type="radio" name="tdpm-distance">Far</label>
+        <label class="noselect"><input id="tdpm-distance-very-far-tab" class="vh" type="radio" name="tdpm-distance">Very Far</label>
+      </div>
+    </form>
     <h3>Time To Kill</h3>
     <div class="stat" style="border-bottom: 1px solid rgba(255,255,255,0.035);">
       <span class="label">Body <span class="label-subtitle" style="color:var(--base); opacity: 0.8;">NO ARMOR</span></span>
