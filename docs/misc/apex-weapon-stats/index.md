@@ -364,7 +364,7 @@ ___
 
 <div style="margin: -0.5rem 0; gap: 1rem;">
   <div class="side">
-    <div class="label">Columns</div>
+    <div class="label">Weapons</div>
     <div class="side">
       <a id="decrease-columns" class="big-button plusminus-button noselect" style="opacity: 0.5; pointer-events: none;">-</a>
       <p id="column-count" class="noselect" style="margin: 0; font-size: 0.9rem;">2</p>

@@ -21,6 +21,7 @@ for (let i = 0; i < numColumns; i++) {
 await loadSeasons();
 
 for (const column of u.columns) {
+    column.loaded = false;
     setupColumn(column);
 }
 updateColumnButtonStyles();
@@ -42,6 +43,8 @@ document.getElementById("increase-columns").onclick = e => {
     }
     updateColumnButtonStyles();
 };
+
+loadURLParams();
 
 function updateColumnButtonStyles(loaded = true) {
     if (numColumns >= 5 || !loaded) {
@@ -96,6 +99,7 @@ function setupColumn(column) {
 
         column.season = seasons.find(s => s.ID === e.target.value);
         onSeasonChange(column);
+        saveToURL();
 
         const positionDifference = anchor?.getBoundingClientRect().top - oldAnchorTop;
         if (positionDifference != 0)
@@ -108,6 +112,7 @@ function setupColumn(column) {
         
         column.weapon = column.season.Weapons[e.target.value];
         onWeaponChange(column);
+        saveToURL();
 
         const positionDifference = anchor?.getBoundingClientRect().top - oldAnchorTop;
         if (positionDifference != 0)
@@ -120,6 +125,7 @@ function setupColumn(column) {
 
         column.mode = column.weapon.WeaponModes[e.target.value];
         updateWeaponStats(column);
+        saveToURL();
         
         const positionDifference = anchor?.getBoundingClientRect().top - oldAnchorTop;
         if (positionDifference != 0)
@@ -168,8 +174,9 @@ function onWeaponChange(column) {
 }
 
 function updateWeaponStats(column) {
+    column.loaded = false;
     console.log(`Updating weapon stats for ${column.season.Name} - ${column.weapon.Name} - ${column.mode.Name}`);
-    
+
     // Ammo
 
     column.querySelector("#ammo-type").textContent = column.mode.Ammo.Type ?? "-";
@@ -772,10 +779,10 @@ function updateWeaponStats(column) {
     column.querySelector("#spread-in-air-hipfire").innerHTML = rarityFormat(column.mode.Spread.Hipfire.InAir, x => x.roundTo(2));
     column.querySelector("#spread-hovering-hipfire").innerHTML = rarityFormat(column.mode.Spread.Hipfire.Hovering, x => x.roundTo(2));
 
-    column.querySelector("#spread-standing-ads").textContent = column.mode.Spread.ADS.Standing.roundTo(2);
-    column.querySelector("#spread-crouching-ads").textContent = column.mode.Spread.ADS.Crouching.roundTo(2);
-    column.querySelector("#spread-in-air-ads").textContent = column.mode.Spread.ADS.InAir.roundTo(2);
-    column.querySelector("#spread-hovering-ads").textContent = column.mode.Spread.ADS.Hovering.roundTo(2);
+    column.querySelector("#spread-standing-ads").textContent = column.mode.Spread.ADS.Standing?.roundTo(2) ?? "-";
+    column.querySelector("#spread-crouching-ads").textContent = column.mode.Spread.ADS.Crouching?.roundTo(2) ?? "-";
+    column.querySelector("#spread-in-air-ads").textContent = column.mode.Spread.ADS.InAir?.roundTo(2) ?? "-";
+    column.querySelector("#spread-hovering-ads").textContent = column.mode.Spread.ADS.Hovering?.roundTo(2) ?? "-";
 
     // hiding rows that are the same across all whatever
 
@@ -811,6 +818,8 @@ function updateWeaponStats(column) {
             if (el.textContent === "BASE")  el.style.display = "inline";
         }));
     }
+
+    column.loaded = true;
 }
 
 
@@ -855,6 +864,7 @@ function utils() {
     };
 
     Object.defineProperty(NodeList.prototype, 'toArray', { value: function() { return [...this]; } });
+    Object.defineProperty(HTMLCollection.prototype, 'toArray', { value: function() { return [...this]; } });
 
     Object.defineProperty(Number.prototype, 'roundTo', { value: function(precision = 0) { return this.toFixed(precision) / 1 } });
     Object.defineProperty(Number.prototype, 'mult', { value: function(multiplier) { return this * multiplier } });
@@ -914,5 +924,55 @@ function closestVisibleAnchor(stickyHeaderBottom) {
         }
     }
 
-    return bestAnchor ?? headers.find(h => h.getBoundingClientRect().top >= stickyHeaderBottom);
+    return bestAnchor ?? headers.toArray().find(h => h.getBoundingClientRect().top >= stickyHeaderBottom);
+}
+
+
+function saveToURL() {
+    console.log(u.columns);
+    if (u.columns.toArray().every(c => !c.loaded))
+        return;
+    
+    const cols = u.columns.toArray().map(c => [c.season?.ID, c.weapon?.ID, c.mode?.Name.toLowerCase()]);
+
+    const params = new URLSearchParams();
+    cols.forEach(c => params.append("w", c.join(".")));
+    history.replaceState(null, "", "?" + params.toString());
+}
+
+function loadURLParams() {
+    const params = new URLSearchParams(location.search);
+
+    let index = 0;
+    params.forEach((value, key) => {
+        if (key === "w") {
+            const [seasonID, weaponID, modeName] = value.split(".");;
+
+            const seasonDropdown = u.columns[index].querySelector(".season-dropdown");
+            const weaponDropdown = u.columns[index].querySelector(".weapon-dropdown");
+            const modeDropdown = u.columns[index].querySelector(".mode-dropdown");
+
+            console.log(seasonID, weaponID, modeName);
+
+            const seasonIndex = seasonDropdown.children.toArray().findIndex(c => c.value === seasonID);
+            console.log(seasonIndex);
+            seasonDropdown.selectedIndex = seasonIndex >= 0 ? seasonIndex : 0;
+
+            u.columns[index].season = seasons.find(s => s.ID === seasonDropdown.value);
+
+            const weaponIndex = weaponDropdown.children.toArray().findIndex(c => c.value === weaponID);
+            console.log(weaponIndex);
+            weaponDropdown.selectedIndex = weaponIndex >= 0 ? weaponIndex : 0;
+
+            
+            const modeIndex = modeDropdown.children.toArray().findIndex(c => c.value.toLowerCase() === modeName);
+            console.log(modeIndex);
+            modeDropdown.selectedIndex = modeIndex >= 0 ? modeIndex : 0;
+
+            index++;
+        }
+        
+    });
+
+    console.log(params);
 }
