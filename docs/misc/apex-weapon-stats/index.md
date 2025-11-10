@@ -757,6 +757,63 @@ ___
       <span class="label">ADS Movement Speed Multiplier</span>
       <span class="value" id="ads-movement-speed-multiplier">-</span>
     </div>
+    <h3>Spread</h3>
+    <div class="stat thin-divider">
+      <span class="label">Decay Delay</span>
+      <span class="value" id="spread-decay-delay">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Decay Rate</span>
+      <span class="value" id="spread-decay-rate">-</span>
+    </div>
+    <div class="stat thin-divider">
+      <span class="label">Increase Rate <span class="label-subtitle">MOVING</span></span>
+      <span class="value" id="spread-increase-rate-moving">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Decay Rate <span class="label-subtitle">MOVING</span></span>
+      <span class="value" id="spread-decay-rate-moving">-</span>
+    </div>
+    <div class="stat thin-divider">
+      <span class="label">Standing <span class="label-subtitle">HIPFIRE</span></span>
+      <span class="value" id="spread-standing-hipfire">-</span>
+    </div>
+    <div class="stat thin-divider">
+      <span class="label">Walking <span class="label-subtitle">HIPFIRE</span></span>
+      <span class="value" id="spread-walking-hipfire">-</span>
+    </div>
+    <div class="stat thin-divider">
+      <span class="label">Sprinting <span class="label-subtitle">HIPFIRE</span></span>
+      <span class="value" id="spread-sprinting-hipfire">-</span>
+    </div>
+    <div class="stat thin-divider">
+      <span class="label">Crouching <span class="label-subtitle">HIPFIRE</span></span>
+      <span class="value" id="spread-crouching-hipfire">-</span>
+    </div>
+    <div class="stat thin-divider">
+      <span class="label">In Air <span class="label-subtitle">HIPFIRE</span></span>
+      <span class="value" id="spread-in-air-hipfire">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Hovering <span class="label-subtitle">HIPFIRE</span></span>
+      <span class="value" id="spread-hovering-hipfire">-</span>
+    </div>
+    <div class="stat thin-divider">
+      <span class="label">Standing <span class="label-subtitle">ADS</span></span>
+      <span class="value" id="spread-standing-ads">-</span>
+    </div>
+    <div class="stat thin-divider">
+      <span class="label">Crouching <span class="label-subtitle">ADS</span></span>
+      <span class="value" id="spread-crouching-ads">-</span>
+    </div>
+    <div class="stat thin-divider">
+      <span class="label">In Air <span class="label-subtitle">ADS</span></span>
+      <span class="value" id="spread-in-air-ads">-</span>
+    </div>
+    <div class="stat">
+      <span class="label">Hovering <span class="label-subtitle">ADS</span></span>
+      <span class="value" id="spread-hovering-ads">-</span>
+    </div>
 
   </div>
 </div>
