@@ -726,6 +726,24 @@ function updateWeaponStats(column) {
 
     column.querySelector("#ads-movement-speed-multiplier").textContent = column.mode.Handling.AdsMovementSpeedMultiplier;
 
+    column.querySelector("#spread-decay-delay").innerHTML = rarityFormat(column.mode.Spread.DecayDelay, x => x.roundTo(2));
+    column.querySelector("#spread-decay-rate").innerHTML = rarityFormat(column.mode.Spread.DecayRate, x => x.roundTo(2));
+
+    column.querySelector("#spread-increase-rate-moving").innerHTML = rarityFormat(column.mode.Spread.MovingIncreaseRate, x => x.roundTo(2));
+    column.querySelector("#spread-decay-rate-moving").innerHTML = rarityFormat(column.mode.Spread.MovingDecayRate, x => x.roundTo(2));
+
+    column.querySelector("#spread-standing-hipfire").innerHTML = rarityFormat(column.mode.Spread.Hipfire.Standing, x => x.roundTo(2));
+    column.querySelector("#spread-walking-hipfire").innerHTML = rarityFormat(column.mode.Spread.Hipfire.Walking, x => x.roundTo(2));
+    column.querySelector("#spread-sprinting-hipfire").innerHTML = rarityFormat(column.mode.Spread.Hipfire.Sprinting, x => x.roundTo(2));
+    column.querySelector("#spread-crouching-hipfire").innerHTML = rarityFormat(column.mode.Spread.Hipfire.Crouching, x => x.roundTo(2));
+    column.querySelector("#spread-in-air-hipfire").innerHTML = rarityFormat(column.mode.Spread.Hipfire.InAir, x => x.roundTo(2));
+    column.querySelector("#spread-hovering-hipfire").innerHTML = rarityFormat(column.mode.Spread.Hipfire.Hovering, x => x.roundTo(2));
+
+    column.querySelector("#spread-standing-ads").textContent = column.mode.Spread.ADS.Standing.roundTo(2);
+    column.querySelector("#spread-crouching-ads").textContent = column.mode.Spread.ADS.Crouching.roundTo(2);
+    column.querySelector("#spread-in-air-ads").textContent = column.mode.Spread.ADS.InAir.roundTo(2);
+    column.querySelector("#spread-hovering-ads").textContent = column.mode.Spread.ADS.Hovering.roundTo(2);
+
     // fix distance tabs visibility if all distances are the same
 
     column.querySelectorAll("[id$='-distance-near-tab']").forEach(tab => {
