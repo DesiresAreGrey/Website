@@ -232,17 +232,17 @@ function updateWeaponStats(column) {
 
     column.querySelector("#charge-time").innerHTML = column.mode.Firing.ChargeTime ?? "-";
 
-    if (!u.usingConvertedValues && column.mode.Firing.RechamberTime != null) {
-        //column.querySelector("#rechamber-time").innerHTML = rarityFormat(column.mode.Firing.RechamberTime);
-        //column.querySelector("#rechamber-time").parentElement.style.display = "flex";
-    }
-    else if (!u.usingConvertedValues && column.mode.Firing.RechamberTime == null) {
-        //column.querySelector("#rechamber-time").textContent = "-";
-        //column.querySelector("#rechamber-time").parentElement.style.display = "flex";
-    }
-    else {
-        //column.querySelector("#rechamber-time").parentElement.style.display = "none";
-    }
+    //if (!u.usingConvertedValues && column.mode.Firing.RechamberTime != null) {
+    //    column.querySelector("#rechamber-time").innerHTML = rarityFormat(column.mode.Firing.RechamberTime);
+    //    column.querySelector("#rechamber-time").parentElement.style.display = "flex";
+    //}
+    //else if (!u.usingConvertedValues && column.mode.Firing.RechamberTime == null) {
+    //    column.querySelector("#rechamber-time").textContent = "-";
+    //    column.querySelector("#rechamber-time").parentElement.style.display = "flex";
+    //}
+    //else {
+    //    column.querySelector("#rechamber-time").parentElement.style.display = "none";
+    //}
 
     column.querySelector("#burst-count").textContent = column.mode.Firing.BurstCount > 0 ? column.mode.Firing.BurstCount ?? "-" : "-";
 
