@@ -244,7 +244,7 @@ function updateWeaponStats(column) {
         //column.querySelector("#rechamber-time").parentElement.style.display = "none";
     }
 
-    column.querySelector("#burst-count").textContent = column.mode.Firing.BurstCount ?? "-";
+    column.querySelector("#burst-count").textContent = column.mode.Firing.BurstCount > 0 ? column.mode.Firing.BurstCount ?? "-" : "-";
 
     if (column.mode.Firing.BurstDelay != null) {
         column.querySelector("#burst-delay").innerHTML = column.mode.Firing.BurstDelay;
