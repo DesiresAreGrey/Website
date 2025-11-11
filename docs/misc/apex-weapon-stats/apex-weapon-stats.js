@@ -214,6 +214,8 @@ function updateWeaponStats(column) {
             fireRate = 1 / Math.max(1 / fireRate, column.mode.Firing.RechamberTime[key]);
         else if (column.mode.Firing.BurstCount > 1)
             fireRate = column.mode.Firing.BurstCount / (column.mode.Firing.BurstCount / fireRate + column.mode.Firing.BurstDelay);
+        else if (column.mode.Firing.FireMode == "Charged Semi Automatic" && column.mode.Firing.ChargeTime > 0)
+            fireRate = 1 / (1 / fireRate + column.mode.Firing.ChargeTime);
         return round ? fireRate.mult(60).roundTo(0) : fireRate.mult(60);
     }
 
@@ -226,16 +228,20 @@ function updateWeaponStats(column) {
         column.querySelector("#firerate").previousElementSibling.innerHTML = "Firerate <span class=\"label-subtitle\">RPS</span>";
     }
 
+    column.querySelector("#rechamber-time").innerHTML = rarityFormat(column.mode.Firing.RechamberTime);
+
+    column.querySelector("#charge-time").innerHTML = column.mode.Firing.ChargeTime ?? "-";
+
     if (!u.usingConvertedValues && column.mode.Firing.RechamberTime != null) {
-        column.querySelector("#rechamber-time").innerHTML = rarityFormat(column.mode.Firing.RechamberTime);
-        column.querySelector("#rechamber-time").parentElement.style.display = "flex";
+        //column.querySelector("#rechamber-time").innerHTML = rarityFormat(column.mode.Firing.RechamberTime);
+        //column.querySelector("#rechamber-time").parentElement.style.display = "flex";
     }
     else if (!u.usingConvertedValues && column.mode.Firing.RechamberTime == null) {
-        column.querySelector("#rechamber-time").textContent = "-";
-        column.querySelector("#rechamber-time").parentElement.style.display = "flex";
+        //column.querySelector("#rechamber-time").textContent = "-";
+        //column.querySelector("#rechamber-time").parentElement.style.display = "flex";
     }
     else {
-        column.querySelector("#rechamber-time").parentElement.style.display = "none";
+        //column.querySelector("#rechamber-time").parentElement.style.display = "none";
     }
 
     column.querySelector("#burst-count").textContent = column.mode.Firing.BurstCount ?? "-";

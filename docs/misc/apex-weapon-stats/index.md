@@ -435,6 +435,10 @@ ___
       <span class="label">Rechamber Time</span>
       <span class="value" id="rechamber-time">-</span>
     </div>
+    <div class="stat">
+      <span class="label">Charge Time</span>
+      <span class="value" id="charge-time">-</span>
+    </div>
     <div class="stat thin-divider">
       <span class="label">Burst Count</span>
       <span class="value" id="burst-count">-</span>
