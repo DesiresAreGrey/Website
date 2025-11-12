@@ -46,6 +46,9 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
     color: #ccc;
     transition: none;
   }
+  .column h3[id] {
+    scroll-margin-top: 8.5rem;
+  }
 
   /* dropdowns */
 
@@ -362,7 +365,7 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
 
 ___
 
-<div style="margin: -0.5rem 0; gap: 1rem;">
+<div id="settings" style="margin: -0.5rem 0; gap: 1rem;">
   <div class="side">
     <div class="label">Weapons</div>
     <div class="side">
@@ -402,14 +405,14 @@ ___
 
 ___
 
-<div class="comparison">
+<div id="weapon" class="comparison">
   <div class="column" id="column-template">
     <div class="dropdowns">
       <select class="dropdown season-dropdown" style="width: 100%;"><option value="">Season</option></select>
       <select class="dropdown weapon-dropdown" style="width: 100%;"><option value="">Weapon</option></select>
       <select class="dropdown mode-dropdown" style="width: 100%;"><option value="">Mode</option></select>
     </div>
-    <h3>Ammo</h3>
+    <h3 id="ammo">Ammo</h3>
     <div class="stat">
       <span class="label">Type</span>
       <span class="value" id="ammo-type">-</span>
@@ -422,7 +425,7 @@ ___
       <span class="label">Time to Empty</span>
       <span class="value" id="time-to-empty">-</span>
     </div>
-    <h3>Firing</h3>
+    <h3 id="firing">Firing</h3>
     <div class="stat">
       <span class="label">Firing Mode</span>
       <span class="value" id="firing-mode">-</span>
@@ -451,7 +454,7 @@ ___
       <span class="label">Burst Firerate</span>
       <span class="value" id="burst-firerate">-</span>
     </div>
-    <h3>Shot</h3>
+    <h3 id="shot">Shot</h3>
     <div class="stat thin-divider">
       <span class="label">Projectiles Per Shot</span>
       <span class="value" id="projectiles-per-shot">-</span>
@@ -477,7 +480,7 @@ ___
       <span class="value" id="max-headshot-distance">-</span>
     </div>
     <div style="border-bottom: 1px solid rgba(255,255,255,0.125);">
-      <h3 style="border-bottom: none;">Projectile Damage</h3>
+      <h3 id="projectile-damage" style="border-bottom: none;">Projectile Damage</h3>
       <div style="font-size: 0.5rem; opacity: 0.7; margin-top: 0; display: flex; align-items: center; justify-content: center;">Body / Head / Limb</div>
     </div>
     <div class="stat">
@@ -504,7 +507,7 @@ ___
       </div>
     </form>
     <div style="border-bottom: 1px solid rgba(255,255,255,0.125);">
-      <h3 style="border-bottom: none;">Shot Damage</h3>
+      <h3 id="shot-damage" style="border-bottom: none;">Shot Damage</h3>
       <div style="font-size: 0.5rem; opacity: 0.7; margin-top: 0; display: flex; align-items: center; justify-content: center;">Body / Head / Limb</div>
     </div>
     <div class="stat">
@@ -531,7 +534,7 @@ ___
       </div>
     </form>
     <div style="border-bottom: 1px solid rgba(255,255,255,0.125);">
-      <h3 style="border-bottom: none;">Shots To Kill</h3>
+      <h3 id="shots-to-kill" style="border-bottom: none;">Shots To Kill</h3>
       <div style="font-size: 0.5rem; opacity: 0.7; margin-top: 0; display: flex; align-items: center; justify-content: center;">Body / Head / Limb</div>
     </div>
     <div class="stat thin-divider">
@@ -561,7 +564,7 @@ ___
         <label class="noselect"><input id="shotstokill-distance-very-far-tab" class="vh" type="radio" name="shotstokill-distance">Very Far</label>
       </div>
     </form>
-    <h3>Damage Per Second</h3>
+    <h3 id="dps">Damage Per Second</h3>
     <div class="stat thin-divider">
       <span class="label">Body <span class="label-subtitle">BASE</span></span>
       <span class="value" id="dps-base-body">-</span>
@@ -605,7 +608,7 @@ ___
         <label class="noselect"><input id="dps-distance-very-far-tab" class="vh" type="radio" name="dps-distance">Very Far</label>
       </div>
     </form>
-    <h3>Total Damage Per Magazine</h3>
+    <h3 id="tdpm">Total Damage Per Magazine</h3>
     <div class="stat thin-divider">
       <span class="label">Body <span class="label-subtitle">BASE</span></span>
       <span class="value" id="tdpm-base-body">-</span>
@@ -649,7 +652,7 @@ ___
         <label class="noselect"><input id="tdpm-distance-very-far-tab" class="vh" type="radio" name="tdpm-distance">Very Far</label>
       </div>
     </form>
-    <h3>Time To Kill</h3>
+    <h3 id="ttk">Time To Kill</h3>
     <div class="stat thin-divider">
       <span class="label">Body <span class="label-subtitle" style="color:var(--base); opacity: 0.8;">NO ARMOR</span></span>
       <span class="value" id="ttk-no-armor-body">-</span>
@@ -717,7 +720,7 @@ ___
         <label class="noselect"><input id="ttk-distance-very-far-tab" class="vh" type="radio" name="ttk-distance">Very Far</label>
       </div>
     </form>
-    <h3>Projectile Size</h3>
+    <h3 id="projectile-size">Projectile Size</h3>
     <div class="stat thin-divider">
       <span class="label">Initial Size</span>
       <span class="value" id="initial-size">-</span>
@@ -734,7 +737,7 @@ ___
       <span class="label">Final Step</span>
       <span class="value" id="final-step">-</span>
     </div>
-    <h3>Patterns</h3>
+    <h3 id="patterns">Patterns</h3>
     <div class="stat">
       <span class="label">Recoil Pattern</span>
       <svg class="pattern" id="recoil-pattern" style="background:#111;border:1px solid #333"></svg>
@@ -743,7 +746,7 @@ ___
       <span class="label">Blast Pattern</span>
       <svg class="pattern" id="blast-pattern" style="background:#111;border:1px solid #333"></svg>
     </div>
-    <h3>Reload Time</h3>
+    <h3 id="reload-time">Reload Time</h3>
     <div class="stat thin-divider">
       <span class="label">Tac Reload</span>
       <span class="value" id="reload-tac">-</span>
@@ -752,7 +755,7 @@ ___
       <span class="label">Empty Reload</span>
       <span class="value" id="reload-empty">-</span>
     </div>
-    <h3>Handling</h3>
+    <h3 id="handling">Handling</h3>
     <div class="stat">
       <span class="label">First Pickup Time</span>
       <span class="value" id="pickup-time">-</span>
@@ -785,7 +788,7 @@ ___
       <span class="label">ADS Movement Speed Multiplier</span>
       <span class="value" id="ads-movement-speed-multiplier">-</span>
     </div>
-    <h3>Spread</h3>
+    <h3 id="spread">Spread</h3>
     <div class="stat thin-divider">
       <span class="label">Decay Delay</span>
       <span class="value" id="spread-decay-delay">-</span>
@@ -846,18 +849,37 @@ ___
   </div>
 </div>
 
-___
+<h2 id="info" style="margin-top: 1.5rem; display: flex; align-items: center; justify-content: center;">Info</h2>
 
-<div style="display: flex; text-align: center; align-items: center; justify-content: center; margin-bottom: 1rem;">
-  <h1>this is still WIP/unfinished and not all stats are implemented and etc</h1>
-</div>
-
-___
-
-<div>
+<div style="margin-top: -0.5rem;">
+  <p style="margin-top: 0.25rem; font-size: 0.7rem; opacity: 0.7;">
+    Data was extracted from the game using RSX (exported as .vdf files), then later parsed into json using a C# program. The folder linked above contains a _index.json file, which is the list of all the seasons. sXX.json is the json file loaded by the site, while the sXX-archive.zip file contains all the vdf files, individual weapon json files, and csv files of all the blast/recoil patterns.
+  </p>
+  <p style="margin-top: 0; font-size: 0.7rem; opacity: 0.7;">
+    The process is mostly automated so it should be very easy to update as Apex updates with new seasons/splits.
+  </p>
   <div style="display: flex; align-items: center; justify-content: center;">
     <a href="https://github.com/DesiresAreGrey/Website/tree/main/docs/assets/misc/apex-weapon-stats/data">Browse/Download data</a>
   </div>
-  <p style="margin-top: 0.25rem; font-size: 0.6rem; opacity: 0.7;">Data was extracted from the game using RSX (exported as .vdf files), then later parsed into json using a C# program. The folder linked above contains a _index.json file, which is the list of all the seasons. sXX.json is the json file loaded by the site, while the sXX-archive.zip file contains all the vdf files, individual weapon json files, and csv files of all the blast/recoil patterns.</p>
-  <p style="margin-top: 0; font-size: 0.6rem; opacity: 0.7;">The process is automated so it should be very easy to update as Apex updates with new seasons/splits.</p>
+
+  <h3 style="display: flex; align-items: center; justify-content: center;">Calculations</h3>
+  <div style="margin-top: 0.25rem; font-size: 0.7rem; opacity: 0.7;">
+    <p style="margin-bottom: 0; font-weight: bold;">Effective RPM:</p>
+    <div style="margin-left: 1rem; font-size: 0.65rem;">
+      <span style="font-weight: bold;">if RechamberTime:</span> 
+      <span style="font-size: 0.6rem;">1 / Max(1 / EngineRPS, RechamberTime);</span>
+      <br>
+      <span style="font-weight: bold;">if BurstCount:</span>
+      <span style="font-size: 0.6rem;">BurstCount / (BurstCount / EngineRPS + BurstDelay)</span>
+      <br>
+      <span style="font-weight: bold;">if Charged Semi Auto:</span> 1 / (1 / EngineRPS + ChargeTime);
+      <br>
+      <span style="font-weight: bold;">else:</span> 
+      <span style="font-size: 0.6rem;">EngineRPS * 60</span>
+    </div>
+    <p>
+      <span style="font-weight: bold;">Time to Empty:</span> 
+      <span style="font-size: 0.65rem;">(MagazineSize / (AmmoConsumed * (EffectiveRPM) / 60))</span>
+    </p>
+  </div>
 </div>
