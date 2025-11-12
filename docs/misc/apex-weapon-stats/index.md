@@ -936,6 +936,40 @@ ___
       <span style="font-weight: bold;">Total Damage Per Magazine:</span> 
       <span style="font-size: 0.65rem;">Math.round(ShotDamage * MagazineSize / AmmoConsumed)</span>
     </p>
-    
+    <p style="margin-bottom: 0; margin-top: 0.35rem; font-weight: bold; ">Time To Kill:</p>
+    <div style="margin-left: 1rem; font-size: 0.65rem;">
+      <p style="margin-bottom: 0.0rem; margin-top: 0.0rem;">
+        <span style="font-weight: bold; font-size: 0.65rem;">No Armor:</span> 
+        <span style="font-size: 0.6rem;">((StkHealth(100, ShotDamage, PartMultiplier) - 1) / FireRate) + ChargeTime</span>
+      </p>
+      <p style="margin-bottom: 0.0rem; margin-top: 0.0rem;">
+        <span style="font-weight: bold; font-size: 0.65rem;">Common Armor:</span> 
+        <span style="font-size: 0.6rem;">((StkHealthAndShield(100, 50, ShotDamage, PartMultiplier) - 1) / FireRate) + ChargeTime</span>
+      </p>
+      <p style="margin-bottom: 0.0rem; margin-top: 0.0rem;">
+        <span style="font-weight: bold; font-size: 0.65rem;">Rare Armor:</span> 
+        <span style="font-size: 0.6rem;">((StkHealthAndShield(100, 75, ShotDamage, PartMultiplier) - 1) / FireRate) + ChargeTime</span>
+      </p>
+      <p style="margin-bottom: 0.0rem; margin-top: 0.0rem;">
+        <span style="font-weight: bold; font-size: 0.65rem;">Epic Armor:</span> 
+        <span style="font-size: 0.6rem;">((StkHealthAndShield(100, 100, ShotDamage, PartMultiplier) - 1) / FireRate) + ChargeTime</span>
+      </p>
+      <p style="margin-bottom: 0.0rem; margin-top: 0.0rem;">
+        <span style="font-weight: bold; font-size: 0.65rem;">Mythic Armor:</span> 
+        <span style="font-size: 0.6rem;">((StkHealthAndShield(100, 125, ShotDamage, PartMultiplier) - 1) / FireRate) + ChargeTime</span>
+      </p>
+      <span style="font-weight: bold;">Helpers:</span>
+      <div style="margin-left: 1rem; font-size: 0.65rem;">
+        <span style="font-weight: bold;">StkCalc(hp, baseDamage, baseMultiplier, partMultiplier = 1):</span> 
+        <span style="font-size: 0.6rem;">hp / (baseDamage * baseMultiplier * partMultiplier)</span>
+        <br>
+        <span style="font-weight: bold;">StkHealth(health, baseDamage, partMultiplier):</span> 
+        <span style="font-size: 0.6rem;">Math.ceil(StkCalc(health, baseDamage, fleshMultiplier, partMultiplier))</span>
+        <br>
+        <span style="font-weight: bold;">StkHealthAndShield(health, shield, baseDamage, partMultiplier):</span> 
+        <span style="font-size: 0.6rem;">Math.ceil(StkCalc(health, baseDamage, fleshMultiplier, partMultiplier) + StkCalc(shield, baseDamage, shieldMultiplier, partMultiplier))</span>
+        <br>
+      </div>
+    </div>
   </div>
 </div>
