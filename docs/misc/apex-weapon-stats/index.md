@@ -918,7 +918,7 @@ ___
       <span style="font-weight: bold;">Helpers:</span>
       <div style="margin-left: 1rem; font-size: 0.65rem;">
         <span style="font-weight: bold;">StkCalc(hp, baseDamage, baseMultiplier, partMultiplier = 1):</span> 
-        <span style="font-size: 0.6rem;">hp / (baseDamage * baseMultiplier * partMultiplier)</span>
+        <span style="font-size: 0.6rem;">hp / baseDamage.multFloor(partMultiplier * baseMultiplier)</span>
         <br>
         <span style="font-weight: bold;">StkHealth(health, baseDamage, partMultiplier):</span> 
         <span style="font-size: 0.6rem;">Math.ceil(StkCalc(health, baseDamage, fleshMultiplier, partMultiplier))</span>
@@ -934,7 +934,7 @@ ___
     </p>
     <p style="margin-bottom: 0.35rem; margin-top: 0.35rem;">
       <span style="font-weight: bold;">Total Damage Per Magazine:</span> 
-      <span style="font-size: 0.65rem;">Math.round(ShotDamage * MagazineSize / AmmoConsumed)</span>
+      <span style="font-size: 0.65rem;">Math.floor(Math.floor(ShotDamage * MagazineSize) / AmmoConsumed)</span>
     </p>
     <p style="margin-bottom: 0.35rem; margin-top: 0.35rem;">
       <span style="font-weight: bold;">Time To Kill:</span> 
