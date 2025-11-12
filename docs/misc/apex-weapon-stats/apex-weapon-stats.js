@@ -488,6 +488,8 @@ function updateWeaponStats(column) {
         let baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
         let headDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near.multFloor(headMultiplier);
         let legDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near.multFloor(legMultiplier);
+
+        console.log(`DPS Base Damage: ${baseDamage}, Head Damage: ${headDamage}, Leg Damage: ${legDamage}`);
     
         if (column.querySelector("#dps-distance-near-tab").checked)
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
@@ -498,41 +500,41 @@ function updateWeaponStats(column) {
 
         column.querySelector("#dps-base-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return baseDamage * x;
+            return (baseDamage * x).roundTo(2);
         });
         column.querySelector("#dps-base-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return headDamage * x;
+            return (headDamage * x).roundTo(2);
         });
         column.querySelector("#dps-base-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return legDamage * x;
+            return (legDamage * x).roundTo(2);
         });
 
         column.querySelector("#dps-flesh-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return baseDamage.multFloor(fleshMultiplier) * x;
+            return (baseDamage.multFloor(fleshMultiplier) * x).roundTo(2);
         });
         column.querySelector("#dps-flesh-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return headDamage.multFloor(fleshMultiplier) * x;
+            return (headDamage.multFloor(fleshMultiplier) * x).roundTo(2);
         });
         column.querySelector("#dps-flesh-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return legDamage.multFloor(fleshMultiplier) * x;
+            return (legDamage.multFloor(fleshMultiplier) * x).roundTo(2);
         });
 
         column.querySelector("#dps-shield-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return baseDamage.multFloor(shieldMultiplier) * x;
+            return (baseDamage.multFloor(shieldMultiplier) * x).roundTo(2);
         });
         column.querySelector("#dps-shield-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return headDamage.multFloor(shieldMultiplier) * x;
+            return (headDamage.multFloor(shieldMultiplier) * x).roundTo(2);
         });
         column.querySelector("#dps-shield-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return legDamage.multFloor(shieldMultiplier) * x;
+            return (legDamage.multFloor(shieldMultiplier) * x).roundTo(2);
         });
     }
 
