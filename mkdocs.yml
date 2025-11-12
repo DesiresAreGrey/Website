@@ -1,5 +1,6 @@
 site_name: DesiresAreGrey
 site_description: "DesiresAreGrey's Website"
+site_url: https://desiresaregrey.com/
 theme:
   name: material
   logo: assets/DesiresAreGrey-Circle.png
