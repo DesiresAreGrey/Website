@@ -378,6 +378,8 @@ function updateWeaponStats(column) {
 
     function shotDamageDistanceTabChanged() {
         let baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
+        let headDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near.multFloor(headMultiplier);
+        let legDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near.multFloor(legMultiplier);
     
         if (column.querySelector("#shot-damage-distance-near-tab").checked)
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
@@ -386,13 +388,13 @@ function updateWeaponStats(column) {
         else if (column.querySelector("#shot-damage-distance-very-far-tab").checked)
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.VeryFar;
 
-        column.querySelector("#shot-damage-amount").textContent = `${baseDamage} / ${baseDamage.mult(headMultiplier).floorTo()} / ${baseDamage.mult(legMultiplier).floorTo()}`;
+        column.querySelector("#shot-damage-amount").textContent = `${baseDamage} / ${headDamage} / ${legDamage}`;
 
-        column.querySelector("#shot-damage-flesh").textContent = `${baseDamage.mult(fleshMultiplier).floorTo()} / ${baseDamage.mult(headMultiplier * fleshMultiplier).floorTo()} / ${baseDamage.mult(legMultiplier * fleshMultiplier).floorTo()}`;
+        column.querySelector("#shot-damage-flesh").textContent = `${baseDamage.multFloor(fleshMultiplier)} / ${headDamage.multFloor(fleshMultiplier)} / ${legDamage.multFloor(fleshMultiplier)}`;
 
-        column.querySelector("#shot-damage-shield").textContent = `${baseDamage.mult(shieldMultiplier).floorTo()} / ${baseDamage.mult(headMultiplier * shieldMultiplier).floorTo()} / ${baseDamage.mult(legMultiplier * shieldMultiplier).floorTo()}`;
+        column.querySelector("#shot-damage-shield").textContent = `${baseDamage.multFloor(shieldMultiplier)} / ${headDamage.multFloor(shieldMultiplier)} / ${legDamage.multFloor(shieldMultiplier)}`;
 
-        column.querySelector("#shot-damage-critical").textContent = `${baseDamage.mult(critHitMultiplier).floorTo()} / ${baseDamage.mult(headMultiplier * critHitMultiplier).floorTo()} / ${baseDamage.mult(legMultiplier * critHitMultiplier).floorTo()}`;
+        column.querySelector("#shot-damage-critical").textContent = `${baseDamage.multFloor(critHitMultiplier)} / ${headDamage.multFloor(critHitMultiplier)} / ${legDamage.multFloor(critHitMultiplier)}`;
     }
 
     shotDamageDistanceTabChanged();
@@ -422,18 +424,20 @@ function updateWeaponStats(column) {
         column.querySelector("#shotstokill-distance-very-far-tab").parentElement.style.display = "none";
     }
 
-    function stkCalc(hp, baseDamage, baseMultiplier, partMultiplier = 1) {
-        return hp / baseDamage.multFloor(partMultiplier * baseMultiplier);
+    function stkCalc(hp, baseDamage, baseMultiplier) {
+        return hp / baseDamage.multFloor(baseMultiplier);
     }
-    function stkHealth(health, baseDamage, partMultiplier = 1) {
-        return Math.ceil(stkCalc(health, baseDamage, fleshMultiplier, partMultiplier));
+    function stkHealth(health, baseDamage) {
+        return Math.ceil(stkCalc(health, baseDamage, fleshMultiplier));
     }
-    function stkHealthAndShield(health, shield, baseDamage, partMultiplier = 1) {
-        return Math.ceil(stkCalc(health, baseDamage, fleshMultiplier, partMultiplier) + stkCalc(shield, baseDamage, shieldMultiplier, partMultiplier));
+    function stkHealthAndShield(health, shield, baseDamage) {
+        return Math.ceil(stkCalc(health, baseDamage, fleshMultiplier) + stkCalc(shield, baseDamage, shieldMultiplier));
     }
 
     function shotstokillDistanceTabChanged() {
         let baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
+        let headDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near.multFloor(headMultiplier);
+        let legDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near.multFloor(legMultiplier);
 
         if (column.querySelector("#shotstokill-distance-near-tab").checked)
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
@@ -441,16 +445,16 @@ function updateWeaponStats(column) {
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Far;
         else if (column.querySelector("#shotstokill-distance-very-far-tab").checked)
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.VeryFar;
-        
-        column.querySelector("#shotstokill-base").textContent = `${stkHealth(100, baseDamage)} / ${stkHealth(100, baseDamage, headMultiplier)} / ${stkHealth(100, baseDamage, legMultiplier)}`;
 
-        column.querySelector("#shotstokill-common").textContent = `${stkHealthAndShield(100, 50, baseDamage)} / ${stkHealthAndShield(100, 50, baseDamage, headMultiplier)} / ${stkHealthAndShield(100, 50, baseDamage, legMultiplier)}`;
+        column.querySelector("#shotstokill-base").textContent = `${stkHealth(100, baseDamage)} / ${stkHealth(100, headDamage)} / ${stkHealth(100, legDamage)}`;
 
-        column.querySelector("#shotstokill-rare").textContent = `${stkHealthAndShield(100, 75, baseDamage)} / ${stkHealthAndShield(100, 75, baseDamage, headMultiplier)} / ${stkHealthAndShield(100, 75, baseDamage, legMultiplier)}`;
+        column.querySelector("#shotstokill-common").textContent = `${stkHealthAndShield(100, 50, baseDamage)} / ${stkHealthAndShield(100, 50, headDamage)} / ${stkHealthAndShield(100, 50, legDamage)}`;
 
-        column.querySelector("#shotstokill-epic").textContent = `${stkHealthAndShield(100, 100, baseDamage)} / ${stkHealthAndShield(100, 100, baseDamage, headMultiplier)} / ${stkHealthAndShield(100, 100, baseDamage, legMultiplier)}`;
+        column.querySelector("#shotstokill-rare").textContent = `${stkHealthAndShield(100, 75, baseDamage)} / ${stkHealthAndShield(100, 75, headDamage)} / ${stkHealthAndShield(100, 75, legDamage)}`;
 
-        column.querySelector("#shotstokill-mythic").textContent = `${stkHealthAndShield(100, 125, baseDamage)} / ${stkHealthAndShield(100, 125, baseDamage, headMultiplier)} / ${stkHealthAndShield(100, 125, baseDamage, legMultiplier)}`;
+        column.querySelector("#shotstokill-epic").textContent = `${stkHealthAndShield(100, 100, baseDamage)} / ${stkHealthAndShield(100, 100, headDamage)} / ${stkHealthAndShield(100, 100, legDamage)}`;
+
+        column.querySelector("#shotstokill-mythic").textContent = `${stkHealthAndShield(100, 125, baseDamage)} / ${stkHealthAndShield(100, 125, headDamage)} / ${stkHealthAndShield(100, 125, legDamage)}`;
     }
 
     shotstokillDistanceTabChanged();
@@ -482,6 +486,8 @@ function updateWeaponStats(column) {
 
     function dpsTabChanged() {
         let baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
+        let headDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near.multFloor(headMultiplier);
+        let legDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near.multFloor(legMultiplier);
     
         if (column.querySelector("#dps-distance-near-tab").checked)
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
@@ -496,11 +502,11 @@ function updateWeaponStats(column) {
         });
         column.querySelector("#dps-base-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return baseDamage.multFloor(headMultiplier) * x;
+            return headDamage * x;
         });
         column.querySelector("#dps-base-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return baseDamage.multFloor(legMultiplier) * x;
+            return legDamage * x;
         });
 
         column.querySelector("#dps-flesh-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
@@ -509,11 +515,11 @@ function updateWeaponStats(column) {
         });
         column.querySelector("#dps-flesh-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return baseDamage.multFloor(headMultiplier * fleshMultiplier) * x;
+            return headDamage.multFloor(fleshMultiplier) * x;
         });
         column.querySelector("#dps-flesh-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return baseDamage.multFloor(legMultiplier * fleshMultiplier) * x;
+            return legDamage.multFloor(fleshMultiplier) * x;
         });
 
         column.querySelector("#dps-shield-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
@@ -522,11 +528,11 @@ function updateWeaponStats(column) {
         });
         column.querySelector("#dps-shield-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return baseDamage.multFloor(headMultiplier * shieldMultiplier) * x;
+            return headDamage.multFloor(shieldMultiplier) * x;
         });
         column.querySelector("#dps-shield-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return baseDamage.multFloor(legMultiplier * shieldMultiplier) * x;
+            return legDamage.multFloor(shieldMultiplier) * x;
         });
     }
 
@@ -559,6 +565,8 @@ function updateWeaponStats(column) {
 
     function tdpmTabChanged() {
         let baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
+        let headDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near.multFloor(headMultiplier);
+        let legDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near.multFloor(legMultiplier);
 
         if (column.querySelector("#tdpm-distance-near-tab").checked)
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
@@ -571,30 +579,30 @@ function updateWeaponStats(column) {
             return Math.floor(baseDamage * x / column.mode.Firing.Shot.AmmoConsumed);
         }, "Epic");
         column.querySelector("#tdpm-base-head").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
-            return Math.floor(baseDamage.multFloor(headMultiplier) * x / column.mode.Firing.Shot.AmmoConsumed);
+            return Math.floor(headDamage * x / column.mode.Firing.Shot.AmmoConsumed);
         }, "Epic");
         column.querySelector("#tdpm-base-limb").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
-            return Math.floor(baseDamage.multFloor(legMultiplier) * x / column.mode.Firing.Shot.AmmoConsumed);
+            return Math.floor(legDamage * x / column.mode.Firing.Shot.AmmoConsumed);
         }, "Epic");
 
         column.querySelector("#tdpm-flesh-body").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
             return Math.floor(baseDamage.multFloor(fleshMultiplier) * x / column.mode.Firing.Shot.AmmoConsumed);
         }, "Epic");
         column.querySelector("#tdpm-flesh-head").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
-            return Math.floor(baseDamage.multFloor(headMultiplier * fleshMultiplier) * x / column.mode.Firing.Shot.AmmoConsumed);
+            return Math.floor(headDamage.multFloor(fleshMultiplier) * x / column.mode.Firing.Shot.AmmoConsumed);
         }, "Epic");
         column.querySelector("#tdpm-flesh-limb").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
-            return Math.floor(baseDamage.multFloor(legMultiplier * fleshMultiplier) * x / column.mode.Firing.Shot.AmmoConsumed);
+            return Math.floor(legDamage.multFloor(fleshMultiplier) * x / column.mode.Firing.Shot.AmmoConsumed);
         }, "Epic");
 
         column.querySelector("#tdpm-shield-body").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
             return Math.floor(baseDamage.multFloor(shieldMultiplier) * x / column.mode.Firing.Shot.AmmoConsumed);
         }, "Epic");
         column.querySelector("#tdpm-shield-head").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
-            return Math.floor(baseDamage.multFloor(headMultiplier * shieldMultiplier) * x / column.mode.Firing.Shot.AmmoConsumed);
+            return Math.floor(headDamage.multFloor(shieldMultiplier) * x / column.mode.Firing.Shot.AmmoConsumed);
         }, "Epic");
         column.querySelector("#tdpm-shield-limb").innerHTML = rarityFormat(column.mode.Ammo.MagazineSize, (x, key) => {
-            return Math.floor(baseDamage.multFloor(legMultiplier * shieldMultiplier) * x / column.mode.Firing.Shot.AmmoConsumed);
+            return Math.floor(legDamage.multFloor(shieldMultiplier) * x / column.mode.Firing.Shot.AmmoConsumed);
         }, "Epic");
     }
 
@@ -627,6 +635,8 @@ function updateWeaponStats(column) {
 
     function ttkTabChanged() {
         let baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
+        let headDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near.multFloor(headMultiplier);
+        let legDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near.multFloor(legMultiplier);
     
         if (column.querySelector("#ttk-distance-near-tab").checked)
             baseDamage = column.mode.Firing.Shot.Projectiles * column.mode.Firing.Shot.Damage.Amount.Near;
@@ -643,11 +653,11 @@ function updateWeaponStats(column) {
         });
         column.querySelector("#ttk-no-armor-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return (((stkHealth(100, baseDamage, headMultiplier) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
+            return (((stkHealth(100, headDamage) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
         });
         column.querySelector("#ttk-no-armor-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return (((stkHealth(100, baseDamage, legMultiplier) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
+            return (((stkHealth(100, legDamage) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
         });
 
         column.querySelector("#ttk-common-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
@@ -656,11 +666,11 @@ function updateWeaponStats(column) {
         });
         column.querySelector("#ttk-common-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return (((stkHealthAndShield(100, 50, baseDamage, headMultiplier) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
+            return (((stkHealthAndShield(100, 50, headDamage) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
         });
         column.querySelector("#ttk-common-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return (((stkHealthAndShield(100, 50, baseDamage, legMultiplier) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
+            return (((stkHealthAndShield(100, 50, legDamage) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
         });
 
         column.querySelector("#ttk-rare-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
@@ -669,11 +679,11 @@ function updateWeaponStats(column) {
         });
         column.querySelector("#ttk-rare-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return (((stkHealthAndShield(100, 75, baseDamage, headMultiplier) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
+            return (((stkHealthAndShield(100, 75, headDamage) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
         });
         column.querySelector("#ttk-rare-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return (((stkHealthAndShield(100, 75, baseDamage, legMultiplier) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
+            return (((stkHealthAndShield(100, 75, legDamage) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
         });
 
         column.querySelector("#ttk-epic-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
@@ -682,11 +692,11 @@ function updateWeaponStats(column) {
         });
         column.querySelector("#ttk-epic-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return (((stkHealthAndShield(100, 100, baseDamage, headMultiplier) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
+            return (((stkHealthAndShield(100, 100, headDamage) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
         });
         column.querySelector("#ttk-epic-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return (((stkHealthAndShield(100, 100, baseDamage, legMultiplier) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
+            return (((stkHealthAndShield(100, 100, legDamage) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
         });
 
         column.querySelector("#ttk-mythic-body").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
@@ -695,11 +705,11 @@ function updateWeaponStats(column) {
         });
         column.querySelector("#ttk-mythic-head").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return (((stkHealthAndShield(100, 125, baseDamage, headMultiplier) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
+            return (((stkHealthAndShield(100, 125, headDamage) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
         });
         column.querySelector("#ttk-mythic-limb").innerHTML = rarityFormat(column.mode.Firing.FireRate, (x, key) => {
             x = rpm(x, key) / 60;
-            return (((stkHealthAndShield(100, 125, baseDamage, legMultiplier) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
+            return (((stkHealthAndShield(100, 125, legDamage) - 1) / x) + (column.mode.Firing.ChargeTime ?? 0)).roundTo(precision);
         });
     }
 
