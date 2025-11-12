@@ -942,3 +942,6 @@ ___
     </p>
   </div>
 </div>
+<div style="margin-top: 1em;">
+  <a href="https://github.com/DesiresAreGrey/Website/blob/main/docs/misc/apex-weapon-stats/apex-weapon-stats.js">View Page Code</a>
+</div>
