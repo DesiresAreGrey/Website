@@ -849,7 +849,7 @@ ___
   </div>
 </div>
 
-<h2 id="info" style="margin-top: 1.5rem; display: flex; align-items: center; justify-content: center;">Info</h2>
+<h2 id="info" style="margin-top: 1.5rem;">Info</h2>
 
 <div style="margin-top: -0.5rem;">
   <p style="margin-top: 0.25rem; font-size: 0.7rem; opacity: 0.7;">
@@ -858,7 +858,7 @@ ___
   <p style="margin-top: 0; font-size: 0.7rem; opacity: 0.7;">
     The process is mostly automated so it should be very easy to update as Apex updates with new seasons/splits.
   </p>
-  <div style="display: flex; align-items: center; justify-content: center;">
+  <div>
     <a href="https://github.com/DesiresAreGrey/Website/tree/main/docs/assets/misc/apex-weapon-stats/data">Browse/Download data</a>
   </div>
 
