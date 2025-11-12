@@ -72,6 +72,10 @@ h1 {
 
 <div class="misc-gallery">
   <div class="card-grid">
+    <a class="misc-card" href="apex-weapon-stats">
+      <h2>Apex Legends Weapon Stats</h2>
+      <p>Compare detailed weapon stats for Apex Legends weapons across across seasons, firing modes, and weapon variants.</p>
+    </a>
     <a class="misc-card" href="modded-minecraft-versions">
       <h2>Popular Modded Minecraft Versions</h2>
       <p>Charts showing the number of mods for different Minecraft versions</p>

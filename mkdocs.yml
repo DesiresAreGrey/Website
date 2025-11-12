@@ -88,4 +88,8 @@ nav:
       - The 2025 4tran Survey [Page 4]: 'surveys/4tran2025/4.md'
       - The 2025 4tran Survey [Jealous Cat]: 'surveys/4tran2025/jealouscat.md'
       - The 2025 4tran Survey [Ratgirltwink]: 'surveys/4tran2025/ratgirltwink.md'
-  - Misc: 'misc/index.md'
+  - Misc:
+    - 'misc/index.md'
+    - Apex Legends Weapon Stats: 'misc/apex-weapon-stats/index.md'
+    - Popular Modded Minecraft Versions: 'misc/modded-minecraft-versions.md'
+    - .NET WebAssembly Test: 'misc/dotnet-wasm-test/index.md'
