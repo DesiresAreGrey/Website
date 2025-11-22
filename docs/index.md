@@ -74,19 +74,19 @@ image: https://desiresaregrey.com/assets/DesiresAreGrey.png
 }
 
 .reddit {
-    color: #ff5719 !important;
+  color: #ff5719 !important;
 }
 .social-link:hover.reddit {
-    color: #ff6026 !important;
-    text-shadow: 0 0 32px #ff3c00;
+  color: #ff6026 !important;
+  text-shadow: 0 0 32px #ff3c00;
 }
 
 .twitter {
-    color: #1DA1F2 !important;
+  color: #1DA1F2 !important;
 }
 .social-link:hover.twitter {
-    color: #2ca6f2 !important;
-    text-shadow: 0 0 32px #0091ff;
+  color: #2ca6f2 !important;
+  text-shadow: 0 0 32px #0091ff;
 }
 </style>
 
