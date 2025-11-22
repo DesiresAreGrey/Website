@@ -93,7 +93,7 @@ image: https://desiresaregrey.com/assets/DesiresAreGrey.png
 <div class="home-container">
   <img class="profile-pic no-lb" src="assets/DesiresAreGrey.png">
   <h1 class="home-title">DesiresAreGrey</h1>
-  <p class="home-subtitle">fakepassoid boymoder</p>
+  <p class="home-subtitle">idk what to put here</p>
   <div class="social-links">
     <a class="social-link noselect reddit" href="https://www.reddit.com/user/DesiresAreGrey" target="_blank">
       <i class="fa-brands fa-reddit-alien"></i>
