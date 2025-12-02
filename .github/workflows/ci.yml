@@ -15,10 +15,10 @@ jobs:
         with:
           python-version: 3.x
       - uses: actions/setup-node@v4
-      - run: |
-          npm ci
         with:
           node-version: '22'
+      - run: |
+          npm ci
       - uses: actions/cache@v3
         with:
           key: mkdocs-material-${{ github.ref }} 
