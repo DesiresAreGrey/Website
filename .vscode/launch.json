@@ -3,15 +3,10 @@
   "configurations": [
     {
       "name": "MkDocs Serve",
-      "type": "debugpy",
+      "type": "node-terminal",
       "request": "launch",
-      "module": "mkdocs",
-      "args": [
-        "serve"
-      ],
-      "cwd": "${workspaceFolder}",
-      "console": "integratedTerminal",
-      "justMyCode": true
+      "command": "powershell -ExecutionPolicy Bypass -File server.ps1",
+      "cwd": "${workspaceFolder}"
     }
   ]
 }

@@ -1,0 +1,29 @@
+{
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.13",
+    "typescript": "^5.9.3"
+  },
+  "name": "website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build-ts": "tsc",
+    "watch-ts": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DesiresAreGrey/Website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DesiresAreGrey/Website/issues"
+  },
+  "homepage": "https://github.com/DesiresAreGrey/Website#readme"
+}

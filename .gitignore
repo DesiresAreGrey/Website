@@ -1,1 +1,25 @@
 __pycache__
+
+# --- Node / TypeScript ---
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# TS build output (adjust if your outDir is different)
+docs/js/
+
+# Optional: ignore source maps if you enable them
+*.map
+
+
+# --- Python / MkDocs ---
+.cache/
+site/
+
+# --- VS Code ---
+.vscode/
+*.code-workspace
+
+# (optional) allow specific VSCode settings:
+!.vscode/settings.json
+!.vscode/launch.json
