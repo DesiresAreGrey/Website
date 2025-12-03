@@ -1,10 +1,11 @@
-import * as Utils from "../utils.js"; 
+import "../utils.js"; 
+//import * as Utils from "../utils.js"; // if i need types/etc i replace the above with this
 
 console.log("Test file");
 
-await Utils.loaded();
+await loaded();
 
-document.querySelectorAll("p").forEach(p => {
-    document.getElementById("output")?.appendHtml(`<p>${p.textContent}</p>`);
+$$("p").forEach(p => {
+    $("#output")?.appendHtml(`<span> ${p.textContent}</span>`);
 });
 

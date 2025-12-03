@@ -23,6 +23,11 @@ declare global {
         asInches(unit?: "cm" | "in"): number;
         asCm(unit?: "in" | "cm"): number;
     }
+
+    function loaded(): Promise<void>;
+
+    function $<T extends HTMLElement>(selector: string): T | null;
+    function $$<T extends HTMLElement>(selector: string): NodeListOf<T>;
 }
 
 Object.defineProperty(NodeList.prototype, 'toArray', { value: function() { return [...this]; } });
@@ -60,6 +65,9 @@ Object.defineProperty(Number.prototype, 'asCm', {
     } 
 });
 
-export const loaded = () => new Promise<void>(resolve => {
+window.loaded = () => new Promise<void>(resolve => {
     document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", () => resolve(), { once: true }) : resolve();
 });
+
+window.$ = (selector) => document.querySelector(selector);
+window.$$ = (selector) => document.querySelectorAll(selector);
