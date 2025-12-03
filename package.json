@@ -1,6 +1,5 @@
 {
   "devDependencies": {
-    "@tsconfig/recommended": "^1.0.13",
     "typescript": "^5.9.3"
   },
   "name": "website",
