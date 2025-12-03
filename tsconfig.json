@@ -7,7 +7,8 @@
     "outDir": "docs/js",
     "rootDir": "src",
     "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "removeComments": true
   },
 
   "include": ["src/**/*"]
