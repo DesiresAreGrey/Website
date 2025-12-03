@@ -4,9 +4,11 @@ console.log("Test file");
 
 await loaded();
 
+// repeating test
 
 $$("p").forEach(p => $("#output")?.appendHtml(`<span> ${p.textContent}</span>`));
 
+// unit input test
 
 const unitInput = $("#unit-input")!;
 
