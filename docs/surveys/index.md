@@ -35,44 +35,48 @@ h1 {
   justify-content: center;
   height: 300px;
   transition: all 200ms ease !important;
-}
-.survey-card:hover {
-  background-color: var(--md-primary-fg-color);
-  transform: translateY(-4px);
-  box-shadow: 0 0 24px rgba(123, 0, 255, 0.5);
-  color: #ffffff;
-  text-shadow: 0 0 4px #00000050;
-}
 
-.survey-card h2 {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #dcc0ffff;
-  font-size: 1.25rem;
-  font-variation-settings: 'wght' 500;
-  transition: all 200ms ease !important;
-}
-.survey-card:hover h2 {
-  color: #ffffff;
-  text-shadow: 0 0 4px #00000050;
-}
+  h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #dcc0ffff;
+    font-size: 1.25rem;
+    font-variation-settings: 'wght' 500;
+    transition: all 200ms ease !important;
+  }
 
-.survey-card .date {
-  color: #816da5ff;
-  font-size: 0.8rem;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.survey-card p {
-  margin-bottom: 0.1rem;
-  color: #b298e2ff;
-  font-size: 0.9rem;
-  font-variation-settings: 'wght' 350;
-  transition: all 200ms ease !important;
-}
-.survey-card:hover p {
-  color: #ffffff;
-  text-shadow: 0 0 4px #00000050;
+  .date {
+    color: #816da5ff;
+    font-size: 0.8rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-bottom: 0.1rem;
+    color: #b298e2ff;
+    font-size: 0.9rem;
+    font-variation-settings: 'wght' 350;
+    transition: all 200ms ease !important;
+  }
+
+  &:hover {
+    background-color: var(--md-primary-fg-color);
+    transform: translateY(-4px);
+    box-shadow: 0 0 24px rgba(123, 0, 255, 0.5);
+    color: #ffffff;
+    text-shadow: 0 0 4px #00000050;
+
+    h2 {
+      color: #ffffff;
+      text-shadow: 0 0 4px #00000050;
+    }
+
+    p {
+      color: #ffffff;
+      text-shadow: 0 0 4px #00000050;
+    }
+  }
 }
 
 .hidden {
