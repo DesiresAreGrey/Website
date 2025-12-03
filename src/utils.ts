@@ -1,4 +1,8 @@
+export {}; 
+
 declare global {
+    type LengthUnit = "cm" | "in";
+
     interface NodeListOf<TNode extends Node> {
         toArray(): TNode[];
     }
@@ -9,6 +13,8 @@ declare global {
 
     interface HTMLElement {
         appendHtml(htmlString: string): void;
+        $<T extends HTMLElement>(selector: string): T | null;
+        $$<T extends HTMLElement>(selector: string): NodeListOf<T>;
     }
 
     interface Number {
@@ -19,9 +25,9 @@ declare global {
         multFloor(multiplier: number): number;
         multRound(multiplier: number): number;
 
-        toFeetInches(decimals?: number): string;
-        asInches(unit?: "cm" | "in"): number;
-        asCm(unit?: "in" | "cm"): number;
+        toFeetInches(decimals?: number, unit?: LengthUnit): string;
+        asInches(unit?: LengthUnit): number;
+        asCm(unit?: LengthUnit): number;
     }
 
     function loaded(): Promise<void>;
@@ -36,6 +42,9 @@ Object.defineProperty(HTMLCollection.prototype, 'toArray', { value: function() {
 
 Object.defineProperty(HTMLElement.prototype, 'appendHtml', { value: function(this: HTMLElement, htmlString: string) { this.insertAdjacentHTML('beforeend', htmlString); } });
 
+Object.defineProperty(HTMLElement.prototype, '$', { value: function(this: HTMLElement, selector: string) { return this.querySelector(selector); } });
+Object.defineProperty(HTMLElement.prototype, '$$', { value: function(this: HTMLElement, selector: string) { return this.querySelectorAll(selector); } });
+
 Object.defineProperty(Number.prototype, 'roundTo', { value: function(this: number, precision = 0) { return Number(this.toFixed(precision)) } });
 Object.defineProperty(Number.prototype, 'floorTo', { value: function(this: number, precision = 0) { return Math.floor(this * (10 ** precision)) / (10 ** precision) } });
 
@@ -44,14 +53,13 @@ Object.defineProperty(Number.prototype, 'multFloor', { value: function(this: num
 Object.defineProperty(Number.prototype, 'multRound', { value: function(this: number, multiplier: number) { return Math.round(this * multiplier) } });
 
 Object.defineProperty(Number.prototype, 'toFeetInches', { 
-    value: function(this: number, decimals: number = 0) { 
-        const feet = Math.floor(this / 12);
-        const inches = (this - feet * 12).roundTo(decimals);
+    value: function(this: number, decimals: number = 0, unit: LengthUnit = "in") { 
+        const totalInches = this.asInches(unit);
+        const feet = Math.floor(totalInches / 12);
+        const inches = (totalInches - feet * 12).roundTo(decimals);
         return `${feet}'${inches}"`;
-    } 
+    }
 });
-
-export type LengthUnit = "cm" | "in";
 
 Object.defineProperty(Number.prototype, 'asInches', { 
     value: function(this: number, unit: LengthUnit = "cm") { 
