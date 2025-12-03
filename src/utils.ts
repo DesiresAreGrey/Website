@@ -1,7 +1,7 @@
 export {}; 
 
 declare global {
-    type LengthUnit = "cm" | "in";
+    type LengthUnit = "centimeters" | "inches";
 
     interface NodeListOf<TNode extends Node> {
         toArray(): TNode[];
@@ -53,7 +53,7 @@ Object.defineProperty(Number.prototype, 'multFloor', { value: function(this: num
 Object.defineProperty(Number.prototype, 'multRound', { value: function(this: number, multiplier: number) { return Math.round(this * multiplier) } });
 
 Object.defineProperty(Number.prototype, 'toFeetInches', { 
-    value: function(this: number, decimals: number = 0, unit: LengthUnit = "in") { 
+    value: function(this: number, decimals: number = 0, unit: LengthUnit = "inches") { 
         const totalInches = this.asInches(unit);
         const feet = Math.floor(totalInches / 12);
         const inches = (totalInches - feet * 12).roundTo(decimals);
@@ -62,14 +62,14 @@ Object.defineProperty(Number.prototype, 'toFeetInches', {
 });
 
 Object.defineProperty(Number.prototype, 'asInches', { 
-    value: function(this: number, unit: LengthUnit = "cm") { 
-        return unit === "cm" ? this / 2.54 : this;
+    value: function(this: number, unit: LengthUnit = "centimeters") { 
+        return unit === "centimeters" ? this / 2.54 : this;
     } 
 });
 
 Object.defineProperty(Number.prototype, 'asCm', { 
-    value: function(this: number, unit: LengthUnit = "in") { 
-        return unit === "in" ? this * 2.54 : this;
+    value: function(this: number, unit: LengthUnit = "inches") { 
+        return unit === "inches" ? this * 2.54 : this;
     } 
 });
 

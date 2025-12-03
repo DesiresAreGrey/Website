@@ -16,8 +16,8 @@
 <div id="unit-input">
   <input class="textinput" id="value" type="number" inputmode="decimal" step="1" value="66">
   <select class="dropdown" id="unit">
-    <option value="in">in</option>
-    <option value="cm">cm</option>
+    <option value="inches">in</option>
+    <option value="centimeters">cm</option>
   </select>
   <div id="output" style="min-width: 12ch; margin-top: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0'0" - 0.0 cm</div>
 </div>
