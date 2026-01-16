@@ -57,6 +57,8 @@ plugins:
         '4transurvey2025/4.md': 'surveys/4tran2025/4.md'
         '4transurvey2025/jealouscat.md': 'surveys/4tran2025/jealouscat.md'
         '4transurvey2025/ratgirltwink.md': 'surveys/4tran2025/ratgirltwink.md'
+        'apex.md': 'misc/apex-weapon-stats/index.md'
+        'apex-weapon-stats.md': 'misc/apex-weapon-stats/index.md'
 extra:
   generator: false
   analytics:
