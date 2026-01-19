@@ -576,6 +576,10 @@ input::-webkit-inner-spin-button {
   pointer-events: auto;
 }
 
+.apexchart {
+  min-height: 100px !important;
+}
+
 .noselect {
   -webkit-user-select: none;
   user-select: none;
