@@ -1,6 +1,6 @@
 ---
 description: Results of the 2025 4tran Survey 
-image: https://desiresaregrey.com/assets/survey2025/thumb.png
+image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
 ---
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
@@ -25,6 +25,8 @@ image: https://desiresaregrey.com/assets/survey2025/thumb.png
     font-variation-settings: 'wght' 800;
 }
 </style>
+
+<script type="module" src="/js/surveys/4tran2025p2/charts.js?v={{ now() }}" data-path="../../assets/surveys/4tran2025p2/results/"></script>
 
 
 # Extended 4tran Survey (2025.2)
