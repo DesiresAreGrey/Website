@@ -502,6 +502,110 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
     new ApexCharts(document.querySelector("#" + chartId), options).render();
 }
 
+export function createScatterChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, units: LengthUnit = "inches") {
+    hideSeries.forEach(index => {
+        if (data.series[index]) {
+            data.series[index].hidden = true;
+        }
+    });
+    const options = {
+        chart: {
+            type: 'scatter',
+            height: height,
+            toolbar: { show: true },
+            background: '#090909',
+            fontFamily: 'Inter, Arial, sans-serif',
+            events: {
+                mounted: (chartCtx: any) => apexMountedFix(chartCtx),
+                updated: (chartCtx: any) => apexMountedFix(chartCtx)
+            },
+            zoom: {
+                enabled: false
+            }
+        },
+        title: {
+            text: title,
+            align: 'center',
+            style: {
+                fontSize:  '20px'
+            },
+        },
+        subtitle: {
+            text: subtitle,
+            align: 'center',
+            floating: true,
+            style: {
+                fontSize:  '12px'
+            },
+        },
+        series: data,
+        xaxis: {
+            tickAmount: 12,
+            labels: {
+                show: true
+            },
+            min: 50, max: 350,
+        },
+        yaxis: {
+            tickAmount: 5,
+            min: 55, max: 80,
+        },
+        legend: {
+            position: 'bottom',
+            horizontalAlign: 'center'
+        },
+        tooltip: {
+            shared: false,
+            intersect: true,
+            custom: ({ seriesIndex, dataPointIndex, w }: { seriesIndex: number; dataPointIndex: number; w: any }) => {
+                const point: number[] = w.config.series[seriesIndex].data[dataPointIndex];
+                const name: string = w.config.series[seriesIndex].name;
+                return `
+                <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${name}</div>
+                <div class="apexcharts-tooltip-box apexcharts-tooltip-boxPlot">
+                    <div class="apexcharts-tooltip-text" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">
+                        Height: <b>${point[1].asInches(units).toFeetInches()}</b><br>
+                        Weight: <b>${point[0]}</b>
+                    </div>
+                </div>`;
+            }
+        },
+        grid: {
+            yaxis: {
+                lines: { 
+                    show: true 
+                }
+            },
+            xaxis: {
+                lines: { 
+                    show: true 
+                }
+            },
+            borderColor: '#e0e0e020',
+        },
+        states: {
+            active: {
+                filter: {
+                    type: 'none',
+                }
+            }
+        },
+        theme: {
+            mode: 'dark', 
+            palette: 'palette1',
+        },
+        stroke: {
+            colors: ['transparent'],
+            width: 3,    
+        },
+        markers: {
+          size: 5
+        },
+        colors: colors,
+    };
+    new ApexCharts(document.querySelector("#" + chartId), options).render();
+}
+
 
 function replaceXThanWithSymbol(s: string): string {
   return String(s)

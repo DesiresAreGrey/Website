@@ -11,18 +11,22 @@ $$('.apexchart').forEach(el => {
     const colors = el.dataset.colors?.parseJson() ?? ['#259efa', '#ff4f69', '#00E396', '#3f51b5', '#D7263D'];
     const height = el.style.height.replace("px", "")?.parseFloat() ?? 300;
 
-    if (el.dataset.chart == "ratio-bar")
-        Charts.createRatioBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height);
-    if (el.dataset.chart == "bar")
-        Charts.createBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, true);
-    if (el.dataset.chart == "column")
-        Charts.createBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, false);
-    if (el.dataset.chart == "pop-pyramid")
-        Charts.createPopPyramidChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, el.dataset.bounds?.parseFloat() ?? 15);
-    if (el.dataset.chart == "pie")
-        Charts.createPieChart(chartId, master[dataKey], title, colors, height);
-    if (el.dataset.chart == "boxplot")
-        Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height);
-    if (el.dataset.chart == "change-boxplot")
-        Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height, el.dataset.bounds?.parseFloat() ?? 5);
+    switch (el.dataset.chart) {
+        case "ratio-bar":
+            Charts.createRatioBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height); break;
+        case "bar":
+            Charts.createBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, true); break;
+        case "column":
+            Charts.createBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, false); break;
+        case "pop-pyramid":
+            Charts.createPopPyramidChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, el.dataset.bounds?.parseFloat() ?? 15); break;
+        case "pie":
+            Charts.createPieChart(chartId, master[dataKey], title, colors, height); break;
+        case "boxplot":
+            Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height); break;
+        case "change-boxplot":
+            Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height, el.dataset.bounds?.parseFloat() ?? 5); break;
+        case "scatter":
+            Charts.createScatterChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height); break;
+    }
 });

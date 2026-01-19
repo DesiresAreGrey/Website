@@ -170,3 +170,16 @@ test change box plot
     data-bounds="10"
     >
 </div>
+
+
+test scatter
+
+<div id="test-chart-scatter" 
+    class="apexchart"
+    style="height: 500px;"
+    data-chart="scatter"
+    data-datakey="height_weight_imperial_scatter"
+    data-title="height_weight_imperial_scatter"
+    data-hideseries='[]'
+    >
+</div>
