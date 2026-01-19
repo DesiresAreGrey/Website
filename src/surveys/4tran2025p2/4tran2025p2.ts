@@ -24,5 +24,7 @@ $$('.apexchart').forEach(el => {
     if (el.dataset.chart == "pop-pyramid")
         Charts.createPopPyramidChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, el.dataset.bounds?.parseFloat() ?? 15);
     if (el.dataset.chart == "pie")
-        Charts.createPieChart(chartId, master[dataKey], title, true, colors);
+        Charts.createPieChart(chartId, master[dataKey], title, colors, height);
+    if (el.dataset.chart == "boxplot")
+        Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height);
 });

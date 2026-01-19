@@ -90,7 +90,6 @@ test bar chart
     data-datakey="adults"
     data-title="Adults"
     data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
-    data-hideseries='[]'
     >
 </div>
 
@@ -103,7 +102,6 @@ test column chart
     data-datakey="adults"
     data-title="Adults"
     data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
-    data-hideseries='[]'
     >
 </div>
 
@@ -143,9 +141,20 @@ test pie
 
 <div id="test-chart-pie" 
     class="apexchart"
-    style="height: 250px;"
+    style="height: 350px;"
     data-chart="pie"
     data-datakey="gender_all"
     data-title="Gender"
+    >
+</div>
+
+test box plot
+
+<div id="test-chart-boxplot" 
+    class="apexchart"
+    style="height: 250px;"
+    data-chart="boxplot"
+    data-datakey="age_boxplot"
+    data-title="Age"
     >
 </div>
