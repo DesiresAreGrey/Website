@@ -401,19 +401,8 @@ input::-webkit-inner-spin-button {
 }
 
 
-.apexcharts-toolbar .apexcharts-menu-icon > svg { 
+.apexcharts-toolbar {
   display: none !important;
-}
-.apexcharts-toolbar .apexcharts-menu-icon {
-  opacity: 0.69;
-  transform: none !important;
-  width: 24px;
-  height: 24px;
-  background: center / contain no-repeat url("../assets/svg/download.svg");
-  transition: opacity 200ms ease;
-}
-.apexcharts-toolbar .apexcharts-menu-icon:hover {
-  opacity: 1;
 }
 
 .charts-grid {
@@ -582,6 +571,7 @@ input::-webkit-inner-spin-button {
 
 .apexchart {
   min-height: 100px !important;
+  margin-bottom: 0.5rem;
 }
 
 .noselect {

@@ -17,10 +17,6 @@ export function createRatioBarChart(chartId: string, data: any, title: string | 
             toolbar: { show: true },
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
-            events: {
-                mounted: (chartCtx: any) => apexMountedFix(chartCtx),
-                updated: (chartCtx: any) => apexMountedFix(chartCtx)
-            }
         },
         title: {
             text: title,
@@ -123,10 +119,6 @@ export function createBarChart(chartId: string, data: any, title: string | undef
             toolbar: { show: true },
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
-            events: {
-                mounted: (chartCtx: any) => apexMountedFix(chartCtx),
-                updated: (chartCtx: any) => apexMountedFix(chartCtx)
-            }
         },
         title: {
             text: title,
@@ -204,10 +196,6 @@ export function createPopPyramidChart(chartId: string, data: any, title: string 
             toolbar: { show: true },
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
-            events: {
-                mounted: (chartCtx: any) => apexMountedFix(chartCtx),
-                updated: (chartCtx: any) => apexMountedFix(chartCtx)
-            }
         },
         title: {
             text: title,
@@ -296,10 +284,6 @@ export function createPieChart(chartId: string, data: any, title: string | undef
             toolbar: { show: false },
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
-            events: {
-                mounted: (chartCtx: any) => apexMountedFix(chartCtx),
-                updated: (chartCtx: any) => apexMountedFix(chartCtx)
-            }
         },
         series: data.series,
         labels: data.labels,
@@ -355,10 +339,6 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
             toolbar: { show: false },
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
-            events: {
-                mounted: (chartCtx: any) => apexMountedFix(chartCtx),
-                updated: (chartCtx: any) => apexMountedFix(chartCtx)
-            }
         },
         title: {
             text: title,
@@ -515,10 +495,6 @@ export function createScatterChart(chartId: string, data: any, title: string | u
             toolbar: { show: true },
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
-            events: {
-                mounted: (chartCtx: any) => apexMountedFix(chartCtx),
-                updated: (chartCtx: any) => apexMountedFix(chartCtx)
-            },
             zoom: {
                 enabled: false
             }
@@ -616,12 +592,4 @@ function replaceXThanWithSymbol(s: string): string {
     .replace(/^\s*([^()]+?)(\s*\(.*?\))?\s+or\s+more\s*$/i, '≥$1$2')
     .replace(/\s+/g, ' ')
     .trim();
-}
-
-function apexMountedFix(chartCtx: HTMLElement & { el: HTMLElement }) {
-    chartCtx.el.$$('.apexcharts-menu-icon').forEach(el => el.removeAttribute('title'));
-    chartCtx.el.$$('.exportCSV').forEach(el => {
-        el.removeAttribute('title');
-        el.textContent = "CSV";
-    });
 }

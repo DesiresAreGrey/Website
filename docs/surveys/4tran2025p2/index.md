@@ -63,81 +63,58 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
   </a>
 </p>
 
-## Test
+## Demographics
 
-test ratio
+### Gender
 
-<div id="test-chart-ratio" 
+The ratio between men and women is a bit better this time! Last time the binary pie chart had men at 23% and women at 77%, while here men are at 26%. A 3% increase isn't crazy but it's still pretty cool to see that number go up instead of down.
+
+<div class="charts-grid">
+  <div id="gender-binary-pie" 
     class="apexchart"
-    style="height: 250px;"
-    data-chart="ratio-bar"
-    data-datakey="adults"
-    data-title="Adults"
-    data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
-    data-hideseries='[]'
+    style="height: 325px;"
+    data-chart="pie"
+    data-datakey="gender_binary"
     >
+  </div>
+  <div id="gender-all-pie" 
+    class="apexchart"
+    style="height: 325px;"
+    data-chart="pie"
+    data-datakey="gender_all"
+    >
+  </div>
 </div>
 
-test pop pyramid
+### Age
 
-<div id="test-chart-pop-pyramid" 
-    class="apexchart"
-    style="height: 500px;"
-    data-chart="pop-pyramid"
-    data-datakey="age_capped_pop_pyramid"
-    data-title="Age"
-    data-bounds="18"
-    >
-</div>
+Just like last time, trans men are younger. Theres also fewer older men with kinda a sharp-ish dropoff after 27, while with women its quite a bit more gradual.
 
-test bar chart
-
-<div id="test-chart-bar" 
-    class="apexchart"
-    style="height: 250px;"
-    data-chart="bar"
-    data-datakey="adults"
-    data-title="Adults"
-    data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
-    >
-</div>
-
-test column chart
-
-<div id="test-chart-column" 
-    class="apexchart"
-    style="height: 250px;"
-    data-chart="column"
-    data-datakey="adults"
-    data-title="Adults"
-    data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
-    >
-</div>
-
-test chart set
+<p style="font-size: 12px; color: #888">You can switch between the population pyramid and box plot with the tabs underneath the chart!</p>
 
 <div class="chart-set">
   <input id="age-a" class="vh" type="radio" name="view-age" checked>
   <input id="age-b" class="vh" type="radio" name="view-age">
   
   <div class="chart-stack">
-    <div id="test-chart-set-pop-pyramid" 
-        class="apexchart chart-layer layer-a"
-        style="height: 500px;"
-        data-chart="pop-pyramid"
-        data-datakey="age_capped_pop_pyramid"
-        data-title="Age"
-        data-bounds="18"
-        >
+    <div id="age-pop-pyramid" 
+      class="apexchart chart-layer layer-a"
+      style="height: 500px;"
+      data-chart="pop-pyramid"
+      data-datakey="age_capped_pop_pyramid"
+      data-title="Age"
+      data-subtitle="Population Pyramid"
+      data-bounds="18"
+      >
     </div>
-    <div id="test-chart-set-column" 
-        class="apexchart chart-layer layer-b"
-        style="height: 500px;"
-        data-chart="column"
-        data-datakey="adults"
-        data-title="Adults"
-        data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
-        >
+    <div id="age-boxplot" 
+      class="apexchart chart-layer layer-b"
+      style="height: 500px;"
+      data-chart="boxplot"
+      data-datakey="age_boxplot"
+      data-subtitle="Box Plot"
+      data-title="Age"
+      >
     </div>
   </div>
   <div class="toggle">
@@ -146,49 +123,14 @@ test chart set
   </div>
 </div>
 
-test pie
+This time for the adult graph I also included a section for those in between 18 and 20, since 21 is kinda "adult 2" especially in the US. Only 36% of men are legally able to drink in the US, compared to 62% of women. Obviously the number of men who are under 18 is also insane, but we went over that last time.
 
-<div id="test-chart-pie" 
-    class="apexchart"
-    style="height: 350px;"
-    data-chart="pie"
-    data-datakey="gender_all"
-    data-title="Gender"
-    >
-</div>
-
-test box plot
-
-<div id="test-chart-boxplot" 
-    class="apexchart"
-    style="height: 250px;"
-    data-chart="boxplot"
-    data-datakey="weight_pounds_boxplot"
-    data-title="weight_pounds_boxplot"
-    >
-</div>
-
-test change box plot
-
-<div id="test-chart-change-boxplot" 
-    class="apexchart"
-    style="height: 250px;"
-    data-chart="change-boxplot"
-    data-datakey="attraction_change_ftm_straight_boxplot"
-    data-title="attraction_change_ftm_straight"
-    data-bounds="10"
-    >
-</div>
-
-
-test scatter
-
-<div id="test-chart-scatter" 
-    class="apexchart"
-    style="height: 500px;"
-    data-chart="scatter"
-    data-datakey="height_weight_imperial_scatter"
-    data-title="height_weight_imperial_scatter"
-    data-hideseries='[]'
-    >
+<div id="test-chart-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="adults"
+  data-title="Adulthood"
+  data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
+  >
 </div>

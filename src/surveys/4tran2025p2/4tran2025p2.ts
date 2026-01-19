@@ -5,10 +5,10 @@ const master = await(await fetch((new URL(import.meta.url).searchParams.get("pat
 $$('.apexchart').forEach(el => {
     const chartId = el.id;
     const dataKey = el.dataset.datakey ?? "";
-    const title = el.dataset.title ?? undefined;
-    const subtitle = el.dataset.subtitle ?? undefined;
+    const title = el.dataset.title;
+    const subtitle = el.dataset.subtitle;
     const hideSeries = el.dataset.hideseries?.parseJson() ?? [];
-    const colors = el.dataset.colors?.parseJson() ?? ['#259efa', '#ff4f69', '#00E396', '#3f51b5', '#D7263D'];
+    const colors = el.dataset.colors?.parseJson() ?? ['#259efa', '#ff4f69', '#00E396', '#FEB019'];
     const height = el.style.height.replace("px", "")?.parseFloat() ?? 300;
 
     switch (el.dataset.chart) {
