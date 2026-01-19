@@ -58,14 +58,26 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
 
 test
 
-<div id="sexuality-chart" 
+<div id="test-chart-ratio" 
     class="apexchart"
     style="height: 250px;"
-    data-chart="bar"
+    data-chart="ratio-bar"
     data-datakey="adults"
     data-title="Adults"
     data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
     data-hideseries='[]'
+    >
+</div>
+
+test
+
+<div id="test-chart-pop-pyramid" 
+    class="apexchart"
+    style="height: 500px;"
+    data-chart="pop-pyramid"
+    data-datakey="age_capped_pop_pyramid"
+    data-title="Age"
+    data-bounds="18"
     >
 </div>
 
