@@ -94,9 +94,9 @@ test bar chart
     >
 </div>
 
-test vertical bar chart
+test column chart
 
-<div id="test-chart-bar-vert" 
+<div id="test-chart-column" 
     class="apexchart"
     style="height: 250px;"
     data-chart="column"
@@ -105,4 +105,35 @@ test vertical bar chart
     data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
     data-hideseries='[]'
     >
+</div>
+
+test chart set
+<div class="chart-set">
+  <input id="age-a" class="vh" type="radio" name="view-age" checked>
+  <input id="age-b" class="vh" type="radio" name="view-age">
+  
+  <div class="chart-stack">
+    <div id="test-chart-set-pop-pyramid" 
+        class="apexchart chart-layer layer-a"
+        style="height: 500px;"
+        data-chart="pop-pyramid"
+        data-datakey="age_capped_pop_pyramid"
+        data-title="Age"
+        data-bounds="18"
+        >
+    </div>
+    <div id="test-chart-set-column" 
+        class="apexchart chart-layer layer-b"
+        style="height: 500px;"
+        data-chart="column"
+        data-datakey="adults"
+        data-title="Adults"
+        data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
+        >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="age-a" class="noselect">Population Pyramid</label>
+    <label for="age-b" class="noselect">Column</label>
+  </div>
 </div>
