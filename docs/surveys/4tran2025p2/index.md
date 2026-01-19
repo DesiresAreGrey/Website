@@ -158,3 +158,15 @@ test box plot
     data-title="Age"
     >
 </div>
+
+test change box plot
+
+<div id="test-chart-change-boxplot" 
+    class="apexchart"
+    style="height: 250px;"
+    data-chart="change-boxplot"
+    data-datakey="attraction_change_ftm_straight_boxplot"
+    data-title="attraction_change_ftm_straight"
+    data-bounds="10"
+    >
+</div>

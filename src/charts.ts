@@ -347,8 +347,8 @@ export function createPieChart(chartId: string, data: any, title: string | undef
     new ApexCharts(document.querySelector("#" + chartId), options).render();
 }
 
-export function createBoxPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, height = 300) {
-    const options = {
+export function createBoxPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, height = 300, bounds: number | undefined = undefined) {
+    const options: any = {
         chart: {
             type: 'boxPlot',
             height: height,
@@ -436,7 +436,6 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
                 const d = w.config.series[seriesIndex].data[dataPointIndex];
                 const [min, q1, median, q3, max] = d.y;
                 const outliers = d.goals?.map((a: any) => (a.value - a.jitter).roundTo(2)).sort((a: any, b: any) => a - b);
-                console.log(outliers);
                 if (outliers?.length > 0) {
                     return `
                     <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${d.x}</div>
@@ -453,7 +452,8 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
                         </div>
                     </div>`;
                 }
-                return `
+                else if (d.total > 0) {
+                    return `
                     <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${d.x}</div>
                     <div class="apexcharts-tooltip-box apexcharts-tooltip-boxPlot">
                         <div class="apexcharts-tooltip-text" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">
@@ -461,12 +461,44 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
                             Q3: <b>${q3}</b><br>
                             Median: <b>${median}</b><br>
                             Q1: <b>${q1}</b><br>
-                            Minimum: <b>${min}</b>
+                            Minimum: <b>${min}</b><br>
+                            <div style="margin-top: 2px; font-size: 11px; color: #bbb;">
+                                Total: <b>${d.total}</b>
+                            </div>
                         </div>
                     </div>`;
+                }
+                return `
+                <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${d.x}</div>
+                <div class="apexcharts-tooltip-box apexcharts-tooltip-boxPlot">
+                    <div class="apexcharts-tooltip-text" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">
+                        Maximum: <b>${max}</b><br>
+                        Q3: <b>${q3}</b><br>
+                        Median: <b>${median}</b><br>
+                        Q1: <b>${q1}</b><br>
+                        Minimum: <b>${min}</b>
+                    </div>
+                </div>`;
             }
         }
     };
+
+    if (bounds) {
+        options.xaxis = {
+            min: -bounds, max: bounds,
+        };
+        options.annotations = {
+            xaxis: [
+                {
+                    x: 0,
+                    borderColor: "#e0e0e0",
+                    strokeDashArray: 0,
+                    borderWidth: 2,
+                }
+            ]
+        };
+    }
+
     new ApexCharts(document.querySelector("#" + chartId), options).render();
 }
 

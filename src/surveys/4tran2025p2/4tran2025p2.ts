@@ -27,4 +27,6 @@ $$('.apexchart').forEach(el => {
         Charts.createPieChart(chartId, master[dataKey], title, colors, height);
     if (el.dataset.chart == "boxplot")
         Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height);
+    if (el.dataset.chart == "change-boxplot")
+        Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height, el.dataset.bounds?.parseFloat() ?? 5);
 });
