@@ -6,7 +6,7 @@ const path = new URL(import.meta.url).searchParams.get("path") || "/assets/surve
 const master = await(await fetch(path + '_master.json')).json();
 
 
-$$('[data-chart="ratio-bar"]').forEach(el => {
+$$('.apexchart').forEach(el => {
     const chartId = el.id;
     const dataKey = el.dataset.datakey ?? "";
     const title = el.dataset.title ?? undefined;
@@ -15,5 +15,8 @@ $$('[data-chart="ratio-bar"]').forEach(el => {
     const colors = el.dataset.colors?.parseJson() ?? ['#259efa', '#ff4f69', '#00E396', '#3f51b5', '#D7263D'];
     const height = el.style.height.replace("px", "")?.parseFloat() ?? 300;
 
-    Charts.createRatioBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height);
+    if (el.dataset.chart == "ratio-bar")
+        Charts.createRatioBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height);
+    if (el.dataset.chart == "bar")
+        Charts.createBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height);
 });

@@ -58,10 +58,10 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
 
 test
 
-<div class="apexchart"
-    id="sexuality-chart"
+<div id="sexuality-chart" 
+    class="apexchart"
     style="height: 250px;"
-    data-chart="ratio-bar"
+    data-chart="bar"
     data-datakey="adults"
     data-title="Adults"
     data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
