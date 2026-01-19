@@ -26,7 +26,30 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
 }
 </style>
 
-<script type="module" src="/js/surveys/4tran2025p2/charts.js?v={{ now() }}" data-path="../../assets/surveys/4tran2025p2/results/"></script>
+<script type="importmap">
+{
+  "imports": {
+    "apexcharts": "https://esm.sh/apexcharts",
+    "@amcharts/amcharts5": "https://esm.sh/@amcharts/amcharts5",
+    "@amcharts/amcharts5/map": "https://esm.sh/@amcharts/amcharts5/map",
+    "@amcharts/amcharts5-geodata/worldLow": "https://esm.sh/@amcharts/amcharts5-geodata/worldLow",
+    "@amcharts/amcharts5-geodata/usaLow": "https://esm.sh/@amcharts/amcharts5-geodata/usaLow"
+  }
+}
+</script>
+<script type="module" src="/js/surveys/4tran2025p2/4tran2025p2.js?v={{ now() }}&path=../../assets/surveys/4tran2025/results/"></script>
 
 
 # Extended 4tran Survey (2025.2)
+
+<div class="apexchart"
+    id="sexuality-chart"
+    style="height: 300px;"
+    data-chart="ratio-bar"
+    data-datakey="sexuality_flipped.json"
+    data-title="Sexuality Distribution"
+    data-colors='["#8AA0B3", "#8E5CF1", "#FF4D88", "#2E294E"]'
+    data-hideseries='[1]'>
+</div>
+
+test
