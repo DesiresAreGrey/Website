@@ -459,6 +459,10 @@ input::-webkit-inner-spin-button {
   display: none !important;
 }
 
+.apexcharts-tooltip:has(.apexcharts-tooltip-scatter) {
+  transform: translateY(35px);
+}
+
 .no-yline .apexcharts-grid-borders line:last-child {
   display: none !important;
 }
@@ -574,6 +578,10 @@ input::-webkit-inner-spin-button {
 .chart-set > input:nth-of-type(3):checked ~ .chart-stack .layer-c {
   opacity: 1;
   pointer-events: auto;
+}
+
+.apexchart {
+  min-height: 100px !important;
 }
 
 .noselect {

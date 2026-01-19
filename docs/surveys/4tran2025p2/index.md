@@ -29,11 +29,7 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
 <script type="importmap">
 {
   "imports": {
-    "apexcharts": "https://esm.sh/apexcharts",
-    "@amcharts/amcharts5": "https://esm.sh/@amcharts/amcharts5",
-    "@amcharts/amcharts5/map": "https://esm.sh/@amcharts/amcharts5/map",
-    "@amcharts/amcharts5-geodata/worldLow": "https://esm.sh/@amcharts/amcharts5-geodata/worldLow",
-    "@amcharts/amcharts5-geodata/usaLow": "https://esm.sh/@amcharts/amcharts5-geodata/usaLow"
+    "apexcharts": "https://esm.sh/apexcharts"
   }
 }
 </script>
@@ -41,6 +37,19 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
 
 # Extended 4tran Survey (2025.2)
 <h6 style="margin: 0 0.2rem">Page 1 - Demographics</h6>
+
+<div class="nav-links" style="margin: 0.25rem 1rem;">
+  <a href="" class="active">Demographics</a> - 
+  <a href="measurements">Measurements</a> - 
+  <a href="socialmedia">Social Media</a> - 
+  <a href="transition">Transition</a> - 
+  <a href="sexuality">Sexuality</a> - 
+  <a href="relationships">Relationships</a> - 
+  <a href="health">Health</a> - 
+  <a href="misc">Misc</a> - 
+  <a href="nsfw">NSFW</a> - 
+  <a href="conclusion">Conclusion</a>
+</div>
 
 <p>
   Follow me on:
@@ -56,10 +65,10 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
 
 ## Test
 
-test
+test ratio
 
-<div class="apexchart"
-    id="sexuality-chart"
+<div id="test-chart-ratio" 
+    class="apexchart"
     style="height: 250px;"
     data-chart="ratio-bar"
     data-datakey="adults"
@@ -69,4 +78,117 @@ test
     >
 </div>
 
-test
+test pop pyramid
+
+<div id="test-chart-pop-pyramid" 
+    class="apexchart"
+    style="height: 500px;"
+    data-chart="pop-pyramid"
+    data-datakey="age_capped_pop_pyramid"
+    data-title="Age"
+    data-bounds="18"
+    >
+</div>
+
+test bar chart
+
+<div id="test-chart-bar" 
+    class="apexchart"
+    style="height: 250px;"
+    data-chart="bar"
+    data-datakey="adults"
+    data-title="Adults"
+    data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
+    >
+</div>
+
+test column chart
+
+<div id="test-chart-column" 
+    class="apexchart"
+    style="height: 250px;"
+    data-chart="column"
+    data-datakey="adults"
+    data-title="Adults"
+    data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
+    >
+</div>
+
+test chart set
+
+<div class="chart-set">
+  <input id="age-a" class="vh" type="radio" name="view-age" checked>
+  <input id="age-b" class="vh" type="radio" name="view-age">
+  
+  <div class="chart-stack">
+    <div id="test-chart-set-pop-pyramid" 
+        class="apexchart chart-layer layer-a"
+        style="height: 500px;"
+        data-chart="pop-pyramid"
+        data-datakey="age_capped_pop_pyramid"
+        data-title="Age"
+        data-bounds="18"
+        >
+    </div>
+    <div id="test-chart-set-column" 
+        class="apexchart chart-layer layer-b"
+        style="height: 500px;"
+        data-chart="column"
+        data-datakey="adults"
+        data-title="Adults"
+        data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
+        >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="age-a" class="noselect">Population Pyramid</label>
+    <label for="age-b" class="noselect">Column</label>
+  </div>
+</div>
+
+test pie
+
+<div id="test-chart-pie" 
+    class="apexchart"
+    style="height: 350px;"
+    data-chart="pie"
+    data-datakey="gender_all"
+    data-title="Gender"
+    >
+</div>
+
+test box plot
+
+<div id="test-chart-boxplot" 
+    class="apexchart"
+    style="height: 250px;"
+    data-chart="boxplot"
+    data-datakey="weight_pounds_boxplot"
+    data-title="weight_pounds_boxplot"
+    >
+</div>
+
+test change box plot
+
+<div id="test-chart-change-boxplot" 
+    class="apexchart"
+    style="height: 250px;"
+    data-chart="change-boxplot"
+    data-datakey="attraction_change_ftm_straight_boxplot"
+    data-title="attraction_change_ftm_straight"
+    data-bounds="10"
+    >
+</div>
+
+
+test scatter
+
+<div id="test-chart-scatter" 
+    class="apexchart"
+    style="height: 500px;"
+    data-chart="scatter"
+    data-datakey="height_weight_imperial_scatter"
+    data-title="height_weight_imperial_scatter"
+    data-hideseries='[]'
+    >
+</div>
