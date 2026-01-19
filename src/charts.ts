@@ -602,7 +602,7 @@ export function createScatterChart(chartId: string, data: any, title: string | u
             width: 3,    
         },
         markers: {
-            size: 5
+            size: 4
         },
         colors: colors,
     };
