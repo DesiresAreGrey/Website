@@ -29,11 +29,7 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
 <script type="importmap">
 {
   "imports": {
-    "apexcharts": "https://esm.sh/apexcharts",
-    "@amcharts/amcharts5": "https://esm.sh/@amcharts/amcharts5",
-    "@amcharts/amcharts5/map": "https://esm.sh/@amcharts/amcharts5/map",
-    "@amcharts/amcharts5-geodata/worldLow": "https://esm.sh/@amcharts/amcharts5-geodata/worldLow",
-    "@amcharts/amcharts5-geodata/usaLow": "https://esm.sh/@amcharts/amcharts5-geodata/usaLow"
+    "apexcharts": "https://esm.sh/apexcharts"
   }
 }
 </script>
@@ -41,6 +37,19 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
 
 # Extended 4tran Survey (2025.2)
 <h6 style="margin: 0 0.2rem">Page 1 - Demographics</h6>
+
+<div class="nav-links" style="margin: 0.25rem 1rem;">
+  <a href="" class="active">Demographics</a> - 
+  <a href="measurements">Measurements</a> - 
+  <a href="socialmedia">Social Media</a> - 
+  <a href="transition">Transition</a> - 
+  <a href="sexuality">Sexuality</a> - 
+  <a href="relationships">Relationships</a> - 
+  <a href="health">Health</a> - 
+  <a href="misc">Misc</a> - 
+  <a href="nsfw">NSFW</a> - 
+  <a href="conclusion">Conclusion</a>
+</div>
 
 <p>
   Follow me on:
@@ -154,8 +163,8 @@ test box plot
     class="apexchart"
     style="height: 250px;"
     data-chart="boxplot"
-    data-datakey="age_boxplot"
-    data-title="Age"
+    data-datakey="weight_pounds_boxplot"
+    data-title="weight_pounds_boxplot"
     >
 </div>
 
