@@ -108,7 +108,7 @@ export function createRatioBarChart(chartId: string, data: any, title: string | 
     new ApexCharts(document.querySelector("#" + chartId), options).render();
 }
 
-export function createBarChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number) {
+export function createBarChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, horizontal: boolean) {
     hideSeries.forEach(index => {
         if (data.series[index]) {
             data.series[index].hidden = true;
@@ -162,7 +162,7 @@ export function createBarChart(chartId: string, data: any, title: string | undef
         },
         plotOptions: {
             bar: {
-                horizontal: true,
+                horizontal: horizontal,
                 borderRadius: 3,
                 borderRadiusApplication: 'end',
             }

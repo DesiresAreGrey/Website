@@ -56,7 +56,7 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
 
 ## Test
 
-test
+test ratio
 
 <div id="test-chart-ratio" 
     class="apexchart"
@@ -69,7 +69,7 @@ test
     >
 </div>
 
-test
+test pop pyramid
 
 <div id="test-chart-pop-pyramid" 
     class="apexchart"
@@ -81,4 +81,29 @@ test
     >
 </div>
 
-test
+test bar chart
+
+<div id="test-chart-bar" 
+    class="apexchart"
+    style="height: 250px;"
+    data-chart="bar"
+    data-datakey="adults"
+    data-title="Adults"
+    data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
+    data-hideseries='[]'
+    >
+</div>
+
+test vertical bar chart
+
+<div id="test-chart-bar-vert" 
+    class="apexchart"
+    style="height: 250px;"
+    data-chart="bar"
+    data-datakey="adults"
+    data-title="Adults"
+    data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
+    data-hideseries='[]'
+    data-horizontal="false"
+    >
+</div>
