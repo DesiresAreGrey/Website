@@ -108,6 +108,7 @@ test column chart
 </div>
 
 test chart set
+
 <div class="chart-set">
   <input id="age-a" class="vh" type="radio" name="view-age" checked>
   <input id="age-b" class="vh" type="radio" name="view-age">
@@ -136,4 +137,15 @@ test chart set
     <label for="age-a" class="noselect">Population Pyramid</label>
     <label for="age-b" class="noselect">Column</label>
   </div>
+</div>
+
+test pie
+
+<div id="test-chart-pie" 
+    class="apexchart"
+    style="height: 250px;"
+    data-chart="pie"
+    data-datakey="gender_all"
+    data-title="Gender"
+    >
 </div>

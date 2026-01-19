@@ -288,6 +288,64 @@ export function createPopPyramidChart(chartId: string, data: any, title: string 
     new ApexCharts(document.querySelector("#" + chartId), options).render();
 }
 
+export function createPieChart(chartId: string, data: any, title: string | undefined, hideToolbar: boolean, colors: string[]) {
+    const options = {
+        chart: {
+            type: 'pie',
+            height: 325,
+            toolbar: { show: !hideToolbar },
+            background: '#090909',
+            fontFamily: 'Inter, Arial, sans-serif',
+            events: {
+                mounted: (chartCtx: any) => apexMountedFix(chartCtx)
+            }
+        },
+        series: data.series,
+        labels: data.labels,
+        title: {
+            text: title,
+            align: 'center',
+            style: {
+                fontSize:  '20px'
+            },
+        },
+        responsive: [{
+            breakpoint: 480,
+        }],
+        plotOptions: {
+            pie: {
+                expandOnClick: false
+            }
+        },
+        legend: {
+            position: 'bottom',
+            horizontalAlign: 'center'
+        },
+        dataLabels: {
+            enabled: true,
+            dropShadow: {
+                enabled: true,
+                left: 0,
+                top: 0,
+                opacity: 0.5
+            }
+        },
+        states: {
+            active: {
+                filter: {
+                    type: 'none',
+                }
+            }
+        },
+        theme: {
+            mode: 'dark', 
+            palette: 'palette1',
+        },
+        colors: colors
+    };
+    new ApexCharts(document.querySelector("#" + chartId), options).render();
+}
+
 function replaceXThanWithSymbol(s: string): string {
   return String(s)
     .replace(/^\s*([^()]+?)(\s*\(.*?\))?\s+or\s+less\s*$/i, '≤$1$2')
