@@ -17,6 +17,11 @@ declare global {
         appendHtml(htmlString: string): void;
     }
 
+    interface String {
+        parseJson(): any | null;
+        parseFloat(): number | null;
+    }
+
     interface Number {
         roundTo(precision?: number): number;
         floorTo(precision?: number): number;
@@ -45,6 +50,26 @@ Object.defineProperty(HTMLElement.prototype, '$$', { value: function(this: HTMLE
 
 Object.defineProperty(HTMLElement.prototype, 'appendHtml', { 
     value: function(this: HTMLElement, htmlString: string) { this.insertAdjacentHTML('beforeend', htmlString); } 
+});
+
+Object.defineProperty(String.prototype, 'parseJson', { 
+    value: function(this: string) { 
+        try {
+            return JSON.parse(this);
+        }
+        catch {
+            return null;
+        }
+    }
+});
+
+Object.defineProperty(String.prototype, 'parseFloat', { 
+    value: function(this: string) { 
+        const parsed = parseFloat(this);
+        if (isNaN(parsed)) 
+            return null;
+        return parsed;
+    } 
 });
 
 Object.defineProperty(Number.prototype, 'roundTo', { 

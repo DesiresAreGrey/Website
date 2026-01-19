@@ -88,7 +88,7 @@ h1 {
   <div class="card-grid">
     <a class="survey-card hidden" href="4tran2025p2">
       <h2>Extended 4tran Survey (2025.2)</h2>
-      <p class="date">December 69 – December 420, 2025</p>
+      <p class="date">December 5 – December 31, 2025</p>
       <p>Results and analysis of a follow up survey, including requested questions missing from the original 2025 4tran Survey</p>
     </a>
     <a class="survey-card" href="4tran2025">

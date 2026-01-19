@@ -1,6 +1,6 @@
 ---
 description: Results of the 2025 4tran Survey 
-image: https://desiresaregrey.com/assets/survey2025/thumb.png
+image: https://desiresaregrey.com/assets/surveys/4tran2025/thumb.png
 ---
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
@@ -31,7 +31,7 @@ image: https://desiresaregrey.com/assets/survey2025/thumb.png
 <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-<script src="4transurvey2025.js?v={{ now() }}" data-path="../../assets/survey2025/results/"></script>
+<script src="4transurvey2025.js?v={{ now() }}" data-path="../../assets/surveys/4tran2025/results/"></script>
 <!-- js is gonna make me 41 :( -->
 
 # The 2025 4tran Survey
@@ -60,7 +60,7 @@ Its heavily recommended you view this site on desktop! The charts are interactiv
 
 <div style="text-align: center">
   <video style="width: 80%;" autoplay muted loop playsinline disablePictureInPicture>
-    <source src="../../assets/survey2025/img/interactive_charts.mp4" type="video/mp4">
+    <source src="../../assets/surveys/4tran2025/img/interactive_charts.mp4" type="video/mp4">
   </video>
   <p style="font-size: 12px; color: #888; margin-top: -0.25rem;">Interactive Charts!</p>
 </div>
@@ -191,7 +191,7 @@ So yeah...check to see how where your height lands compared to the participants 
 <script>
   (function () {
     let HEIGHT_STATS = null;
-    fetch("../../assets/survey2025/results/height_mean_sd.json").then((r) => r.json()).then((rows) => {
+    fetch("../../assets/surveys/4tran2025/results/height_mean_sd.json").then((r) => r.json()).then((rows) => {
         HEIGHT_STATS = Object.fromEntries(rows.map((r) => [r.Gender, { mean: r.Mean, sd: r.SD }]));
         update();
     }).catch(() => { });

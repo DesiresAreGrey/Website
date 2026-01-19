@@ -1,0 +1,72 @@
+---
+description: Results of the 2025 4tran Survey 
+image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
+---
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+.reddit {
+    color: #ff5719 !important;
+    font-variation-settings: 'wght' 650;
+    transition: all 200ms ease !important;
+}
+.reddit:hover {
+    color: #ff6026 !important;
+    text-shadow: 0 0 32px #ff3c00;
+    font-variation-settings: 'wght' 800;
+}
+.twitter {
+    color: #1DA1F2 !important;
+    font-variation-settings: 'wght' 650;
+    transition: all 200ms ease !important;
+}
+.twitter:hover {
+    color: #2ca6f2 !important;
+    text-shadow: 0 0 32px #0091ff;
+    font-variation-settings: 'wght' 800;
+}
+</style>
+
+<script type="importmap">
+{
+  "imports": {
+    "apexcharts": "https://esm.sh/apexcharts",
+    "@amcharts/amcharts5": "https://esm.sh/@amcharts/amcharts5",
+    "@amcharts/amcharts5/map": "https://esm.sh/@amcharts/amcharts5/map",
+    "@amcharts/amcharts5-geodata/worldLow": "https://esm.sh/@amcharts/amcharts5-geodata/worldLow",
+    "@amcharts/amcharts5-geodata/usaLow": "https://esm.sh/@amcharts/amcharts5-geodata/usaLow"
+  }
+}
+</script>
+<script type="module" src="/js/surveys/4tran2025p2/4tran2025p2.js?v={{ now() }}&path=../../assets/surveys/4tran2025p2/results/"></script>
+
+# Extended 4tran Survey (2025.2)
+<h6 style="margin: 0 0.2rem">Page 1 - Demographics</h6>
+
+<p>
+  Follow me on:
+  <a class="noselect reddit" style="margin-right: 0.15rem;" href="https://www.reddit.com/user/DesiresAreGrey" target="_blank">
+    <i class="fa-brands fa-reddit-alien" style="margin-right: -0.1rem;"></i>
+    <span>Reddit</span>
+  </a>
+  <a class="noselect twitter" href="https://twitter.com/DesiresAreGrey" target="_blank">
+    <i class="fa-brands fa-twitter" style="margin-right: -0.1rem;"></i>
+    <span>Twitter</span>
+  </a>
+</p>
+
+## Test
+
+test
+
+<div class="apexchart"
+    id="sexuality-chart"
+    style="height: 250px;"
+    data-chart="ratio-bar"
+    data-datakey="adults"
+    data-title="Adults"
+    data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
+    data-hideseries='[]'
+    >
+</div>
+
+test
