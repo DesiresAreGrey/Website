@@ -18,7 +18,9 @@ $$('.apexchart').forEach(el => {
     if (el.dataset.chart == "ratio-bar")
         Charts.createRatioBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height);
     if (el.dataset.chart == "bar")
-        Charts.createBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, el.dataset.horizontal != "false");
+        Charts.createBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, true);
+    if (el.dataset.chart == "column")
+        Charts.createBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, false);
     if (el.dataset.chart == "pop-pyramid")
         Charts.createPopPyramidChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, el.dataset.bounds?.parseFloat() ?? 15);
 });

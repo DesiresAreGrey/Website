@@ -99,11 +99,10 @@ test vertical bar chart
 <div id="test-chart-bar-vert" 
     class="apexchart"
     style="height: 250px;"
-    data-chart="bar"
+    data-chart="column"
     data-datakey="adults"
     data-title="Adults"
     data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
     data-hideseries='[]'
-    data-horizontal="false"
     >
 </div>
