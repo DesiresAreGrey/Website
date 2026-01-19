@@ -18,7 +18,7 @@ update();
 
 function update() {
     const num = Number((unitInput.$("#value") as HTMLInputElement).value);
-    const unit = (unitInput.$("#unit") as HTMLSelectElement).value as LengthUnit;
+    const unit = (unitInput.$("#unit") as HTMLSelectElement).value as UnitSystem;
     
     unitInput!.$("#output")!.textContent = `${num.toFeetInches(1, unit)} - ${num.asCm(unit).roundTo(1)} cm`;
 }

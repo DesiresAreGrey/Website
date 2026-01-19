@@ -459,6 +459,10 @@ input::-webkit-inner-spin-button {
   display: none !important;
 }
 
+.apexcharts-tooltip:has(.apexcharts-tooltip-scatter) {
+  transform: translateY(35px);
+}
+
 .no-yline .apexcharts-grid-borders line:last-child {
   display: none !important;
 }

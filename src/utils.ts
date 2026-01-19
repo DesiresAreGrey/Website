@@ -1,7 +1,7 @@
 export {}; 
 
 declare global {
-    type LengthUnit = "centimeters" | "inches";
+    type UnitSystem = "metric" | "imperial";
 
     interface NodeListOf<TNode extends Node> {
         toArray(): TNode[];
@@ -30,9 +30,11 @@ declare global {
         multFloor(multiplier: number): number;
         multRound(multiplier: number): number;
 
-        toFeetInches(decimals?: number, fromUnit?: LengthUnit): string;
-        asInches(fromUnit?: LengthUnit): number;
-        asCm(fromUnit?: LengthUnit): number;
+        toFeetInches(decimals?: number, fromUnit?: UnitSystem): string;
+        asInches(fromUnit?: UnitSystem): number;
+        asCm(fromUnit?: UnitSystem): number;
+        asPounds(fromUnit?: UnitSystem): number;
+        asKg(fromUnit?: UnitSystem): number;
     }
 
     function loaded(): Promise<void>;
@@ -84,7 +86,7 @@ Object.defineProperty(Number.prototype, 'multFloor', { value: function(this: num
 Object.defineProperty(Number.prototype, 'multRound', { value: function(this: number, multiplier: number) { return Math.round(this * multiplier) } });
 
 Object.defineProperty(Number.prototype, 'toFeetInches', { 
-    value: function(this: number, decimals: number = 0, fromUnit: LengthUnit = "inches") { 
+    value: function(this: number, decimals: number = 0, fromUnit: UnitSystem = "imperial") { 
         const totalInches = this.asInches(fromUnit);
         const feet = Math.floor(totalInches / 12);
         const inches = (totalInches - feet * 12).roundTo(decimals);
@@ -93,14 +95,26 @@ Object.defineProperty(Number.prototype, 'toFeetInches', {
 });
 
 Object.defineProperty(Number.prototype, 'asInches', { 
-    value: function(this: number, fromUnit: LengthUnit = "centimeters") { 
-        return fromUnit === "centimeters" ? this / 2.54 : this;
+    value: function(this: number, fromUnit: UnitSystem = "metric") { 
+        return fromUnit === "metric" ? this / 2.54 : this;
     } 
 });
 
 Object.defineProperty(Number.prototype, 'asCm', { 
-    value: function(this: number, fromUnit: LengthUnit = "inches") { 
-        return fromUnit === "inches" ? this * 2.54 : this;
+    value: function(this: number, fromUnit: UnitSystem = "imperial") { 
+        return fromUnit === "imperial" ? this * 2.54 : this;
+    } 
+});
+
+Object.defineProperty(Number.prototype, 'asPounds', { 
+    value: function(this: number, fromUnit: UnitSystem = "metric") { 
+        return fromUnit === "metric" ? this * 2.20462 : this;
+    } 
+});
+
+Object.defineProperty(Number.prototype, 'asKg', { 
+    value: function(this: number, fromUnit: UnitSystem = "imperial") { 
+        return fromUnit === "imperial" ? this / 2.20462 : this;
     } 
 });
 

@@ -502,7 +502,7 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
     new ApexCharts(document.querySelector("#" + chartId), options).render();
 }
 
-export function createScatterChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, units: LengthUnit = "inches") {
+export function createScatterChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, units: UnitSystem = "imperial") {
     hideSeries.forEach(index => {
         if (data.series[index]) {
             data.series[index].hidden = true;
@@ -555,20 +555,23 @@ export function createScatterChart(chartId: string, data: any, title: string | u
             horizontalAlign: 'center'
         },
         tooltip: {
-            shared: false,
-            intersect: true,
             custom: ({ seriesIndex, dataPointIndex, w }: { seriesIndex: number; dataPointIndex: number; w: any }) => {
                 const point: number[] = w.config.series[seriesIndex].data[dataPointIndex];
+                const height = point[1];
+                const weight = point[0];
+                const bmi = (weight.asKg(units) / ((height.asCm(units) / 100) ** 2)).roundTo(2);
                 const name: string = w.config.series[seriesIndex].name;
                 return `
                 <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${name}</div>
-                <div class="apexcharts-tooltip-box apexcharts-tooltip-boxPlot">
+                <div class="apexcharts-tooltip-box apexcharts-tooltip-scatter">
                     <div class="apexcharts-tooltip-text" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">
                         Height: <b>${point[1].asInches(units).toFeetInches()}</b><br>
-                        Weight: <b>${point[0]}</b>
+                        Weight: <b>${point[0]}</b><br>
+                        BMI: <b>${bmi}</b>
                     </div>
                 </div>`;
-            }
+            },
+            
         },
         grid: {
             yaxis: {
@@ -599,7 +602,7 @@ export function createScatterChart(chartId: string, data: any, title: string | u
             width: 3,    
         },
         markers: {
-          size: 5
+            size: 5
         },
         colors: colors,
     };
