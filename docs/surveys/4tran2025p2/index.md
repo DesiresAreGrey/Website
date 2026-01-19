@@ -37,19 +37,36 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
   }
 }
 </script>
-<script type="module" src="/js/surveys/4tran2025p2/4tran2025p2.js?v={{ now() }}&path=../../assets/surveys/4tran2025/results/"></script>
-
+<script type="module" src="/js/surveys/4tran2025p2/4tran2025p2.js?v={{ now() }}&path=../../assets/surveys/4tran2025p2/results/"></script>
 
 # Extended 4tran Survey (2025.2)
+<h6 style="margin: 0 0.2rem">Page 1 - Demographics</h6>
+
+<p>
+  Follow me on:
+  <a class="noselect reddit" style="margin-right: 0.15rem;" href="https://www.reddit.com/user/DesiresAreGrey" target="_blank">
+    <i class="fa-brands fa-reddit-alien" style="margin-right: -0.1rem;"></i>
+    <span>Reddit</span>
+  </a>
+  <a class="noselect twitter" href="https://twitter.com/DesiresAreGrey" target="_blank">
+    <i class="fa-brands fa-twitter" style="margin-right: -0.1rem;"></i>
+    <span>Twitter</span>
+  </a>
+</p>
+
+## Test
+
+test
 
 <div class="apexchart"
     id="sexuality-chart"
-    style="height: 300px;"
+    style="height: 250px;"
     data-chart="ratio-bar"
-    data-datakey="sexuality_flipped.json"
-    data-title="Sexuality Distribution"
-    data-colors='["#8AA0B3", "#8E5CF1", "#FF4D88", "#2E294E"]'
-    data-hideseries='[1]'>
+    data-datakey="adults"
+    data-title="Adults"
+    data-colors='["#7B61FF", "#03a9f4", "#00E0B8"]'
+    data-hideseries='[]'
+    >
 </div>
 
 test

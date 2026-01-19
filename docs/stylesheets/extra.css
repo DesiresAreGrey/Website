@@ -405,7 +405,7 @@ input::-webkit-inner-spin-button {
   display: none !important;
 }
 .apexcharts-toolbar .apexcharts-menu-icon {
-  opacity: 1;
+  opacity: 0.69;
   transform: none !important;
   width: 24px;
   height: 24px;
@@ -413,7 +413,7 @@ input::-webkit-inner-spin-button {
   transition: opacity 200ms ease;
 }
 .apexcharts-toolbar .apexcharts-menu-icon:hover {
-  opacity: 0.69;
+  opacity: 1;
 }
 
 .charts-grid {
