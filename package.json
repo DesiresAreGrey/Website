@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/DesiresAreGrey/Website/issues"
   },
-  "homepage": "https://github.com/DesiresAreGrey/Website#readme"
+  "homepage": "https://github.com/DesiresAreGrey/Website#readme",
+  "dependencies": {
+    "apexcharts": "^5.3.6"
+  }
 }
