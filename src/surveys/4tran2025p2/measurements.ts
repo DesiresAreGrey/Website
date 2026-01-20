@@ -7,10 +7,10 @@ const unitsSelect = $("#units") as HTMLSelectElement;
 
 const getUnits = () => unitsSelect.value as UnitSystem;
 
-const heightInput = $("#height") as HTMLInputElement;
-const heightFeetInput = $("#height-feet") as HTMLInputElement;
+const heightInput = $("#height-input") as HTMLInputElement;
+const heightFeetInput = $("#height-feet-input") as HTMLInputElement;
 
-const weightInput = $("#weight") as HTMLInputElement;
+const weightInput = $("#weight-input") as HTMLInputElement;
 
 const infoHeight = $("#info-height") as HTMLElement;
 const infoWeight = $("#info-weight") as HTMLElement;
@@ -288,7 +288,6 @@ function updateScatterPlot() {
         return;
     }
 
-
     if (!chartLoaded)
         return;
 
@@ -310,7 +309,6 @@ function updateScatterPlot() {
             }]
         };
     }
-    console.log(annotations);
     ApexCharts.exec("height-weight-scatter", "updateOptions", {
         series: data,
         annotations: annotations,

@@ -127,6 +127,10 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
 
 ## Measurements
 
+### Height
+
+Even more of a normal distribution than the first survey. Its kinda beautiful visually tbh, when ignoring the brutal dimorphism of height.
+
 <div class="chart-set">
   <input id="height-a" class="vh" type="radio" name="view-height" checked>
   <input id="height-b" class="vh" type="radio" name="view-height">
@@ -171,17 +175,17 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
 
 <div style="margin-top: 6px;" >
     <span id="height-feet-section">
-      <input id="height-feet" class="input" type="text" inputmode="decimal" step="1" value="5" style="width: 2rem;">
+      <input id="height-feet-input" class="input" type="text" inputmode="decimal" step="1" value="5" style="width: 2rem;">
       <span style="min-width: 12ch; margin-top: 4px; margin-right: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Feet</span>
     </span>
-    <input id="height" class="input" type="text" inputmode="decimal" step="1" value="6" style="width: 2rem;">
+    <input id="height-input" class="input" type="text" inputmode="decimal" step="1" value="6" style="width: 2rem;">
     <span id="height-units-label" style="min-width: 12ch; margin-top: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Inches</span>
   </div>
 </div>
 
 <div style="margin-top: 6px;" class="container">
   <div>
-    <input id="weight" class="input" type="number" inputmode="decimal" step="1" value="170" style="width: 3rem;">
+    <input id="weight-input" class="input" type="number" inputmode="decimal" step="1" value="170" style="width: 3rem;">
     <span id="weight-units-label" style="min-width: 12ch; margin-top: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Pounds</span>
   </div>
 </div>
