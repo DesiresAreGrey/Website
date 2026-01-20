@@ -162,6 +162,8 @@ Even more of a normal distribution than the first survey. Its kinda beautiful vi
   </div>
 </div>
 
+___
+
 ## Calculator
 
 <div class="container">
@@ -198,10 +200,7 @@ Even more of a normal distribution than the first survey. Its kinda beautiful vi
   </div>
 </div>
 
-___
-
-
-<div id="height-weight-scatter" style="height: 550px;" class="scatterapexchart"></div>
+<div id="height-weight-scatter" style="height: 550px; margin-bottom: 0.69rem;" class="scatterapexchart"></div>
 
 <div class="center-container">
   <div class="label" style="width: 8rem;">Show Scatter Plot

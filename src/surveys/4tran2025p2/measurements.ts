@@ -272,7 +272,7 @@ function createScatterPlot() {
             strokeColors: '#090909',
         },
     };
-    Charts.createScatterChart("height-weight-scatter", master["height_weight_imperial_scatter"], "Height and Weight", undefined, [2], ['#259efa', '#ff4f69', '#00E396', '#fff'], scatterChartHeight, customOptions);
+    Charts.createScatterChart("height-weight-scatter", master["height_weight_imperial_scatter"], "Height and Weight", "Scatter Plot", [2], ['#259efa', '#ff4f69', '#00E396', '#fff'], scatterChartHeight, customOptions);
     chartLoaded = true;
 }
 
@@ -315,6 +315,7 @@ function updateScatterPlot() {
         xaxis: {
             tickAmount: 12,
             min: 50, max: 350,
+            decimalsInFloat: 0,
             labels: {
                 show: true
             },
@@ -325,6 +326,7 @@ function updateScatterPlot() {
         yaxis: {
             tickAmount: 5,
             min: 55, max: 80,
+            decimalsInFloat: 0,
             title: {
                 text: data[0].yLabel,
             },
