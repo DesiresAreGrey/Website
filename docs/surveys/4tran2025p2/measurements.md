@@ -218,8 +218,8 @@ ___
   <div style="margin-top: 6px;">
     <div style="border-radius: 1rem;">
       <span id="info-height" class="container" style="min-width: 12ch; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0'0" - 0.0 cm</span>
-      <span id="info-weight" class="container" style="min-width: 12ch; margin-top: 4px; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0 lbs - 0 kg</span>
-      <span id="info-bmi" class="container" style="min-width: 12ch; margin-top: 4px; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0 BMI</span>
+      <span id="info-weight" class="container" style="min-width: 12ch; margin-top: 0; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0 lbs - 0 kg</span>
+      <span id="info-bmi" class="container" style="min-width: 12ch; margin-top: 0; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0 BMI</span>
     </div>
   </div>
 
@@ -227,16 +227,16 @@ ___
 
 <div class="panel right-panel" >
   <div>
-    <h4 style="margin-top: -0.25rem; margin-bottom: -0.325rem; font-size: 20px; font-variation-settings: 'wght' 600;">FtM</h4>
+    <h4 style="margin-top: -0.25rem; margin-bottom: -0.325rem; font-size: 20px; font-variation-settings: 'wght' 700; opacity: 0.9;">FtM</h4>
     <p id="ftm-percentile" style="margin-top: 0; margin-bottom: -0.325rem; font-size: 18px; font-variation-settings: 'wght' 500;">0.0th Percentile</p>
-    <p id="ftm-tallerthan" style="margin-top: 0; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400;">You are taller than 0% of FtMs</p>
-    <p id="ftm-shorterthan" style="margin-top: 0; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400;">You are shorter than 100% of FtMs</p>
+    <p id="ftm-tallerthan" style="margin-top: 0; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75;">You are taller than 0% of FtMs</p>
+    <p id="ftm-shorterthan" style="margin-top: 0; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75;">You are shorter than 100% of FtMs</p>
   </div>
   <div>
-    <h4 style="margin-top: 0.5rem; margin-bottom: -0.325rem; font-size: 20px; font-variation-settings: 'wght' 600;">MtF</h4>
+    <h4 style="margin-top: 0.5rem; margin-bottom: -0.325rem; font-size: 20px; font-variation-settings: 'wght' 700; opacity: 0.9;">MtF</h4>
     <p id="mtf-percentile" style="margin-top: 0; margin-bottom: -0.325rem; font-size: 18px; font-variation-settings: 'wght' 500;">0.0th Percentile</p>
-    <p id="mtf-tallerthan" style="margin-top: 0; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400;">You are taller than 0% of MtFs</p>
-    <p id="mtf-shorterthan" style="margin-top: 0; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400;">You are shorter than 100% of MtFs</p>
+    <p id="mtf-tallerthan" style="margin-top: 0; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75;">You are taller than 0% of MtFs</p>
+    <p id="mtf-shorterthan" style="margin-top: 0; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75;">You are shorter than 100% of MtFs</p>
   </div>
 </div>
 
