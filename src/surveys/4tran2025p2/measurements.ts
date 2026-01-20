@@ -1,11 +1,91 @@
 import "../../utils.js";
 //import * as Charts from "../../charts.js";
 
+const gender = $("#gender") as HTMLSelectElement;
+const units = $("#units") as HTMLSelectElement;
+
+const heightInput = $("#height") as HTMLInputElement;
+const heightFeetInput = $("#height-feet") as HTMLInputElement;
+
+const weightInput = $("#weight") as HTMLInputElement;
+
+const infoHeight = $("#info-height") as HTMLElement;
+const infoWeight = $("#info-weight") as HTMLElement;
+const infoBmi = $("#info-bmi") as HTMLElement;
+
+updateUnitUI(units.value as UnitSystem);
+
 const heightData = await(await fetch("../../../assets/surveys/4tran2025p2/results/height_inches_mean_sd.json")).json();
 const heightStats = Object.fromEntries(heightData.map((r: any) => [r.Gender, { mean: r.Mean, sd: r.SD }]));
 
-const gender = $("#gender") as HTMLSelectElement;
-const units = $("#units") as HTMLSelectElement;
+units.addEventListener("change", (e: any) => {
+    changeUnit(e.target.dataset.oldValue, e.target.value);
+    e.target.dataset.oldValue = e.target.value;
+    update();
+});
+units.dataset.oldValue = units.value;
+
+heightInput.addEventListener("input", update);
+heightFeetInput.addEventListener("input", update);
+weightInput.addEventListener("input", update);
+update();
+
+function getTotalHeight(oldUnit: UnitSystem): number {
+    let height = heightInput.value.parseFloat();
+    if (oldUnit === "imperial") 
+        return (height?.asInches(oldUnit) ?? 0) + (heightFeetInput.value.parseFloat()?.mult(12) ?? 0);
+    return height ?? 0;
+}
+
+function update() {
+    let height = getTotalHeight(units.value as UnitSystem);
+
+    infoHeight.textContent = `${height?.toFeetInches(1, units.value as UnitSystem)} - ${height.asCm(units.value as UnitSystem).roundTo(2)} cm`;
+    infoWeight.textContent = `${weightInput.value.parseFloat()?.asPounds(units.value as UnitSystem).roundTo(1)} lbs - ${weightInput.value.parseFloat()?.asKg(units.value as UnitSystem).roundTo(1)} kg`;
+
+    infoBmi.textContent = `${(weightInput.value.parseFloat()!.asKg(units.value as UnitSystem) / ((height.asCm(units.value as UnitSystem) / 100) ** 2)).roundTo(2)} BMI`;
+
+    console.log(height?.toFeetInches(1, units.value as UnitSystem))
+}
+
+function changeUnit(oldUnit: UnitSystem, newUnit: UnitSystem) {
+    const num = getTotalHeight(oldUnit);
+    if (!isFinite(num) || oldUnit === newUnit) return;
+
+    if (newUnit === "imperial") {
+        const inches = num.asInches(oldUnit);
+        const feet = Math.floor(inches / 12);
+        const remainingInches = inches % 12;
+        heightFeetInput.value = feet.toString();
+        heightInput.value = remainingInches.roundTo(1).toString();
+
+        weightInput.value = weightInput.value.parseFloat()?.asPounds(oldUnit).roundTo(1).toString()!;
+    }
+    else {
+        heightInput.value = num.asCm(oldUnit).roundTo(1).toString();
+
+        weightInput.value = weightInput.value.parseFloat()?.asKg(oldUnit).roundTo(1).toString()!;
+    }
+    updateUnitUI(newUnit);
+}
+
+function updateUnitUI(newUnit: UnitSystem) {
+    const feetSection = $("#height-feet-section") as HTMLInputElement;
+    const heightUnitsLabel = $("#height-units-label") as HTMLLabelElement;
+    const weightUnitsLabel = $("#weight-units-label") as HTMLLabelElement;
+    if (newUnit === "imperial") {
+        feetSection.style.display = "inline-block";
+        heightInput.style.width = "2rem";
+        heightUnitsLabel.textContent = "Inches";
+        weightUnitsLabel.textContent = "Pounds";
+    }
+    else {
+        feetSection.style.display = "none";
+        heightInput.style.width = "2.5rem";
+        heightUnitsLabel.textContent = "Centimeters";
+        weightUnitsLabel.textContent = "Kilograms";
+    }
+}
 
 /*
 (function () {

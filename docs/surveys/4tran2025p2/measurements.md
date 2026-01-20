@@ -13,14 +13,13 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
 <style>
 .container {
   display: flex;
-  justify-content: center;
   gap: 6px;
   flex-wrap: wrap;
 }
 .container > div {
   background: #141414;
   padding: 0.5rem 0.5rem;
-  border-radius: 1rem;
+  border-radius: 50vw;
   color: var(--md-typeset-color);
   font-size: .75rem;
   font-variation-settings: 'wght' 400;
@@ -64,32 +63,47 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
 
 ## Measurements
 
-<div class="container" style="margin-bottom: 6px;">
-  <div>
-    <select id="gender" class="input" style="width: 10rem; margin-bottom: 6px;" >
-      <option>Man (FtM)</option>
-      <option selected>Woman (MtF)</option>
-      <option>Nonbinary</option>
-    </select>
-    <div>
+
+
+<div>
       <select id="units" class="input" style="width: 10rem;">
         <option value="imperial">Imperial</option>
         <option value="metric">Metric</option>
       </select>
     </div>
-  </div>
-</div>
-<div class="container">
-  <div>
+
+<div style="margin-top: 6px;">
     <span id="height-feet-section">
       <input id="height-feet" class="input" type="number" inputmode="decimal" step="1" value="5" style="width: 2rem;">
       <span style="min-width: 12ch; margin-top: 4px; margin-right: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Feet</span>
     </span>
     <input id="height" class="input" type="number" inputmode="decimal" step="1" value="6" style="width: 2rem;">
-    <span style="min-width: 12ch; margin-top: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Inches</span>
+    <span id="height-units-label" style="min-width: 12ch; margin-top: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Inches</span>
   </div>
+
+<div style="margin-top: 6px;">
+  
   <div>
-    <input id="weight" class="input" type="number" inputmode="decimal" step="1" value="66" style="width: 2.5rem;">
-    <span style="min-width: 12ch; margin-top: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Pounds</span>
+    <input id="weight" class="input" type="number" inputmode="decimal" step="1" value="170" style="width: 3rem;">
+    <span id="weight-units-label" style="min-width: 12ch; margin-top: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Pounds</span>
   </div>
 </div>
+
+<div style="margin-top: 6px;">
+  <div style="border-radius: 1rem;">
+    <span id="info-height" class="container" style="min-width: 12ch; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0'0" - 0.0 cm</span>
+    <span id="info-weight" class="container" style="min-width: 12ch; margin-top: 4px; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0 lbs - 0 kg</span>
+    <span id="info-bmi" class="container" style="min-width: 12ch; margin-top: 4px; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0 BMI</span>
+  </div>
+</div>
+
+
+<!--
+<div class="container" style="margin-top: 6px;">
+  <div style="border-radius: 1rem;">
+  <span id="hp-out" class="percentile-container" style="min-width: 12ch; margin-top: -0.125rem; font-size: 21px; font-variation-settings: 'wght' 500;">0th  Percentile</span>
+  <span id="hp-out" class="percentile-container" style="min-width: 12ch; margin-top: 0; font-size: 16px; font-variation-settings: 'wght' 400;">You are taller than  0% of FtMs</span>
+  <span id="hp-out" class="percentile-container" style="min-width: 12ch; margin-top: 0; font-size: 16px; font-variation-settings: 'wght' 400;">You are shorter than 100% of FtMs</span>
+  </div>
+</div>
+-->
