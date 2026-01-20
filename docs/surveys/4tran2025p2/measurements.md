@@ -1,6 +1,6 @@
 ---
-description: Results of the 2025 4tran Survey 
-image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
+description: Results of the Extended 4tran Survey (2025.2)
+image: /assets/surveys/4tran2025p2/thumb-measurements.png
 ---
 <script type="importmap">
 {
@@ -17,12 +17,12 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
   flex-wrap: wrap;
 }
 .container > div {
-  background: #141414;
+  /*background: #141414;
   padding: 0.5rem 0.5rem;
   border-radius: 50vw;
   color: var(--md-typeset-color);
   font-size: .75rem;
-  font-variation-settings: 'wght' 400;
+  font-variation-settings: 'wght' 400;*/
 }
 .input {
   padding: .15rem;
@@ -41,6 +41,11 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
   }
   &:focus-visible {
     border-color: #9152ff;
+  }
+}
+@media (max-width: 640px) {
+  .container {
+    justify-content: center;
   }
 }
 </style>
@@ -65,23 +70,26 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
 
 
 
-<div>
+<div class="container">
       <select id="units" class="input" style="width: 10rem;">
         <option value="imperial">Imperial</option>
         <option value="metric">Metric</option>
       </select>
     </div>
 
-<div style="margin-top: 6px;">
+<div class="container">
+
+<div style="margin-top: 6px;" >
     <span id="height-feet-section">
-      <input id="height-feet" class="input" type="number" inputmode="decimal" step="1" value="5" style="width: 2rem;">
+      <input id="height-feet" class="input" type="text" inputmode="decimal" step="1" value="5" style="width: 2rem;">
       <span style="min-width: 12ch; margin-top: 4px; margin-right: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Feet</span>
     </span>
-    <input id="height" class="input" type="number" inputmode="decimal" step="1" value="6" style="width: 2rem;">
+    <input id="height" class="input" type="text" inputmode="decimal" step="1" value="6" style="width: 2rem;">
     <span id="height-units-label" style="min-width: 12ch; margin-top: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Inches</span>
   </div>
+</div>
 
-<div style="margin-top: 6px;">
+<div style="margin-top: 6px;" class="container">
   
   <div>
     <input id="weight" class="input" type="number" inputmode="decimal" step="1" value="170" style="width: 3rem;">
@@ -95,6 +103,19 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
     <span id="info-weight" class="container" style="min-width: 12ch; margin-top: 4px; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0 lbs - 0 kg</span>
     <span id="info-bmi" class="container" style="min-width: 12ch; margin-top: 4px; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0 BMI</span>
   </div>
+</div>
+
+___
+
+test scatter
+
+<div id="height-weight-scatter"
+  style="height: 500px;"
+  data-chart="scatter"
+  data-datakey="height_weight_imperial_scatter"
+  data-title="height_weight_imperial_scatter"
+  data-hideseries='[]'
+  >
 </div>
 
 

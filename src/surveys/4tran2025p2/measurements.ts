@@ -1,5 +1,5 @@
 import "../../utils.js";
-//import * as Charts from "../../charts.js";
+import * as Charts from "../../charts.js";
 
 const gender = $("#gender") as HTMLSelectElement;
 const units = $("#units") as HTMLSelectElement;
@@ -15,7 +15,9 @@ const infoBmi = $("#info-bmi") as HTMLElement;
 
 updateUnitUI(units.value as UnitSystem);
 
-const heightData = await(await fetch("../../../assets/surveys/4tran2025p2/results/height_inches_mean_sd.json")).json();
+const master = await(await fetch("/assets/surveys/4tran2025p2/results/_master.json")).json();
+const heightData = master["height_inches_mean_sd"];
+
 const heightStats = Object.fromEntries(heightData.map((r: any) => [r.Gender, { mean: r.Mean, sd: r.SD }]));
 
 units.addEventListener("change", (e: any) => {
@@ -37,7 +39,10 @@ function getTotalHeight(oldUnit: UnitSystem): number {
     return height ?? 0;
 }
 
-function update() {
+function update(e?: Event) {
+    if (e)
+        (e.target as HTMLInputElement).value = (e.target as HTMLInputElement).value.replace(/[^0-9.]/g, '');
+
     let height = getTotalHeight(units.value as UnitSystem);
 
     infoHeight.textContent = `${height?.toFeetInches(1, units.value as UnitSystem)} - ${height.asCm(units.value as UnitSystem).roundTo(2)} cm`;
@@ -86,6 +91,21 @@ function updateUnitUI(newUnit: UnitSystem) {
         weightUnitsLabel.textContent = "Kilograms";
     }
 }
+
+function erf(x: number) {
+    const a1 = 0.254829592,
+        a2 = -0.284496736,
+        a3 = 1.421413741,
+        a4 = -1.453152027,
+        a5 = 1.061405429,
+        p = 0.3275911;
+    const sign = x < 0 ? -1 : 1;
+    x = Math.abs(x);
+    const t = 1 / (1 + p * x);
+    const y = 1 - ((((a5 * t + a4) * t + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+    return sign * y;
+}
+const Phi = (z: number) => 0.5 * (1 + erf(z / Math.SQRT2));
 
 /*
 (function () {
@@ -182,3 +202,28 @@ function updateUnitUI(newUnit: UnitSystem) {
     u.dataset.oldValue = u.value;
     v.addEventListener("input", update);
 })();*/
+
+const unitSystem = units.value as UnitSystem;
+const customOptions: any = {
+    tooltip: {
+        custom: ({ seriesIndex, dataPointIndex, w }: { seriesIndex: number; dataPointIndex: number; w: any }) => {
+            const point: number[] = w.config.series[seriesIndex].data[dataPointIndex];
+            const height = point[1];
+            const weight = point[0];
+            const bmi = (weight.asKg(unitSystem) / ((height.asCm(unitSystem) / 100) ** 2)).roundTo(2);
+            const name: string = w.config.series[seriesIndex].name;
+            return `
+            <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${name}</div>
+            <div class="apexcharts-tooltip-box apexcharts-tooltip-scatter">
+                <div class="apexcharts-tooltip-text" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">
+                    Height: <b>${point[1].asInches(unitSystem).toFeetInches()}</b><br>
+                    Weight: <b>${point[0]}</b><br>
+                    BMI: <b>${bmi}</b>
+                </div>
+            </div>`;
+        },
+        
+    },
+};
+Charts.createScatterChart("height-weight-scatter", master["height_weight_imperial_scatter"], "Height and Weight", undefined, [], ['#259efa', '#ff4f69', '#00E396', '#FEB019'], $("#height-weight-scatter")!.style.height.replace("px", "")?.parseFloat() ?? 300, customOptions);
+

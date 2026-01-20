@@ -331,7 +331,7 @@ export function createPieChart(chartId: string, data: any, title: string | undef
     new ApexCharts(document.querySelector("#" + chartId), options).render();
 }
 
-export function createBoxPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, height = 300, bounds: number | undefined = undefined) {
+export function createBoxPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, height = 300, bounds?: number) {
     const options: any = {
         chart: {
             type: 'boxPlot',
@@ -482,12 +482,7 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
     new ApexCharts(document.querySelector("#" + chartId), options).render();
 }
 
-export function createScatterChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, units: UnitSystem = "imperial") {
-    hideSeries.forEach(index => {
-        if (data.series[index]) {
-            data.series[index].hidden = true;
-        }
-    });
+export function createScatterChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, customOptions?: any) {
     const options = {
         chart: {
             type: 'scatter',
@@ -520,11 +515,17 @@ export function createScatterChart(chartId: string, data: any, title: string | u
             labels: {
                 show: true
             },
+            title: {
+                text: data[0].xLabel,
+            },
             min: 50, max: 350,
         },
         yaxis: {
             tickAmount: 5,
             min: 55, max: 80,
+            title: {
+                text: data[0].yLabel,
+            },
         },
         legend: {
             position: 'bottom',
@@ -533,17 +534,15 @@ export function createScatterChart(chartId: string, data: any, title: string | u
         tooltip: {
             custom: ({ seriesIndex, dataPointIndex, w }: { seriesIndex: number; dataPointIndex: number; w: any }) => {
                 const point: number[] = w.config.series[seriesIndex].data[dataPointIndex];
-                const height = point[1];
-                const weight = point[0];
-                const bmi = (weight.asKg(units) / ((height.asCm(units) / 100) ** 2)).roundTo(2);
+                const xLabel = w.config.series[seriesIndex].xLabel ?? "X";
+                const yLabel = w.config.series[seriesIndex].yLabel ?? "Y";
                 const name: string = w.config.series[seriesIndex].name;
                 return `
                 <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${name}</div>
                 <div class="apexcharts-tooltip-box apexcharts-tooltip-scatter">
                     <div class="apexcharts-tooltip-text" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">
-                        Height: <b>${point[1].asInches(units).toFeetInches()}</b><br>
-                        Weight: <b>${point[0]}</b><br>
-                        BMI: <b>${bmi}</b>
+                        ${xLabel}: <b>${point[0]}</b><br>
+                        ${yLabel}: <b>${point[1]}</b><br>
                     </div>
                 </div>`;
             },
@@ -582,12 +581,12 @@ export function createScatterChart(chartId: string, data: any, title: string | u
         },
         colors: colors,
     };
-    new ApexCharts(document.querySelector("#" + chartId), options).render();
+    new ApexCharts(document.querySelector("#" + chartId), { ...options, ...customOptions }).render();
 }
 
 
 function replaceXThanWithSymbol(s: string): string {
-  return String(s)
+  return s
     .replace(/^\s*([^()]+?)(\s*\(.*?\))?\s+or\s+less\s*$/i, '≤$1$2')
     .replace(/^\s*([^()]+?)(\s*\(.*?\))?\s+or\s+more\s*$/i, '≥$1$2')
     .replace(/\s+/g, ' ')
