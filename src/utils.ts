@@ -30,6 +30,8 @@ declare global {
         multFloor(multiplier: number): number;
         multRound(multiplier: number): number;
 
+        appendOrdinal(): string;
+
         toFeetInches(decimals?: number, fromUnit?: UnitSystem): string;
         asInches(fromUnit?: UnitSystem): number;
         asCm(fromUnit?: UnitSystem): number;
@@ -84,6 +86,23 @@ Object.defineProperty(Number.prototype, 'floorTo', {
 Object.defineProperty(Number.prototype, 'mult', { value: function(this: number, multiplier: number) { return this * multiplier } });
 Object.defineProperty(Number.prototype, 'multFloor', { value: function(this: number, multiplier: number) { return Math.floor(this * multiplier) } });
 Object.defineProperty(Number.prototype, 'multRound', { value: function(this: number, multiplier: number) { return Math.round(this * multiplier) } });
+
+Object.defineProperty(Number.prototype, 'appendOrdinal', { 
+    value: function(this: number) {
+        const stringValue = this.toString();
+        if (stringValue.endsWith('11') || stringValue.endsWith('12') || stringValue.endsWith('13')) {
+            return stringValue + 'th';
+        }
+        const lastChar = stringValue[stringValue.length - 1];
+
+        switch (lastChar) {
+            case '1': return stringValue + 'st';
+            case '2': return stringValue + 'nd';
+            case '3': return stringValue + 'rd';
+            default:  return stringValue + 'th';
+        }
+    } 
+});
 
 Object.defineProperty(Number.prototype, 'toFeetInches', { 
     value: function(this: number, decimals: number = 0, fromUnit: UnitSystem = "imperial") { 
