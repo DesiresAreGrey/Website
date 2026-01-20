@@ -28,9 +28,23 @@ units.addEventListener("change", (e: any) => {
 units.dataset.oldValue = units.value;
 
 heightInput.addEventListener("input", update);
+heightInput.addEventListener("focus", focusInput);
+
 heightFeetInput.addEventListener("input", update);
+heightFeetInput.addEventListener("focus", focusInput);
+
 weightInput.addEventListener("input", update);
+weightInput.addEventListener("focus", focusInput);
+
 update();
+
+function focusInput(e: Event) {
+    if (window.innerWidth > 768) return;
+    const input = e.target as HTMLInputElement;
+    const tempValue = input.value;
+    input.value = '';
+    input.value = tempValue;
+}
 
 function getTotalHeight(oldUnit: UnitSystem): number {
     let height = heightInput.value.parseFloat();
@@ -49,8 +63,6 @@ function update(e?: Event) {
     infoWeight.textContent = `${weightInput.value.parseFloat()?.asPounds(units.value as UnitSystem).roundTo(1)} lbs - ${weightInput.value.parseFloat()?.asKg(units.value as UnitSystem).roundTo(1)} kg`;
 
     infoBmi.textContent = `${(weightInput.value.parseFloat()!.asKg(units.value as UnitSystem) / ((height.asCm(units.value as UnitSystem) / 100) ** 2)).roundTo(2)} BMI`;
-
-    console.log(height?.toFeetInches(1, units.value as UnitSystem))
 }
 
 function changeUnit(oldUnit: UnitSystem, newUnit: UnitSystem) {

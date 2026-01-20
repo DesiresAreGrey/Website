@@ -71,11 +71,11 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
 
 
 <div class="container">
-      <select id="units" class="input" style="width: 10rem;">
-        <option value="imperial">Imperial</option>
-        <option value="metric">Metric</option>
-      </select>
-    </div>
+  <select id="units" class="input" style="width: 10rem;">
+    <option value="imperial">Imperial</option>
+    <option value="metric">Metric</option>
+  </select>
+</div>
 
 <div class="container">
 
@@ -90,7 +90,6 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
 </div>
 
 <div style="margin-top: 6px;" class="container">
-  
   <div>
     <input id="weight" class="input" type="number" inputmode="decimal" step="1" value="170" style="width: 3rem;">
     <span id="weight-units-label" style="min-width: 12ch; margin-top: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Pounds</span>
@@ -107,7 +106,7 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
 
 ___
 
-test scatter
+Scatter Plot of Height vs Weight (Imperial)
 
 <div id="height-weight-scatter"
   style="height: 500px;"

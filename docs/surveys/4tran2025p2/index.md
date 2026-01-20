@@ -51,9 +51,13 @@ image: /assets/surveys/4tran2025p2/thumb.png
   <a href="conclusion">Conclusion</a>
 </div>
 
-This is the results page for the Extended 4tran Survey (2025.2) which is a follow up survey to the original 2025 4tran Survey, and includes questions that were requested but missing from the original survey. The survey was open from December 5 to December 31, 2025 and got **1,675** (real) responses. Duplicates were automatically filtered (if you submitted more than once, only your last submission was kept), and spam/etc was manually removed (thanks [u/ILoveFurnaceGenocide](https://www.reddit.com/user/ILoveFurnaceGenocide/){ target="_blank" } for the help). 
+This is the results page for the Extended 4tran Survey (2025.2) which is a follow up survey to the original 2025 4tran Survey, and includes questions that were
+requested but missing from the original survey. The survey was open from December 5 to December 31, 2025 and got **1,675** (real) responses. Duplicates were
+automatically filtered (if you submitted more than once, only your last submission was kept), and spam/etc was manually removed (thanks
+[u/ILoveFurnaceGenocide](https://www.reddit.com/user/ILoveFurnaceGenocide/){ target="_blank" } for the help). 
 
-Sorry for taking so long to publish the results, I had a lot of stuff going on in December and January including recovery from FFS. I was originally hoping to post the results way earlier but I just couldn't realistically.
+Sorry for taking so long to publish the results, I had a lot of stuff going on in December and January including recovery from FFS. I was originally
+hoping to post the results way earlier but I just couldn't realistically.
 
 Its heavily recommended you view this site on desktop! The charts are interactive (click on the legend options to show/hide them). 
 
@@ -73,7 +77,8 @@ Its heavily recommended you view this site on desktop! The charts are interactiv
 
 ### Gender
 
-The ratio between men and women is a bit better this time! Last time the binary pie chart had men at 23% and women at 77%, while here men are at 26%. A 3% increase isn't crazy but it's still pretty cool to see that number go up instead of down.
+The ratio between men and women is a bit better this time! Last time the binary pie chart had men at 23% and women at 77%, while here men are at 26%.
+A 3% increase isn't crazy but it's still pretty cool to see that number go up instead of down.
 
 <div class="charts-grid">
   <div id="gender-binary-pie" 
@@ -129,7 +134,9 @@ Just like last time, trans men are younger. Theres also fewer older men with kin
   </div>
 </div>
 
-This time for the adult graph I also included a section for those in between 18 and 20, since 21 is kinda "adult 2" especially in the US. Only 36% of men are legally able to drink in the US, compared to 62% of women. Obviously the number of men who are under 18 is also insane, but we went over that last time.
+This time for the adult graph I also included a section for those in between 18 and 20, since 21 is kinda "adult 2" especially in the US. Only 36% of
+men are legally able to drink in the US, compared to 62% of women. Obviously the number of men who are under 18 is also insane, but we went over that
+last time.
 
 <div id="adults-ratio" 
   class="apexchart"
@@ -143,7 +150,8 @@ This time for the adult graph I also included a section for those in between 18 
 
 ### Unit System
 
-Thought that this would be kinda interesting since on the subreddits most people use inches/feet/pounds. I guess its not a surprise that on the survey most people used the imperial system.
+Thought that this would be kinda interesting since on the subreddits most people use inches/feet/pounds. I guess its not a surprise that on the survey
+most people used the imperial system.
 
 If you're wondering where Height and Weight are, I made a dedicated measurements page (the next page) for it. (It has calculators and charts and stuff).
 
@@ -196,7 +204,11 @@ No surprise that everyone is white.
 
 <h4>Cis People</h4>
 
-We can use sex at birth to separate cis people by their gender. I didn't include cis man and cis woman as options due to in the first survey a lot of passoids and self haters picked cis options instead of the proper trans options. Its fine to do that literally anywhere else but cis responses are generally ignored on here, so you're basically just spending 10 minutes filling out a survey for no reason. If you're a cis lurker or something then the cis option was meant for you. If you are a cis lurker feel free to dm me on reddit or twitter, I am always interested in hearing from cis lurkers about why they lurk.
+We can use sex at birth to separate cis people by their gender. I didn't include cis man and cis woman as options due to in the first survey a lot of
+passoids and self haters picked cis options instead of the proper trans options. Its fine to do that literally anywhere else but cis responses are
+generally ignored on here, so you're basically just spending 10 minutes filling out a survey for no reason. If you're a cis lurker or something then
+the cis option was meant for you. If you are a cis lurker feel free to dm me on reddit or twitter, I am always interested in hearing from cis lurkers
+about why they lurk.
 
 <div id="cisgender-pie" 
   class="apexchart"
