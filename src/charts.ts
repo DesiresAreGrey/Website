@@ -10,6 +10,7 @@ export function createRatioBarChart(chartId: string, data: any, title: string | 
     data.categories = data.categories.map((c: string) => replaceXThanWithSymbol(c));
     const options = {
         chart: {
+            id: chartId,
             type: 'bar',
             height: height,
             stacked: true,
@@ -113,6 +114,7 @@ export function createBarChart(chartId: string, data: any, title: string | undef
     data.categories = data.categories.map((c: string) => replaceXThanWithSymbol(c));
     const options = {
         chart: {
+            id: chartId,
             type: 'bar',
             height: height,
             stacked: true,
@@ -190,6 +192,7 @@ export function createPopPyramidChart(chartId: string, data: any, title: string 
     data.categories = data.categories.map((c: string) => replaceXThanWithSymbol(c));
     const options = {
         chart: {
+            id: chartId,
             type: 'bar',
             height: height,
             stacked: true,
@@ -279,6 +282,7 @@ export function createPopPyramidChart(chartId: string, data: any, title: string 
 export function createPieChart(chartId: string, data: any, title: string | undefined, colors: string[], height: number) {
     const options = {
         chart: {
+            id: chartId,
             type: 'pie',
             height: height,
             toolbar: { show: false },
@@ -334,6 +338,7 @@ export function createPieChart(chartId: string, data: any, title: string | undef
 export function createBoxPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, height = 300, bounds?: number) {
     const options: any = {
         chart: {
+            id: chartId,
             type: 'boxPlot',
             height: height,
             toolbar: { show: false },
@@ -485,6 +490,7 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
 export function createScatterChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, customOptions?: any) {
     const options = {
         chart: {
+            id: chartId,
             type: 'scatter',
             height: height,
             toolbar: { show: true },
@@ -511,18 +517,14 @@ export function createScatterChart(chartId: string, data: any, title: string | u
         },
         series: data,
         xaxis: {
-            tickAmount: 12,
             labels: {
                 show: true
             },
             title: {
                 text: data[0].xLabel,
             },
-            min: 50, max: 350,
         },
         yaxis: {
-            tickAmount: 5,
-            min: 55, max: 80,
             title: {
                 text: data[0].yLabel,
             },

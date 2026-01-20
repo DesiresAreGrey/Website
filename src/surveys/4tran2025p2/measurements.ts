@@ -1,8 +1,10 @@
 import "../../utils.js";
 import * as Charts from "../../charts.js";
+import ApexCharts from 'apexcharts';
 
 const gender = $("#gender") as HTMLSelectElement;
-const units = $("#units") as HTMLSelectElement;
+const unitsSelect = $("#units") as HTMLSelectElement;
+const units = unitsSelect.value as UnitSystem;
 
 const heightInput = $("#height") as HTMLInputElement;
 const heightFeetInput = $("#height-feet") as HTMLInputElement;
@@ -13,28 +15,33 @@ const infoHeight = $("#info-height") as HTMLElement;
 const infoWeight = $("#info-weight") as HTMLElement;
 const infoBmi = $("#info-bmi") as HTMLElement;
 
-updateUnitUI(units.value as UnitSystem);
+let chartLoaded = false;
+
+updateUnitUI(units);
 
 const master = await(await fetch("/assets/surveys/4tran2025p2/results/_master.json")).json();
 const heightData = master["height_inches_mean_sd"];
 
 const heightStats = Object.fromEntries(heightData.map((r: any) => [r.Gender, { mean: r.Mean, sd: r.SD }]));
 
-units.addEventListener("change", (e: any) => {
+unitsSelect.addEventListener("change", (e: any) => {
     changeUnit(e.target.dataset.oldValue, e.target.value);
     e.target.dataset.oldValue = e.target.value;
     update();
 });
-units.dataset.oldValue = units.value;
+unitsSelect.dataset.oldValue = unitsSelect.value;
 
 heightInput.addEventListener("input", update);
 heightInput.addEventListener("focus", focusInput);
+heightInput.addEventListener("blur", updateScatterPlot);
 
 heightFeetInput.addEventListener("input", update);
 heightFeetInput.addEventListener("focus", focusInput);
+heightFeetInput.addEventListener("blur", updateScatterPlot);
 
 weightInput.addEventListener("input", update);
 weightInput.addEventListener("focus", focusInput);
+weightInput.addEventListener("blur", updateScatterPlot);
 
 update();
 
@@ -57,12 +64,12 @@ function update(e?: Event) {
     if (e)
         (e.target as HTMLInputElement).value = (e.target as HTMLInputElement).value.replace(/[^0-9.]/g, '');
 
-    let height = getTotalHeight(units.value as UnitSystem);
+    let height = getTotalHeight(units);
 
-    infoHeight.textContent = `${height?.toFeetInches(1, units.value as UnitSystem)} - ${height.asCm(units.value as UnitSystem).roundTo(2)} cm`;
-    infoWeight.textContent = `${weightInput.value.parseFloat()?.asPounds(units.value as UnitSystem).roundTo(1)} lbs - ${weightInput.value.parseFloat()?.asKg(units.value as UnitSystem).roundTo(1)} kg`;
+    infoHeight.textContent = `${height?.toFeetInches(1, units)} - ${height.asCm(units).roundTo(2)} cm`;
+    infoWeight.textContent = `${weightInput.value.parseFloat()?.asPounds(units).roundTo(1)} lbs - ${weightInput.value.parseFloat()?.asKg(units).roundTo(1)} kg`;
 
-    infoBmi.textContent = `${(weightInput.value.parseFloat()!.asKg(units.value as UnitSystem) / ((height.asCm(units.value as UnitSystem) / 100) ** 2)).roundTo(2)} BMI`;
+    infoBmi.textContent = `${(weightInput.value.parseFloat()!.asKg(units) / ((height.asCm(units) / 100) ** 2)).roundTo(2)} BMI`;
 }
 
 function changeUnit(oldUnit: UnitSystem, newUnit: UnitSystem) {
@@ -215,27 +222,65 @@ const Phi = (z: number) => 0.5 * (1 + erf(z / Math.SQRT2));
     v.addEventListener("input", update);
 })();*/
 
-const unitSystem = units.value as UnitSystem;
 const customOptions: any = {
     tooltip: {
         custom: ({ seriesIndex, dataPointIndex, w }: { seriesIndex: number; dataPointIndex: number; w: any }) => {
             const point: number[] = w.config.series[seriesIndex].data[dataPointIndex];
             const height = point[1];
             const weight = point[0];
-            const bmi = (weight.asKg(unitSystem) / ((height.asCm(unitSystem) / 100) ** 2)).roundTo(2);
+            const bmi = (weight.asKg(units) / ((height.asCm(units) / 100) ** 2)).roundTo(2);
             const name: string = w.config.series[seriesIndex].name;
             return `
             <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${name}</div>
             <div class="apexcharts-tooltip-box apexcharts-tooltip-scatter">
                 <div class="apexcharts-tooltip-text" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">
-                    Height: <b>${point[1].asInches(unitSystem).toFeetInches()}</b><br>
+                    Height: <b>${point[1].asInches(units).toFeetInches()}</b><br>
                     Weight: <b>${point[0]}</b><br>
                     BMI: <b>${bmi}</b>
                 </div>
             </div>`;
         },
-        
+    },
+    xaxis: {
+        tickAmount: 12,
+        min: 50, max: 350,
+    },
+    yaxis: {
+        tickAmount: 5,
+        min: 55, max: 80,
     },
 };
-Charts.createScatterChart("height-weight-scatter", master["height_weight_imperial_scatter"], "Height and Weight", undefined, [], ['#259efa', '#ff4f69', '#00E396', '#FEB019'], $("#height-weight-scatter")!.style.height.replace("px", "")?.parseFloat() ?? 300, customOptions);
+Charts.createScatterChart("height-weight-scatter", master["height_weight_imperial_scatter"], "Height and Weight", undefined, [], ['#259efa', '#ff4f69', '#00E396', '#fff'], $("#height-weight-scatter")!.style.height.replace("px", "")?.parseFloat() ?? 300, customOptions);
+
+chartLoaded = true;
+updateScatterPlot();
+
+function updateScatterPlot() {
+    if (!chartLoaded)
+        return;
+
+    const xy = [weightInput.value.parseFloat()?.asPounds(units).roundTo(1), getTotalHeight(units).asInches(units)];
+    ApexCharts.exec("height-weight-scatter", "updateOptions", {
+        series: [...master["height_weight_imperial_scatter"], {
+            name: "You",
+            data: [xy]
+        }],
+        annotations: {
+            xaxis: [{
+                x: xy[0],
+            }],
+            yaxis: [{
+                y: xy[1],
+            }]
+        },
+        xaxis: {
+            tickAmount: 12,
+            min: 50, max: 350,
+        },
+        yaxis: {
+            tickAmount: 5,
+            min: 55, max: 80,
+        },
+    });
+}
 
