@@ -152,11 +152,12 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
 
 ### Height
 
-Even more of a normal distribution than the first survey. Its kinda beautiful visually tbh, when ignoring the brutal dimorphism of height.
+Even more of a normal distribution than the first survey. Its kinda beautiful visually tbh (when ignoring the brutal dimorphism of height).
 
 <div class="chart-set">
   <input id="height-a" class="vh" type="radio" name="view-height" checked>
   <input id="height-b" class="vh" type="radio" name="view-height">
+  <input id="height-c" class="vh" type="radio" name="view-height">
   
   <div class="chart-stack">
     <div id="height-pop-pyramid" 
@@ -169,20 +170,79 @@ Even more of a normal distribution than the first survey. Its kinda beautiful vi
       data-bounds="15"
       >
     </div>
-    <div id="height-boxplot" 
+    <div id="height-inches-boxplot" 
       class="apexchart chart-layer layer-b"
       style="height: 500px;"
       data-chart="boxplot"
       data-datakey="height_inches_boxplot"
-      data-subtitle="Box Plot"
+      data-subtitle="Box Plot (Inches)"
+      data-title="Height"
+      >
+    </div>
+    <div id="height-cm-boxplot" 
+      class="apexchart chart-layer layer-c"
+      style="height: 500px;"
+      data-chart="boxplot"
+      data-datakey="height_cm_boxplot"
+      data-subtitle="Box Plot (Centimeters)"
       data-title="Height"
       >
     </div>
   </div>
   <div class="toggle">
     <label for="height-a" class="noselect">Population Pyramid</label>
-    <label for="height-b" class="noselect">Box Plot</label>
+    <label for="height-b" class="noselect">Box Plot (Inches)</label>
+    <label for="height-c" class="noselect">Box Plot (CM)</label>
   </div>
+</div>
+
+### Weight
+
+Weight is dependent on height generally, so the dimorphism is due to height differences. Its interesting seeing how many outliers there are though.
+
+<div class="chart-set">
+  <input id="weight-a" class="vh" type="radio" name="view-weight" checked>
+  <input id="weight-b" class="vh" type="radio" name="view-weight">
+  
+  <div class="chart-stack">
+    <div id="weight-inches-boxplot" 
+      class="apexchart chart-layer layer-a"
+      style="height: 500px;"
+      data-chart="boxplot"
+      data-datakey="weight_pounds_boxplot"
+      data-subtitle="Box Plot (Pounds)"
+      data-title="Weight"
+      >
+    </div>
+    <div id="weight-cm-boxplot" 
+      class="apexchart chart-layer layer-b"
+      style="height: 500px;"
+      data-chart="boxplot"
+      data-datakey="weight_kg_boxplot"
+      data-subtitle="Box Plot (Kilograms)"
+      data-title="Weight"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="weight-a" class="noselect">Box Plot (Pounds)</label>
+    <label for="weight-b" class="noselect">Box Plot (Kilograms)</label>
+  </div>
+</div>
+
+### BMI
+
+BMI doesn't have that issue with height dimorphism since its divided by height or whatever. The box plots are pretty much the same between men and
+women with men having a very slightly higher BMI.
+
+<div id="bmi-boxplot" 
+  class="apexchart chart-layer layer-a"
+  style="height: 500px;"
+  data-chart="boxplot"
+  data-datakey="bmi_boxplot"
+  data-subtitle="Box Plot"
+  data-title="BMI"
+  >
 </div>
 
 ___
