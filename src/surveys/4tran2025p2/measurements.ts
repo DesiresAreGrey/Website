@@ -16,10 +16,17 @@ const infoHeight = $("#info-height") as HTMLElement;
 const infoWeight = $("#info-weight") as HTMLElement;
 const infoBmi = $("#info-bmi") as HTMLElement;
 
-const scatterplotToggle = $("#scatterplot-toggle") as HTMLInputElement;
-const scatterplotEnabled = () => !($("#scatterplot-toggle") as HTMLInputElement).checked;
+const scatterplotChartToggle = $("#scatterplot-show-toggle") as HTMLInputElement;
+const scatterplotChartEnabled = () => !scatterplotChartToggle.checked;
+
+const scatterplotSelfToggle = $("#scatterplot-self-toggle") as HTMLInputElement;
+const scatterplotSelfEnabled = () => !scatterplotSelfToggle.checked;
 
 let chartLoaded = false;
+const scatterChartHeight = $("#height-weight-scatter")!.style.height.replace("px", "")?.parseFloat() ?? 300;
+if (!scatterplotChartEnabled()) {
+    $("#height-weight-scatter")!.style.height = "0";
+}
 
 updateUnitUI(getUnits());
 
@@ -47,7 +54,8 @@ weightInput.addEventListener("input", update);
 weightInput.addEventListener("focus", focusInput);
 weightInput.addEventListener("blur", updateScatterPlot);
 
-scatterplotToggle.addEventListener("change", updateScatterPlot);
+scatterplotChartToggle.addEventListener("change", updateScatterPlot);
+scatterplotSelfToggle.addEventListener("change", updateScatterPlot);
 
 update();
 
@@ -258,18 +266,25 @@ function createScatterPlot() {
             tickAmount: 5,
             min: 55, max: 80,
         },
+        markers: {
+            size: [5, 5, 5, 6],
+            strokeWidth: 1,
+            strokeColors: '#090909',
+        },
     };
-    Charts.createScatterChart("height-weight-scatter", master["height_weight_imperial_scatter"], "Height and Weight", undefined, [2], ['#259efa', '#ff4f69', '#00E396', '#fff'], $("#height-weight-scatter")!.style.height.replace("px", "")?.parseFloat() ?? 300, customOptions);
+    Charts.createScatterChart("height-weight-scatter", master["height_weight_imperial_scatter"], "Height and Weight", undefined, [2], ['#259efa', '#ff4f69', '#00E396', '#fff'], scatterChartHeight, customOptions);
     chartLoaded = true;
 }
 
 function updateScatterPlot() {
-    if (scatterplotEnabled() && !chartLoaded) {
+    if (scatterplotChartEnabled() && !chartLoaded) {
         createScatterPlot();
+        $("#height-weight-scatter")!.style.height = scatterChartHeight + "px";
     }
-    else if (!scatterplotEnabled() && chartLoaded) {
+    else if (!scatterplotChartEnabled() && chartLoaded) {
         ApexCharts.exec("height-weight-scatter", "destroy");
         chartLoaded = false;
+        $("#height-weight-scatter")!.style.height = "0";
         return;
     }
 
@@ -278,20 +293,27 @@ function updateScatterPlot() {
         return;
 
     const xy = [weightInput.value.parseFloat()?.asPounds(getUnits()).roundTo(1), getTotalHeight(getUnits()).asInches(getUnits()).roundTo(1)];
-    const data = [...master["height_weight_imperial_scatter"], {
-        name: "You",
-        data: [xy]
-    }];
-    ApexCharts.exec("height-weight-scatter", "updateOptions", {
-        series: data,
-        annotations: {
+
+    let data = master["height_weight_imperial_scatter"];
+    let annotations = { xaxis: [{}], yaxis: [{}] };
+    if (scatterplotSelfEnabled()) {
+        data = [...master["height_weight_imperial_scatter"], {
+            name: "You",
+            data: [xy]
+        }];
+        annotations = {
             xaxis: [{
                 x: xy[0],
             }],
             yaxis: [{
                 y: xy[1],
             }]
-        },
+        };
+    }
+    console.log(annotations);
+    ApexCharts.exec("height-weight-scatter", "updateOptions", {
+        series: data,
+        annotations: annotations,
         xaxis: {
             tickAmount: 12,
             min: 50, max: 350,

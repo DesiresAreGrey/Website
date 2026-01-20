@@ -130,7 +130,7 @@ Just like last time, trans men are younger. Theres also fewer older men with kin
   </div>
   <div class="toggle">
     <label for="age-a" class="noselect">Population Pyramid</label>
-    <label for="age-b" class="noselect">Column</label>
+    <label for="age-b" class="noselect">Box Plot</label>
   </div>
 </div>
 

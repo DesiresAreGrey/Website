@@ -10,19 +10,23 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
 }
 </script>
 <script type="module" src="/js/surveys/4tran2025p2/measurements.js?v={{ now() }}"></script>
+<script type="module" src="/js/surveys/4tran2025p2/4tran2025p2.js?v={{ now() }}&path=../../../assets/surveys/4tran2025p2/results/"></script>
+
 <style>
 .container {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
 }
-.container > div {
-  /*background: #141414;
-  padding: 0.5rem 0.5rem;
-  border-radius: 50vw;
-  color: var(--md-typeset-color);
-  font-size: .75rem;
-  font-variation-settings: 'wght' 400;*/
+.center-container {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.scatterapexchart {
+  min-height: 0 !important;
+  margin-bottom: .5rem;
 }
 .input {
   padding: .15rem;
@@ -123,7 +127,38 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
 
 ## Measurements
 
+<div class="chart-set">
+  <input id="height-a" class="vh" type="radio" name="view-height" checked>
+  <input id="height-b" class="vh" type="radio" name="view-height">
+  
+  <div class="chart-stack">
+    <div id="height-pop-pyramid" 
+      class="apexchart chart-layer layer-a"
+      style="height: 500px;"
+      data-chart="pop-pyramid"
+      data-datakey="height_pop_pyramid"
+      data-title="Height"
+      data-subtitle="Population Pyramid"
+      data-bounds="15"
+      >
+    </div>
+    <div id="height-boxplot" 
+      class="apexchart chart-layer layer-b"
+      style="height: 500px;"
+      data-chart="boxplot"
+      data-datakey="height_inches_boxplot"
+      data-subtitle="Box Plot"
+      data-title="Height"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="height-a" class="noselect">Population Pyramid</label>
+    <label for="height-b" class="noselect">Box Plot</label>
+  </div>
+</div>
 
+## Calculator
 
 <div class="container">
   <select id="units" class="input" style="width: 10rem;">
@@ -162,17 +197,31 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
 ___
 
 
-<div id="height-weight-scatter" style="height: 500px;" class="apexchart"></div>
+<div id="height-weight-scatter" style="height: 550px;" class="scatterapexchart"></div>
 
-<div class="label">Enable Scatter Plot
-  <div class="label-subtitle">May be heavy on mobile</div>
+<div class="center-container">
+  <div class="label" style="width: 8rem;">Show Scatter Plot
+    <div class="label-subtitle">May be heavy on mobile</div>
+  </div>
+  <div style="margin-bottom: 6px; display: flex;">
+    <input type="checkbox" id="scatterplot-show-toggle" class="toggleCheckbox" />
+    <label for="scatterplot-show-toggle" class='toggleContainer'>
+      <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Show</div>   
+      <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Hide</div>
+    </label>
+  </div>
 </div>
-<div style="margin-bottom: 6px; display: flex;">
-  <input type="checkbox" id="scatterplot-toggle" class="toggleCheckbox" />
-  <label for="scatterplot-toggle" class='toggleContainer'>
-    <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Show</div>   
-    <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Hide</div>
-  </label>
+<div class="center-container">
+  <div class="label" style="width: 8rem;">Show Self
+    <div class="label-subtitle">Shows your height/weight</div>
+  </div>
+  <div style="margin-bottom: 6px; display: flex;">
+    <input type="checkbox" id="scatterplot-self-toggle" class="toggleCheckbox" />
+    <label for="scatterplot-self-toggle" class='toggleContainer'>
+      <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Show</div>   
+      <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Hide</div>
+    </label>
+  </div>
 </div>
 
 <!--

@@ -522,6 +522,7 @@ export function createScatterChart(chartId: string, data: any, title: string | u
         },
         series: data,
         xaxis: {
+            tickAmount: 10,
             labels: {
                 show: true
             },
@@ -584,7 +585,9 @@ export function createScatterChart(chartId: string, data: any, title: string | u
             width: 3,    
         },
         markers: {
-            size: 4
+            size: 5,
+            strokeWidth: 1,
+            strokeColors: '#090909',
         },
         colors: colors,
     };
