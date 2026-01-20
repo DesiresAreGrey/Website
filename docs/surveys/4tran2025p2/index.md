@@ -53,7 +53,7 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb.png
 
 This is the results page for the Extended 4tran Survey (2025.2) which is a follow up survey to the original 2025 4tran Survey, and includes questions that were requested but missing from the original survey. The survey was open from December 5 to December 31, 2025 and got **1,675** (real) responses. Duplicates were automatically filtered (if you submitted more than once, only your last submission was kept), and spam/etc was manually removed (thanks [u/ILoveFurnaceGenocide](https://www.reddit.com/user/ILoveFurnaceGenocide/){ target="_blank" } for the help). 
 
-Sorry for taking so long to publish the results, I had a lot of stuff going on in December and January including recovery from FFS.
+Sorry for taking so long to publish the results, I had a lot of stuff going on in December and January including recovery from FFS. I was originally hoping to post the results way earlier but I just couldn't realistically.
 
 Its heavily recommended you view this site on desktop! The charts are interactive (click on the legend options to show/hide them). 
 
@@ -203,6 +203,7 @@ We can use sex at birth to separate cis people by their gender. I didn't include
   style="height: 325px;"
   data-chart="pie"
   data-datakey="cis_genders"
+  data-title="Cisgender Genders"
   >
 </div>
 
@@ -215,10 +216,11 @@ We can also use sex at birth to separate nonbinary people (controversial).
   style="height: 325px;"
   data-chart="pie"
   data-datakey="nb_sab"
+  data-title="Nonbinary Sex At Birth"
   >
 </div>
 
 ___
 <div class="button-container">
-  <a class="big-button" href="2">Next Page</a>
+  <a class="big-button" href="measurements">Next Page</a>
 </div>
