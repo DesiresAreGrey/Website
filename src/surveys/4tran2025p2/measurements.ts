@@ -190,7 +190,7 @@ function createScatterPlot() {
             strokeColors: '#090909',
         },
     };
-    Charts.createScatterChart("height-weight-scatter", master["height_weight_imperial_scatter"], "Height and Weight", "Scatter Plot", [2], ['#259efa', '#ff4f69', '#00E396', '#fff'], scatterChartHeight, customOptions);
+    Charts.createScatterPlot("height-weight-scatter", master["height_weight_imperial_scatter"], "Height and Weight", "Scatter Plot", [2], ['#259efa', '#ff4f69', '#00E396', '#fff'], scatterChartHeight, customOptions);
     chartLoaded = true;
 }
 

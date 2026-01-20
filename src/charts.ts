@@ -487,7 +487,7 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
     new ApexCharts(document.querySelector("#" + chartId), options).render();
 }
 
-export function createScatterChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, customOptions?: any) {
+export function createScatterPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, customOptions?: any) {
     hideSeries.forEach(index => {
         if (data[index]) {
             data[index].hidden = true;

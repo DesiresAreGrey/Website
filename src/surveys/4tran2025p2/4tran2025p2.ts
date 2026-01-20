@@ -27,6 +27,6 @@ $$('.apexchart').forEach(el => {
         case "change-boxplot":
             Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height, el.dataset.bounds?.parseFloat() ?? 5); break;
         case "scatter":
-            Charts.createScatterChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height); break;
+            Charts.createScatterPlot(chartId, master[dataKey], title, subtitle, hideSeries, colors, height); break;
     }
 });
