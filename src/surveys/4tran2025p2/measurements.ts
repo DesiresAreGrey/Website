@@ -234,8 +234,8 @@ const customOptions: any = {
             <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${name}</div>
             <div class="apexcharts-tooltip-box apexcharts-tooltip-scatter">
                 <div class="apexcharts-tooltip-text" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">
-                    Height: <b>${point[1].asInches(units).toFeetInches()}</b><br>
-                    Weight: <b>${point[0]}</b><br>
+                    Height: <b>${point[1].asInches(units).toFeetInches()} - ${point[1].asCm(units).roundTo(2)} cm</b><br>
+                    Weight: <b>${point[0]} lbs - ${point[0]?.asKg(units).roundTo(1)} kg</b><br>
                     BMI: <b>${bmi}</b>
                 </div>
             </div>`;
@@ -260,11 +260,12 @@ function updateScatterPlot() {
         return;
 
     const xy = [weightInput.value.parseFloat()?.asPounds(units).roundTo(1), getTotalHeight(units).asInches(units)];
+    const data = [...master["height_weight_imperial_scatter"], {
+        name: "You",
+        data: [xy]
+    }];
     ApexCharts.exec("height-weight-scatter", "updateOptions", {
-        series: [...master["height_weight_imperial_scatter"], {
-            name: "You",
-            data: [xy]
-        }],
+        series: data,
         annotations: {
             xaxis: [{
                 x: xy[0],
@@ -276,10 +277,19 @@ function updateScatterPlot() {
         xaxis: {
             tickAmount: 12,
             min: 50, max: 350,
+            labels: {
+                show: true
+            },
+            title: {
+                text: data[0].xLabel,
+            },
         },
         yaxis: {
             tickAmount: 5,
             min: 55, max: 80,
+            title: {
+                text: data[0].yLabel,
+            },
         },
     });
 }
