@@ -313,8 +313,8 @@ function updateScatterPlot() {
         series: data,
         annotations: annotations,
         xaxis: {
-            tickAmount: 12,
-            min: 50, max: 350,
+            tickAmount: 11,
+            min: 75, max: 350,
             decimalsInFloat: 0,
             labels: {
                 show: true

@@ -102,9 +102,32 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
   margin-top: -0.2rem;
   margin-bottom: 0.2rem;
 }
+
+.panel {
+  width: fit-content;
+  display: inline-block;
+}
+.right-panel {
+  float: right;
+  justify-content: right;
+  text-align: right;
+}
+
 @media (max-width: 640px) {
   .container {
     justify-content: center;
+  }
+  .panel {
+    width: auto;
+    display: block;
+  }
+  .right-panel {
+    width: auto;
+    float: none;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 }
 </style>
@@ -166,37 +189,54 @@ ___
 
 ## Calculator
 
-<div class="container">
-  <select id="units" class="input" style="width: 10rem;">
-    <option value="imperial">Imperial</option>
-    <option value="metric">Metric</option>
-  </select>
-</div>
-
-<div class="container">
-
-<div style="margin-top: 6px;" >
-    <span id="height-feet-section">
-      <input id="height-feet-input" class="input" type="text" inputmode="decimal" step="1" value="5" style="width: 2rem;">
-      <span style="min-width: 12ch; margin-top: 4px; margin-right: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Feet</span>
-    </span>
-    <input id="height-input" class="input" type="text" inputmode="decimal" step="1" value="6" style="width: 2rem;">
-    <span id="height-units-label" style="min-width: 12ch; margin-top: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Inches</span>
+<div class="panel">
+  <div class="container">
+    <select id="units" class="input" style="width: 10rem;">
+      <option value="imperial">Imperial</option>
+      <option value="metric">Metric</option>
+    </select>
   </div>
+
+  <div class="container">
+    <div style="margin-top: 6px;" >
+      <span id="height-feet-section">
+        <input id="height-feet-input" class="input" type="text" inputmode="decimal" step="1" value="5" style="width: 2rem;">
+        <span style="min-width: 12ch; margin-top: 4px; margin-right: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Feet</span>
+      </span>
+      <input id="height-input" class="input" type="text" inputmode="decimal" step="1" value="6" style="width: 2rem;">
+      <span id="height-units-label" style="min-width: 12ch; margin-top: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Inches</span>
+    </div>
+  </div>
+
+  <div style="margin-top: 6px;" class="container">
+    <div>
+      <input id="weight-input" class="input" type="number" inputmode="decimal" step="1" value="170" style="width: 3rem;">
+      <span id="weight-units-label" style="min-width: 12ch; margin-top: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Pounds</span>
+    </div>
+  </div>
+
+  <div style="margin-top: 6px;">
+    <div style="border-radius: 1rem;">
+      <span id="info-height" class="container" style="min-width: 12ch; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0'0" - 0.0 cm</span>
+      <span id="info-weight" class="container" style="min-width: 12ch; margin-top: 4px; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0 lbs - 0 kg</span>
+      <span id="info-bmi" class="container" style="min-width: 12ch; margin-top: 4px; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0 BMI</span>
+    </div>
+  </div>
+
 </div>
 
-<div style="margin-top: 6px;" class="container">
+<div class="panel right-panel" >
   <div>
-    <input id="weight-input" class="input" type="number" inputmode="decimal" step="1" value="170" style="width: 3rem;">
-    <span id="weight-units-label" style="min-width: 12ch; margin-top: 4px; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">Pounds</span>
+    <h4 style="margin-top: -0.25rem; margin-bottom: -0.325rem; font-size: 20px; font-variation-settings: 'wght' 600;">FtM</h4>
+    <p id="hp-out" style="margin-top: 0; margin-bottom: -0.325rem; font-size: 18px; font-variation-settings: 'wght' 500;">0.0th Percentile</p>
+    <p id="hp-out" style="margin-top: 0; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400;">You are taller than 0% of FtMs</p>
+    <p id="hp-out" style="margin-top: 0; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400;">You are shorter than 100% of FtMs</p>
   </div>
-</div>
-
-<div style="margin-top: 6px;">
-  <div style="border-radius: 1rem;">
-    <span id="info-height" class="container" style="min-width: 12ch; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0'0" - 0.0 cm</span>
-    <span id="info-weight" class="container" style="min-width: 12ch; margin-top: 4px; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0 lbs - 0 kg</span>
-    <span id="info-bmi" class="container" style="min-width: 12ch; margin-top: 4px; font-size: 14px; font-variation-settings: 'wght' 400; opacity: 0.75">0 BMI</span>
+  <div>
+    <h4 style="margin-top: 0.5rem; margin-bottom: -0.325rem; font-size: 20px; font-variation-settings: 'wght' 600;">MtF</h4>
+    <p id="hp-out" style="margin-top: 0; margin-bottom: -0.325rem; font-size: 18px; font-variation-settings: 'wght' 500;">0.0th Percentile</p>
+    <p id="hp-out" style="margin-top: 0; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400;">You are taller than 0% of MtFs</p>
+    <p id="hp-out" style="margin-top: 0; margin-bottom: -0.325rem; font-size: 14px; font-variation-settings: 'wght' 400;">You are shorter than 100% of MtFs</p>
   </div>
 </div>
 

@@ -604,3 +604,7 @@ input::-webkit-inner-spin-button {
     height: 225px !important;
   }
 }
+
+.test {
+  outline: 1px solid #fff;
+}
