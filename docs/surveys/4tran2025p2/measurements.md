@@ -43,6 +43,61 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
     border-color: #9152ff;
   }
 }
+.toggleContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: fit-content;
+  border: .1rem solid var(--md-primary-fg-color);
+  border-radius: 100vh;
+  cursor: pointer;
+  height: 40px; 
+  font-variation-settings: 'wght' 400;
+}
+.toggleContainer::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  bottom: 2px;
+  width: calc(50% - 2px); 
+  border-radius: 100vh;
+  background: var(--md-primary-fg-color);
+  transition: all 0.3s;
+}
+.toggleCheckbox:checked + .toggleContainer::before {
+  transform: translateX(100%);
+}
+.toggleContainer div {
+  padding: 4px 16px;
+  text-align: center;
+  z-index: 1;
+}
+.toggleCheckbox {
+  display: none;
+}
+.toggleCheckbox:checked + .toggleContainer div:first-child {
+  color: var(--md-primary-fg-color);
+  transition: color 0.3s;
+}
+.toggleCheckbox:checked + .toggleContainer div:last-child {
+  color: white;
+  transition: color 0.3s;
+}
+.toggleCheckbox + .toggleContainer div:first-child {
+  color: white;
+  transition: color 0.3s;
+}
+.toggleCheckbox + .toggleContainer div:last-child {
+  color: var(--md-primary-fg-color);
+  transition: color 0.3s;
+}
+.label .label-subtitle {
+  font-size: 0.5rem;
+  opacity: 0.7;
+  margin-top: -0.2rem;
+  margin-bottom: 0.2rem;
+}
 @media (max-width: 640px) {
   .container {
     justify-content: center;
@@ -106,17 +161,19 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
 
 ___
 
-Scatter Plot of Height vs Weight (Imperial)
 
-<div id="height-weight-scatter"
-  style="height: 500px;"
-  data-chart="scatter"
-  data-datakey="height_weight_imperial_scatter"
-  data-title="height_weight_imperial_scatter"
-  data-hideseries='[]'
-  >
+<div id="height-weight-scatter" style="height: 500px;" class="apexchart"></div>
+
+<div class="label">Enable Scatter Plot
+  <div class="label-subtitle">May be heavy on mobile</div>
 </div>
-
+<div style="margin-bottom: 6px; display: flex;">
+  <input type="checkbox" id="scatterplot-toggle" class="toggleCheckbox" />
+  <label for="scatterplot-toggle" class='toggleContainer'>
+    <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Show</div>   
+    <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Hide</div>
+  </label>
+</div>
 
 <!--
 <div class="container" style="margin-top: 6px;">
