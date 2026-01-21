@@ -22,7 +22,7 @@ const scatterplotSelfToggle = $("#scatterplot-self-toggle") as HTMLInputElement;
 const scatterplotSelfEnabled = () => !scatterplotSelfToggle.checked;
 
 let chartLoaded = false;
-const scatterChartHeight = $("#height-weight-scatter")!.style.height.replace("px", "")?.parseFloat() ?? 300;
+let scatterChartHeight = $("#height-weight-scatter")!.style.height.replace("px", "")?.parseFloat() ?? 300;
 if (!scatterplotChartEnabled()) {
     $("#height-weight-scatter")!.style.height = "0";
 }
@@ -157,7 +157,30 @@ function Phi(z: number) {
 updateScatterPlot();
 
 function createScatterPlot() {
+    const [origWidth, origHeight] = [907, 550];
+    const aspectRatio = origWidth / origHeight;
+
+    const width = $("#height-weight-scatter")!.offsetWidth;
+    const sizeRatio = width / origWidth;
+
+    scatterChartHeight = (sizeRatio * origHeight).roundTo(1);
+
+    $("#height-weight-scatter")!.style.width = width + "px";
+    $("#height-weight-scatter")!.style.height = scatterChartHeight + "px";
+
     const customOptions = {
+        chart: {
+            id: "height-weight-scatter",
+            type: 'scatter',
+            height: scatterChartHeight,
+            width: width,
+            toolbar: { show: true },
+            background: '#090909',
+            fontFamily: 'Inter, Arial, sans-serif',
+            zoom: {
+                enabled: false
+            }
+        },
         tooltip: {
             custom: ({ seriesIndex, dataPointIndex, w }: { seriesIndex: number; dataPointIndex: number; w: any }) => {
                 const point: number[] = w.config.series[seriesIndex].data[dataPointIndex];
@@ -185,10 +208,10 @@ function createScatterPlot() {
             min: 55, max: 80,
         },
         markers: {
-            size: [5, 5, 5, 6],
+            size: [5 * sizeRatio, 5 * sizeRatio, 5 * sizeRatio, 6 * sizeRatio],
             strokeWidth: 1,
             strokeColors: '#090909',
-        },
+        }, 
     };
     Charts.createScatterPlot("height-weight-scatter", master["height_weight_imperial_scatter"], "Height and Weight", "Scatter Plot", [2], ['#259efa', '#ff4f69', '#00E396', '#fff'], scatterChartHeight, customOptions);
     chartLoaded = true;

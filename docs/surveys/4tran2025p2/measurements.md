@@ -290,7 +290,7 @@ ___
   </div>
 </div>
 
-<div id="height-weight-scatter" style="height: 550px; margin-bottom: 0.69rem;" class="scatterapexchart"></div>
+<div id="height-weight-scatter" style="margin-bottom: 0.69rem;" class="scatterapexchart"></div>
 
 <div class="center-container">
   <div class="label" style="width: 8rem;">Show Scatter Plot
