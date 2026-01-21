@@ -347,11 +347,13 @@ ___
   </div>
 </div>
 
-<div id="height-weight-scatter" style="margin-bottom: 0.69rem;" class="scatterapexchart"></div>
+<div id="height-weight-scatter" style="height: 500px; margin-bottom: 0.69rem;" class="scatterapexchart">
+<img src="/assets/surveys/4tran2025p2/results/height_weight_scatter_image.png" style="width: 100%; height: auto; position: absolute; top: 0; left: 0; pointer-events: none;" />
+</div>
 
 <div class="center-container">
-  <div class="label" style="width: 8rem;">Scatter Plot
-    <div class="label-subtitle">Static is simplified for mobile</div>
+  <div class="label" style="width: 9rem;">Scatter Plot
+    <div class="label-subtitle">Static uses an image for performance</div>
   </div>
   <div class="toggle-container">
     <input type="checkbox" id="scatterplot-type-toggle" class="toggleCheckbox" />
@@ -362,7 +364,7 @@ ___
   </div>
 </div>
 <div class="center-container">
-  <div class="label" style="width: 8rem;">Show Self
+  <div class="label" style="width: 9rem;">Show Self
     <div class="label-subtitle">Shows your height/weight</div>
   </div>
   <div class="toggle-container">

@@ -154,12 +154,18 @@ function Phi(z: number) {
 
 updateScatterPlot();
 
-function createScatterPlot() {
+function getSizeRatio() {
     const [origWidth, origHeight] = [907, 550];
     const aspectRatio = origWidth / origHeight;
 
     const width = $("#height-weight-scatter")!.offsetWidth;
-    const sizeRatio = width / origWidth;
+    return width / origWidth;
+}
+
+function createScatterPlot() {
+    const [origWidth, origHeight] = [907, 550];
+    const width = $("#height-weight-scatter")!.offsetWidth;
+    const sizeRatio = getSizeRatio();
 
     scatterChartHeight = (sizeRatio * origHeight).roundTo(1);
 
@@ -190,7 +196,10 @@ function createScatterPlot() {
             fontFamily: 'Inter, Arial, sans-serif',
             zoom: {
                 enabled: false
-            }
+            },
+            animations: {
+                enabled: false
+            },
         },
         tooltip: {
             custom: ({ seriesIndex, dataPointIndex, w }: { seriesIndex: number; dataPointIndex: number; w: any }) => {
