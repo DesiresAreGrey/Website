@@ -9,6 +9,7 @@ $$('.apexchart').forEach(el => {
     const subtitle = el.dataset.subtitle;
     const hideSeries = el.dataset.hideseries?.parseJson() ?? [];
     const colors = el.dataset.colors?.parseJson() ?? ['#259efa', '#ff4f69', '#00E396', '#FEB019'];
+    const color = el.dataset.color ?? '#259efa';
     const height = el.style.height.replace("px", "")?.parseFloat() ?? 300;
 
     switch (el.dataset.chart) {
@@ -28,5 +29,7 @@ $$('.apexchart').forEach(el => {
             Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height, el.dataset.bounds?.parseFloat() ?? 5); break;
         case "scatter":
             Charts.createScatterPlot(chartId, master[dataKey], title, subtitle, hideSeries, colors, height); break;
+        case "heatmap":
+            Charts.createHeatmap(chartId, master[dataKey], title, subtitle, color, height); break;
     }
 });

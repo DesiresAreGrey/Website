@@ -255,6 +255,43 @@ women with men having a very slightly higher BMI.
   >
 </div>
 
+People really wanted me to add a heatmap in addition to the scatter plot thats included with the calculator below. It is a bit easier to see the
+distribution on the heatmap tbf, but the scatter plot is still kinda needed for the calculator.
+
+<div class="chart-set">
+  <input id="heightweight-a" class="vh" type="radio" name="view-heightweight" checked>
+  <input id="heightweight-b" class="vh" type="radio" name="view-heightweight">
+  
+  <div class="chart-stack">
+    <div id="ftm-heightweight-heatmap" 
+      class="apexchart chart-layer layer-a"
+      style="height: 500px;"
+      data-chart="heatmap"
+      data-datakey="height_weight_imperial_ftm_heatmap"
+      data-subtitle="Heatmap"
+      data-title="Height vs Weight (FtM)"
+      data-color="#45aeff"
+      >
+    </div>
+    <div id="mtf-heightweight-heatmap" 
+      class="apexchart chart-layer layer-b"
+      style="height: 500px;"
+      data-chart="heatmap"
+      data-datakey="height_weight_imperial_mtf_heatmap"
+      data-subtitle="Heatmap"
+      data-title="Height vs Weight (MtF)"
+      data-color="#ff5972"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="heightweight-a" class="noselect">Heatmap (FtM)</label>
+    <label for="heightweight-b" class="noselect">Heatmap (MtF)</label>
+  </div>
+</div>
+
+
+
 ___
 
 ## Calculator

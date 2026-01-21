@@ -528,6 +528,7 @@ export function createScatterPlot(chartId: string, data: any, title: string | un
             },
             title: {
                 text: data[0]?.xLabel,
+                offsetY: -10,
             },
         },
         yaxis: {
@@ -590,6 +591,108 @@ export function createScatterPlot(chartId: string, data: any, title: string | un
             strokeColors: '#090909',
         },
         colors: colors,
+    };
+    new ApexCharts(document.querySelector("#" + chartId), { ...options, ...customOptions }).render();
+}
+
+export function createHeatmap(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, color: string, height: number, customOptions?: any) {
+    const options = {
+        chart: {
+            id: chartId,
+            type: 'heatmap',
+            height: height,
+            toolbar: { show: false },
+            background: '#090909',
+            fontFamily: 'Inter, Arial, sans-serif',
+            zoom: {
+                enabled: false
+            }
+        },
+        title: {
+            text: title,
+            align: 'center',
+            style: {
+                fontSize:  '20px'
+            },
+        },
+        subtitle: {
+            text: subtitle,
+            align: 'center',
+            floating: true,
+            style: {
+                fontSize:  '12px'
+            },
+        },
+        series: data,
+        xaxis: {
+            labels: {
+                show: true
+            },
+            title: {
+                text: data[0]?.xLabel,
+                offsetY: -10,
+            },
+        },
+        yaxis: {
+            title: {
+                text: data[0]?.yLabel,
+            },
+        },
+        tooltip: {
+            custom: ({ seriesIndex, dataPointIndex, w }: { seriesIndex: number; dataPointIndex: number; w: any }) => {
+                const xLabel = w.config.series[seriesIndex]?.xLabel ?? "X";
+                const xCoord: string = w.config.series[seriesIndex].data[dataPointIndex].xAxis;
+
+                const yLabel = w.config.series[seriesIndex]?.yLabel ?? "Y";
+                const yCoord: string = w.config.series[seriesIndex].yAxis;
+
+                const count: string = w.config.series[seriesIndex].data[dataPointIndex].y;
+                return `
+                <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${count} respondents</div>
+                <div class="apexcharts-tooltip-box apexcharts-tooltip-scatter">
+                    <div class="apexcharts-tooltip-text" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">
+                        ${yLabel}: <b>${yCoord}</b><br>
+                        ${xLabel}: <b>${xCoord}</b><br>
+                    </div>
+                </div>`;
+            },
+        },
+        grid: {
+            yaxis: {
+                lines: { 
+                    show: true 
+                }
+            },
+            xaxis: {
+                lines: { 
+                    show: true 
+                }
+            },
+            borderColor: '#e0e0e020',
+        },
+        states: {
+            active: {
+                filter: {
+                    type: 'none',
+                }
+            }
+        },
+        theme: {
+            mode: 'dark',
+            palette: 'palette1',
+        },
+        stroke: {
+            colors: ['transparent'],
+            width: 3,    
+        },
+        dataLabels: {
+            enabled: true,
+            style: {
+                fontSize: '10px',
+                fontWeight: '600',
+            }
+        },
+        colors: [color],
     };
     new ApexCharts(document.querySelector("#" + chartId), { ...options, ...customOptions }).render();
 }
