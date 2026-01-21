@@ -152,25 +152,24 @@ function Phi(z: number) {
     return 0.5 * (1 + erf(z / Math.SQRT2));
 }
 
+let sizeRatio = 1;
 updateScatterPlot();
 
-function getSizeRatio() {
+function createScatterPlot() {
     const [origWidth, origHeight] = [907, 550];
     const aspectRatio = origWidth / origHeight;
 
     const width = $("#height-weight-scatter")!.offsetWidth;
-    return width / origWidth;
-}
 
-function createScatterPlot() {
-    const [origWidth, origHeight] = [907, 550];
-    const width = $("#height-weight-scatter")!.offsetWidth;
-    const sizeRatio = getSizeRatio();
+    console.log(width / origWidth);
 
-    scatterChartHeight = (sizeRatio * origHeight).roundTo(1);
+    sizeRatio = width / origWidth;
 
-    $("#height-weight-scatter")!.style.width = width + "px";
-    $("#height-weight-scatter")!.style.height = scatterChartHeight + "px";
+    //scatterChartHeight = (sizeRatio * origHeight).roundTo(1);
+    scatterChartHeight = origHeight;
+
+    $("#height-weight-scatter")!.style.width = origWidth + "px";
+    $("#height-weight-scatter")!.style.height = origHeight + "px";
 
     let data = scatterData;
     let colors = ['#259efa', '#ff4f69', '#fff'];
@@ -185,12 +184,14 @@ function createScatterPlot() {
         $("#height-weight-scatter")!.style.backgroundImage = "";
     }
 
+    $("#height-weight-scatter")!.style.zoom = sizeRatio.toString();
+
     const customOptions = {
         chart: {
             id: "height-weight-scatter",
             type: 'scatter',
-            height: scatterChartHeight,
-            width: width,
+            height: origHeight,
+            width: origWidth,
             toolbar: { show: false },
             background: 'transparent',
             fontFamily: 'Inter, Arial, sans-serif',
@@ -229,7 +230,7 @@ function createScatterPlot() {
             min: 55, max: 80,
         },
         markers: {
-            size: [5 * sizeRatio, 5 * sizeRatio, 5 * sizeRatio, 6 * sizeRatio],
+            size: [5, 5, 5, 6],
             strokeWidth: 1,
             strokeColors: '#090909',
         }, 
@@ -261,6 +262,8 @@ function updateScatterPlot() {
     else {
         $("#height-weight-scatter")!.style.backgroundImage = "";
     }
+
+    $("#height-weight-scatter")!.style.zoom = sizeRatio.toString();
 
     let annotations = { xaxis: [{}], yaxis: [{}] };
     if (scatterplotSelfEnabled()) {
