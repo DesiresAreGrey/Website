@@ -6,10 +6,13 @@ fetch(document.currentScript?.dataset.toc ?? "").then(response => response.json(
         const link = page[0];
         const name = page[1];
         const a = document.createElement("a");
+        
         a.href = firstPage + link;
         a.textContent = name;
-        if (window.location.href.includes(firstPage + link))
+
+        if (window.location.href.endsWith(firstPage + link) || window.location.href.endsWith(firstPage + link + "/"))
             a.classList.add("active");
+
         navLinks.appendChild(a);
         if (i < data.length - 1)
             navLinks.appendChild(document.createTextNode(' - '));
