@@ -23,9 +23,6 @@ const scatterplotSelfEnabled = () => !scatterplotSelfToggle.checked;
 
 let chartLoaded = false;
 let scatterChartHeight = $("#height-weight-scatter")!.style.height.replace("px", "")?.parseFloat() ?? 550;
-//if (!scatterplotDynamicEnabled()) {
-//    $("#height-weight-scatter")!.style.height = "0";
-//}
 
 updateUnitUI(getUnits());
 
@@ -216,6 +213,7 @@ function createScatterPlot() {
         xaxis: {
             tickAmount: 12,
             min: 50, max: 350,
+            offsetY: -10,
         },
         yaxis: {
             tickAmount: 5,
@@ -293,6 +291,7 @@ function updateScatterPlot() {
             },
             title: {
                 text: data[0]?.xLabel,
+                offsetY: -10,
             },
         },
         yaxis: {
