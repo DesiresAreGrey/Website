@@ -178,6 +178,9 @@ function createScatterPlot() {
         $("#height-weight-scatter")!.style.backgroundImage = "url(/assets/surveys/4tran2025p2/results/height_weight_scatter_image.png)";
         $("#height-weight-scatter")!.style.backgroundSize = "cover";
     }
+    else {
+        $("#height-weight-scatter")!.style.backgroundImage = "";
+    }
 
     const customOptions = {
         chart: {
@@ -194,7 +197,7 @@ function createScatterPlot() {
         },
         tooltip: {
             custom: ({ seriesIndex, dataPointIndex, w }: { seriesIndex: number; dataPointIndex: number; w: any }) => {
-                const point: number[] = w.config.series[seriesIndex].data[dataPointIndex];
+                const point: number[] = w.config.series[seriesIndex].data[dataPointIndex] ?? [0, 0];
                 const height = point[1];
                 const weight = point[0];
                 const bmi = (weight.asKg(getUnits()) / ((height.asCm(getUnits()) / 100) ** 2)).roundTo(2);
@@ -233,12 +236,6 @@ function updateScatterPlot() {
         createScatterPlot();
         $("#height-weight-scatter")!.style.height = scatterChartHeight + "px";
     }
-    //else if (!scatterplotDynamicEnabled() && chartLoaded) {
-    //    ApexCharts.exec("height-weight-scatter", "destroy");
-    //    chartLoaded = false;
-    //    $("#height-weight-scatter")!.style.height = "0";
-    //    return;
-    //}
 
     if (!chartLoaded)
         return;
@@ -253,6 +250,9 @@ function updateScatterPlot() {
         colors = ['#fff'];
         $("#height-weight-scatter")!.style.backgroundImage = "url(/assets/surveys/4tran2025p2/results/height_weight_scatter_image.png)";
         $("#height-weight-scatter")!.style.backgroundSize = "cover";
+    }
+    else {
+        $("#height-weight-scatter")!.style.backgroundImage = "";
     }
 
     let annotations = { xaxis: [{}], yaxis: [{}] };
@@ -280,6 +280,7 @@ function updateScatterPlot() {
             yLabel: "Height (Inches)"
         }];
     }
+    ApexCharts.exec("height-weight-scatter", "resetSeries");
     ApexCharts.exec("height-weight-scatter", "updateOptions", {
         series: data,
         annotations: annotations,
