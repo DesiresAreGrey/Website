@@ -90,7 +90,7 @@ Microcelebs are rare, especially among men where there are no current microceleb
 
 ### 4Chan
 
-There are more 4chan users than I thought.
+There are more 4chan users than I thought, though maybe "occasionally" is too broad of a category.
 
 <div id="usage-4chan-ratio" 
   class="apexchart"
@@ -100,4 +100,36 @@ There are more 4chan users than I thought.
   data-title="4Chan Usage"
   data-colors='["#FF9800", "#00E0B8", "#7B61FF", "#3f51b5"]'
   >
+</div>
+
+If you selected Frequently/Occasionally, then you were asked when was the last time you visited 4chan was. Pretty expected that women tend to use
+4chan the most.
+
+<div id="last-visit-4chan-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="last_visit_4chan"
+  data-title="Last Time Visiting 4Chan"
+  data-colors='["#FF9800", "#00E0B8", "#7B61FF", "#3f51b5"]'
+  >
+</div>
+
+This one is slightly less messed up than the time using 4tran one. Did people think I was asking months instead of years?
+
+<div id="years-on-4c-boxplot" 
+  class="apexchart"
+  style="height: 300px;"
+  data-chart="boxplot"
+  data-datakey="years_on_4chan_boxplot"
+  data-subtitle="Box Plot"
+  data-title="Years on 4Chan"
+  >
+</div>
+
+___
+
+<div class="button-container">
+  <a class="big-button" href="../measurements">Previous Page</a>
+  <a class="big-button" href="../transition">Next Page</a>
 </div>

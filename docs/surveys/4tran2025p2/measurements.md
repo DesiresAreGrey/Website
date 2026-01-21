@@ -326,3 +326,10 @@ ___
     </label>
   </div>
 </div>
+
+___
+
+<div class="button-container">
+  <a class="big-button" href="../">Previous Page</a>
+  <a class="big-button" href="../socialmedia">Next Page</a>
+</div>
