@@ -15,22 +15,23 @@ const infoHeight = $("#info-height") as HTMLElement;
 const infoWeight = $("#info-weight") as HTMLElement;
 const infoBmi = $("#info-bmi") as HTMLElement;
 
-const scatterplotChartToggle = $("#scatterplot-show-toggle") as HTMLInputElement;
-const scatterplotChartEnabled = () => !scatterplotChartToggle.checked;
+const scatterplotTypeToggle = $("#scatterplot-type-toggle") as HTMLInputElement;
+const scatterplotDynamicEnabled = () => scatterplotTypeToggle.checked;
 
 const scatterplotSelfToggle = $("#scatterplot-self-toggle") as HTMLInputElement;
 const scatterplotSelfEnabled = () => !scatterplotSelfToggle.checked;
 
 let chartLoaded = false;
-let scatterChartHeight = $("#height-weight-scatter")!.style.height.replace("px", "")?.parseFloat() ?? 300;
-if (!scatterplotChartEnabled()) {
-    $("#height-weight-scatter")!.style.height = "0";
-}
+let scatterChartHeight = $("#height-weight-scatter")!.style.height.replace("px", "")?.parseFloat() ?? 550;
+//if (!scatterplotDynamicEnabled()) {
+//    $("#height-weight-scatter")!.style.height = "0";
+//}
 
 updateUnitUI(getUnits());
 
 const master = await(await fetch("/assets/surveys/4tran2025p2/results/_master.json")).json();
 const heightData = master["height_inches_mean_sd"];
+const scatterData = master["height_weight_imperial_scatter"].slice(0, 2);
 
 const heightStats = Object.fromEntries(heightData.map((r: any) => [r.Gender, { mean: r.Mean, sd: r.SD }]));
 
@@ -53,8 +54,8 @@ weightInput.addEventListener("input", update);
 weightInput.addEventListener("focus", focusInput);
 weightInput.addEventListener("blur", updateScatterPlot);
 
-scatterplotChartToggle.addEventListener("change", updateScatterPlot);
-scatterplotSelfToggle.addEventListener("change", updateScatterPlot);
+scatterplotTypeToggle.addEventListener("change", toggleChanged);
+scatterplotSelfToggle.addEventListener("change", toggleChanged);
 
 update();
 
@@ -168,14 +169,24 @@ function createScatterPlot() {
     $("#height-weight-scatter")!.style.width = width + "px";
     $("#height-weight-scatter")!.style.height = scatterChartHeight + "px";
 
+    let data = scatterData;
+    let colors = ['#259efa', '#ff4f69', '#fff'];
+
+    if (scatterplotDynamicEnabled()) {
+        data = [];
+        colors = ['#fff'];
+        $("#height-weight-scatter")!.style.backgroundImage = "url(/assets/surveys/4tran2025p2/results/height_weight_scatter_image.png)";
+        $("#height-weight-scatter")!.style.backgroundSize = "cover";
+    }
+
     const customOptions = {
         chart: {
             id: "height-weight-scatter",
             type: 'scatter',
             height: scatterChartHeight,
             width: width,
-            toolbar: { show: true },
-            background: '#090909',
+            toolbar: { show: false },
+            background: 'transparent',
             fontFamily: 'Inter, Arial, sans-serif',
             zoom: {
                 enabled: false
@@ -213,33 +224,44 @@ function createScatterPlot() {
             strokeColors: '#090909',
         }, 
     };
-    Charts.createScatterPlot("height-weight-scatter", master["height_weight_imperial_scatter"], "Height and Weight", "Scatter Plot", [2], ['#259efa', '#ff4f69', '#00E396', '#fff'], scatterChartHeight, customOptions);
+    Charts.createScatterPlot("height-weight-scatter", data, "Height and Weight", "Scatter Plot", [], colors, scatterChartHeight, customOptions);
     chartLoaded = true;
 }
 
 function updateScatterPlot() {
-    if (scatterplotChartEnabled() && !chartLoaded) {
+    if (!chartLoaded) {
         createScatterPlot();
         $("#height-weight-scatter")!.style.height = scatterChartHeight + "px";
     }
-    else if (!scatterplotChartEnabled() && chartLoaded) {
-        ApexCharts.exec("height-weight-scatter", "destroy");
-        chartLoaded = false;
-        $("#height-weight-scatter")!.style.height = "0";
-        return;
-    }
+    //else if (!scatterplotDynamicEnabled() && chartLoaded) {
+    //    ApexCharts.exec("height-weight-scatter", "destroy");
+    //    chartLoaded = false;
+    //    $("#height-weight-scatter")!.style.height = "0";
+    //    return;
+    //}
 
     if (!chartLoaded)
         return;
 
     const xy = [weightInput.value.parseFloat()?.asPounds(getUnits()).roundTo(1), getTotalHeight(getUnits()).asInches(getUnits()).roundTo(1)];
 
-    let data = master["height_weight_imperial_scatter"];
+    let data = scatterData;
+    let colors = ['#259efa', '#ff4f69', '#fff'];
+
+    if (scatterplotDynamicEnabled()) {
+        data = [];
+        colors = ['#fff'];
+        $("#height-weight-scatter")!.style.backgroundImage = "url(/assets/surveys/4tran2025p2/results/height_weight_scatter_image.png)";
+        $("#height-weight-scatter")!.style.backgroundSize = "cover";
+    }
+
     let annotations = { xaxis: [{}], yaxis: [{}] };
     if (scatterplotSelfEnabled()) {
-        data = [...master["height_weight_imperial_scatter"], {
+        data = [...data, {
             name: "You",
-            data: [xy]
+            data: [xy],
+            xLabel: "Weight (Pounds)",
+            yLabel: "Height (Inches)"
         }];
         annotations = {
             xaxis: [{
@@ -272,6 +294,17 @@ function updateScatterPlot() {
                 text: data[0].yLabel,
             },
         },
+        legend: {
+            show: true,
+            showForSingleSeries: true,
+        },
+        colors: colors,
     });
+}
+
+function toggleChanged() {
+    updateScatterPlot();
+
+    localStorage.setItem('scatterplot-type-toggle-checked', scatterplotTypeToggle.checked.toJson());
 }
 

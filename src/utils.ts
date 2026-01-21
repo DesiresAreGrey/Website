@@ -17,6 +17,10 @@ declare global {
         appendHtml(htmlString: string): void;
     }
 
+    interface Object {
+        toJson(): string;
+    }
+
     interface String {
         parseJson(): any | null;
         parseFloat(): number | null;
@@ -54,6 +58,12 @@ Object.defineProperty(HTMLElement.prototype, '$$', { value: function(this: HTMLE
 
 Object.defineProperty(HTMLElement.prototype, 'appendHtml', { 
     value: function(this: HTMLElement, htmlString: string) { this.insertAdjacentHTML('beforeend', htmlString); } 
+});
+
+Object.defineProperty(Object.prototype, 'toJson', { 
+    value: function(this: object) { 
+        return JSON.stringify(this);
+    }
 });
 
 Object.defineProperty(String.prototype, 'parseJson', { 

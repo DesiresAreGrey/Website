@@ -15,7 +15,7 @@ export function createRatioBarChart(chartId: string, data: any, title: string | 
             height: height,
             stacked: true,
             stackType: '100%',
-            toolbar: { show: true },
+            toolbar: { show: false },
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
         },
@@ -118,7 +118,7 @@ export function createBarChart(chartId: string, data: any, title: string | undef
             type: 'bar',
             height: height,
             stacked: true,
-            toolbar: { show: true },
+            toolbar: { show: false },
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
         },
@@ -196,7 +196,7 @@ export function createPopPyramidChart(chartId: string, data: any, title: string 
             type: 'bar',
             height: height,
             stacked: true,
-            toolbar: { show: true },
+            toolbar: { show: false },
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
         },
@@ -498,7 +498,7 @@ export function createScatterPlot(chartId: string, data: any, title: string | un
             id: chartId,
             type: 'scatter',
             height: height,
-            toolbar: { show: true },
+            toolbar: { show: false },
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
             zoom: {
@@ -527,12 +527,12 @@ export function createScatterPlot(chartId: string, data: any, title: string | un
                 show: true
             },
             title: {
-                text: data[0].xLabel,
+                text: data[0]?.xLabel,
             },
         },
         yaxis: {
             title: {
-                text: data[0].yLabel,
+                text: data[0]?.yLabel,
             },
         },
         legend: {

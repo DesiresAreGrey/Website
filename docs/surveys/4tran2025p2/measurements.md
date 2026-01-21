@@ -102,6 +102,12 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
   margin-top: -0.2rem;
   margin-bottom: 0.2rem;
 }
+.toggle-container{
+  margin-bottom: 6px;
+  display: flex;
+  width: 280px;
+  justify-content: right;
+}
 
 .panel {
   width: fit-content;
@@ -128,6 +134,20 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
     text-align: center;
     margin-top: 1rem;
     margin-bottom: 1rem;
+  }
+  .toggle-container {
+    margin-bottom: 6px;
+    display: flex;
+    width: 280px;
+    justify-content: center;
+    
+  }
+  .label {
+    margin-top: 0.2rem;
+    text-align: center !important;
+  }
+  .label .label-subtitle {
+    margin-bottom: -0.2rem;
   }
 }
 </style>
@@ -293,14 +313,14 @@ ___
 <div id="height-weight-scatter" style="margin-bottom: 0.69rem;" class="scatterapexchart"></div>
 
 <div class="center-container">
-  <div class="label" style="width: 8rem;">Show Scatter Plot
-    <div class="label-subtitle">May be heavy on mobile</div>
+  <div class="label" style="width: 8rem;">Scatter Plot
+    <div class="label-subtitle">Static is simplified for mobile</div>
   </div>
-  <div style="margin-bottom: 6px; display: flex;">
-    <input type="checkbox" id="scatterplot-show-toggle" class="toggleCheckbox" />
-    <label for="scatterplot-show-toggle" class='toggleContainer'>
-      <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Show</div>   
-      <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Hide</div>
+  <div class="toggle-container">
+    <input type="checkbox" id="scatterplot-type-toggle" class="toggleCheckbox" />
+    <label for="scatterplot-type-toggle" class='toggleContainer'>
+      <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Dynamic</div>   
+      <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Static</div>
     </label>
   </div>
 </div>
@@ -308,7 +328,7 @@ ___
   <div class="label" style="width: 8rem;">Show Self
     <div class="label-subtitle">Shows your height/weight</div>
   </div>
-  <div style="margin-bottom: 6px; display: flex;">
+  <div class="toggle-container">
     <input type="checkbox" id="scatterplot-self-toggle" class="toggleCheckbox" />
     <label for="scatterplot-self-toggle" class='toggleContainer'>
       <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Show</div>   
@@ -316,6 +336,15 @@ ___
     </label>
   </div>
 </div>
+<script>
+  const typeChecked = localStorage.getItem('scatterplot-type-toggle-checked');
+  if (typeChecked != null) {
+    document.getElementById('scatterplot-type-toggle').checked = JSON.parse(typeChecked);
+  }
+  else if (window.innerWidth <= 768) {
+    document.getElementById('scatterplot-type-toggle').checked = true;
+  }
+</script>
 
 ___
 
