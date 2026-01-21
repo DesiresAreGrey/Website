@@ -10,7 +10,7 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
 }
 </script>
 <script type="module" src="/js/surveys/4tran2025p2/measurements.js?v={{ now() }}"></script>
-<script type="module" src="/js/surveys/4tran2025p2/4tran2025p2.js?v={{ now() }}&path=../../../assets/surveys/4tran2025p2/results/"></script>
+<script type="module" src="/js/surveys/4tran2025p2/4tran2025p2.js?v={{ now() }}"></script>
 
 <style>
 .container {
@@ -135,18 +135,8 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
 # Extended 4tran Survey (2025.2)
 <h6 style="margin: 0 0.2rem">Page 2 - Measurements</h6>
 
-<div class="nav-links" style="margin: 0.25rem 1rem;">
-  <a href="../">Demographics</a> - 
-  <a href="" class="active">Measurements</a> - 
-  <a href="../socialmedia">Social Media</a> - 
-  <a href="../transition">Transition</a> - 
-  <a href="../sexuality">Sexuality</a> - 
-  <a href="../relationships">Relationships</a> - 
-  <a href="../health">Health</a> - 
-  <a href="../misc">Misc</a> - 
-  <a href="../nsfw">NSFW</a> - 
-  <a href="../conclusion">Conclusion</a>
-</div>
+<div class="nav-links" style="margin: 0.25rem 1rem;"></div>
+<script src="/js/surveys/navlinks.js?v={{ now() }}" data-firstpage="/surveys/4tran2025p2/" data-toc="/assets/surveys/4tran2025p2/toc.json"></script>
 
 ## Measurements
 

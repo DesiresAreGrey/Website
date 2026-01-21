@@ -33,23 +33,13 @@ image: /assets/surveys/4tran2025p2/thumb.png
   }
 }
 </script>
-<script type="module" src="/js/surveys/4tran2025p2/4tran2025p2.js?v={{ now() }}&path=../../assets/surveys/4tran2025p2/results/"></script>
+<script type="module" src="/js/surveys/4tran2025p2/4tran2025p2.js?v={{ now() }}"></script>
 
 # Extended 4tran Survey (2025.2)
 <h6 style="margin: 0 0.2rem">Page 1 - Demographics</h6>
 
-<div class="nav-links" style="margin: 0.25rem 1rem;">
-  <a href="" class="active">Demographics</a> - 
-  <a href="measurements">Measurements</a> - 
-  <a href="socialmedia">Social Media</a> - 
-  <a href="transition">Transition</a> - 
-  <a href="sexuality">Sexuality</a> - 
-  <a href="relationships">Relationships</a> - 
-  <a href="health">Health</a> - 
-  <a href="misc">Misc</a> - 
-  <a href="nsfw">NSFW</a> - 
-  <a href="conclusion">Conclusion</a>
-</div>
+<div class="nav-links" style="margin: 0.25rem 1rem;"></div>
+<script src="/js/surveys/navlinks.js?v={{ now() }}" data-firstpage="/surveys/4tran2025p2/" data-toc="/assets/surveys/4tran2025p2/toc.json"></script>
 
 This is the results page for the Extended 4tran Survey (2025.2) which is a follow up survey to the original 2025 4tran Survey, and includes questions that were
 requested but missing from the original survey. The survey was open from December 5 to December 31, 2025 and got **1,675** (real) responses. Duplicates were

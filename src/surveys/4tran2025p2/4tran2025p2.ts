@@ -1,7 +1,7 @@
 import "../../utils.js";
 import * as Charts from "../../charts.js";
 
-const master = await(await fetch((new URL(import.meta.url).searchParams.get("path") || "/assets/surveys/4tran2025p2/results/") + '_master.json')).json();
+const master = await (await fetch('/assets/surveys/4tran2025p2/results/_master.json')).json();
 $$('.apexchart').forEach(el => {
     const chartId = el.id;
     const dataKey = el.dataset.datakey ?? "";
