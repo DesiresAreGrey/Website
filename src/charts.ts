@@ -542,8 +542,8 @@ export function createScatterPlot(chartId: string, data: any, title: string | un
         tooltip: {
             custom: ({ seriesIndex, dataPointIndex, w }: { seriesIndex: number; dataPointIndex: number; w: any }) => {
                 const point: number[] = w.config.series[seriesIndex].data[dataPointIndex];
-                const xLabel = w.config.series[seriesIndex].xLabel ?? "X";
-                const yLabel = w.config.series[seriesIndex].yLabel ?? "Y";
+                const xLabel = w.config.series[seriesIndex]?.xLabel ?? "X";
+                const yLabel = w.config.series[seriesIndex]?.yLabel ?? "Y";
                 const name: string = w.config.series[seriesIndex].name;
                 return `
                 <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${name}</div>

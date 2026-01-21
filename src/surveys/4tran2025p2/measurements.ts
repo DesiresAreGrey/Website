@@ -272,6 +272,14 @@ function updateScatterPlot() {
             }]
         };
     }
+    else {
+        data = [...data, {
+            name: "You",
+            data: [[0, 0]],
+            xLabel: "Weight (Pounds)",
+            yLabel: "Height (Inches)"
+        }];
+    }
     ApexCharts.exec("height-weight-scatter", "updateOptions", {
         series: data,
         annotations: annotations,
@@ -283,7 +291,7 @@ function updateScatterPlot() {
                 show: true
             },
             title: {
-                text: data[0].xLabel,
+                text: data[0]?.xLabel,
             },
         },
         yaxis: {
@@ -291,12 +299,14 @@ function updateScatterPlot() {
             min: 55, max: 80,
             decimalsInFloat: 0,
             title: {
-                text: data[0].yLabel,
+                text: data[0]?.yLabel,
             },
         },
         legend: {
             show: true,
             showForSingleSeries: true,
+            showForNullSeries: true,
+            showForZeroSeries: true,
         },
         colors: colors,
     });
