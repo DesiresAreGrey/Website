@@ -270,7 +270,7 @@ distribution on the heatmap tbf, but the scatter plot is still kinda needed for 
       data-datakey="height_weight_imperial_ftm_heatmap"
       data-subtitle="Heatmap"
       data-title="Height vs Weight (FtM)"
-      data-color="#45aeff"
+      data-color="#259efa"
       >
     </div>
     <div id="mtf-heightweight-heatmap" 
@@ -280,7 +280,7 @@ distribution on the heatmap tbf, but the scatter plot is still kinda needed for 
       data-datakey="height_weight_imperial_mtf_heatmap"
       data-subtitle="Heatmap"
       data-title="Height vs Weight (MtF)"
-      data-color="#ff5972"
+      data-color="#ff4f69"
       >
     </div>
   </div>
