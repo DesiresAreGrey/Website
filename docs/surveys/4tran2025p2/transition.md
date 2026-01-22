@@ -183,3 +183,49 @@ pills would likely be for women.
     <label for="hrtmethod-b" class="noselect">Bar</label>
   </div>
 </div>
+
+#### Supplemental HRT
+
+
+
+<div class="chart-set">
+  <input id="hrtsuppl-a" class="vh" type="radio" name="view-hrtsuppl" checked>
+  <input id="hrtsuppl-b" class="vh" type="radio" name="view-hrtsuppl">
+  <input id="hrtsuppl-c" class="vh" type="radio" name="view-hrtsuppl">
+  
+  <div class="chart-stack" style="min-height: 500px;">
+    <div id="hrtsuppl-ftm-bar" 
+      class="apexchart chart-layer layer-a"
+      style="height: 500px;"
+      data-chart="bar"
+      data-datakey="hrt_supplemental_ftm_flipped"
+      data-title="Supplemental HRT"
+      data-subtitle="FtM"
+      >
+    </div>
+    <div id="hrtsuppl-mtf-bar" 
+      class="apexchart chart-layer layer-b"
+      style="height: 500px;"
+      data-chart="bar"
+      data-datakey="hrt_supplemental_mtf_flipped"
+      data-title="Supplemental HRT"
+      data-subtitle="MtF"
+      data-colors='["#ff4f69"]'
+      >
+    </div>
+    <div id="hrtsuppl-total-bar" 
+      class="apexchart chart-layer layer-c"
+      style="height: 500px;"
+      data-chart="bar"
+      data-datakey="hrt_supplemental_flipped"
+      data-title="Supplemental HRT"
+      data-subtitle="Total"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="hrtsuppl-a" class="noselect">FtM</label>
+    <label for="hrtsuppl-b" class="noselect">MtF</label>
+    <label for="hrtsuppl-c" class="noselect">Total</label>
+  </div>
+</div>
