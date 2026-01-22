@@ -510,7 +510,8 @@ input::-webkit-inner-spin-button {
 
 .chart-set > input:nth-of-type(1):checked ~ .toggle label:nth-of-type(1),
 .chart-set > input:nth-of-type(2):checked ~ .toggle label:nth-of-type(2),
-.chart-set > input:nth-of-type(3):checked ~ .toggle label:nth-of-type(3) { 
+.chart-set > input:nth-of-type(3):checked ~ .toggle label:nth-of-type(3),
+.chart-set > input:nth-of-type(4):checked ~ .toggle label:nth-of-type(4) { 
   color: #fff;
   opacity: 1;
   font-variation-settings: 'wght' 750;
@@ -518,7 +519,8 @@ input::-webkit-inner-spin-button {
 
 .chart-set > input:nth-of-type(1):checked ~ .toggle label:nth-of-type(1)::before,
 .chart-set > input:nth-of-type(2):checked ~ .toggle label:nth-of-type(2)::before,
-.chart-set > input:nth-of-type(3):checked ~ .toggle label:nth-of-type(3)::before {
+.chart-set > input:nth-of-type(3):checked ~ .toggle label:nth-of-type(3)::before,
+.chart-set > input:nth-of-type(4):checked ~ .toggle label:nth-of-type(4)::before {
   background: var(--md-primary-fg-color);
   transform: scaleX(1);
 }
@@ -532,6 +534,7 @@ input::-webkit-inner-spin-button {
   inset: 0;
   transition: opacity 75ms ease;
 }
+
 .chart-set > input:first-of-type:checked ~ .chart-stack .layer-a {
   opacity: 1;
   pointer-events: auto;
@@ -544,6 +547,11 @@ input::-webkit-inner-spin-button {
   opacity: 0;
   pointer-events: none;
 }
+.chart-set > input:first-of-type:checked ~ .chart-stack .layer-d {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .chart-set > input:nth-of-type(2):checked ~ .chart-stack .layer-a {
   opacity: 0;
   pointer-events: none;
@@ -556,6 +564,11 @@ input::-webkit-inner-spin-button {
   opacity: 0;
   pointer-events: none;
 }
+.chart-set > input:nth-of-type(2):checked ~ .chart-stack .layer-d {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .chart-set > input:nth-of-type(3):checked ~ .chart-stack .layer-a {
   opacity: 0;
   pointer-events: none;
@@ -568,10 +581,26 @@ input::-webkit-inner-spin-button {
   opacity: 1;
   pointer-events: auto;
 }
+.chart-set > input:nth-of-type(3):checked ~ .chart-stack .layer-d {
+  opacity: 0;
+  pointer-events: none;
+}
 
-.apexchart {
-  min-height: 100px !important;
-  margin-bottom: 1rem;
+.chart-set > input:nth-of-type(4):checked ~ .chart-stack .layer-a {
+  opacity: 0;
+  pointer-events: none;
+}
+.chart-set > input:nth-of-type(4):checked ~ .chart-stack .layer-b {
+  opacity: 0;
+  pointer-events: none;
+}
+.chart-set > input:nth-of-type(4):checked ~ .chart-stack .layer-c {
+  opacity: 0;
+  pointer-events: none;
+}
+.chart-set > input:nth-of-type(4):checked ~ .chart-stack .layer-d {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .noselect {

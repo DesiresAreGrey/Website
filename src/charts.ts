@@ -376,7 +376,7 @@ export function createPieChart(chartId: string, data: any, title: string | undef
     new ApexCharts(document.querySelector("#" + chartId), options).render();
 }
 
-export function createBoxPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, height = 300, bounds?: number, vertical: boolean = false, change: boolean = false) {
+export function createBoxPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, height = 300, bounds?: number, vertical: boolean = false, change: boolean = false, upperColor: string = '#775DD0', lowerColor: string = '#6649ca') {
     const options: any = {
         chart: {
             id: chartId,
@@ -424,8 +424,8 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
             boxPlot: {
                 expandOnClick: false,
                 colors: {
-                    upper: '#775DD0',
-                    lower: '#6649ca',
+                    upper: upperColor,
+                    lower: lowerColor,
                 }
             }
         },
