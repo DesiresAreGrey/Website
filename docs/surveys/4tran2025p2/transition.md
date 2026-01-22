@@ -186,7 +186,12 @@ pills would likely be for women.
 
 #### Supplemental HRT
 
+Minoxidil being the most common thing taken by men makes a ton of sense. I didn't expect DHT to be second most common for them though, since I've seen
+people say its hard to get, but then again what other supplemental HRT would men take? Also why are there men on progesterone?
 
+With women the results are pretty expected, since most supplemental HRT is for women. It's pretty interesting to see that by far spironolactone is the
+most common AA taken, which I guess makes sense though hopefully in the future more people will be on bicalutamide or just on monotherapy. It's also
+pretty cool that Pio is pretty common, which I didn't expect.
 
 <div class="chart-set">
   <input id="hrtsuppl-a" class="vh" type="radio" name="view-hrtsuppl" checked>
