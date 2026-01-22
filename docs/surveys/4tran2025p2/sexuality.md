@@ -292,6 +292,146 @@ therefore expected to be into men). Not sure why thats the case since I'm a stra
   </div>
 </div>
 
+### Attraction Change
+
+Change boxplots are pretty interesting to me, we take the difference between current attraction and pretransition attraction of each respondent and
+then make a boxplot out of those differences.
+
+Straights had inverses of each other (as expected). Bi people is a bit different though, men generally increased their attraction equally towards men
+and women. Women, on the other hand, increased their attraction more towards men but actually lost some attraction towards women. Gays/lesbians are
+also interesting as its a general inverse of each other (like with straights), but men gained significantly more attraction towards other men than
+women did towards other women.
+
+Asexual people didnt really change much and are mostly full of outliers, not sure why. Maybe small sample size? idk.
+
+<div class="chart-set">
+  <input id="attrchangeftm-a" class="vh" type="radio" name="view-attrchangeftm" checked>
+  <input id="attrchangeftm-b" class="vh" type="radio" name="view-attrchangeftm">
+  <input id="attrchangeftm-c" class="vh" type="radio" name="view-attrchangeftm">
+  <input id="attrchangeftm-d" class="vh" type="radio" name="view-attrchangeftm">
+
+  <div class="chart-stack" style="min-height: 200px;">
+    <div id="attraction-change-ftm-straight-boxplot" 
+      class="apexchart chart-layer layer-a"
+      style="height: 200px;"
+      data-chart="change-boxplot"
+      data-datakey="attraction_change_ftm_straight_boxplot"
+      data-title="Attraction Change"
+      data-subtitle="Straight (FtM)"
+      data-upper-color="#50b3ff"
+      data-lower-color="#259efa"
+      data-bounds="10"
+      >
+    </div>
+    <div id="attraction-change-ftm-bisexual-boxplot" 
+      class="apexchart chart-layer layer-b"
+      style="height: 200px;"
+      data-chart="change-boxplot"
+      data-datakey="attraction_change_ftm_bisexual_boxplot"
+      data-title="Attraction Change"
+      data-subtitle="Bisexual (FtM)"
+      data-upper-color="#50b3ff"
+      data-lower-color="#259efa"
+      data-bounds="10"
+      >
+    </div>
+    <div id="attraction-change-ftm-gay-boxplot"
+      class="apexchart chart-layer layer-c"
+      style="height: 200px;"
+      data-chart="change-boxplot"
+      data-datakey="attraction_change_ftm_gay_boxplot"
+      data-title="Attraction Change"
+      data-subtitle="Gay (FtM)"
+      data-upper-color="#50b3ff"
+      data-lower-color="#259efa"
+      data-bounds="10"
+      >
+    </div>
+    <div id="attraction-change-ftm-asexual-boxplot" 
+      class="apexchart chart-layer layer-d"
+      style="height: 200px;"
+      data-chart="change-boxplot"
+      data-datakey="attraction_change_ftm_asexual_boxplot"
+      data-title="Attraction Change"
+      data-subtitle="Asexual (FtM)"
+      data-upper-color="#50b3ff"
+      data-lower-color="#259efa"
+      data-bounds="10"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="attrchangeftm-a" class="noselect">Straight</label>
+    <label for="attrchangeftm-b" class="noselect">Bisexual</label>
+    <label for="attrchangeftm-c" class="noselect">Gay</label>
+    <label for="attrchangeftm-d" class="noselect">Asexual</label>
+  </div>
+</div>
+
+<div class="chart-set">
+  <input id="attrchangemtf-a" class="vh" type="radio" name="view-attrchangemtf" checked>
+  <input id="attrchangemtf-b" class="vh" type="radio" name="view-attrchangemtf">
+  <input id="attrchangemtf-c" class="vh" type="radio" name="view-attrchangemtf">
+  <input id="attrchangemtf-d" class="vh" type="radio" name="view-attrchangemtf">
+
+  <div class="chart-stack" style="min-height: 200px;">
+    <div id="attraction-change-mtf-straight-boxplot" 
+      class="apexchart chart-layer layer-a"
+      style="height: 200px;"
+      data-chart="change-boxplot"
+      data-datakey="attraction_change_mtf_straight_boxplot"
+      data-title="Attraction Change"
+      data-subtitle="Straight (MtF)"
+      data-upper-color="#ff8295"
+      data-lower-color="#ff4f69"
+      data-bounds="10"
+      >
+    </div>
+    <div id="attraction-change-mtf-bisexual-boxplot" 
+      class="apexchart chart-layer layer-b"
+      style="height: 200px;"
+      data-chart="change-boxplot"
+      data-datakey="attraction_change_mtf_bisexual_boxplot"
+      data-title="Attraction Change"
+      data-subtitle="Bisexual (MtF)"
+      data-upper-color="#ff8295"
+      data-lower-color="#ff4f69"
+      data-bounds="10"
+      >
+    </div>
+    <div id="attraction-change-mtf-lesbian-boxplot"
+      class="apexchart chart-layer layer-c"
+      style="height: 200px;"
+      data-chart="change-boxplot"
+      data-datakey="attraction_change_mtf_lesbian_boxplot"
+      data-title="Attraction Change"
+      data-subtitle="Lesbian (MtF)"
+      data-upper-color="#ff8295"
+      data-lower-color="#ff4f69"
+      data-bounds="10"
+      >
+    </div>
+    <div id="attraction-change-mtf-asexual-boxplot" 
+      class="apexchart chart-layer layer-d"
+      style="height: 200px;"
+      data-chart="change-boxplot"
+      data-datakey="attraction_change_mtf_asexual_boxplot"
+      data-title="Attraction Change"
+      data-subtitle="Asexual (MtF)"
+      data-upper-color="#ff8295"
+      data-lower-color="#ff4f69"
+      data-bounds="10"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="attrchangemtf-a" class="noselect">Straight</label>
+    <label for="attrchangemtf-b" class="noselect">Bisexual</label>
+    <label for="attrchangemtf-c" class="noselect">Lesbian</label>
+    <label for="attrchangemtf-d" class="noselect">Asexual</label>
+  </div>
+</div>
+
 ___
 
 <div class="button-container">
