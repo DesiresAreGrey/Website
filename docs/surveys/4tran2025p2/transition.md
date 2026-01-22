@@ -234,3 +234,48 @@ pretty cool that Pio is pretty common, which I didn't expect.
     <label for="hrtsuppl-c" class="noselect">Total</label>
   </div>
 </div>
+
+### Voice
+
+#### Voice Passing
+
+Pretty expected results tbh, testosterone affects voice while estrogen does not.
+
+<div id="voicepasses-ratio" 
+  class="apexchart"
+  style="height: 200px;"
+  data-chart="ratio-bar"
+  data-datakey="voice_passes"
+  data-title="Voice Passes"
+  data-colors='["#7B61FF", "#00E0B8"]'
+  >
+</div>
+
+#### Voice Training
+
+The differences between genders here is pretty expected, however I didn't expect so many men to have voice trained.
+
+<div id="voicetrained-ratio" 
+  class="apexchart"
+  style="height: 200px;"
+  data-chart="ratio-bar"
+  data-datakey="voice_trained"
+  data-title="Voice Trained"
+  data-colors='["#7B61FF", "#00E0B8"]'
+  >
+</div>
+
+Now time to put them together. 
+
+Once again pretty expected results, training is much more important for women. The 35% of men who voice passes woithout voice training is still crazy
+to see though regardless.
+
+<div id="voicetrainedpasses-ratio" 
+  class="apexchart"
+  style="height: 200px;"
+  data-chart="ratio-bar"
+  data-datakey="voice_trained_passes"
+  data-title="Voice Passes and Trained"
+  data-colors='["#7B61FF", "#3c57f1", "#FF4560", "#FEB019"]'
+  >
+</div>
