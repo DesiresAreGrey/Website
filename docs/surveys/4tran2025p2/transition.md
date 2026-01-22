@@ -279,3 +279,106 @@ to see though regardless.
   data-colors='["#7B61FF", "#3c57f1", "#FF4560", "#FEB019"]'
   >
 </div>
+
+I had to remove the outliers for this one since people were putting in super large numbers, I think all the year input questions are all a bit broken
+due to people not putting in the right numbers. For some reason this didn't happen with the first survey though.
+
+Interestingly, men have voice trained for somewhat longer than women, despite needing it less.
+
+<div id="years-voice-training-boxplot" 
+  class="apexchart"
+  style="height: 300px;"
+  data-chart="boxplot"
+  data-datakey="years_voice_training_boxplot"
+  data-title="Years Voice Training"
+  >
+</div>
+
+### Passing
+
+#### Current
+
+This question was rating your current passability a scale of 0-10, where 0 is completely unpassing and 10 is completely passing.
+
+Pretty expected once again, men pass better since testosterone does a lot more for passing. It is interesting how the most common answer for women was
+0 (completely unpassing), while for men it was 6 (mostly passing).
+
+<div class="chart-set">
+  <input id="passingscalecurrent-a" class="vh" type="radio" name="view-passingscalecurrent" checked>
+  <input id="passingscalecurrent-b" class="vh" type="radio" name="view-passingscalecurrent">
+  
+  <div class="chart-stack" style="min-height: 350px;">
+    <div id="passing-scale-current-pop-pyramid" 
+      class="apexchart chart-layer layer-a"
+      style="height: 350px;"
+      data-chart="pop-pyramid"
+      data-datakey="passing_scale_current_pop_pyramid_reversed"
+      data-title="Passing Scale"
+      data-subtitle="Current"
+      data-bounds="25"
+      >
+    </div>
+    <div id="passing-scale-current-boxplot" 
+      class="apexchart chart-layer layer-b"
+      style="height: 350px;"
+      data-chart="boxplot"
+      data-datakey="passing_scale_current_boxplot"
+      data-title="Passing Scale"
+      data-subtitle="Current"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="passingscalecurrent-a" class="noselect">Population Pyramid</label>
+    <label for="passingscalecurrent-b" class="noselect">Boxplot</label>
+  </div>
+</div>
+
+#### Future
+
+This question was where on the 0-10 scale do you think you'll end up, i.e. your max potential. Men are GMI.
+
+<div class="chart-set">
+  <input id="passingscalefuture-a" class="vh" type="radio" name="view-passingscalefuture" checked>
+  <input id="passingscalefuture-b" class="vh" type="radio" name="view-passingscalefuture">
+  
+  <div class="chart-stack" style="min-height: 350px;">
+    <div id="passing-scale-future-pop-pyramid" 
+      class="apexchart chart-layer layer-a"
+      style="height: 350px;"
+      data-chart="pop-pyramid"
+      data-datakey="passing_scale_future_pop_pyramid_reversed"
+      data-title="Passing Scale"
+      data-subtitle="Future"
+      data-bounds="25"
+      >
+    </div>
+    <div id="passing-scale-future-boxplot" 
+      class="apexchart chart-layer layer-b"
+      style="height: 350px;"
+      data-chart="boxplot"
+      data-datakey="passing_scale_future_boxplot"
+      data-title="Passing Scale"
+      data-subtitle="Future"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="passingscalefuture-a" class="noselect">Population Pyramid</label>
+    <label for="passingscalefuture-b" class="noselect">Boxplot</label>
+  </div>
+</div>
+
+#### Stealth
+
+Unsurprisingly, men are way more likely to be stealth.
+
+<div id="stealth-ratio" 
+  class="apexchart"
+  style="height: 200px;"
+  data-chart="ratio-bar"
+  data-datakey="stealth"
+  data-title="Stealth"
+  data-colors='["#7B61FF", "#3c57f1", "#00E0B8"]'
+  >
+</div>

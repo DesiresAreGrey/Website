@@ -196,9 +196,9 @@ export function createBarChart(chartId: string, data: any, title: string | undef
     new ApexCharts(document.querySelector("#" + chartId), options).render();
 }
 
-export function createPopPyramidChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, bounds: number) {
+export function createPopPyramidChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, bounds: number, horizontal?: boolean) {
     data.categories = data.categories.map((c: string) => replaceXThanWithSymbol(c));
-    const options = {
+    const options: any = {
         chart: {
             id: chartId,
             type: 'bar',
@@ -262,7 +262,7 @@ export function createPopPyramidChart(chartId: string, data: any, title: string 
                 formatter: (val: number) => {
                     return Math.abs(val/10) + "%";
                 }
-            }
+            },
         },
         plotOptions: {
             bar: {
@@ -287,6 +287,25 @@ export function createPopPyramidChart(chartId: string, data: any, title: string 
         },
         colors: colors
     };
+    if (horizontal) {
+        options.plotOptions.bar.horizontal = false;
+        options.plotOptions.bar.columnWidth = '50%';
+        options.xaxis = {
+            categories: data.categories,
+            min: -bounds * 10, max: bounds * 10,
+            labels: {
+                formatter: undefined
+            }
+        }
+        options.yaxis = {
+            labels: {
+                showDuplicates: true,
+                formatter: function (val: number) {
+                    return Math.abs(Math.round(val/10)) + "%"
+                }
+            }
+        }
+    }
     new ApexCharts(document.querySelector("#" + chartId), options).render();
 }
 

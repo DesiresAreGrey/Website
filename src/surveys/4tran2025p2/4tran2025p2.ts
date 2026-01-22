@@ -11,6 +11,7 @@ $$('.apexchart').forEach(el => {
     const colors = el.dataset.colors?.parseJson() ?? ['#259efa', '#ff4f69', '#00E396', '#FEB019'];
     const color = el.dataset.color ?? '#259efa';
     const height = el.style.height.replace("px", "")?.parseFloat() ?? 300;
+    const horizontal = el.dataset.horizontal != undefined;
 
     switch (el.dataset.chart) {
         case "ratio-bar":
@@ -20,7 +21,7 @@ $$('.apexchart').forEach(el => {
         case "column":
             Charts.createBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, false); break;
         case "pop-pyramid":
-            Charts.createPopPyramidChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, el.dataset.bounds?.parseFloat() ?? 15); break;
+            Charts.createPopPyramidChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, el.dataset.bounds?.parseFloat() ?? 15, horizontal); break;
         case "pie":
             Charts.createPieChart(chartId, master[dataKey], title, colors, height); break;
         case "boxplot":

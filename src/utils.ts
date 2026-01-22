@@ -30,6 +30,8 @@ declare global {
         roundTo(precision?: number): number;
         floorTo(precision?: number): number;
 
+        abs(): number;
+
         mult(multiplier: number): number;
         multFloor(multiplier: number): number;
         multRound(multiplier: number): number;
@@ -91,6 +93,9 @@ Object.defineProperty(Number.prototype, 'roundTo', {
 });
 Object.defineProperty(Number.prototype, 'floorTo', { 
     value: function(this: number, precision = 0) { return Math.floor(this * (10 ** precision)) / (10 ** precision) } 
+});
+Object.defineProperty(Number.prototype, 'abs', { 
+    value: function(this: number) { return this < 0 ? this : this } 
 });
 
 Object.defineProperty(Number.prototype, 'mult', { value: function(this: number, multiplier: number) { return this * multiplier } });
