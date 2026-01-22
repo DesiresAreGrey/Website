@@ -682,8 +682,7 @@ export function createHeatmap(chartId: string, data: any, title: string | undefi
             palette: 'palette1',
         },
         stroke: {
-            colors: ['transparent'],
-            width: 3,    
+            show: false,
         },
         dataLabels: {
             enabled: true,
@@ -692,6 +691,11 @@ export function createHeatmap(chartId: string, data: any, title: string | undefi
                 fontWeight: '600',
             }
         },
+        plotOptions: {
+        heatmap: {
+            radius: 0
+        }
+    },
         colors: [color],
     };
     new ApexCharts(document.querySelector("#" + chartId), { ...options, ...customOptions }).render();
