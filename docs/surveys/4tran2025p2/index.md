@@ -180,7 +180,7 @@ No surprise that everyone is white.
       data-datakey="ethnicity"
       data-title="Ethnicity"
       data-subtitle="Ratio Bar"
-      data-colors='["#008FFB", "#00E396", "#FEB019", "#FF4560", "#775DD0", "#3F51B5"]'
+      data-colors='["#008FFB", "#00E396", "#FEB019", "#FF4560", "#775DD0", "#3c57f1"]'
       >
     </div>
   </div>

@@ -1,6 +1,8 @@
 import "./utils.js";
 import ApexCharts from 'apexcharts';
 
+const isMobile = window.innerWidth > 768 ? false : true;
+
 export function createRatioBarChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number) {
     hideSeries.forEach(index => {
         if (data.series[index]) {
@@ -18,6 +20,9 @@ export function createRatioBarChart(chartId: string, data: any, title: string | 
             toolbar: { show: false },
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
+            animations: {
+                enabled: !isMobile
+            },
         },
         title: {
             text: title,
@@ -121,6 +126,9 @@ export function createBarChart(chartId: string, data: any, title: string | undef
             toolbar: { show: false },
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
+            animations: {
+                enabled: !isMobile
+            },
         },
         title: {
             text: title,
@@ -199,6 +207,9 @@ export function createPopPyramidChart(chartId: string, data: any, title: string 
             toolbar: { show: false },
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
+            animations: {
+                enabled: !isMobile
+            },
         },
         title: {
             text: title,
@@ -288,6 +299,9 @@ export function createPieChart(chartId: string, data: any, title: string | undef
             toolbar: { show: false },
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
+            animations: {
+                enabled: !isMobile
+            },
         },
         series: data.series,
         labels: data.labels,
@@ -344,6 +358,9 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
             toolbar: { show: false },
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
+            animations: {
+                enabled: !isMobile
+            },
         },
         title: {
             text: title,
@@ -503,7 +520,10 @@ export function createScatterPlot(chartId: string, data: any, title: string | un
             fontFamily: 'Inter, Arial, sans-serif',
             zoom: {
                 enabled: false
-            }
+            },
+            animations: {
+                enabled: !isMobile
+            },
         },
         title: {
             text: title,
@@ -606,7 +626,10 @@ export function createHeatmap(chartId: string, data: any, title: string | undefi
             fontFamily: 'Inter, Arial, sans-serif',
             zoom: {
                 enabled: false
-            }
+            },
+            animations: {
+                enabled: !isMobile
+            },
         },
         title: {
             text: title,
@@ -692,10 +715,10 @@ export function createHeatmap(chartId: string, data: any, title: string | undefi
             }
         },
         plotOptions: {
-        heatmap: {
-            radius: 0
-        }
-    },
+            heatmap: {
+                radius: 0
+            }
+        },
         colors: [color],
     };
     new ApexCharts(document.querySelector("#" + chartId), { ...options, ...customOptions }).render();
