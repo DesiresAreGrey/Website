@@ -1,6 +1,6 @@
 ---
 description: Results of the Extended 4tran Survey (2025.2)
-image: /assets/surveys/4tran2025p2/thumb.png
+image: /assets/surveys/4tran2025p2/thumb-socialmedia.png
 ---
 <script type="importmap">
 {
@@ -115,6 +115,41 @@ This one is slightly less messed up than the time using 4tran one. Did people th
   data-subtitle="Box Plot"
   data-title="Years on 4Chan"
   >
+</div>
+
+### Came From
+
+If you noticed the little `?source=r/4tran4` thing at the end of the survey link, this is what that was used for. I was curious where people found out
+about the survey. I made it a bit more granular than last time and added different sources for different discord servers.
+
+<div class="chart-set">
+  <input id="camefrom-a" class="vh" type="radio" name="view-camefrom" checked>
+  <input id="camefrom-b" class="vh" type="radio" name="view-camefrom">
+  
+  <div class="chart-stack">
+    <div id="camefrom-bar" 
+      class="apexchart chart-layer layer-a"
+      style="height: 500px;"
+      data-chart="bar"
+      data-datakey="came_from"
+      data-title="Came From"
+      data-subtitle="Bar"
+      >
+    </div>
+    <div id="camefrom-ratio" 
+      class="apexchart chart-layer layer-b"
+      style="height: 500px;"
+      data-chart="ratio-bar"
+      data-datakey="came_from"
+      data-title="Came From"
+      data-subtitle="Ratio"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="camefrom-a" class="noselect">Ratio</label>
+    <label for="camefrom-b" class="noselect">Bar</label>
+  </div>
 </div>
 
 ___
