@@ -105,7 +105,7 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
 .toggle-container{
   margin-bottom: 6px;
   display: flex;
-  width: 280px;
+  width: 220px;
   justify-content: right;
 }
 
@@ -347,24 +347,22 @@ ___
   </div>
 </div>
 
-<div id="height-weight-scatter" style="height: 500px; margin-bottom: 0.69rem;" class="scatterapexchart">
-<img src="/assets/surveys/4tran2025p2/results/height_weight_scatter_image.png" style="width: 100%; height: auto; position: absolute; top: 0; left: 0; pointer-events: none;" />
-</div>
+<div id="height-weight-scatter" style="height: 500px; margin-bottom: 0.69rem;" class="scatterapexchart"></div>
 
 <div class="center-container">
-  <div class="label" style="width: 9rem;">Scatter Plot
-    <div class="label-subtitle">Static uses an image for performance</div>
+  <div class="label" style="width: 7rem;">Scatter Plot
+    <div class="label-subtitle">May be heavy on mobile</div>
   </div>
   <div class="toggle-container">
     <input type="checkbox" id="scatterplot-type-toggle" class="toggleCheckbox" />
     <label for="scatterplot-type-toggle" class='toggleContainer'>
-      <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Dynamic</div>   
-      <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Static</div>
+      <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Show</div>   
+      <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Hide</div>
     </label>
   </div>
 </div>
 <div class="center-container">
-  <div class="label" style="width: 9rem;">Show Self
+  <div class="label" style="width: 7rem;">Show Self
     <div class="label-subtitle">Shows your height/weight</div>
   </div>
   <div class="toggle-container">
