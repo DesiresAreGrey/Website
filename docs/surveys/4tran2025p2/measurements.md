@@ -214,10 +214,10 @@ Weight is dependent on height generally, so the dimorphism is due to height diff
   <input id="weight-a" class="vh" type="radio" name="view-weight" checked>
   <input id="weight-b" class="vh" type="radio" name="view-weight">
   
-  <div class="chart-stack">
+  <div class="chart-stack" style="min-height: 350px;">
     <div id="weight-inches-boxplot" 
       class="apexchart chart-layer layer-a"
-      style="height: 500px;"
+      style="height: 350px;"
       data-chart="boxplot"
       data-datakey="weight_pounds_boxplot"
       data-subtitle="Box Plot (Pounds)"
@@ -226,7 +226,7 @@ Weight is dependent on height generally, so the dimorphism is due to height diff
     </div>
     <div id="weight-cm-boxplot" 
       class="apexchart chart-layer layer-b"
-      style="height: 500px;"
+      style="height: 350px;"
       data-chart="boxplot"
       data-datakey="weight_kg_boxplot"
       data-subtitle="Box Plot (Kilograms)"
@@ -247,7 +247,7 @@ women with men having a very slightly higher BMI.
 
 <div id="bmi-boxplot" 
   class="apexchart chart-layer layer-a"
-  style="height: 500px;"
+  style="height: 350px;"
   data-chart="boxplot"
   data-datakey="bmi_boxplot"
   data-subtitle="Box Plot"

@@ -35,7 +35,7 @@ image: /assets/surveys/4tran2025p2/thumb.png
 
 Since sexuality labels can be confusing and imprecise, I added a section to rate from 0 to 10 your attraction towards men and/or women.
 
-Its interesting how straight men are more likely to put values around 0 and 10, while with women its a bit more spread out. Women are less straight
+It's interesting how straight men are more likely to put values around 0 and 10, while with women its a bit more spread out. Women are less straight
 than men...many such cases...
 
 With bisexuality, men are perfectly even between being into men and women, while with women, they're a but more into women than men.
@@ -162,4 +162,139 @@ With asexuals, its interesting how both genders (especially the women) are a bit
     <label for="attrcurrmtf-c" class="noselect">Lesbian</label>
     <label for="attrcurrmtf-d" class="noselect">Asexual</label>
   </div>
+</div>
+
+### Pretransition Attraction
+
+Interestingly, the distributions for pretransition attraction are pretty similar to current attraction.
+
+You would expect bi people to be into the "expected" gender they are supposed to be into pretransition, but that only seems to apply to the women
+(raised male and therefore expected to be into women). The bi men on the other hand were also more into women than men pretransition (raised female and
+therefore expected to be into men). Not sure why thats the case since I'm a straight woman but maybe someone could explain it a bit better.
+
+<div class="chart-set">
+  <input id="attrpretransftm-a" class="vh" type="radio" name="view-attrpretransftm" checked>
+  <input id="attrpretransftm-b" class="vh" type="radio" name="view-attrpretransftm">
+  <input id="attrpretransftm-c" class="vh" type="radio" name="view-attrpretransftm">
+  <input id="attrpretransftm-d" class="vh" type="radio" name="view-attrpretransftm">
+  
+  <div class="chart-stack" style="min-height: 200px;">
+    <div id="attraction-pretrans-ftm-straight-boxplot" 
+      class="apexchart chart-layer layer-a"
+      style="height: 200px;"
+      data-chart="boxplot"
+      data-datakey="attraction_pretrans_ftm_straight_boxplot"
+      data-title="Pretransition Attraction"
+      data-subtitle="Straight (FtM)"
+      data-upper-color="#50b3ff"
+      data-lower-color="#259efa"
+      >
+    </div>
+    <div id="attraction-pretrans-ftm-bisexual-boxplot" 
+      class="apexchart chart-layer layer-b"
+      style="height: 200px;"
+      data-chart="boxplot"
+      data-datakey="attraction_pretrans_ftm_bisexual_boxplot"
+      data-title="Pretransition Attraction"
+      data-subtitle="Bisexual (FtM)"
+      data-upper-color="#50b3ff"
+      data-lower-color="#259efa"
+      >
+    </div>
+    <div id="attraction-pretrans-ftm-gay-boxplot"
+      class="apexchart chart-layer layer-c"
+      style="height: 200px;"
+      data-chart="boxplot"
+      data-datakey="attraction_pretrans_ftm_gay_boxplot"
+      data-title="Pretransition Attraction"
+      data-subtitle="Gay (FtM)"
+      data-upper-color="#50b3ff"
+      data-lower-color="#259efa"
+      >
+    </div>
+    <div id="attraction-pretrans-ftm-asexual-boxplot" 
+      class="apexchart chart-layer layer-d"
+      style="height: 200px;"
+      data-chart="boxplot"
+      data-datakey="attraction_pretrans_ftm_asexual_boxplot"
+      data-title="Pretransition Attraction"
+      data-subtitle="Asexual (FtM)"
+      data-upper-color="#50b3ff"
+      data-lower-color="#259efa"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="attrpretransftm-a" class="noselect">Straight</label>
+    <label for="attrpretransftm-b" class="noselect">Bisexual</label>
+    <label for="attrpretransftm-c" class="noselect">Gay</label>
+    <label for="attrpretransftm-d" class="noselect">Asexual</label>
+  </div>
+</div>
+
+<div class="chart-set">
+  <input id="attrpretransmtf-a" class="vh" type="radio" name="view-attrpretransmtf" checked>
+  <input id="attrpretransmtf-b" class="vh" type="radio" name="view-attrpretransmtf">
+  <input id="attrpretransmtf-c" class="vh" type="radio" name="view-attrpretransmtf">
+  <input id="attrpretransmtf-d" class="vh" type="radio" name="view-attrpretransmtf">
+
+  <div class="chart-stack" style="min-height: 200px;">
+    <div id="attraction-pretrans-mtf-straight-boxplot" 
+      class="apexchart chart-layer layer-a"
+      style="height: 200px;"
+      data-chart="boxplot"
+      data-datakey="attraction_pretrans_mtf_straight_boxplot"
+      data-title="Pretransition Attraction"
+      data-subtitle="Straight (MtF)"
+      data-upper-color="#ff8295"
+      data-lower-color="#ff4f69"
+      >
+    </div>
+    <div id="attraction-pretrans-mtf-bisexual-boxplot" 
+      class="apexchart chart-layer layer-b"
+      style="height: 200px;"
+      data-chart="boxplot"
+      data-datakey="attraction_pretrans_mtf_bisexual_boxplot"
+      data-title="Pretransition Attraction"
+      data-subtitle="Bisexual (MtF)"
+      data-upper-color="#ff8295"
+      data-lower-color="#ff4f69"
+      >
+    </div>
+    <div id="attraction-pretrans-mtf-lesbian-boxplot"
+      class="apexchart chart-layer layer-c"
+      style="height: 200px;"
+      data-chart="boxplot"
+      data-datakey="attraction_pretrans_mtf_lesbian_boxplot"
+      data-title="Pretransition Attraction"
+      data-subtitle="Lesbian (MtF)"
+      data-upper-color="#ff8295"
+      data-lower-color="#ff4f69"
+      >
+    </div>
+    <div id="attraction-pretrans-mtf-asexual-boxplot" 
+      class="apexchart chart-layer layer-d"
+      style="height: 200px;"
+      data-chart="boxplot"
+      data-datakey="attraction_pretrans_mtf_asexual_boxplot"
+      data-title="Pretransition Attraction"
+      data-subtitle="Asexual (MtF)"
+      data-upper-color="#ff8295"
+      data-lower-color="#ff4f69"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="attrpretransmtf-a" class="noselect">Straight</label>
+    <label for="attrpretransmtf-b" class="noselect">Bisexual</label>
+    <label for="attrpretransmtf-c" class="noselect">Lesbian</label>
+    <label for="attrpretransmtf-d" class="noselect">Asexual</label>
+  </div>
+</div>
+
+___
+
+<div class="button-container">
+  <a class="big-button" href="../transition">Previous Page</a>
+  <a class="big-button" href="../relationships">Next Page</a>
 </div>
