@@ -1,6 +1,6 @@
 ---
 description: Results of the Extended 4tran Survey (2025.2)
-image: /assets/surveys/4tran2025p2/thumb.png
+image: /assets/surveys/4tran2025p2/thumb-transition.png
 ---
 <script type="importmap">
 {
@@ -505,4 +505,11 @@ perfectly 50/50 on the chart, it would mean that the same proportion of men and 
     <label for="dysphoriatypes-b" class="noselect">FtM</label>
     <label for="dysphoriatypes-c" class="noselect">MtF</label>
   </div>
+</div>
+
+___
+
+<div class="button-container">
+  <a class="big-button" href="../socialmedia">Previous Page</a>
+  <a class="big-button" href="../sexuality">Next Page</a>
 </div>
