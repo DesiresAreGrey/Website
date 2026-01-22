@@ -369,12 +369,28 @@ This question was where on the 0-10 scale do you think you'll end up, i.e. your 
   </div>
 </div>
 
+#### Change
+
+By subtracting current from future, we get the expected change in passing scale. The data isn't what I expected at all, men and women are generally
+the same here, I expected men to lead here again. What's even more surprising is how there are people who expect to go down in passing scale.
+
+<div id="passing-scale-change-boxplot" 
+  class="apexchart chart-layer layer-b"
+  style="height: 350px;"
+  data-chart="change-boxplot"
+  data-datakey="passing_scale_change_boxplot"
+  data-title="Passing Scale"
+  data-subtitle="Expected Change"
+  data-bounds="10"
+  >
+</div>
+
 
 #### Years on HRT vs Passing 
 
 This chart shows the relationship between years on HRT (x axis) and current passing scale (y axis). Pretty clear trend of being on HRT for longer
 meaning better passing, though for some reason that trend is less clean with men. This also shows that trans women generally need to be on HRT for longer to
-achieve the same level of passing as men
+achieve the same level of passing as men, and that men rarely stay at a 0 after about a year of HRT.
 
 <div class="chart-set">
   <input id="passinghrt-a" class="vh" type="radio" name="view-passinghrt" checked>
@@ -420,4 +436,73 @@ Unsurprisingly, men are way more likely to be stealth.
   data-title="Stealth"
   data-colors='["#7B61FF", "#3c57f1", "#00E0B8"]'
   >
+</div>
+
+### Dysphoria
+
+#### Has Dysphoria
+
+99% of binary trans people here have dysphoria, which is pretty cool to see since I'd assume that number would be much lower in mainstream
+communities. For nonbinary people its a bit lower, at 89%, but still a pretty solid majority.
+
+<div id="has-dysphoria-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="has_dysphoria"
+  data-title="Has Dysphoria"
+  data-colors='["#7B61FF", "#00E0B8"]'
+  >
+</div>
+
+#### Types of Dysphoria
+
+It's interesting seeing how the order changes between men and women. Number 1 for both is body, Number 2 for men is genital while for women its voice,
+and etc. Its also interesting to see the dysphoria types that men have more often than women, the most notable being Genital
+(8% difference), Chest (12% difference), Sexual (12% difference), Height (14% difference), and etc.
+
+Normalized ratio is a ratio bar graph where the total of men vs women is normalized. This means so that, for example, if a type of dysphoria was
+perfectly 50/50 on the chart, it would mean that the same proportion of men and women have that type of dysphoria (50/100 men and 100/200 women for example).
+
+<div class="chart-set">
+  <input id="dysphoriatypes-a" class="vh" type="radio" name="view-dysphoriatypes" checked>
+  <input id="dysphoriatypes-b" class="vh" type="radio" name="view-dysphoriatypes">
+  <input id="dysphoriatypes-c" class="vh" type="radio" name="view-dysphoriatypes">
+  
+  <div class="chart-stack" style="min-height: 550px;">
+    <div id="dysphoria-types-bar" 
+      class="apexchart chart-layer layer-a"
+      style="height: 550px;"
+      data-chart="ratio-bar"
+      data-datakey="dysphoria_types_norm_flipped"
+      data-title="Dysphoria Types"
+      data-subtitle="Normalized Ratio"
+      data-normalized
+      >
+    </div>
+    <div id="dysphoria-types-ftm-bar" 
+      class="apexchart chart-layer layer-b"
+      style="height: 550px;"
+      data-chart="bar"
+      data-datakey="dysphoria_types_ftm_flipped"
+      data-title="Dysphoria Types"
+      data-subtitle="FtM"
+      >
+    </div>
+    <div id="dysphoria-types-mtf-bar" 
+      class="apexchart chart-layer layer-c"
+      style="height: 550px;"
+      data-chart="bar"
+      data-datakey="dysphoria_types_mtf_flipped"
+      data-title="Dysphoria Types"
+      data-subtitle="MtF"
+      data-colors='["#ff4f69"]'
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="dysphoriatypes-a" class="noselect">Normalized Ratio</label>
+    <label for="dysphoriatypes-b" class="noselect">FtM</label>
+    <label for="dysphoriatypes-c" class="noselect">MtF</label>
+  </div>
 </div>

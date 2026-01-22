@@ -13,10 +13,11 @@ $$('.apexchart').forEach(el => {
     const height = el.style.height.replace("px", "")?.parseFloat() ?? 300;
     const horizontal = el.dataset.horizontal != undefined;
     const vertical = el.dataset.vertical != undefined;
+    const normalized = el.dataset.normalized != undefined;
 
     switch (el.dataset.chart) {
         case "ratio-bar":
-            Charts.createRatioBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height); break;
+            Charts.createRatioBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, normalized); break;
         case "bar":
             Charts.createBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, true); break;
         case "column":

@@ -3,7 +3,7 @@ import ApexCharts from 'apexcharts';
 
 const isMobile = window.innerWidth > 768 ? false : true;
 
-export function createRatioBarChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number) {
+export function createRatioBarChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, normalized: boolean = false) {
     hideSeries.forEach(index => {
         if (data.series[index]) {
             data.series[index].hidden = true;
@@ -60,6 +60,11 @@ export function createRatioBarChart(chartId: string, data: any, title: string | 
         tooltip: {
             y: {
                 formatter: (val: number, opts: any) => {
+                    if (normalized) {
+                        const total: number = opts.w.globals.stackedSeriesTotals[opts.dataPointIndex];
+                        const pct = total ? ((val / total) * 100).toFixed(1) : 0;
+                        return `${pct}% (${val / 10}% of ${data.series[opts.seriesIndex].name})`;
+                    }
                     const total: number = opts.w.globals.stackedSeriesTotals[opts.dataPointIndex];
                     const pct = total ? ((val / total) * 100).toFixed(1) : 0;
                     return `${val} respondents (${pct}%)`;
@@ -156,6 +161,9 @@ export function createBarChart(chartId: string, data: any, title: string | undef
         tooltip: {
             y: {
                 formatter: (val: number, opts: any) => {
+                    if (data.series.length <= 1)
+                        return `${val} respondents`;
+
                     const total: number = opts.w.globals.stackedSeriesTotals[opts.dataPointIndex];
                     const pct = total ? ((val / total) * 100).toFixed(1) : 0;
                     return `${val} respondents (${pct}%)`;
@@ -513,13 +521,7 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
             min: 0, max: bounds
         }
     }
-    else if (bounds) {
-        options.xaxis = {
-            //decimalsInFloat: 0,
-            min: 0, max: bounds
-        }
-    }
-    else if (change && bounds && !vertical) {
+    else if (change && bounds) {
         options.xaxis = {
             min: -bounds, max: bounds,
         };
@@ -533,6 +535,11 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
                 }
             ]
         };
+    }
+    else if (bounds) {
+        options.xaxis = {
+            min: 0, max: bounds
+        }
     }
 
     new ApexCharts(document.querySelector("#" + chartId), options).render();
