@@ -12,6 +12,7 @@ $$('.apexchart').forEach(el => {
     const color = el.dataset.color ?? '#259efa';
     const height = el.style.height.replace("px", "")?.parseFloat() ?? 300;
     const horizontal = el.dataset.horizontal != undefined;
+    const vertical = el.dataset.vertical != undefined;
 
     switch (el.dataset.chart) {
         case "ratio-bar":
@@ -25,9 +26,9 @@ $$('.apexchart').forEach(el => {
         case "pie":
             Charts.createPieChart(chartId, master[dataKey], title, colors, height); break;
         case "boxplot":
-            Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height); break;
+            Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height, el.dataset.bounds?.parseFloat() ?? undefined, vertical); break;
         case "change-boxplot":
-            Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height, el.dataset.bounds?.parseFloat() ?? 5); break;
+            Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height, el.dataset.bounds?.parseFloat() ?? 5, vertical, true); break;
         case "scatter":
             Charts.createScatterPlot(chartId, master[dataKey], title, subtitle, hideSeries, colors, height); break;
         case "heatmap":

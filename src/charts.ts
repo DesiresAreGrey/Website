@@ -368,7 +368,7 @@ export function createPieChart(chartId: string, data: any, title: string | undef
     new ApexCharts(document.querySelector("#" + chartId), options).render();
 }
 
-export function createBoxPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, height = 300, bounds?: number) {
+export function createBoxPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, height = 300, bounds?: number, vertical: boolean = false, change: boolean = false) {
     const options: any = {
         chart: {
             id: chartId,
@@ -377,6 +377,9 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
             toolbar: { show: false },
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
+            zoom: {
+                enabled: false
+            },
             animations: {
                 enabled: !isMobile
             },
@@ -407,7 +410,7 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
         }],
         plotOptions: {
             bar: {
-                horizontal: true,
+                horizontal: !vertical,
                 barHeight: '75%'
             },
             boxPlot: {
@@ -504,7 +507,19 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
         }
     };
 
-    if (bounds) {
+    if (vertical) {
+        options.yaxis = {
+            decimalsInFloat: 0,
+            min: 0, max: bounds
+        }
+    }
+    else if (bounds) {
+        options.xaxis = {
+            //decimalsInFloat: 0,
+            min: 0, max: bounds
+        }
+    }
+    else if (change && bounds && !vertical) {
         options.xaxis = {
             min: -bounds, max: bounds,
         };
@@ -523,7 +538,7 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
     new ApexCharts(document.querySelector("#" + chartId), options).render();
 }
 
-export function createScatterPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, customOptions?: any) {
+export function createScatterPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, tickAmount: number = 10, customOptions?: any) {
     hideSeries.forEach(index => {
         if (data[index]) {
             data[index].hidden = true;
@@ -561,7 +576,7 @@ export function createScatterPlot(chartId: string, data: any, title: string | un
         },
         series: data,
         xaxis: {
-            tickAmount: 10,
+            tickAmount: tickAmount,
             labels: {
                 show: true
             },

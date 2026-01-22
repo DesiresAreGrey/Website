@@ -369,6 +369,45 @@ This question was where on the 0-10 scale do you think you'll end up, i.e. your 
   </div>
 </div>
 
+
+#### Years on HRT vs Passing 
+
+This chart shows the relationship between years on HRT (x axis) and current passing scale (y axis). Pretty clear trend of being on HRT for longer
+meaning better passing, though for some reason that trend is less clean with men. This also shows that trans women generally need to be on HRT for longer to
+achieve the same level of passing as men
+
+<div class="chart-set">
+  <input id="passinghrt-a" class="vh" type="radio" name="view-passinghrt" checked>
+  <input id="passinghrt-b" class="vh" type="radio" name="view-passinghrt">
+  
+  <div class="chart-stack" style="min-height: 600px;">
+    <div id="passing-hrt-ftm-boxplot" 
+      class="apexchart chart-layer layer-a"
+      style="height: 600px;"
+      data-chart="boxplot"
+      data-datakey="passing_hrt_ftm_boxplot"
+      data-title="Years On HRT / Passing Scale"
+      data-subtitle="FtM"
+      data-bounds="15"
+      >
+    </div>
+    <div id="passing-hrt-mtf-boxplot" 
+      class="apexchart chart-layer layer-b"
+      style="height: 600px;"
+      data-chart="boxplot"
+      data-datakey="passing_hrt_mtf_boxplot"
+      data-title="Years On HRT / Passing Scale"
+      data-subtitle="MtF"
+      data-bounds="15"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="passinghrt-a" class="noselect">FtM</label>
+    <label for="passinghrt-b" class="noselect">MtF</label>
+  </div>
+</div>
+
 #### Stealth
 
 Unsurprisingly, men are way more likely to be stealth.
