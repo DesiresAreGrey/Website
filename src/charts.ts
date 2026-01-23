@@ -2,6 +2,7 @@ import "./utils.js";
 import ApexCharts from 'apexcharts';
 
 const isMobile = window.innerWidth > 768 ? false : true;
+const animationsEnabled: boolean = localStorage.getItem('chart-animations-enabled')?.parseJson() ?? !isMobile;
 
 export function createRatioBarChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, normalized: boolean = false) {
     hideSeries.forEach(index => {
@@ -21,7 +22,7 @@ export function createRatioBarChart(chartId: string, data: any, title: string | 
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
             animations: {
-                enabled: !isMobile
+                enabled: animationsEnabled
             },
         },
         title: {
@@ -132,7 +133,7 @@ export function createBarChart(chartId: string, data: any, title: string | undef
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
             animations: {
-                enabled: !isMobile
+                enabled: animationsEnabled
             },
         },
         title: {
@@ -216,7 +217,7 @@ export function createPopPyramidChart(chartId: string, data: any, title: string 
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
             animations: {
-                enabled: !isMobile
+                enabled: animationsEnabled
             },
         },
         title: {
@@ -327,7 +328,7 @@ export function createPieChart(chartId: string, data: any, title: string | undef
             background: '#090909',
             fontFamily: 'Inter, Arial, sans-serif',
             animations: {
-                enabled: !isMobile
+                enabled: animationsEnabled
             },
         },
         series: data.series,
@@ -389,7 +390,7 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
                 enabled: false
             },
             animations: {
-                enabled: !isMobile
+                enabled: animationsEnabled
             },
         },
         title: {
@@ -563,7 +564,7 @@ export function createScatterPlot(chartId: string, data: any, title: string | un
                 enabled: false
             },
             animations: {
-                enabled: !isMobile
+                enabled: animationsEnabled
             },
         },
         title: {
@@ -669,7 +670,7 @@ export function createHeatmap(chartId: string, data: any, title: string | undefi
                 enabled: false
             },
             animations: {
-                enabled: !isMobile
+                enabled: animationsEnabled
             },
         },
         title: {

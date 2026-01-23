@@ -75,9 +75,6 @@ Its heavily recommended you view this site on desktop! The charts are interactiv
   width: 220px;
   margin-bottom: 6px;
 }
-.label {
-  width: 7rem;
-}
 .label .label-subtitle {
   font-size: 0.5rem;
   opacity: 0.7;
@@ -137,6 +134,7 @@ Its heavily recommended you view this site on desktop! The charts are interactiv
 <div class="center-container">
   <div class="label">Chart Animations
     <div class="label-subtitle">Turn off to improve performance</div>
+    <div class="label-subtitle">Requires reload</div>
   </div>
   <div class="toggle-container">
     <input type="checkbox" id="chart-animations-toggle" class="toggleCheckbox" />
@@ -148,14 +146,14 @@ Its heavily recommended you view this site on desktop! The charts are interactiv
 </div>
 <script>
   const toggle = document.getElementById('chart-animations-toggle');
-  const typeChecked = localStorage.getItem('chart-animations-toggle-checked');
+  const typeChecked = localStorage.getItem('chart-animations-enabled');
   if (typeChecked != null) {
-    toggle.checked = JSON.parse(typeChecked);
+    toggle.checked = !JSON.parse(typeChecked);
   }
   else if (window.innerWidth <= 768) {
     toggle.checked = true;
   }
-  toggle.addEventListener("change", () => localStorage.setItem('chart-animations-toggle-checked', JSON.stringify(toggle.checked)));
+  toggle.addEventListener("change", () => localStorage.setItem('chart-animations-enabled', JSON.stringify(!toggle.checked)));
 </script>
 
 ## Demographics
