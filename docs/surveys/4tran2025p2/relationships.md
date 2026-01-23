@@ -18,16 +18,17 @@ image: /assets/surveys/4tran2025p2/thumb.png
 <script src="/js/surveys/navlinks.js?v={{ now() }}" data-firstpage="/surveys/4tran2025p2/" data-toc="/assets/surveys/4tran2025p2/toc.json"></script>
 
 ## Relationships
-<!-- Data key
-<div id="datingpreferred-ratio" 
-  class="apexchart"
-  style="height: 300px;"
-  data-chart="ratio-bar"
-  data-datakey="dating_preferred_genders"
-  data-title="Reppressers"
-  data-colors='["#259efa", "#3f51b5", "#ff4f69", "#D7263D", "#00E396"]'
-  >
-</div>-->
+
+### Dating Preferences
+
+#### Open to Dating
+
+I wasn't sure whether to put the multiselect question or the single select question first, but I decided to go with the multiselect first since its
+the least painful.
+
+Interestingly, straight trans men are slightly more likely to be open to dating cis women than trans women. While for bi trans men, they are much more
+likely to be open to dating trans women over cis women. Gay trans men are pretty evenly open towards cis and trans men (though a good chunk are open
+to dating trans women and even cis women?).
 
 <div class="chart-set">
   <input id="datingpreferredftm-a" class="vh" type="radio" name="view-datingpreferredftm" checked>
@@ -41,7 +42,7 @@ image: /assets/surveys/4tran2025p2/thumb.png
       style="height: 300px;"
       data-chart="bar"
       data-datakey="dating_preferred_genders_ftm_straight"
-      data-title="Preferred Genders for Dating"
+      data-title="Genders Open to Dating"
       data-subtitle="Straight (FtM)"
       data-colors='["#259efa"]'
       >
@@ -51,7 +52,7 @@ image: /assets/surveys/4tran2025p2/thumb.png
       style="height: 300px;"
       data-chart="bar"
       data-datakey="dating_preferred_genders_ftm_bisexual"
-      data-title="Preferred Genders for Dating"
+      data-title="Genders Open to Dating"
       data-subtitle="Bisexual (FtM)"
       data-colors='["#259efa"]'
       >
@@ -61,7 +62,7 @@ image: /assets/surveys/4tran2025p2/thumb.png
       style="height: 300px;"
       data-chart="bar"
       data-datakey="dating_preferred_genders_ftm_gay"
-      data-title="Preferred Genders for Dating"
+      data-title="Genders Open to Dating"
       data-subtitle="Gay (FtM)"
       data-colors='["#259efa"]'
       >
@@ -71,7 +72,7 @@ image: /assets/surveys/4tran2025p2/thumb.png
       style="height: 300px;"
       data-chart="bar"
       data-datakey="dating_preferred_genders_ftm_asexual"
-      data-title="Preferred Genders for Dating"
+      data-title="Genders Open to Dating"
       data-subtitle="Asexual (FtM)"
       data-colors='["#259efa"]'
       >
@@ -85,6 +86,9 @@ image: /assets/surveys/4tran2025p2/thumb.png
   </div>
 </div>
 
+Straight trans women are generally a lot more open to dating cis men than they are to trans men, when compared to vice versa for straight trans men.
+Bi trans women are most open to dating other trans women (bi trans men were most open to dating trans women as well).
+
 <div class="chart-set">
   <input id="datingpreferredmtf-a" class="vh" type="radio" name="view-datingpreferredmtf" checked>
   <input id="datingpreferredmtf-b" class="vh" type="radio" name="view-datingpreferredmtf">
@@ -97,7 +101,7 @@ image: /assets/surveys/4tran2025p2/thumb.png
       style="height: 300px;"
       data-chart="bar"
       data-datakey="dating_preferred_genders_mtf_straight"
-      data-title="Preferred Genders for Dating"
+      data-title="Genders Open to Dating"
       data-subtitle="Straight (MtF)"
       data-colors='["#ff4f69"]'
       >
@@ -107,7 +111,7 @@ image: /assets/surveys/4tran2025p2/thumb.png
       style="height: 300px;"
       data-chart="bar"
       data-datakey="dating_preferred_genders_mtf_bisexual"
-      data-title="Preferred Genders for Dating"
+      data-title="Genders Open to Dating"
       data-subtitle="Bisexual (MtF)"
       data-colors='["#ff4f69"]'
       >
@@ -117,7 +121,7 @@ image: /assets/surveys/4tran2025p2/thumb.png
       style="height: 300px;"
       data-chart="bar"
       data-datakey="dating_preferred_genders_mtf_lesbian"
-      data-title="Preferred Genders for Dating"
+      data-title="Genders Open to Dating"
       data-subtitle="Lesbian (MtF)"
       data-colors='["#ff4f69"]'
       >
@@ -127,7 +131,7 @@ image: /assets/surveys/4tran2025p2/thumb.png
       style="height: 300px;"
       data-chart="bar"
       data-datakey="dating_preferred_genders_mtf_asexual"
-      data-title="Preferred Genders for Dating"
+      data-title="Genders Open to Dating"
       data-subtitle="Asexual (MtF)"
       data-colors='["#ff4f69"]'
       >
@@ -140,6 +144,8 @@ image: /assets/surveys/4tran2025p2/thumb.png
     <label for="datingpreferredmtf-d" class="noselect">Asexual</label>
   </div>
 </div>
+
+#### Most Preferred
 
 <div id="dating-most-preferred-ftm-ratio" 
   class="apexchart"
