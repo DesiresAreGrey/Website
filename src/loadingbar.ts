@@ -1,53 +1,61 @@
 export class LoadingBar {
     private element: HTMLElement;
-    private lastUpdateTime: number;
+
+    private _progress: number = 0;
+    public get progress(): number {
+        return this._progress;
+    };
+
+    private lastUpdateTime: number = performance.now();
+
+    private static _barActive: boolean = false;
+    public static get barActive(): boolean {
+        return this._barActive;
+    };
 
     private constructor() {
-        const element = document.querySelector('#loading-bar');
-        if (element) {
-            this.element = element as HTMLElement;
+        document.querySelector('#loading-bar')?.remove();
+
+        const header = document.querySelector('header');
+        
+        this.element = document.createElement('div');
+        this.element.id = 'loading-bar';
+        this.element.style.cssText = `
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            opacity: 0;
+            height: 2px;
+            z-index: 9999;
+            pointer-events: none;
+
+            background-color: var(--md-primary-fg-color);
+            box-shadow: 0 0 8px var(--md-primary-glow-color);
+
+            transition: width 250ms ease-out;
+        `;
+        if (!header || header.offsetHeight < 5) {
+            this.element.style.top = '0';
+            document.body?.prepend(this.element);
         }
         else {
-            const header = document.querySelector('header');
-            
-            this.element = document.createElement('div');
-            this.element.id = 'loading-bar';
-            this.element.style.cssText = `
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 0%;
-                opacity: 0;
-                height: 2px;
-                z-index: 9999;
-                pointer-events: none;
-
-                background-color: var(--md-primary-fg-color);
-                box-shadow: 0 0 8px var(--md-primary-glow-color);
-
-                transition: width 0.5s ease-out;
-            `;
-            if (!header || header.offsetHeight < 5) {
-                this.element.style.top = '0';
-                document.body?.prepend(this.element);
-            }
-            else {
-                header!.appendChild(this.element);
-            }
+            header!.appendChild(this.element);
         }
-        this.lastUpdateTime = performance.now();
     }
 
     static start(): LoadingBar {
         const bar = new LoadingBar();
         bar.element.style.opacity = '1';
         bar.element.style.width = '5%';
+        LoadingBar._barActive = true;
         return bar;
     }
 
     update(progress: number) {
         if (progress < 0) progress = 0;
         if (progress > 1) progress = 1;
+        this._progress = progress;
         this.element.style.width = `${progress * 90 + 5}%`;
     }
 
@@ -60,13 +68,12 @@ export class LoadingBar {
     }
 
     finish() {
-        this.element.style.transition = 'width 0.5s linear, opacity 0.5s ease';
+        this._progress = 1;
+        LoadingBar._barActive = false;
+
+        this.element.style.transition = 'width 250ms ease-out, opacity 500ms ease';
         this.element.style.width = `100%`;
         setTimeout(() => this.element.style.opacity = '0', 500);
         setTimeout(() => this.element.remove(), 1500);
     }
-
-    getProgress(): number {
-        return parseFloat(this.element.style.width) / 100;
-    };
 }
