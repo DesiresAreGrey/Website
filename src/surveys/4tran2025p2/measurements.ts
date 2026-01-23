@@ -1,4 +1,5 @@
 import "../../utils.js";
+import { LoadingBar } from "../../loadingbar.js";
 import * as Charts from "../../charts.js";
 import ApexCharts from 'apexcharts';
 
@@ -239,68 +240,81 @@ function updateScatterPlot() {
     if (!chartLoaded)
         return;
 
-    const xy = [weightInput.value.parseFloat()?.asPounds(getUnits()).roundTo(1), getTotalHeight(getUnits()).asInches(getUnits()).roundTo(1)];
+    const usingLoadingBar = !LoadingBar.isActive;
+    if (usingLoadingBar)
+        LoadingBar.start();
 
-    let data = scatterData;
-    let colors = ['#259efa', '#ff4f69', '#00E396', '#fff'];
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            const xy = [weightInput.value.parseFloat()?.asPounds(getUnits()).roundTo(1), getTotalHeight(getUnits()).asInches(getUnits()).roundTo(1)];
 
-    let annotations = { xaxis: [{}], yaxis: [{}] };
-    if (scatterplotSelfEnabled()) {
-        data = [...data, {
-            name: "You",
-            data: [xy],
-            xLabel: "Weight (Pounds)",
-            yLabel: "Height (Inches)"
-        }];
-        annotations = {
-            xaxis: [{
-                x: xy[0],
-            }],
-            yaxis: [{
-                y: xy[1],
-            }]
-        };
-    }
-    else {
-        data = [...data, {
-            name: "You",
-            data: [[0, 0]],
-            xLabel: "Weight (Pounds)",
-            yLabel: "Height (Inches)"
-        }];
-    }
-    ApexCharts.exec("height-weight-scatter", "resetSeries");
-    ApexCharts.exec("height-weight-scatter", "updateOptions", {
-        series: data,
-        annotations: annotations,
-        xaxis: {
-            tickAmount: 11,
-            min: 75, max: 350,
-            decimalsInFloat: 0,
-            labels: {
-                show: true
-            },
-            title: {
-                text: data[0]?.xLabel,
-                offsetY: -10,
-            },
-        },
-        yaxis: {
-            tickAmount: 5,
-            min: 55, max: 80,
-            decimalsInFloat: 0,
-            title: {
-                text: data[0]?.yLabel,
-            },
-        },
-        legend: {
-            show: true,
-            showForSingleSeries: true,
-            showForNullSeries: true,
-            showForZeroSeries: true,
-        },
-        colors: colors,
+            let data = scatterData;
+            let colors = ['#259efa', '#ff4f69', '#00E396', '#fff'];
+
+            let annotations = { xaxis: [{}], yaxis: [{}] };
+            if (scatterplotSelfEnabled()) {
+                data = [...data, {
+                    name: "You",
+                    data: [xy],
+                    xLabel: "Weight (Pounds)",
+                    yLabel: "Height (Inches)"
+                }];
+                annotations = {
+                    xaxis: [{
+                        x: xy[0],
+                    }],
+                    yaxis: [{
+                        y: xy[1],
+                    }]
+                };
+            }
+            else {
+                data = [...data, {
+                    name: "You",
+                    data: [[0, 0]],
+                    xLabel: "Weight (Pounds)",
+                    yLabel: "Height (Inches)"
+                }];
+            }
+            ApexCharts.exec("height-weight-scatter", "resetSeries");
+            ApexCharts.exec("height-weight-scatter", "updateOptions", {
+                series: data,
+                annotations: annotations,
+                xaxis: {
+                    tickAmount: 11,
+                    min: 75, max: 350,
+                    decimalsInFloat: 0,
+                    labels: {
+                        show: true
+                    },
+                    title: {
+                        text: data[0]?.xLabel,
+                        offsetY: -10,
+                    },
+                },
+                yaxis: {
+                    tickAmount: 5,
+                    min: 55, max: 80,
+                    decimalsInFloat: 0,
+                    title: {
+                        text: data[0]?.yLabel,
+                    },
+                },
+                legend: {
+                    show: true,
+                    showForSingleSeries: true,
+                    showForNullSeries: true,
+                    showForZeroSeries: true,
+                },
+                colors: colors,
+            });
+        
+            if (usingLoadingBar)
+                LoadingBar.finish();
+        });
     });
+
+    
 }
 
 function toggleChanged() {

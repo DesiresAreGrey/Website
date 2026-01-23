@@ -55,7 +55,7 @@ export class LoadingBar {
         void LoadingBar.instance.element.offsetWidth;
 
         LoadingBar.instance.element.style.opacity = '1';
-        LoadingBar.instance.element.style.transition = 'width 250ms ease-out, opacity 250ms ease';
+        LoadingBar.instance.element.style.transition = 'width 500ms ease-out, opacity 250ms ease';
 
         LoadingBar.instance._progress = 0;
     }
@@ -85,9 +85,9 @@ export class LoadingBar {
     static finish() {
         if (!LoadingBar.instance)
             return;
-
+        
+        LoadingBar.instance.element.style.transition = 'width 500ms ease-out, opacity 500ms ease';
         LoadingBar.instance._progress = 1;
-        LoadingBar.instance.element.style.transition = 'width 250ms ease-out, opacity 500ms ease';
         LoadingBar.instance.element.style.width = `100%`;
         setTimeout(() => LoadingBar.instance?.element.style.setProperty('opacity', '0'), 500);
     }
