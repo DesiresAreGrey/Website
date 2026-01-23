@@ -68,100 +68,81 @@ Its heavily recommended you view this site on desktop! The charts are interactiv
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
-  justify-content: left;
   width: 250px;
+}
+.toggle-container {
+  display: flex;
+  width: 220px;
+  margin-bottom: 6px;
+}
+.label {
+  width: 7rem;
+}
+.label .label-subtitle {
+  font-size: 0.5rem;
+  opacity: 0.7;
+  margin: -0.2rem 0;
 }
 .toggleContainer {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  width: fit-content;
+  grid-template-columns: 1fr 1fr;
+  width: fit-content; height: 40px;
   border: .1rem solid var(--md-primary-fg-color);
   border-radius: 100vh;
-  cursor: pointer;
-  height: 40px; 
-  font-variation-settings: 'wght' 400;
+  cursor: pointer; font-variation-settings: 'wght' 400;
 }
 .toggleContainer::before {
-  content: '';
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  bottom: 2px;
-  width: calc(50% - 2px); 
-  border-radius: 100vh;
+  content: ''; position: absolute;
+  inset: 2px 50% 2px 2px;
   background: var(--md-primary-fg-color);
-  transition: all 0.3s;
+  border-radius: 100vh;
+  transition: transform 0.3s;
 }
 .toggleCheckbox:checked + .toggleContainer::before {
   transform: translateX(100%);
 }
 .toggleContainer div {
   padding: 4px 16px;
+  margin: 0 16px;
   text-align: center;
   z-index: 1;
+  transition: color 0.3s;
 }
 .toggleCheckbox {
   display: none;
 }
-.toggleCheckbox:checked + .toggleContainer div:first-child {
-  color: var(--md-primary-fg-color);
-  transition: color 0.3s;
-}
+
+.toggleCheckbox + .toggleContainer div:first-child,
 .toggleCheckbox:checked + .toggleContainer div:last-child {
   color: white;
-  transition: color 0.3s;
 }
-.toggleCheckbox + .toggleContainer div:first-child {
-  color: white;
-  transition: color 0.3s;
-}
-.toggleCheckbox + .toggleContainer div:last-child {
+.toggleCheckbox + .toggleContainer div:last-child,
+.toggleCheckbox:checked + .toggleContainer div:first-child {
   color: var(--md-primary-fg-color);
-  transition: color 0.3s;
 }
-.label .label-subtitle {
-  font-size: 0.5rem;
-  opacity: 0.7;
-  margin-top: -0.2rem;
-  margin-bottom: -0.2rem;
-}
-.toggle-container{
-  margin-bottom: 6px;
-  display: flex;
-  width: 220px;
-  justify-content: left;
-}
+
 @media (max-width: 640px) {
-  .center-container {
+  .center-container, .toggle-container {
     width: 100%;
     justify-content: center;
   }
-  .toggle-container {
-    margin-bottom: 6px;
-    display: flex;
-    width: 280px;
-    justify-content: center;
-  }
   .label {
-    margin-top: 0.2rem;
     text-align: center !important;
-  }
-  .label .label-subtitle {
-    margin-bottom: -0.2rem;
+    margin-top: 0.2rem;
   }
 }
 </style>
 
 <div class="center-container">
-  <div class="label" style="width: 7rem;">Chart Animations
+  <div class="label">Chart Animations
     <div class="label-subtitle">Turn off to improve performance</div>
   </div>
   <div class="toggle-container">
     <input type="checkbox" id="chart-animations-toggle" class="toggleCheckbox" />
     <label for="chart-animations-toggle" class='toggleContainer'>
-      <div class="noselect" style="margin-right: 16px; margin-left: 16px;">On</div>   
-      <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Off</div>
+      <div class="noselect">On</div>   
+      <div class="noselect">Off</div>
     </label>
   </div>
 </div>
@@ -308,7 +289,7 @@ No surprise that everyone is white.
 
 <h4>Cis People</h4>
 
-We can use sex at birth to separate cis people by their gender. I didn't include cis man and cis woman as options due to in the first survey a lot of
+We can use sex at birth to separate cis people. I didn't include cis man and cis woman as options due to in the first survey a lot of
 passoids and self haters picked cis options instead of the proper trans options. Its fine to do that literally anywhere else but cis responses are
 generally ignored on here, so you're basically just spending 10 minutes filling out a survey for no reason. If you're a cis lurker or something then
 the cis option was meant for you. If you are a cis lurker feel free to dm me on reddit or twitter, I am always interested in hearing from cis lurkers
