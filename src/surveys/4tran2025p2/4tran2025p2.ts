@@ -12,7 +12,7 @@ const now = Date.now();
 
 const master = await (await fetch('/assets/surveys/4tran2025p2/results/_master.json')).json();
 
-loadingBar.update(++loadedAmount / totalToLoad);
+LoadingBar.update(++loadedAmount / totalToLoad);
 
 for (const el of charts) {
     const chartId = el.id;
@@ -51,10 +51,10 @@ for (const el of charts) {
     }
     
     loadedAmount++;
-    await loadingBar.updateAsync(loadedAmount / totalToLoad);
+    await LoadingBar.updateAsync(loadedAmount / totalToLoad);
 }
 
-loadingBar.finish();
+LoadingBar.finish();
 
 console.log(`loaded in ${(Date.now() - now).toFixed(0)} ms`);
 

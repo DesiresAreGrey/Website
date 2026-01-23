@@ -1,4 +1,10 @@
 export class LoadingBar {
+    private static instance: LoadingBar | null = null;
+
+    public static get isActive(): boolean {
+        return this.instance?.element?.style.opacity === '1';
+    };
+
     private element: HTMLElement;
 
     private _progress: number = 0;
@@ -8,13 +14,8 @@ export class LoadingBar {
 
     private lastUpdateTime: number = performance.now();
 
-    private static _barActive: boolean = false;
-    public static get barActive(): boolean {
-        return this._barActive;
-    };
-
     private constructor() {
-        document.querySelector('#loading-bar')?.remove();
+        document.getElementById('loading-bar')?.remove();
 
         const header = document.querySelector('header');
         
@@ -44,36 +45,50 @@ export class LoadingBar {
         }
     }
 
-    static start(): LoadingBar {
-        const bar = new LoadingBar();
-        bar.element.style.opacity = '1';
-        bar.element.style.width = '5%';
-        LoadingBar._barActive = true;
-        return bar;
+    static start() {
+        LoadingBar.instance ??= new LoadingBar();
+
+        LoadingBar.instance.element.style.transition = 'opacity 250ms ease';
+        LoadingBar.instance.element.style.opacity = '0';
+        LoadingBar.instance.element.style.width = '5%';
+
+        void LoadingBar.instance.element.offsetWidth;
+
+        LoadingBar.instance.element.style.opacity = '1';
+        LoadingBar.instance.element.style.transition = 'width 250ms ease-out, opacity 250ms ease';
+
+        LoadingBar.instance._progress = 0;
     }
 
-    update(progress: number) {
+    static update(progress: number) {
+        if (!LoadingBar.instance)
+            return;
+
         if (progress < 0) progress = 0;
         if (progress > 1) progress = 1;
-        this._progress = progress;
-        this.element.style.width = `${progress * 90 + 5}%`;
+
+        LoadingBar.instance._progress = progress;
+        LoadingBar.instance.element.style.width = `${progress * 90 + 5}%`;
     }
 
-    async updateAsync(progress: number, thresholdMs: number = 100): Promise<void> {
-        if (performance.now() - this.lastUpdateTime > thresholdMs) {
-            this.update(progress); 
+    static async updateAsync(progress: number, thresholdMs: number = 100): Promise<void> {
+        if (!LoadingBar.instance)
+            return;
+
+        if (performance.now() - LoadingBar.instance.lastUpdateTime > thresholdMs) {
+            LoadingBar.update(progress); 
             await new Promise(resolve => requestAnimationFrame(resolve));
-            this.lastUpdateTime = performance.now();
+            LoadingBar.instance.lastUpdateTime = performance.now();
         }
     }
 
-    finish() {
-        this._progress = 1;
-        LoadingBar._barActive = false;
+    static finish() {
+        if (!LoadingBar.instance)
+            return;
 
-        this.element.style.transition = 'width 250ms ease-out, opacity 500ms ease';
-        this.element.style.width = `100%`;
-        setTimeout(() => this.element.style.opacity = '0', 500);
-        setTimeout(() => this.element.remove(), 1500);
+        LoadingBar.instance._progress = 1;
+        LoadingBar.instance.element.style.transition = 'width 250ms ease-out, opacity 500ms ease';
+        LoadingBar.instance.element.style.width = `100%`;
+        setTimeout(() => LoadingBar.instance?.element.style.setProperty('opacity', '0'), 500);
     }
 }
