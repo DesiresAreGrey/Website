@@ -63,6 +63,120 @@ Its heavily recommended you view this site on desktop! The charts are interactiv
   </a>
 </p>
 
+<style>
+.center-container {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: left;
+  width: 250px;
+}
+.toggleContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: fit-content;
+  border: .1rem solid var(--md-primary-fg-color);
+  border-radius: 100vh;
+  cursor: pointer;
+  height: 40px; 
+  font-variation-settings: 'wght' 400;
+}
+.toggleContainer::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  bottom: 2px;
+  width: calc(50% - 2px); 
+  border-radius: 100vh;
+  background: var(--md-primary-fg-color);
+  transition: all 0.3s;
+}
+.toggleCheckbox:checked + .toggleContainer::before {
+  transform: translateX(100%);
+}
+.toggleContainer div {
+  padding: 4px 16px;
+  text-align: center;
+  z-index: 1;
+}
+.toggleCheckbox {
+  display: none;
+}
+.toggleCheckbox:checked + .toggleContainer div:first-child {
+  color: var(--md-primary-fg-color);
+  transition: color 0.3s;
+}
+.toggleCheckbox:checked + .toggleContainer div:last-child {
+  color: white;
+  transition: color 0.3s;
+}
+.toggleCheckbox + .toggleContainer div:first-child {
+  color: white;
+  transition: color 0.3s;
+}
+.toggleCheckbox + .toggleContainer div:last-child {
+  color: var(--md-primary-fg-color);
+  transition: color 0.3s;
+}
+.label .label-subtitle {
+  font-size: 0.5rem;
+  opacity: 0.7;
+  margin-top: -0.2rem;
+  margin-bottom: -0.2rem;
+}
+.toggle-container{
+  margin-bottom: 6px;
+  display: flex;
+  width: 220px;
+  justify-content: left;
+}
+@media (max-width: 640px) {
+  .center-container {
+    width: 100%;
+    justify-content: center;
+  }
+  .toggle-container {
+    margin-bottom: 6px;
+    display: flex;
+    width: 280px;
+    justify-content: center;
+  }
+  .label {
+    margin-top: 0.2rem;
+    text-align: center !important;
+  }
+  .label .label-subtitle {
+    margin-bottom: -0.2rem;
+  }
+}
+</style>
+
+<div class="center-container">
+  <div class="label" style="width: 7rem;">Chart Animations
+    <div class="label-subtitle">Turn off to improve performance</div>
+  </div>
+  <div class="toggle-container">
+    <input type="checkbox" id="chart-animations-toggle" class="toggleCheckbox" />
+    <label for="chart-animations-toggle" class='toggleContainer'>
+      <div class="noselect" style="margin-right: 16px; margin-left: 16px;">On</div>   
+      <div class="noselect" style="margin-right: 16px; margin-left: 16px;">Off</div>
+    </label>
+  </div>
+</div>
+<script>
+  const toggle = document.getElementById('chart-animations-toggle');
+  const typeChecked = localStorage.getItem('chart-animations-toggle-checked');
+  if (typeChecked != null) {
+    toggle.checked = JSON.parse(typeChecked);
+  }
+  else if (window.innerWidth <= 768) {
+    toggle.checked = true;
+  }
+  toggle.addEventListener("change", () => localStorage.setItem('chart-animations-toggle-checked', JSON.stringify(toggle.checked)));
+</script>
+
 ## Demographics
 
 ### Gender
