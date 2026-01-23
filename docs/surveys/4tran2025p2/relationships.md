@@ -147,6 +147,16 @@ Bi trans women are most open to dating other trans women (bi trans men were most
 
 #### Most Preferred
 
+This is where things get a bit more divisive.
+
+Straight trans men are the only group that prefer cis women over trans women, though not by a large margin. Bi and asexual trans men are generally
+T4T, preferring trans men over cis men, and trans women over cis women.
+
+Gay trans men are the mostly likely to prefer cis men over trans men when compared to the other groups, though as a group they still overall slightly
+prefer trans men over cis men. Trans men in general seem to prefer trans men over cis men.
+
+<p style="font-size: 12px; color: #888">Reminder that you can enable/disable specific genders in the legend below to better understand the data.</p>
+
 <div id="dating-most-preferred-ftm-ratio" 
   class="apexchart"
   style="height: 300px;"
@@ -158,6 +168,12 @@ Bi trans women are most open to dating other trans women (bi trans men were most
   >
 </div>
 
+While straight/bi trans women are almost equally as open to dating trans men, straight/bi trans women drastically prefer cis men over trans men. It is
+interesting how unlike bi trans men (who prefer trans women and trans men over their cis counterparts), bi trans women prefer cis men over trans men
+while also preferring trans women over cis women.
+
+No idea why 1 transbian preferred trans men the most, and 2 transbians preferred cis men the most.
+
 <div id="dating-most-preferred-mtf-ratio"
   class="apexchart"
   style="height: 300px;"
@@ -167,4 +183,11 @@ Bi trans women are most open to dating other trans women (bi trans men were most
   data-subtitle="MtF"
   data-colors='["#259efa", "#3f51b5", "#ff4f69", "#D7263D", "#00E396"]'
   >
+</div>
+
+___
+
+<div class="button-container">
+  <a class="big-button" href="../sexuality">Previous Page</a>
+  <a class="big-button" href="../health">Next Page</a>
 </div>
