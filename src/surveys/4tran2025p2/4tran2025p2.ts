@@ -57,3 +57,10 @@ for (const el of charts) {
 loadingBar.finish();
 
 console.log(`loaded in ${(Date.now() - now).toFixed(0)} ms`);
+
+const debugLoadTimeDiv = document.createElement('div');
+debugLoadTimeDiv.style.position = 'fixed';
+debugLoadTimeDiv.style.bottom = '4px';
+debugLoadTimeDiv.style.right = '4px';
+debugLoadTimeDiv.textContent = `Loaded in ${(Date.now() - now).toFixed(0)} ms`;
+document.body.appendChild(debugLoadTimeDiv);

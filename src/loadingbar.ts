@@ -8,24 +8,32 @@ export class LoadingBar {
             this.element = element as HTMLElement;
         }
         else {
+            const header = document.querySelector('header');
+            
             this.element = document.createElement('div');
             this.element.id = 'loading-bar';
-            this.element.style = `
-                position: fixed;
-                top: 0;
+            this.element.style.cssText = `
+                position: absolute;
+                bottom: 0;
                 left: 0;
-                height: 2px;
-                background-color: var(--md-primary-fg-color);
-
-                z-index: 9999;
-                box-shadow: 0 0 20px 2px var(--md-primary-glow-color);
-
-                transition: width 0.5s ease-out;
-
                 width: 0%;
                 opacity: 0;
+                height: 2px;
+                z-index: 9999;
+                pointer-events: none;
+
+                background-color: var(--md-primary-fg-color);
+                box-shadow: 0 0 8px var(--md-primary-glow-color);
+
+                transition: width 0.5s ease-out;
             `;
-            document.body?.prepend(this.element);
+            if (!header || header.offsetHeight < 5) {
+                this.element.style.top = '0';
+                document.body?.prepend(this.element);
+            }
+            else {
+                header!.appendChild(this.element);
+            }
         }
         this.lastUpdateTime = performance.now();
     }
