@@ -9,7 +9,6 @@ let loadedAmount = 0;
 const totalToLoad = charts.length + 1;
 
 const now = Date.now();
-let lastYieldTime = performance.now();  
 
 const master = await (await fetch('/assets/surveys/4tran2025p2/results/_master.json')).json();
 
@@ -50,17 +49,11 @@ for (const el of charts) {
         case "heatmap":
             Charts.createHeatmap(chartId, master[dataKey], title, subtitle, color, height); break;
     }
-
-    ++loadedAmount;
-
-    const now = performance.now();
-    if (now - lastYieldTime > 32) {
-        await new Promise(resolve => requestAnimationFrame(resolve));
-        lastYieldTime = performance.now(); // Reset timer
-        loadingBar.update(loadedAmount / totalToLoad);
-    }
+    
+    loadedAmount++;
+    await loadingBar.updateAsync(loadedAmount / totalToLoad);
 }
 
-//loadingBar.finish();
+loadingBar.finish();
 
 console.log(`loaded in ${(Date.now() - now).toFixed(0)} ms`);
