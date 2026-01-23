@@ -1,8 +1,21 @@
 import "../../utils.js";
+import { LoadingBar } from "../../loadingbar.js";
 import * as Charts from "../../charts.js";
 
+const loadingBar = LoadingBar.start();
+const charts = $$('.apexchart');
+
+let loadedAmount = 0;
+const totalToLoad = charts.length + 1;
+
+const now = Date.now();
+let lastYieldTime = performance.now();  
+
 const master = await (await fetch('/assets/surveys/4tran2025p2/results/_master.json')).json();
-$$('.apexchart').forEach(el => {
+
+loadingBar.update(++loadedAmount / totalToLoad);
+
+for (const el of charts) {
     const chartId = el.id;
     const dataKey = el.dataset.datakey ?? "";
     const title = el.dataset.title;
@@ -37,4 +50,17 @@ $$('.apexchart').forEach(el => {
         case "heatmap":
             Charts.createHeatmap(chartId, master[dataKey], title, subtitle, color, height); break;
     }
-});
+
+    ++loadedAmount;
+
+    const now = performance.now();
+    if (now - lastYieldTime > 32) {
+        await new Promise(resolve => requestAnimationFrame(resolve));
+        lastYieldTime = performance.now(); // Reset timer
+        loadingBar.update(loadedAmount / totalToLoad);
+    }
+}
+
+//loadingBar.finish();
+
+console.log(`loaded in ${(Date.now() - now).toFixed(0)} ms`);
