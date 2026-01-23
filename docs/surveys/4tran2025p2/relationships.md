@@ -85,3 +85,67 @@ image: /assets/surveys/4tran2025p2/thumb.png
   </div>
 </div>
 
+<div class="chart-set">
+  <input id="datingpreferredmtf-a" class="vh" type="radio" name="view-datingpreferredmtf" checked>
+  <input id="datingpreferredmtf-b" class="vh" type="radio" name="view-datingpreferredmtf">
+  <input id="datingpreferredmtf-c" class="vh" type="radio" name="view-datingpreferredmtf">
+  <input id="datingpreferredmtf-d" class="vh" type="radio" name="view-datingpreferredmtf">
+
+  <div class="chart-stack" style="min-height: 300px;">
+    <div id="datingpreferred-mtf-straight-bar" 
+      class="apexchart chart-layer layer-a"
+      style="height: 300px;"
+      data-chart="bar"
+      data-datakey="dating_preferred_genders_mtf_straight"
+      data-title="Preferred Genders for Dating"
+      data-subtitle="Straight (MtF)"
+      data-colors='["#ff4f69"]'
+      >
+    </div>
+    <div id="datingpreferred-mtf-bisexual-bar" 
+      class="apexchart chart-layer layer-b"
+      style="height: 300px;"
+      data-chart="bar"
+      data-datakey="dating_preferred_genders_mtf_bisexual"
+      data-title="Preferred Genders for Dating"
+      data-subtitle="Bisexual (MtF)"
+      data-colors='["#ff4f69"]'
+      >
+    </div>
+    <div id="datingpreferred-mtf-lesbian-bar"
+      class="apexchart chart-layer layer-c"
+      style="height: 300px;"
+      data-chart="bar"
+      data-datakey="dating_preferred_genders_mtf_lesbian"
+      data-title="Preferred Genders for Dating"
+      data-subtitle="Lesbian (MtF)"
+      data-colors='["#ff4f69"]'
+      >
+    </div>
+    <div id="datingpreferred-mtf-asexual-bar"
+      class="apexchart chart-layer layer-d"
+      style="height: 300px;"
+      data-chart="bar"
+      data-datakey="dating_preferred_genders_mtf_asexual"
+      data-title="Preferred Genders for Dating"
+      data-subtitle="Asexual (MtF)"
+      data-colors='["#ff4f69"]'
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="datingpreferredmtf-a" class="noselect">Straight</label>
+    <label for="datingpreferredmtf-b" class="noselect">Bisexual</label>
+    <label for="datingpreferredmtf-c" class="noselect">Lesbian</label>
+    <label for="datingpreferredmtf-d" class="noselect">Asexual</label>
+  </div>
+</div>
+
+<div id="dating-most-preferred-ratio" 
+  class="apexchart"
+  style="height: 300px;"
+  data-chart="ratio-bar"
+  data-datakey="dating_most_preferred_gender"
+  data-title="Most Preferred Gender for Dating"
+  data-colors='["#259efa", "#3f51b5", "#ff4f69", "#D7263D", "#00E396"]'
+  >
