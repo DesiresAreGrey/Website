@@ -56,11 +56,13 @@ for (const el of charts) {
 
 LoadingBar.finish();
 
-console.log(`loaded in ${(Date.now() - now).toFixed(0)} ms`);
+console.log(`Loaded in ${(Date.now() - now).toFixed(0)} ms`);
 
 const debugLoadTimeDiv = document.createElement('div');
 debugLoadTimeDiv.style.position = 'fixed';
 debugLoadTimeDiv.style.bottom = '4px';
 debugLoadTimeDiv.style.right = '4px';
 debugLoadTimeDiv.textContent = `Loaded in ${(Date.now() - now).toFixed(0)} ms`;
+debugLoadTimeDiv.style.transition = 'opacity 750ms ease';
+setTimeout(() => debugLoadTimeDiv.style.setProperty('opacity', '0'), 2500);
 document.body.appendChild(debugLoadTimeDiv);
