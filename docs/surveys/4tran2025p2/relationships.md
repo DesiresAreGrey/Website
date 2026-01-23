@@ -141,11 +141,24 @@ image: /assets/surveys/4tran2025p2/thumb.png
   </div>
 </div>
 
-<div id="dating-most-preferred-ratio" 
+<div id="dating-most-preferred-ftm-ratio" 
   class="apexchart"
   style="height: 300px;"
   data-chart="ratio-bar"
-  data-datakey="dating_most_preferred_gender"
+  data-datakey="dating_most_preferred_gender_ftm"
   data-title="Most Preferred Gender for Dating"
+  data-subtitle="FtM"
   data-colors='["#259efa", "#3f51b5", "#ff4f69", "#D7263D", "#00E396"]'
   >
+</div>
+
+<div id="dating-most-preferred-mtf-ratio"
+  class="apexchart"
+  style="height: 300px;"
+  data-chart="ratio-bar"
+  data-datakey="dating_most_preferred_gender_mtf"
+  data-title="Most Preferred Gender for Dating"
+  data-subtitle="MtF"
+  data-colors='["#259efa", "#3f51b5", "#ff4f69", "#D7263D", "#00E396"]'
+  >
+</div>
