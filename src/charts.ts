@@ -377,7 +377,7 @@ export function createPieChart(chartId: string, data: any, title: string | undef
     new ApexCharts(document.querySelector("#" + chartId), options).render();
 }
 
-export function createBoxPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, height = 300, bounds?: number, vertical: boolean = false, change: boolean = false, upperColor: string = '#775DD0', lowerColor: string = '#6649ca') {
+export function createBoxPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, height = 300, bounds?: number, vertical: boolean = false, change: boolean = false, upperColor: string = '#775DD0', lowerColor: string = '#6649ca', heightInches: boolean = false) {
     const options: any = {
         chart: {
             id: chartId,
@@ -467,7 +467,16 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
             intersect: true,
             custom: ({ seriesIndex, dataPointIndex, w }: { seriesIndex: number; dataPointIndex: number; w: any }) => {
                 const d = w.config.series[seriesIndex].data[dataPointIndex];
-                const [min, q1, median, q3, max] = d.y;
+                let [min, q1, median, q3, max] = d.y;
+
+                if (heightInches) {
+                    min = `${min.toFeetInches(0)} (${min.asCm("imperial").roundTo(0)} cm)`;
+                    q1 = `${q1.toFeetInches(0)} (${q1.asCm("imperial").roundTo(0)} cm)`;
+                    median = `${median.toFeetInches(0)} (${median.asCm("imperial").roundTo(0)} cm)`;
+                    q3 = `${q3.toFeetInches(0)} (${q3.asCm("imperial").roundTo(0)} cm)`;
+                    max = `${max.toFeetInches(0)} (${max.asCm("imperial").roundTo(0)} cm)`;
+                }
+
                 const outliers = d.goals?.map((a: any) => (a.value - a.jitter).roundTo(2)).sort((a: any, b: any) => a - b);
                 if (outliers?.length > 0) {
                     return `

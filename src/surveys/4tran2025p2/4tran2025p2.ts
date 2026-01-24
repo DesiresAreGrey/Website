@@ -28,6 +28,7 @@ for (const el of charts) {
     const normalized = el.dataset.normalized != undefined;
     const upperColor = el.dataset.upperColor ?? '#775DD0';
     const lowerColor = el.dataset.lowerColor ?? '#6649ca';
+    const heightInches = el.dataset.heightInches != undefined;
 
     switch (el.dataset.chart) {
         case "ratio-bar":
@@ -41,7 +42,7 @@ for (const el of charts) {
         case "pie":
             Charts.createPieChart(chartId, master[dataKey], title, colors, height); break;
         case "boxplot":
-            Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height, el.dataset.bounds?.parseFloat() ?? undefined, vertical, false, upperColor, lowerColor); break;
+            Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height, el.dataset.bounds?.parseFloat() ?? undefined, vertical, false, upperColor, lowerColor, heightInches); break;
         case "change-boxplot":
             Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height, el.dataset.bounds?.parseFloat() ?? 5, vertical, true, upperColor, lowerColor); break;
         case "scatter":

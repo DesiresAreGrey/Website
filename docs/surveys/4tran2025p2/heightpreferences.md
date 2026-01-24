@@ -48,6 +48,7 @@ Honestly, I have no idea whats the best way to show this data.
         data-subtitle="FtM"
         data-upper-color="#50b3ff"
         data-lower-color="#259efa"
+        data-height-inches
         >
       </div>
     </div>
@@ -71,6 +72,7 @@ Honestly, I have no idea whats the best way to show this data.
         data-subtitle="MtF"
         data-upper-color="#ff8295"
         data-lower-color="#ff4f69"
+        data-height-inches
         >
       </div>
     </div>
@@ -106,6 +108,7 @@ Honestly, I have no idea whats the best way to show this data.
         data-subtitle="FtM"
         data-upper-color="#50b3ff"
         data-lower-color="#259efa"
+        data-height-inches
         >
       </div>
     </div>
@@ -129,6 +132,7 @@ Honestly, I have no idea whats the best way to show this data.
         data-subtitle="MtF"
         data-upper-color="#ff8295"
         data-lower-color="#ff4f69"
+        data-height-inches
         >
       </div>
     </div>
@@ -166,6 +170,7 @@ Honestly, I have no idea whats the best way to show this data.
         data-subtitle="FtM"
         data-upper-color="#50b3ff"
         data-lower-color="#259efa"
+        data-height-inches
         >
       </div>
     </div>
@@ -189,6 +194,7 @@ Honestly, I have no idea whats the best way to show this data.
         data-subtitle="MtF"
         data-upper-color="#ff8295"
         data-lower-color="#ff4f69"
+        data-height-inches
         >
       </div>
     </div>
@@ -224,6 +230,7 @@ Honestly, I have no idea whats the best way to show this data.
         data-subtitle="FtM"
         data-upper-color="#50b3ff"
         data-lower-color="#259efa"
+        data-height-inches
         >
       </div>
     </div>
@@ -247,6 +254,7 @@ Honestly, I have no idea whats the best way to show this data.
         data-subtitle="MtF"
         data-upper-color="#ff8295"
         data-lower-color="#ff4f69"
+        data-height-inches
         >
       </div>
     </div>
