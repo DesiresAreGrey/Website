@@ -412,6 +412,116 @@ Honestly, I have no idea whats the best way to show this data.
   </div>
 </div>
 
+#### For Women
+
+<div class="chart-set">
+  <input id="datingheighthaspreffemalemin-a" class="vh" type="radio" name="view-datingheighthaspreffemalemin" checked>
+  <input id="datingheighthaspreffemalemin-b" class="vh" type="radio" name="view-datingheighthaspreffemalemin">
+
+  <div class="chart-stack" style="min-height: 550px;">
+    <div class="chart-layer layer-a">
+      <div id="dating-height-haspref-ftm-female-min-ratio"
+        class="apexchart"
+        style="height: 250px;"
+        data-chart="ratio-bar"
+        data-datakey="dating_height_haspref_ftm_female_min"
+        data-title="Has Minimum Height Preference for Women"
+        data-subtitle="FtM"
+        data-colors='["#7B61FF", "#00E0B8"]'
+        >
+      </div>
+      <div id="dating-height-haspref-ftm-female-min-boxplot"
+        class="apexchart"
+        style="height: 300px;"
+        data-chart="boxplot"
+        data-datakey="dating_height_pref_ftm_female_min_inches_boxplot"
+        data-title="Minimum Height Preference for Women"
+        data-subtitle="FtM"
+        >
+      </div>
+    </div>
+    <div class="chart-layer layer-b">
+      <div id="dating-height-haspref-mtf-female-min-ratio"
+        class="apexchart"
+        style="height: 250px;"
+        data-chart="ratio-bar"
+        data-datakey="dating_height_haspref_mtf_female_min"
+        data-title="Has Minimum Height Preference for Women"
+        data-subtitle="MtF"
+        data-colors='["#7B61FF", "#00E0B8"]'
+        >
+      </div>
+      <div id="dating-height-haspref-mtf-female-min-boxplot"
+        class="apexchart"
+        style="height: 300px;"
+        data-chart="boxplot"
+        data-datakey="dating_height_pref_mtf_female_min_inches_boxplot"
+        data-title="Minimum Height Preference for Women"
+        data-subtitle="MtF"
+        >
+      </div>
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="datingheighthaspreffemalemin-a" class="noselect">FtM</label>
+    <label for="datingheighthaspreffemalemin-b" class="noselect">MtF</label>
+  </div>
+</div>
+
+<div class="chart-set">
+  <input id="datingheighthaspreffemalemax-a" class="vh" type="radio" name="view-datingheighthaspreffemalemax" checked>
+  <input id="datingheighthaspreffemalemax-b" class="vh" type="radio" name="view-datingheighthaspreffemalemax">
+
+  <div class="chart-stack" style="min-height: 550px;">
+    <div class="chart-layer layer-a">
+      <div id="dating-height-haspref-ftm-female-max-ratio"
+        class="apexchart"
+        style="height: 250px;"
+        data-chart="ratio-bar"
+        data-datakey="dating_height_haspref_ftm_female_max"
+        data-title="Has Maximum Height Preference for Women"
+        data-subtitle="FtM"
+        data-colors='["#7B61FF", "#00E0B8"]'
+        >
+      </div>
+      <div id="dating-height-haspref-ftm-female-max-boxplot"
+        class="apexchart"
+        style="height: 300px;"
+        data-chart="boxplot"
+        data-datakey="dating_height_pref_ftm_female_max_inches_boxplot"
+        data-title="Maximum Height Preference for Women"
+        data-subtitle="FtM"
+        >
+      </div>
+    </div>
+    <div class="chart-layer layer-b">
+      <div id="dating-height-haspref-mtf-female-max-ratio"
+        class="apexchart"
+        style="height: 250px;"
+        data-chart="ratio-bar"
+        data-datakey="dating_height_haspref_mtf_female_max"
+        data-title="Has Maximum Height Preference for Women"
+        data-subtitle="MtF"
+        data-colors='["#7B61FF", "#00E0B8"]'
+        >
+      </div>
+      <div id="dating-height-haspref-mtf-female-max-boxplot"
+        class="apexchart"
+        style="height: 300px;"
+        data-chart="boxplot"
+        data-datakey="dating_height_pref_mtf_female_max_inches_boxplot"
+        data-title="Maximum Height Preference for Women"
+        data-subtitle="MtF"
+        >
+      </div>
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="datingheighthaspreffemalemax-a" class="noselect">FtM</label>
+    <label for="datingheighthaspreffemalemax-b" class="noselect">MtF</label>
+  </div>
+</div>
+
 ___
 
 <div class="button-container">
