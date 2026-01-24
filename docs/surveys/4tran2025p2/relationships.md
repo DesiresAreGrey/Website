@@ -185,6 +185,119 @@ No idea why 1 transbian preferred trans men the most, and 2 transbians preferred
   >
 </div>
 
+### Current Partner
+
+The general trends are similar to the most preferred dating, however there are a lot more people dating cis men. Despite trans men mostly preferring
+trans men, they are more likely to be dating a cis man over a trans man.
+
+<div id="current-partner-gender-ftm-ratio" 
+  class="apexchart"
+  style="height: 300px;"
+  data-chart="ratio-bar"
+  data-datakey="current_partner_gender_ftm"
+  data-title="Current Partner Gender"
+  data-subtitle="FtM"
+  data-colors='["#259efa", "#3f51b5", "#ff4f69", "#D7263D", "#00E396"]'
+  >
+</div>
+
+Yeah this is even more brutal than the most preferred chart, 77% of straight trans women are dating cis men. What's interesting is the gays and
+lesbians, gay trans men are more likely to be dating cis men however lesbian trans women are overwhelmingly more likely to be dating other trans women.
+
+<div id="current-partner-gender-mtf-ratio" 
+  class="apexchart"
+  style="height: 300px;"
+  data-chart="ratio-bar"
+  data-datakey="current_partner_gender_mtf"
+  data-title="Current Partner Gender"
+  data-subtitle="MtF"
+  data-colors='["#259efa", "#3f51b5", "#ff4f69", "#D7263D", "#00E396"]'
+  >
+</div>
+
+### Relationship Status
+
+We're all single I guess. Technically this question came before the current partner question, but I wanted to move that to just under the most
+preferred gender charts to see how they compare.
+
+<div id="relationship-status-ratio"
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="relationship_status"
+  data-title="Relationship Status"
+  data-colors='["#FF9800", "#00E0B8", "#7B61FF", "#3c57f1"]'
+  >
+</div>
+
+### Polyamory
+
+Seems to be similar rates throughout the genders
+
+<div id="polyamorous-ratio"
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="is_polyamorous"
+  data-title="Polyamory"
+  data-colors='["#7B61FF", "#00E0B8"]'
+  >
+</div>
+
+### Number of Partners
+
+At this point, there are so many outliers this is like a 1 dimensional scatter plot or something.
+
+<div id="number-of-partners-boxplot" 
+  class="apexchart"
+  style="height: 300px;"
+  data-chart="boxplot"
+  data-datakey="number_of_partners_boxplot"
+  data-title="Number of Partners"
+  >
+</div>
+
+#### Virginity
+
+This one surprised me tbh, I expected women to be virgins (expectations maybe skewed by my own life). 
+
+<div id="is-virgin-ratio"
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="is_virgin"
+  data-title="Virginity"
+  data-colors='["#7B61FF", "#00E0B8"]'
+  >
+</div>
+
+The next 2 charts are of the people who identified as virgins.
+
+These are so similar to each other than any differences are probably just statistical whatever.
+
+<div id="virgin-types-ratio"
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="virgin_types"
+  data-title="Virgin Types"
+  data-colors='["#FF9800", "#00E0B8", "#7B61FF", "#3c57f1"]'
+  >
+</div>
+
+Men aren't doing too well, though not by a huge margin.
+
+<div id="is-khhv-ratio"
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="khhv"
+  data-title="Kissless, Handholdless, Hugless, Sexless Virgin"
+  data-subtitle="Virgins Only"
+  data-colors='["#7B61FF", "#00E0B8"]'
+  >
+</div>
+
 ___
 
 <div class="button-container">
