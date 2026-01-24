@@ -2,7 +2,7 @@ import "../../utils.js";
 import { LoadingBar } from "../../loadingbar.js";
 import * as Charts from "../../charts.js";
 
-const loadingBar = LoadingBar.start();
+LoadingBar.start();
 const charts = $$('.apexchart');
 
 let loadedAmount = 0;
