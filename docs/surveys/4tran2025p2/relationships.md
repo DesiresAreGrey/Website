@@ -302,6 +302,8 @@ Men aren't doing too well, though not by a huge margin.
 
 Honestly, I have no idea whats the best way to show this data.
 
+#### For Men
+
 <div class="chart-set">
   <input id="datingheighthasprefmalemin-a" class="vh" type="radio" name="view-datingheighthasprefmalemin" checked>
   <input id="datingheighthasprefmalemin-b" class="vh" type="radio" name="view-datingheighthasprefmalemin">
@@ -353,6 +355,60 @@ Honestly, I have no idea whats the best way to show this data.
   <div class="toggle">
     <label for="datingheighthasprefmalemin-a" class="noselect">FtM</label>
     <label for="datingheighthasprefmalemin-b" class="noselect">MtF</label>
+  </div>
+</div>
+
+<div class="chart-set">
+  <input id="datingheighthasprefmalemax-a" class="vh" type="radio" name="view-datingheighthasprefmalemax" checked>
+  <input id="datingheighthasprefmalemax-b" class="vh" type="radio" name="view-datingheighthasprefmalemax">
+
+  <div class="chart-stack" style="min-height: 550px;">
+    <div class="chart-layer layer-a">
+      <div id="dating-height-haspref-ftm-male-max-ratio"
+        class="apexchart"
+        style="height: 250px;"
+        data-chart="ratio-bar"
+        data-datakey="dating_height_haspref_ftm_male_max"
+        data-title="Has Maximum Height Preference for Men"
+        data-subtitle="FtM"
+        data-colors='["#7B61FF", "#00E0B8"]'
+        >
+      </div>
+      <div id="dating-height-haspref-ftm-male-max-boxplot"
+        class="apexchart"
+        style="height: 300px;"
+        data-chart="boxplot"
+        data-datakey="dating_height_pref_ftm_male_max_inches_boxplot"
+        data-title="Maximum Height Preference for Men"
+        data-subtitle="FtM"
+        >
+      </div>
+    </div>
+    <div class="chart-layer layer-b">
+      <div id="dating-height-haspref-mtf-male-max-ratio"
+        class="apexchart"
+        style="height: 250px;"
+        data-chart="ratio-bar"
+        data-datakey="dating_height_haspref_mtf_male_max"
+        data-title="Has Maximum Height Preference for Men"
+        data-subtitle="MtF"
+        data-colors='["#7B61FF", "#00E0B8"]'
+        >
+      </div>
+      <div id="dating-height-haspref-mtf-male-max-boxplot"
+        class="apexchart"
+        style="height: 300px;"
+        data-chart="boxplot"
+        data-datakey="dating_height_pref_mtf_male_max_inches_boxplot"
+        data-title="Maximum Height Preference for Men"
+        data-subtitle="MtF"
+        >
+      </div>
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="datingheighthasprefmalemax-a" class="noselect">FtM</label>
+    <label for="datingheighthasprefmalemax-b" class="noselect">MtF</label>
   </div>
 </div>
 
