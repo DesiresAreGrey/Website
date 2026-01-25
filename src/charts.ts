@@ -1,16 +1,22 @@
 import "./utils.js";
 import ApexCharts from 'apexcharts';
 
+interface ChartData {
+    id: string;
+    title?: string;
+    subtitle?: string;
+    type: string;
+    loadTime: number;
+}
+
 export class Charts {
     static get isMobile() { return window.innerWidth > 768 ? false : true; }
     static get animationEnabled(): boolean { return localStorage.getItem('chart-animations-enabled')?.parseJson() ?? !Charts.isMobile; }
 
-    static charts: Record<string, {
-        id: string,
-        title: string,
-        type: string,
-        loadTime: number,
-    }> = {};
+    static #charts: ChartData[] = [];
+    static get charts() {
+        return Charts.#charts.map(c => ({ ...c, loadTime: c.loadTime.roundTo(0) })); 
+    }
 
     static createRatioBarChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, normalized: boolean = false) {
         hideSeries.forEach(index => {
@@ -123,12 +129,13 @@ export class Charts {
         };
         const start = performance.now();
         new ApexCharts($id(chartId), options).render();
-        Charts.charts[chartId] = {
+        Charts.#charts.push({
             id: chartId,
-            title: title ?? "",
+            title: title,
+            subtitle: subtitle,
             type: "ratio-bar",
             loadTime: performance.now() - start,
-        }
+        })
     }
 
     static createBarChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, horizontal: boolean) {
@@ -219,12 +226,13 @@ export class Charts {
         };
         const start = performance.now();
         new ApexCharts($id(chartId), options).render();
-        Charts.charts[chartId] = {
+        Charts.#charts.push({
             id: chartId,
-            title: title ?? "",
+            title: title,
+            subtitle: subtitle,
             type: "bar",
             loadTime: performance.now() - start,
-        }
+        })
     }
 
     static createPopPyramidChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, bounds: number, horizontal?: boolean) {
@@ -339,12 +347,13 @@ export class Charts {
         }
         const start = performance.now();
         new ApexCharts($id(chartId), options).render();
-        Charts.charts[chartId] = {
+        Charts.#charts.push({
             id: chartId,
-            title: title ?? "",
+            title: title,
+            subtitle: subtitle,
             type: "pop-pyramid",
             loadTime: performance.now() - start,
-        }
+        })
     }
 
     static createPieChart(chartId: string, data: any, title: string | undefined, colors: string[], height: number) {
@@ -405,12 +414,13 @@ export class Charts {
         };
         const start = performance.now();
         new ApexCharts($id(chartId), options).render();
-        Charts.charts[chartId] = {
+        Charts.#charts.push({
             id: chartId,
-            title: title ?? "",
+            title: title,
+            subtitle: undefined,
             type: "pie",
             loadTime: performance.now() - start,
-        }
+        })
     }
 
     static createBoxPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, height = 300, bounds?: number, vertical: boolean = false, change: boolean = false, upperColor: string = '#775DD0', lowerColor: string = '#6649ca', heightInches: boolean = false) {
@@ -590,12 +600,13 @@ export class Charts {
 
         const start = performance.now();
         new ApexCharts($id(chartId), options).render();
-        Charts.charts[chartId] = {
+        Charts.#charts.push({
             id: chartId,
-            title: title ?? "",
+            title: title,
+            subtitle: subtitle,
             type: "boxplot",
             loadTime: performance.now() - start,
-        }
+        })
     }
 
     static createScatterPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, tickAmount: number = 10, customOptions?: any) {
@@ -709,12 +720,13 @@ export class Charts {
         
         const start = performance.now();
         new ApexCharts($id(chartId), { ...options, ...customOptions }).render();
-        Charts.charts[chartId] = {
+        Charts.#charts.push({
             id: chartId,
-            title: title ?? "",
+            title: title,
+            subtitle: subtitle,
             type: "scatter",
             loadTime: performance.now() - start,
-        }
+        })
     }
 
     static createHeatmap(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, color: string, height: number, customOptions?: any) {
@@ -825,12 +837,13 @@ export class Charts {
         };
         const start = performance.now();
         new ApexCharts($id(chartId), { ...options, ...customOptions }).render();
-        Charts.charts[chartId] = {
+        Charts.#charts.push({
             id: chartId,
-            title: title ?? "",
+            title: title,
+            subtitle: subtitle,
             type: "heatmap",
             loadTime: performance.now() - start,
-        }
+        })
     }
 }
 
