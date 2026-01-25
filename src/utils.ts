@@ -1,4 +1,12 @@
-export {}; 
+export class Utils {
+    static async fetchJson<T = any>(url: string): Promise<T> {
+        return (await fetch(url)).json();
+    }
+
+    static pageLoaded = () => new Promise<void>(resolve => {
+        document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", () => resolve(), { once: true }) : resolve();
+    });
+}
 
 declare global {
     type UnitSystem = "metric" | "imperial";
@@ -13,6 +21,7 @@ declare global {
 
     interface HTMLElement {
         $<T extends HTMLElement>(selector: string): T | null;
+        $id<T extends HTMLElement>(id: string): T | null;
         $$<T extends HTMLElement>(selector: string): NodeListOf<T>;
         appendHtml(htmlString: string): void;
     }
@@ -45,9 +54,8 @@ declare global {
         asKg(fromUnit?: UnitSystem): number;
     }
 
-    function loaded(): Promise<void>;
-
     function $<T extends HTMLElement>(selector: string): T | null;
+    function $id<T extends HTMLElement>(id: string): T | null;
     function $$<T extends HTMLElement>(selector: string): NodeListOf<T>;
 }
 
@@ -56,6 +64,7 @@ Object.defineProperty(NodeList.prototype, 'toArray', { value: function() { retur
 Object.defineProperty(HTMLCollection.prototype, 'toArray', { value: function() { return [...this]; } });
 
 Object.defineProperty(HTMLElement.prototype, '$', { value: function(this: HTMLElement, selector: string) { return this.querySelector(selector); } });
+Object.defineProperty(HTMLElement.prototype, '$id', { value: function(this: HTMLElement, id: string) { return this.querySelector("#" + id); } });
 Object.defineProperty(HTMLElement.prototype, '$$', { value: function(this: HTMLElement, selector: string) { return this.querySelectorAll(selector); } });
 
 Object.defineProperty(HTMLElement.prototype, 'appendHtml', { 
@@ -152,9 +161,6 @@ Object.defineProperty(Number.prototype, 'asKg', {
     } 
 });
 
-window.loaded = () => new Promise<void>(resolve => {
-    document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", () => resolve(), { once: true }) : resolve();
-});
-
 window.$ = (selector) => document.querySelector(selector);
+window.$id = (id) => document.querySelector("#" + id);
 window.$$ = (selector) => document.querySelectorAll(selector);

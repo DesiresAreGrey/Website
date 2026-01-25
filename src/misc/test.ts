@@ -1,8 +1,8 @@
-import "../utils.js"; 
+import { Utils } from "../utils.js"; 
 
 console.log("Test file");
 
-await loaded();
+await Utils.pageLoaded();
 
 // repeating test
 

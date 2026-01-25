@@ -113,7 +113,7 @@ export function createRatioBarChart(chartId: string, data: any, title: string | 
         },
         colors: colors
     };
-    new ApexCharts(document.querySelector("#" + chartId), options).render();
+    new ApexCharts($id(chartId), options).render();
 }
 
 export function createBarChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, horizontal: boolean) {
@@ -202,7 +202,7 @@ export function createBarChart(chartId: string, data: any, title: string | undef
         },
         colors: colors
     };
-    new ApexCharts(document.querySelector("#" + chartId), options).render();
+    new ApexCharts($id(chartId), options).render();
 }
 
 export function createPopPyramidChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, bounds: number, horizontal?: boolean) {
@@ -315,7 +315,7 @@ export function createPopPyramidChart(chartId: string, data: any, title: string 
             }
         }
     }
-    new ApexCharts(document.querySelector("#" + chartId), options).render();
+    new ApexCharts($id(chartId), options).render();
 }
 
 export function createPieChart(chartId: string, data: any, title: string | undefined, colors: string[], height: number) {
@@ -374,7 +374,7 @@ export function createPieChart(chartId: string, data: any, title: string | undef
         },
         colors: colors
     };
-    new ApexCharts(document.querySelector("#" + chartId), options).render();
+    new ApexCharts($id(chartId), options).render();
 }
 
 export function createBoxPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, height = 300, bounds?: number, vertical: boolean = false, change: boolean = false, upperColor: string = '#775DD0', lowerColor: string = '#6649ca', heightInches: boolean = false) {
@@ -552,7 +552,7 @@ export function createBoxPlot(chartId: string, data: any, title: string | undefi
         }
     }
 
-    new ApexCharts(document.querySelector("#" + chartId), options).render();
+    new ApexCharts($id(chartId), options).render();
 }
 
 export function createScatterPlot(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, tickAmount: number = 10, customOptions?: any) {
@@ -663,7 +663,7 @@ export function createScatterPlot(chartId: string, data: any, title: string | un
         },
         colors: colors,
     };
-    new ApexCharts(document.querySelector("#" + chartId), { ...options, ...customOptions }).render();
+    new ApexCharts($id(chartId), { ...options, ...customOptions }).render();
 }
 
 export function createHeatmap(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, color: string, height: number, customOptions?: any) {
@@ -772,7 +772,7 @@ export function createHeatmap(chartId: string, data: any, title: string | undefi
         },
         colors: [color],
     };
-    new ApexCharts(document.querySelector("#" + chartId), { ...options, ...customOptions }).render();
+    new ApexCharts($id(chartId), { ...options, ...customOptions }).render();
 }
 
 

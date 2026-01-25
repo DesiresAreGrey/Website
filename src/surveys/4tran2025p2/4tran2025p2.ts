@@ -1,17 +1,16 @@
-import "../../utils.js";
+import { Utils } from "../../utils.js";
 import { LoadingBar } from "../../loadingbar.js";
 import * as Charts from "../../charts.js";
 
 const charts = $$('.apexchart');
 if (charts.length > 0) {
     LoadingBar.start();
+    const start = performance.now();
 
     let loadedAmount = 0;
     const totalToLoad = charts.length + 1;
 
-    const now = Date.now();
-
-    const master = await (await fetch('/assets/surveys/4tran2025p2/results/_master.json')).json();
+    const master = await Utils.fetchJson('/assets/surveys/4tran2025p2/results/_master.json');
 
     LoadingBar.update(++loadedAmount / totalToLoad);
 
@@ -58,13 +57,13 @@ if (charts.length > 0) {
 
     LoadingBar.finish();
 
-    console.log(`${charts.length} charts loaded in ${(Date.now() - now).toFixed(0)} ms`);
+    console.log(`${charts.length} charts loaded in ${(performance.now() - start).roundTo(0)} ms`);
 
     const debugLoadTimeDiv = document.createElement('div');
     debugLoadTimeDiv.style.position = 'fixed';
     debugLoadTimeDiv.style.bottom = '4px';
     debugLoadTimeDiv.style.right = '4px';
-    debugLoadTimeDiv.innerHTML = `${charts.length} Charts<br>Loaded in ${(Date.now() - now).toFixed(0)} ms`;
+    debugLoadTimeDiv.innerHTML = `${charts.length} Charts<br>Loaded in ${(performance.now() - start).roundTo(0)} ms`;
     debugLoadTimeDiv.style.transition = 'opacity 250ms ease';
     debugLoadTimeDiv.style.textAlign = 'right';
     setTimeout(() => debugLoadTimeDiv.style.setProperty('opacity', '0'), 4000);
