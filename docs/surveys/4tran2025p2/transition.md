@@ -130,6 +130,22 @@ Honestly pretty even, with women being a bit more likely to have been on HRT for
   </div>
 </div>
 
+#### Age Started HRT
+
+Unfortunately, I didn't think to add a question asking the age you started specifically, so I had to calculate it by subtracting time on HRT from
+current age. This means that there are likely people who put in the wrong number of years for the time on HRT input (there were outliers with negative
+ages for example). This also doesn't take into account people who stopped HRT for a bit and then started again later.
+
+<div id="hrtage-boxplot" 
+  class="apexchart"
+  style="height: 300px;"
+  data-chart="boxplot"
+  data-datakey="hrt_age_boxplot"
+  data-title="Age Started HRT"
+  data-subtitle="Boxplot"
+  >
+</div>
+
 #### DIY or Prescribed
 
 Interestingly, men are more likely to be prescribed HRT. In fact, men are the only group thats majority prescribed. I'm guessing its probably due to

@@ -1,7 +1,8 @@
 const firstPage = document.currentScript?.dataset.firstpage;
 
+const navLinks = document.querySelector(".nav-links")! as HTMLElement;
+navLinks.style.minHeight = "3em";
 fetch(document.currentScript?.dataset.toc ?? "").then(response => response.json()).then(data => {
-    const navLinks = document.querySelector(".nav-links")!;
     data.forEach((page: [string, string], i: number) => {
         const link = page[0];
         const name = page[1];
@@ -18,4 +19,5 @@ fetch(document.currentScript?.dataset.toc ?? "").then(response => response.json(
         if (i < data.length - 1)
             navLinks.appendChild(document.createTextNode(' - '));
     });
+    navLinks.style.minHeight = "";
 });

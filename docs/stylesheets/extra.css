@@ -453,6 +453,11 @@ input::-webkit-inner-spin-button {
   transform: translateY(35px);
 }
 
+.apexchart {
+  min-height: 0 !important;
+  margin-bottom: 15px;
+}
+
 .no-yline .apexcharts-grid-borders line:last-child {
   display: none !important;
 }
