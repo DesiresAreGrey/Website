@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 import cloud from 'd3-cloud';
 
-export function createWordCloud(cloudId: string, data: any[], height: number, textScale: number): void {
+export function createWordCloud(cloudId: string, data: any[], height: number, textScale: number, color: string): void {
     const myWords: cloud.Word[] = data.map(d => ({text: d.text, size: (d.count * textScale)}));
 
     const containerWidth = $(`#${cloudId}`)!.offsetWidth;
@@ -33,7 +33,7 @@ export function createWordCloud(cloudId: string, data: any[], height: number, te
                 .data(words)
             .enter().append("text")
                 .style("font-size", d => d.size)
-                .style("fill", "#a47bea")
+                .style("fill", color)
                 .attr("text-anchor", "middle")
                 .style("font-family", "Inter")
                 .style("font-weight", "800")

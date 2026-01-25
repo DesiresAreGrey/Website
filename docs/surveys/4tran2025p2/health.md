@@ -21,8 +21,6 @@ image: /assets/surveys/4tran2025p2/thumb.png
 
 ## Health
 
-<div class="wordcloud" id="my_dataviz" style="height: 350px;" data-scale="20"></div>
-
 ### Drugs
 
 <div id="doesdrugs-ratio" 
@@ -75,4 +73,11 @@ image: /assets/surveys/4tran2025p2/thumb.png
     <label for="drugsused-b" class="noselect">MtF</label>
     <label for="drugsused-c" class="noselect">Total</label>
   </div>
+</div>
+
+<div class="wordcloud" id="drugs-other-cloud" 
+  style="height: 350px;" 
+  data-scale="20"
+  data-color="#a47bea"
+  >
 </div>

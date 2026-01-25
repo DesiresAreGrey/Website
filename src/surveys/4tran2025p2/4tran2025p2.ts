@@ -54,7 +54,7 @@ if (charts.length > 0) {
         const textScale = el.dataset.scale?.parseFloat() ?? 20;
 
         if (el.classList.contains('wordcloud')) {
-            Wordcloud.createWordCloud(el.id, master["custom_drugs_wordcloud"], height, textScale);
+            Wordcloud.createWordCloud(el.id, master["custom_drugs_wordcloud"], height, textScale, color);
         }
 
         loadedAmount++;
