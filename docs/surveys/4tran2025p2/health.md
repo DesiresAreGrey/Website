@@ -18,3 +18,57 @@ image: /assets/surveys/4tran2025p2/thumb.png
 <script src="/js/surveys/navlinks.js?v={{ now() }}" data-firstpage="/surveys/4tran2025p2/" data-toc="/assets/surveys/4tran2025p2/toc.json"></script>
 
 ## Health
+
+### Drugs
+
+<div id="doesdrugs-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="does_recreational_drugs"
+  data-title="Does Recreational Drugs"
+  data-colors='["#7B61FF", "#00E0B8"]'
+  >
+</div>
+
+<div class="chart-set">
+  <input id="drugsused-a" class="vh" type="radio" name="view-drugsused" checked>
+  <input id="drugsused-b" class="vh" type="radio" name="view-drugsused">
+  <input id="drugsused-c" class="vh" type="radio" name="view-drugsused">
+  
+  <div class="chart-stack" style="min-height: 500px;">
+    <div id="drugsused-ftm-bar" 
+      class="apexchart chart-layer layer-a"
+      style="height: 500px;"
+      data-chart="bar"
+      data-datakey="recreational_drugs_ftm_flipped"
+      data-title="Drugs Used"
+      data-subtitle="FtM"
+      >
+    </div>
+    <div id="drugsused-mtf-bar" 
+      class="apexchart chart-layer layer-b"
+      style="height: 500px;"
+      data-chart="bar"
+      data-datakey="recreational_drugs_mtf_flipped"
+      data-title="Drugs Used"
+      data-subtitle="MtF"
+      data-colors='["#ff4f69"]'
+      >
+    </div>
+    <div id="drugsused-total-bar" 
+      class="apexchart chart-layer layer-c"
+      style="height: 500px;"
+      data-chart="bar"
+      data-datakey="recreational_drugs_flipped"
+      data-title="Drugs Used"
+      data-subtitle="Total"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="drugsused-a" class="noselect">FtM</label>
+    <label for="drugsused-b" class="noselect">MtF</label>
+    <label for="drugsused-c" class="noselect">Total</label>
+  </div>
+</div>
