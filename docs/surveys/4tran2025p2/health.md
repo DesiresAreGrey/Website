@@ -83,7 +83,8 @@ more popular than nicotine. Do men smoke a lot?
 Here's a wordcloud of people who selected "Other" for drugs used and then inputted their own drug.
 
 <div class="wordcloud" id="drugs-other-cloud" 
-  style="height: 350px;" 
+  style="height: 350px;"
+  data-datakey="custom_drugs_wordcloud"
   data-scale="20"
   data-color="#a47bea"
   >
@@ -143,4 +144,60 @@ STDs aren't very common thankfully...
     <label for="stds-b" class="noselect">MtF</label>
     <label for="stds-c" class="noselect">Total</label>
   </div>
+</div>
+
+### Disorders
+
+<div class="chart-set">
+  <input id="disordersofficial-a" class="vh" type="radio" name="view-disordersofficial" checked>
+  <input id="disordersofficial-b" class="vh" type="radio" name="view-disordersofficial">
+  <input id="disordersofficial-c" class="vh" type="radio" name="view-disordersofficial">
+
+  <div class="chart-stack" style="min-height: 500px;">
+    <div id="disordersofficial-types-bar" 
+      class="apexchart chart-layer layer-a"
+      style="height: 500px;"
+      data-chart="ratio-bar"
+      data-datakey="disorders_officially_diagnosed_norm_flipped"
+      data-title="Disorders Officially Diagnosed"
+      data-subtitle="Normalized Ratio"
+      data-normalized
+      >
+    </div>
+    <div id="disordersofficial-ftm-bar" 
+      class="apexchart chart-layer layer-b"
+      style="height: 500px;"
+      data-chart="bar"
+      data-datakey="disorders_officially_diagnosed_ftm_flipped"
+      data-title="Disorders Officially Diagnosed"
+      data-subtitle="FtM"
+      >
+    </div>
+    <div id="disordersofficial-mtf-bar"
+      class="apexchart chart-layer layer-c"
+      style="height: 500px;"
+      data-chart="bar"
+      data-datakey="disorders_officially_diagnosed_mtf_flipped"
+      data-title="Disorders Officially Diagnosed"
+      data-subtitle="MtF"
+      data-colors='["#ff4f69"]'
+      >
+    </div>
+    
+  </div>
+  <div class="toggle">
+    <label for="disordersofficial-a" class="noselect">Normalized Ratio</label>
+    <label for="disordersofficial-b" class="noselect">FtM</label>
+    <label for="disordersofficial-c" class="noselect">MtF</label>
+  </div>
+</div>
+
+I guess a lot of people have PTSD
+
+<div class="wordcloud" id="disorders-officially-diagnosed-custom-cloud" 
+  style="height: 500px;"
+  data-datakey="disorders_officially_diagnosed_wordcloud"
+  data-scale="8"
+  data-color="#a47bea"
+  >
 </div>
