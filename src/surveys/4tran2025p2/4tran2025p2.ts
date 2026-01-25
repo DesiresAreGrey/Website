@@ -12,7 +12,7 @@ if (charts.length > 0) {
 
     const master = await Utils.fetchJson('/assets/surveys/4tran2025p2/results/_master.json');
 
-    LoadingBar.update(++loadedAmount / totalToLoad);
+    LoadingBar.update(++loadedAmount / totalToLoad, (loadedAmount + 1) / totalToLoad);
 
     for (const el of charts) {
         const chartId = el.id;
@@ -52,7 +52,8 @@ if (charts.length > 0) {
         }
 
         loadedAmount++;
-        await LoadingBar.updateAsync(loadedAmount / totalToLoad);
+        await LoadingBar.updateAsync(loadedAmount / totalToLoad, (loadedAmount + 1) / totalToLoad);
+        //await Utils.wait(1000);
     }
 
     LoadingBar.finish();

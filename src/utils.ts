@@ -6,6 +6,10 @@ export class Utils {
     static pageLoaded = () => new Promise<void>(resolve => {
         document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", () => resolve(), { once: true }) : resolve();
     });
+
+    static async wait(ms: number): Promise<void> {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 }
 
 declare global {
@@ -40,6 +44,7 @@ declare global {
         floorTo(precision?: number): number;
 
         abs(): number;
+        clamp(min?: number, max?: number): number;
 
         mult(multiplier: number): number;
         multFloor(multiplier: number): number;
@@ -105,6 +110,9 @@ Object.defineProperty(Number.prototype, 'floorTo', {
 });
 Object.defineProperty(Number.prototype, 'abs', { 
     value: function(this: number) { return this < 0 ? this : this } 
+});
+Object.defineProperty(Number.prototype, 'clamp', { 
+    value: function(this: number, min: number = 0, max: number = 1) { return Math.min(Math.max(this, min), max) } 
 });
 
 Object.defineProperty(Number.prototype, 'mult', { value: function(this: number, multiplier: number) { return this * multiplier } });

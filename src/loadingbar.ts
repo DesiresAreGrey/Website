@@ -14,6 +14,9 @@ export class LoadingBar {
 
     private lastUpdateTime: number = performance.now();
 
+    private animation: Animation | null = null;
+    private animationTime: number = 100;
+
     private constructor() {
         document.getElementById('loading-bar')?.remove();
 
@@ -45,50 +48,92 @@ export class LoadingBar {
         }
     }
 
-    static start() {
+    static start(): void {
         LoadingBar.instance ??= new LoadingBar();
+        const bar = LoadingBar.instance;
 
-        LoadingBar.instance.element.style.transition = 'opacity 250ms ease';
-        LoadingBar.instance.element.style.opacity = '0';
-        LoadingBar.instance.element.style.width = '5%';
+        bar.element.style.transition = 'opacity 250ms ease';
+        bar.element.style.opacity = '0';
+        bar.element.style.width = '5%';
 
-        void LoadingBar.instance.element.offsetWidth;
+        bar.animation?.cancel();
+        bar.animation = null;
 
-        LoadingBar.instance.element.style.opacity = '1';
-        LoadingBar.instance.element.style.transition = 'width 500ms ease-out, opacity 250ms ease';
+        void bar.element.offsetWidth;
 
-        LoadingBar.instance._progress = 0;
+        bar.element.style.opacity = '1';
+        bar.element.style.transition = 'width 500ms ease-out, opacity 250ms ease';
+
+        bar._progress = 0;
+        bar.lastUpdateTime = performance.now();
     }
 
-    static update(progress: number) {
-        if (!LoadingBar.instance)
-            return;
+    static startTrickle(animationTime = 100): void {
+        LoadingBar.instance ??= new LoadingBar();
+        const bar = LoadingBar.instance;
 
-        if (progress < 0) progress = 0;
-        if (progress > 1) progress = 1;
+        bar.animationTime = animationTime;
 
-        LoadingBar.instance._progress = progress;
-        LoadingBar.instance.element.style.width = `${progress * 90 + 5}%`;
+        bar.element.style.transition = 'opacity 250ms ease';
+        bar.element.style.opacity = '0';
+        bar.element.style.width = '5%';
+
+        bar.animation?.cancel();
+        bar.animation = bar.element.animate([ { width: '0%' }, { width: '5%' } ],{ duration: animationTime * 5, fill: 'forwards' });
+
+        void bar.element.offsetWidth;
+
+        bar.element.style.opacity = '1';
+        bar.element.style.transition = 'width 500ms ease-out, opacity 250ms ease';
+
+        bar._progress = 0;
+        bar.lastUpdateTime = performance.now();
     }
 
-    static async updateAsync(progress: number, thresholdMs: number = 100): Promise<void> {
-        if (!LoadingBar.instance)
+    static update(progress: number, trickleTo?: number): void {
+        const bar = LoadingBar.instance;
+        if (!bar)
             return;
 
-        if (performance.now() - LoadingBar.instance.lastUpdateTime > thresholdMs) {
-            LoadingBar.update(progress); 
-            await new Promise(resolve => requestAnimationFrame(resolve));
-            LoadingBar.instance.lastUpdateTime = performance.now();
+        if (bar.animation && trickleTo != undefined)
+        {
+            const newWidth = (progress * 90 + 5).roundTo(0).clamp(0, 100);
+            const nextWidth = (trickleTo * 90 + 5).roundTo(0).clamp(0, 100);
+            const tickSize = nextWidth - newWidth;
+            const trickleDuration = bar.animationTime * tickSize;
+
+            console.log(`Trickle to ${nextWidth}% over ${trickleDuration}ms`);
+
+            bar._progress = progress.clamp();
+
+            bar.animation?.cancel();
+            bar.animation = bar.element.animate([ { width: `${newWidth}%` }, { width: `${nextWidth}%` } ], { duration: trickleDuration, fill: 'forwards' });
+        }
+        else {
+            bar._progress = progress.clamp();
+            bar.element.style.width = `${progress * 90 + 5}%`;
         }
     }
 
-    static finish() {
-        if (!LoadingBar.instance)
+    static async updateAsync(progress: number, nextProgress?: number, minUpdateInterval: number = 750): Promise<void> {
+        const bar = LoadingBar.instance;
+        if (!bar || performance.now() - bar.lastUpdateTime < minUpdateInterval)
+            return;
+
+        LoadingBar.update(progress, nextProgress); 
+        await new Promise(resolve => requestAnimationFrame(resolve));
+        bar.lastUpdateTime = performance.now();
+    }
+
+    static finish(): void {
+        const bar = LoadingBar.instance;
+        if (!bar)
             return;
         
-        LoadingBar.instance.element.style.transition = 'width 500ms ease-out, opacity 500ms ease';
-        LoadingBar.instance._progress = 1;
-        LoadingBar.instance.element.style.width = `100%`;
-        setTimeout(() => LoadingBar.instance?.element.style.setProperty('opacity', '0'), 200);
+        bar.animation?.cancel();
+        bar.element.style.transition = 'width 500ms ease-out, opacity 500ms ease';
+        bar._progress = 1;
+        bar.element.style.width = `100%`;
+        setTimeout(() => bar.element.style.setProperty('opacity', '0'), 200);
     }
 }
