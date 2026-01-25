@@ -29,7 +29,9 @@ image: /assets/surveys/4tran2025p2/thumb.png
 <script type="importmap">
 {
   "imports": {
-    "apexcharts": "https://esm.sh/apexcharts"
+    "apexcharts": "https://esm.sh/apexcharts",
+    "d3": "https://esm.sh/d3",
+    "d3-cloud": "https://esm.sh/d3-cloud"
   }
 }
 </script>

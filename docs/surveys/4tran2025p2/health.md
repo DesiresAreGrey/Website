@@ -88,3 +88,59 @@ Here's a wordcloud of people who selected "Other" for drugs used and then inputt
   data-color="#a47bea"
   >
 </div>
+
+### STDs
+
+STDs aren't very common thankfully...
+
+<div id="hasstds-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="has_stds"
+  data-title="Has STDs"
+  data-colors='["#7B61FF", "#00E0B8"]'
+  >
+</div>
+
+<div class="chart-set">
+  <input id="stds-a" class="vh" type="radio" name="view-stds" checked>
+  <input id="stds-b" class="vh" type="radio" name="view-stds">
+  <input id="stds-c" class="vh" type="radio" name="view-stds">
+
+  <div class="chart-stack" style="min-height: 400px;">
+    <div id="stds-ftm-bar" 
+      class="apexchart chart-layer layer-a"
+      style="height: 400px;"
+      data-chart="bar"
+      data-datakey="stds_ftm_flipped"
+      data-title="STDs"
+      data-subtitle="FtM"
+      >
+    </div>
+    <div id="stds-mtf-bar" 
+      class="apexchart chart-layer layer-b"
+      style="height: 400px;"
+      data-chart="bar"
+      data-datakey="stds_mtf_flipped"
+      data-title="STDs"
+      data-subtitle="MtF"
+      data-colors='["#ff4f69"]'
+      >
+    </div>
+    <div id="stds-total-bar" 
+      class="apexchart chart-layer layer-c"
+      style="height: 400px;"
+      data-chart="bar"
+      data-datakey="stds_flipped"
+      data-title="STDs"
+      data-subtitle="Total"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="stds-a" class="noselect">FtM</label>
+    <label for="stds-b" class="noselect">MtF</label>
+    <label for="stds-c" class="noselect">Total</label>
+  </div>
+</div>
