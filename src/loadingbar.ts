@@ -134,6 +134,6 @@ export class LoadingBar {
         bar.element.style.transition = 'width 500ms ease-out, opacity 500ms ease';
         bar._progress = 1;
         bar.element.style.width = `100%`;
-        setTimeout(() => bar.element.style.setProperty('opacity', '0'), 200);
+        setTimeout(() => bar.element.style.setProperty('opacity', '0'), 250);
     }
 }
