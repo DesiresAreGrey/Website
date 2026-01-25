@@ -13,6 +13,7 @@ export class LoadingBar {
     };
 
     private lastUpdateTime: number = performance.now();
+    private startTime: number = performance.now();
 
     private animation: Animation | null = null;
     private animationTime: number = 100;
@@ -135,5 +136,12 @@ export class LoadingBar {
         bar._progress = 1;
         bar.element.style.width = `100%`;
         setTimeout(() => bar.element.style.setProperty('opacity', '0'), 250);
+    }
+
+    static get startTime(): number | null {
+        return this.instance?.startTime ?? null;
+    }
+    static get elapsedTime(): number | null {
+        return this.instance ? performance.now() - this.instance.startTime : null;
     }
 }

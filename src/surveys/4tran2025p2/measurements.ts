@@ -44,14 +44,17 @@ unitsSelect.addEventListener("change", (e: any) => {
 unitsSelect.dataset.oldValue = unitsSelect.value;
 
 heightInput.addEventListener("input", update);
+heightInput.addEventListener("keydown", exitOnEnter);
 heightInput.addEventListener("focus", focusInput);
 heightInput.addEventListener("blur", updateScatterPlot);
 
 heightFeetInput.addEventListener("input", update);
+heightFeetInput.addEventListener("keydown", exitOnEnter);
 heightFeetInput.addEventListener("focus", focusInput);
 heightFeetInput.addEventListener("blur", updateScatterPlot);
 
 weightInput.addEventListener("input", update);
+weightInput.addEventListener("keydown", exitOnEnter);
 weightInput.addEventListener("focus", focusInput);
 weightInput.addEventListener("blur", updateScatterPlot);
 
@@ -313,13 +316,16 @@ function updateScatterPlot() {
                 LoadingBar.finish();
         });
     });
-
-    
 }
 
 function toggleChanged() {
     updateScatterPlot();
-
     localStorage.setItem('scatterplot-type-toggle-checked', scatterplotChartToggle.checked.toJson());
 }
 
+function exitOnEnter(e: KeyboardEvent) {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        (e.target as HTMLElement)?.blur();
+    }
+}

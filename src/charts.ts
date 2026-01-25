@@ -15,7 +15,7 @@ export class Charts {
 
     static #charts: ChartData[] = [];
     static get charts() {
-        return Charts.#charts.map(c => ({ ...c, loadTime: c.loadTime.roundTo(0) })); 
+        return [...Charts.#charts]; 
     }
 
     static createRatioBarChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, normalized: boolean = false) {
@@ -134,7 +134,7 @@ export class Charts {
             title: title,
             subtitle: subtitle,
             type: "ratio-bar",
-            loadTime: performance.now() - start,
+            loadTime: (performance.now() - start).roundTo(0),
         })
     }
 
@@ -231,7 +231,7 @@ export class Charts {
             title: title,
             subtitle: subtitle,
             type: "bar",
-            loadTime: performance.now() - start,
+            loadTime: (performance.now() - start).roundTo(0),
         })
     }
 
@@ -352,7 +352,7 @@ export class Charts {
             title: title,
             subtitle: subtitle,
             type: "pop-pyramid",
-            loadTime: performance.now() - start,
+            loadTime: (performance.now() - start).roundTo(0),
         })
     }
 
@@ -419,7 +419,7 @@ export class Charts {
             title: title,
             subtitle: undefined,
             type: "pie",
-            loadTime: performance.now() - start,
+            loadTime: (performance.now() - start).roundTo(0),
         })
     }
 
@@ -605,7 +605,7 @@ export class Charts {
             title: title,
             subtitle: subtitle,
             type: "boxplot",
-            loadTime: performance.now() - start,
+            loadTime: (performance.now() - start).roundTo(0),
         })
     }
 
@@ -725,7 +725,7 @@ export class Charts {
             title: title,
             subtitle: subtitle,
             type: "scatter",
-            loadTime: performance.now() - start,
+            loadTime: (performance.now() - start).roundTo(0),
         })
     }
 
@@ -842,7 +842,7 @@ export class Charts {
             title: title,
             subtitle: subtitle,
             type: "heatmap",
-            loadTime: performance.now() - start,
+            loadTime: (performance.now() - start).roundTo(0),
         })
     }
 }

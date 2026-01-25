@@ -5,7 +5,6 @@ import { Charts } from "../../charts.js";
 const charts = $$('.apexchart');
 if (charts.length > 0) {
     LoadingBar.start();
-    const start = performance.now();
 
     let loadedAmount = 0;
     const totalToLoad = charts.length + 1;
@@ -56,21 +55,20 @@ if (charts.length > 0) {
     }
 
     LoadingBar.finish();
-    showPerformancePopup(start);
+    showPerformancePopup();
     console.log(Charts.charts);
 }
 
-function showPerformancePopup(start: number) {
-    console.log(`${Charts.charts.length} charts, loaded in ${(performance.now() - start).roundTo(0)} ms`);
-
+function showPerformancePopup() {
     const debugLoadTimeDiv = document.createElement('div');
     debugLoadTimeDiv.style.position = 'fixed';
     debugLoadTimeDiv.style.bottom = '4px';
     debugLoadTimeDiv.style.right = '4px';
 
+    //const slowestChart = Charts.charts.sort((a, b) => b.loadTime - a.loadTime)[0];
     debugLoadTimeDiv.innerHTML = `
         ${Charts.charts.length} Charts (${Charts.charts.map(c => c.loadTime).reduce((a, b) => a + b, 0).roundTo(0)} ms)<br>
-        Loaded in ${(performance.now() - start).roundTo(0)} ms
+        Fully loaded in ${(LoadingBar.elapsedTime)?.roundTo(0)} ms
     `;
     
     debugLoadTimeDiv.style.transition = 'opacity 250ms ease';
