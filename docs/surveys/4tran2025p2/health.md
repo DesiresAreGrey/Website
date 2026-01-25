@@ -23,6 +23,8 @@ image: /assets/surveys/4tran2025p2/thumb.png
 
 ### Drugs
 
+I guess it makes sense that men use drugs the most.
+
 <div id="doesdrugs-ratio" 
   class="apexchart"
   style="height: 250px;"
@@ -32,6 +34,9 @@ image: /assets/surveys/4tran2025p2/thumb.png
   data-colors='["#7B61FF", "#00E0B8"]'
   >
 </div>
+
+Caffeine being the most popular drug isn't surprising. Whats interesting is that for men, nicotine is more popular than none, while for women, none is
+more popular than nicotine. Do men smoke a lot?
 
 <div class="chart-set">
   <input id="drugsused-a" class="vh" type="radio" name="view-drugsused" checked>
@@ -74,6 +79,8 @@ image: /assets/surveys/4tran2025p2/thumb.png
     <label for="drugsused-c" class="noselect">Total</label>
   </div>
 </div>
+
+Here's a wordcloud of people who selected "Other" for drugs used and then inputted their own drug.
 
 <div class="wordcloud" id="drugs-other-cloud" 
   style="height: 350px;" 
