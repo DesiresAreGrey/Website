@@ -5,7 +5,9 @@ image: /assets/surveys/4tran2025p2/thumb.png
 <script type="importmap">
 {
   "imports": {
-    "apexcharts": "https://esm.sh/apexcharts"
+    "apexcharts": "https://esm.sh/apexcharts",
+    "d3": "https://esm.sh/d3",
+    "d3-cloud": "https://esm.sh/d3-cloud"
   }
 }
 </script>
@@ -18,6 +20,8 @@ image: /assets/surveys/4tran2025p2/thumb.png
 <script src="/js/surveys/navlinks.js?v={{ now() }}" data-firstpage="/surveys/4tran2025p2/" data-toc="/assets/surveys/4tran2025p2/toc.json"></script>
 
 ## Health
+
+<div class="wordcloud" id="my_dataviz" style="height: 350px;" data-scale="20"></div>
 
 ### Drugs
 

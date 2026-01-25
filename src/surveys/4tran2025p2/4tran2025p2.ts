@@ -1,8 +1,9 @@
 import { Utils } from "../../utils.js";
 import { LoadingBar } from "../../loadingbar.js";
 import { Charts } from "../../charts.js";
+import * as Wordcloud from "../../wordcloud.js";
 
-const charts = $$('.apexchart');
+const charts = [...$$('.apexchart'), ...$$('.wordcloud')];
 if (charts.length > 0) {
     LoadingBar.start();
 
@@ -48,6 +49,12 @@ if (charts.length > 0) {
                 Charts.createScatterPlot(chartId, master[dataKey], title, subtitle, hideSeries, colors, height); break;
             case "heatmap":
                 Charts.createHeatmap(chartId, master[dataKey], title, subtitle, color, height); break;
+        }
+
+        const textScale = el.dataset.scale?.parseFloat() ?? 20;
+
+        if (el.classList.contains('wordcloud')) {
+            Wordcloud.createWordCloud(el.id, master["custom_drugs_wordcloud"], height, textScale);
         }
 
         loadedAmount++;
