@@ -21,6 +21,7 @@ const scatterplotChartEnabled = () => !scatterplotChartToggle.checked;
 
 const scatterplotSelfToggle = $("#scatterplot-self-toggle") as HTMLInputElement;
 const scatterplotSelfEnabled = () => !scatterplotSelfToggle.checked;
+let selfEnabledLast = scatterplotSelfEnabled();
 
 let chartLoaded = false;
 let scatterChartHeight = $("#height-weight-scatter")!.style.height.replace("px", "")?.parseFloat() ?? 550;
@@ -210,13 +211,24 @@ function createScatterPlot() {
             },
         },
         xaxis: {
-            tickAmount: 12,
-            min: 50, max: 350,
-            offsetY: -10,
+            tickAmount: 11,
+            min: 75, max: 350,
+            decimalsInFloat: 0,
+            labels: {
+                show: true
+            },
+            title: {
+                text: scatterData[0]?.xLabel,
+                offsetY: -10,
+            },
         },
         yaxis: {
             tickAmount: 5,
             min: 55, max: 80,
+            decimalsInFloat: 0,
+            title: {
+                text: scatterData[0]?.yLabel,
+            },
         },
         markers: {
             size: [5 * sizeRatio, 5 * sizeRatio, 5 * sizeRatio, 6 * sizeRatio],
@@ -239,6 +251,10 @@ function updateScatterPlot() {
         $("#height-weight-scatter")!.style.height = "0";
         return;
     }
+    else if (!scatterplotSelfEnabled() && !selfEnabledLast && chartLoaded) {
+        return;
+    }
+    selfEnabledLast = scatterplotSelfEnabled();
 
     if (!chartLoaded)
         return;
