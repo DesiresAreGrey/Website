@@ -148,6 +148,15 @@ STDs aren't very common thankfully...
 
 ### Disorders
 
+#### Officially Diagnosed
+
+The normalized ratio is a ratio bar graph where the total of men vs women is normalized, which makes it easier to see which disorders are more common
+among men vs women regardless of the sample size difference. There are also bar charts to show the actual counts for men and women separately.
+
+Gender dysphoria is pretty much a 50/50 split between men and women, which makes sense. OCD, ARFID, and DID seem to be the most common among men
+compared to women, while BPD, BDD, Anorexia, and Binge Eating Disorder seem to be the most common among women compared to men.
+
+
 <div class="chart-set">
   <input id="disordersofficial-a" class="vh" type="radio" name="view-disordersofficial" checked>
   <input id="disordersofficial-b" class="vh" type="radio" name="view-disordersofficial">
