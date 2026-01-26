@@ -86,7 +86,7 @@ Here's a wordcloud of people who selected "Other" for drugs used and then inputt
   style="height: 350px;"
   data-datakey="custom_drugs_wordcloud"
   data-min-size="15"
-  data-max-size="75"
+  data-max-size="80"
   data-color="#a47bea"
   >
 </div>
@@ -202,7 +202,9 @@ compared to women, while BPD, BDD, Anorexia, and Binge Eating Disorder seem to b
   </div>
 </div>
 
-These are the custom answers that people typed in when they selected "Other" for disorders officially diagnosed. The bar chart only shows the ones that have more than 1 person typing it in.
+These are the custom answers that people typed in when they selected "Other" for disorders officially diagnosed. The bar chart only shows the ones
+that have more than 1 person typing it in. I also combined custom answers that were the same, but spelled differently (C-PTSD includes people who
+typed C-PTSD, CPTSD, cptsd, etc).
 
 I guess a lot of people have PTSD.
 
@@ -216,7 +218,7 @@ I guess a lot of people have PTSD.
       style="height: 500px;"
       data-datakey="disorders_officially_diagnosed_custom_wordcloud"
       data-min-size="10"
-      data-max-size="160"
+      data-max-size="150"
       data-color="#a47bea"
       >
     </div>

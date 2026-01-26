@@ -4,6 +4,8 @@ import cloud from 'd3-cloud';
 interface WordCloudData {
     id: string;
     loadTime: number;
+    minSize: number;
+    maxSize: number;
 }
 
 export class WordCloud {
@@ -20,8 +22,8 @@ export class WordCloud {
         const start = performance.now();
 
         if (WordCloud.isMobile){
-            minSize *= 0.75;
-            maxSize *= 0.5;
+            minSize *= 0.9;
+            maxSize *= 0.6;
         }
 
         const counts = data.map(d => d.count);
@@ -32,8 +34,6 @@ export class WordCloud {
             .range([minSize, maxSize]);
         
         const myWords: cloud.Word[] = data.map(d => ({text: d.text, size: fontSize(d.count)}));
-
-        console.log(`Creating word cloud ${cloudId} with ${data.length} words, min count ${minCount}, max count ${maxCount}`);
 
         const container = $id(cloudId);
         if (!container) return;
@@ -74,6 +74,8 @@ export class WordCloud {
         WordCloud.#wordclouds.push({
             id: cloudId,
             loadTime: (performance.now() - start).roundTo(0),
+            minSize: minSize,
+            maxSize: maxSize
         });
     }
 }

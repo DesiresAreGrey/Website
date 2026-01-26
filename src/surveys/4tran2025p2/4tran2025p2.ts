@@ -64,7 +64,7 @@ if (charts.length > 0) {
 
     LoadingBar.finish();
     showPerformancePopup();
-    console.log(Charts.charts);
+    //console.log(Charts.charts);
 }
 
 function showPerformancePopup() {
