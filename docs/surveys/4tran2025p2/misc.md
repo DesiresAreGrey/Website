@@ -59,3 +59,32 @@ outliers) value for nonbinary people, but the lowest outlier is 0 with 2 respond
     <label for="viewdiy-b" class="noselect">Ratio</label>
   </div>
 </div>
+
+### NEET Status
+
+Men are the least likely to be a NEET (Not in Education, Employment, or Training).
+
+<div id="isneet-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="is_neet"
+  data-title="Is NEET"
+  data-colors='["#7B61FF", "#00E0B8"]'
+  >
+</div>
+
+### Malebrained/Fembrained
+
+Interestingly, men are the most likely to believe in the malebrained/fembrained concept. It does make sense that nonbinary people are the least likely
+to believe in it, since the concept is more binary in nature.
+
+<div id="xbrained-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="belief_in_xbrained"
+  data-title="Believes in Malebrained/Fembrained"
+  data-colors='["#7B61FF", "#5642bd", "#2E294E"]'
+  >
+</div>
