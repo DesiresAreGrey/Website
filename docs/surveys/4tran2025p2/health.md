@@ -192,12 +192,34 @@ STDs aren't very common thankfully...
   </div>
 </div>
 
-I guess a lot of people have PTSD
+These are the custom answers that people typed in when they selected "Other" for disorders officially diagnosed. The bar chart only shows the ones that have more than 1 person typing it in.
 
-<div class="wordcloud" id="disorders-officially-diagnosed-custom-cloud" 
-  style="height: 500px;"
-  data-datakey="disorders_officially_diagnosed_wordcloud"
-  data-scale="8"
-  data-color="#a47bea"
-  >
+I guess a lot of people have PTSD.
+
+<div class="chart-set">
+  <input id="disordersofficialcustom-a" class="vh" type="radio" name="view-disordersofficialcustom" checked>
+  <input id="disordersofficialcustom-b" class="vh" type="radio" name="view-disordersofficialcustom">
+
+  <div class="chart-stack" style="min-height: 500px;">
+    <div id="disorders-officially-diagnosed-custom-cloud" 
+      class="wordcloud chart-layer layer-a"
+      style="height: 500px;"
+      data-datakey="disorders_officially_diagnosed_custom_wordcloud"
+      data-scale="8"
+      data-color="#a47bea"
+      >
+    </div>
+    <div id="disordersofficialcustom-bar" 
+      class="apexchart chart-layer layer-b"
+      style="height: 500px;"
+      data-chart="bar"
+      data-datakey="disorders_officially_diagnosed_custom_flipped"
+      data-title="Disorders Officially Diagnosed (Custom)"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="disordersofficialcustom-a" class="noselect">Word Cloud</label>
+    <label for="disordersofficialcustom-b" class="noselect">Bar</label>
+  </div>
 </div>

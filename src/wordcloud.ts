@@ -29,17 +29,15 @@ export function createWordCloud(cloudId: string, data: any[], height: number, te
     function draw(words: any[]) {
         svg.append("g")
             .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
-            .selectAll("text")
-                .data(words)
-            .enter().append("text")
-                .style("font-size", d => d.size)
-                .style("fill", color)
-                .attr("text-anchor", "middle")
-                .style("font-family", "Inter")
-                .style("font-weight", "800")
-                .attr("transform", d => {
-                  return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-                })
-                .text(d => d.text);
+        .selectAll("text")
+            .data(words)
+        .enter().append("text")
+            .style("font-size", d => d.size)
+            .style("fill", color)
+            .attr("text-anchor", "middle")
+            .style("font-family", "Inter")
+            .style("font-weight", "800")
+            .attr("transform", d => "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")")
+            .text(d => d.text);
     }
 }
