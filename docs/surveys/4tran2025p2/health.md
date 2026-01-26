@@ -310,3 +310,24 @@ CPTSD at the top with AvPD at second. I wish I had included PTSD and CPTSD in th
     <label for="disordersselfcustom-b" class="noselect">Bar</label>
   </div>
 </div>
+
+### In Therapy
+
+Men seem to currently be in therapy the least, but women are slightly more likely to have never been in therapy.
+
+<div id="intherapy-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="in_therapy"
+  data-title="In Therapy"
+  data-colors='["#7B61FF", "#5642bd", "#2E294E"]'
+  >
+</div>
+
+___
+
+<div class="button-container">
+  <a class="big-button" href="../heightpreferences">Previous Page</a>
+  <a class="big-button" href="../misc">Next Page</a>
+</div>
