@@ -171,3 +171,29 @@ The common theme seems to be that men have the least connection with the idea of
   data-colors='["#7B61FF", "#5642bd", "#2E294E"]'
   >
 </div>
+
+### Tattoos and Piercings
+
+Most people do not have tattoos/piercings, but men are more likely to have them than women or nonbinary people.
+
+<div id="has-tattoos-piercings-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="has_tattoos_piercings"
+  data-title="Has Tattoos or Piercings"
+  data-colors='["#7B61FF", "#00E0B8"]'
+  >
+</div>
+
+When it comes to number of tattoos/piercings (of the people who do have them), men tend to have more than women.
+
+<div id="tattoos-piercings-boxplot" 
+  class="apexchart"
+  style="height: 300px;"
+  data-chart="boxplot"
+  data-datakey="tattoos_piercings_boxplot"
+  data-title="Number of Tattoos and Piercings"
+  data-subtitle="Boxplot"
+  >
+</div>
