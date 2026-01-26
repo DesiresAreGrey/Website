@@ -232,3 +232,81 @@ I guess a lot of people have PTSD.
     <label for="disordersofficialcustom-b" class="noselect">Bar</label>
   </div>
 </div>
+
+#### Self Diagnosed
+
+Seems pretty similar to the previous one.
+
+<div class="chart-set">
+  <input id="disordersselfdiagnosed-a" class="vh" type="radio" name="view-disordersselfdiagnosed" checked>
+  <input id="disordersselfdiagnosed-b" class="vh" type="radio" name="view-disordersselfdiagnosed">
+  <input id="disordersselfdiagnosed-c" class="vh" type="radio" name="view-disordersselfdiagnosed">
+
+  <div class="chart-stack" style="min-height: 500px;">
+    <div id="disordersselfdiagnosed-types-bar" 
+      class="apexchart chart-layer layer-a"
+      style="height: 500px;"
+      data-chart="ratio-bar"
+      data-datakey="disorders_self_diagnosed_norm_flipped"
+      data-title="Disorders Self Diagnosed"
+      data-subtitle="Normalized Ratio"
+      data-normalized
+      >
+    </div>
+    <div id="disordersselfdiagnosed-ftm-bar" 
+      class="apexchart chart-layer layer-b"
+      style="height: 500px;"
+      data-chart="bar"
+      data-datakey="disorders_self_diagnosed_ftm_flipped"
+      data-title="Disorders Self Diagnosed"
+      data-subtitle="FtM"
+      >
+    </div>
+    <div id="disordersselfdiagnosed-mtf-bar"
+      class="apexchart chart-layer layer-c"
+      style="height: 500px;"
+      data-chart="bar"
+      data-datakey="disorders_self_diagnosed_mtf_flipped"
+      data-title="Disorders Self Diagnosed"
+      data-subtitle="MtF"
+      data-colors='["#ff4f69"]'
+      >
+    </div>
+    
+  </div>
+  <div class="toggle">
+    <label for="disordersselfdiagnosed-a" class="noselect">Normalized Ratio</label>
+    <label for="disordersselfdiagnosed-b" class="noselect">FtM</label>
+    <label for="disordersselfdiagnosed-c" class="noselect">MtF</label>
+  </div>
+</div>
+
+CPTSD at the top with AvPD at second. I wish I had included PTSD and CPTSD in the available options.
+
+<div class="chart-set">
+  <input id="disordersselfcustom-a" class="vh" type="radio" name="view-disordersselfcustom" checked>
+  <input id="disordersselfcustom-b" class="vh" type="radio" name="view-disordersselfcustom">
+
+  <div class="chart-stack" style="min-height: 500px;">
+    <div id="disorders-self-diagnosed-custom-cloud" 
+      class="wordcloud chart-layer layer-a"
+      style="height: 500px;"
+      data-datakey="disorders_self_diagnosed_custom_wordcloud"
+      data-scale="11"
+      data-color="#a47bea"
+      >
+    </div>
+    <div id="disordersselfcustom-bar" 
+      class="apexchart chart-layer layer-b"
+      style="height: 500px;"
+      data-chart="bar"
+      data-datakey="disorders_self_diagnosed_custom_flipped"
+      data-title="Disorders Self Diagnosed (Custom)"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="disordersselfcustom-a" class="noselect">Word Cloud</label>
+    <label for="disordersselfcustom-b" class="noselect">Bar</label>
+  </div>
+</div>
