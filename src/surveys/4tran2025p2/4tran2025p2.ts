@@ -71,8 +71,7 @@ function showPerformancePopup() {
     debugLoadTimeDiv.style.position = 'fixed';
     debugLoadTimeDiv.style.bottom = '4px';
     debugLoadTimeDiv.style.right = '4px';
-
-    //const slowestChart = Charts.charts.sort((a, b) => b.loadTime - a.loadTime)[0];
+    
     if (WordCloud.wordclouds.length > 0) {
         debugLoadTimeDiv.innerHTML = `
             ${Charts.charts.length} Charts (${Charts.charts.map(c => c.loadTime).reduce((a, b) => a + b, 0).roundTo(0)} ms)<br>
