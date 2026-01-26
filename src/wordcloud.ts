@@ -7,6 +7,8 @@ interface WordCloudData {
 }
 
 export class WordCloud {
+    static get isMobile() { return window.innerWidth > 768 ? false : true; }
+
     static #wordclouds: WordCloudData[] = [];
 
     static get wordclouds() {
@@ -15,22 +17,20 @@ export class WordCloud {
 
     static createWordCloud(cloudId: string, data: any[], height: number, textScale: number, color: string): void {
         const start = performance.now();
+
+        if (WordCloud.isMobile)
+            textScale *= 0.75;
+
         const myWords: cloud.Word[] = data.map(d => ({text: d.text, size: (d.count * textScale)}));
 
-        const containerWidth = $(`#${cloudId}`)!.offsetWidth;
-
-        let margin = { top: 10, right: 10, bottom: 10, left: 10 },
-            width = containerWidth - margin.left - margin.right,
-            contentHeight = height - margin.top - margin.bottom;
+        const width = $(`#${cloudId}`)!.offsetWidth;
 
         let svg = d3.select(`#${cloudId}`).append("svg")
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", contentHeight + margin.top + margin.bottom)
-            .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                .attr("width", width)
+                .attr("height", height)
 
         let layout = cloud()
-            .size([width, contentHeight])
+            .size([width, height])
             .words(myWords)
             .padding(5)
             .rotate(() => ~~(Math.random() * 2) * 90)
@@ -41,7 +41,7 @@ export class WordCloud {
 
         function draw(words: any[]) {
             svg.append("g")
-                .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+                .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
             .selectAll("text")
                 .data(words)
             .enter().append("text")
