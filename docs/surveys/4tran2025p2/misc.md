@@ -111,3 +111,63 @@ roles where 42% are unsure compared to 36% of men.
   data-colors='["#259efa", "#ff4f69", "#7B61FF", "#2E294E"]'
   >
 </div>
+
+### Connection to AGAB
+
+Interestingly, this is the opposite of what you might expect if you are used to mainstream trans communities. Trans men are the least connected to
+their AGAB, with trans women being a bit more connected, and nonbinary people being the most connected (relatively).
+
+<div id="connection-to-agab-boxplot" 
+  class="apexchart"
+  style="height: 300px;"
+  data-chart="boxplot"
+  data-datakey="connection_to_agab_boxplot"
+  data-title="Connection to AGAB"
+  data-subtitle="Boxplot"
+  >
+</div>
+
+### Feelings/Views
+
+#### Feelings on Being Trans
+
+Men are also the least likely to have positive feelings on being trans, with nonbinary people being the most likely to have positive feelings (still
+mostly negative or negative though).
+
+<div id="feelings-on-being-trans-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="feelings_on_being_trans"
+  data-title="Feelings on Being Trans"
+  data-colors='["#7B61FF", "#5642bd", "#2E294E"]'
+  >
+</div>
+
+#### Views on the Trans Flag
+
+The trans flag is generally liked rather than disliked, however men are by far the most neutral on it.
+
+<div id="views-on-trans-flag-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="view_on_trans_flag"
+  data-title="Views on the Trans Flag"
+  data-colors='["#7B61FF", "#5642bd", "#2E294E"]'
+  >
+</div>
+
+#### Views on the Trans Community
+
+The common theme seems to be that men have the least connection with the idea of being trans and the things that are associated with it.
+
+<div id="views-on-trans-community-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="view_on_trans_community"
+  data-title="Views on the Trans Community"
+  data-colors='["#7B61FF", "#5642bd", "#2E294E"]'
+  >
+</div>
