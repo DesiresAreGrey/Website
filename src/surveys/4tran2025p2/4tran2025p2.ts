@@ -1,7 +1,7 @@
 import { Utils } from "../../utils.js";
 import { LoadingBar } from "../../loadingbar.js";
 import { Charts } from "../../charts.js";
-import * as Wordcloud from "../../wordcloud.js";
+import { WordCloud } from "../../wordcloud.js";
 
 const charts = [...$$('.apexchart'), ...$$('.wordcloud')];
 if (charts.length > 0) {
@@ -54,7 +54,7 @@ if (charts.length > 0) {
         const textScale = el.dataset.scale?.parseFloat() ?? 20;
 
         if (el.classList.contains('wordcloud')) {
-            Wordcloud.createWordCloud(el.id, master[dataKey], height, textScale, color);
+            WordCloud.createWordCloud(el.id, master[dataKey], height, textScale, color);
         }
 
         loadedAmount++;
@@ -73,10 +73,19 @@ function showPerformancePopup() {
     debugLoadTimeDiv.style.right = '4px';
 
     //const slowestChart = Charts.charts.sort((a, b) => b.loadTime - a.loadTime)[0];
-    debugLoadTimeDiv.innerHTML = `
-        ${Charts.charts.length} Charts (${Charts.charts.map(c => c.loadTime).reduce((a, b) => a + b, 0).roundTo(0)} ms)<br>
-        Fully loaded in ${(LoadingBar.elapsedTime)?.roundTo(0)} ms
-    `;
+    if (WordCloud.wordclouds.length > 0) {
+        debugLoadTimeDiv.innerHTML = `
+            ${Charts.charts.length} Charts (${Charts.charts.map(c => c.loadTime).reduce((a, b) => a + b, 0).roundTo(0)} ms)<br>
+            ${WordCloud.wordclouds.length} Clouds (${WordCloud.wordclouds.map(c => c.loadTime).reduce((a, b) => a + b, 0).roundTo(0)} ms)<br>
+            Fully loaded in ${(LoadingBar.elapsedTime)?.roundTo(0)} ms
+        `;
+    }
+    else {
+        debugLoadTimeDiv.innerHTML = `
+            ${Charts.charts.length} Charts (${Charts.charts.map(c => c.loadTime).reduce((a, b) => a + b, 0).roundTo(0)} ms)<br>
+            Fully loaded in ${(LoadingBar.elapsedTime)?.roundTo(0)} ms
+        `;
+    }
     
     debugLoadTimeDiv.style.transition = 'opacity 250ms ease';
     debugLoadTimeDiv.style.textAlign = 'right';
