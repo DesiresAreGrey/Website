@@ -88,3 +88,26 @@ to believe in it, since the concept is more binary in nature.
   data-colors='["#7B61FF", "#5642bd", "#2E294E"]'
   >
 </div>
+
+### Conformity to Gender Roles
+
+The data for this is a lot more interesting than I expected. 
+
+Almost 50% of men conform to male gender roles, with less than 1% conforming to female gender roles. However, only 23% of women conform to female
+gender roles, with about 5% conforming to male gender roles. This is a pretty big difference, and shows that men are much more likely to conform to
+their actual gender roles than women. 
+
+Nonbinary people generally conform to male gender roles significantly more than female, however most do not conform to either or are unsure.
+
+Only 14% of men conform to no gender roles, while for women thats almost 31%. Women are also more likely to be unsure about their conformity to gender
+roles where 42% are unsure compared to 36% of men.
+
+<div id="conform-gender-roles-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="conform_gender_roles"
+  data-title="Conforms to Gender Roles"
+  data-colors='["#259efa", "#ff4f69", "#7B61FF", "#2E294E"]'
+  >
+</div>
