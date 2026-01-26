@@ -15,26 +15,42 @@ export class WordCloud {
         return [...WordCloud.#wordclouds]; 
     }
 
-    static createWordCloud(cloudId: string, data: any[], height: number, textScale: number, color: string): void {
+    static async createWordCloud(cloudId: string, data: any[], height: number, minSize: number, maxSize: number, color: string): Promise<void> {
+        await document.fonts.load("700 1em 'Bitter'")
         const start = performance.now();
 
-        if (WordCloud.isMobile)
-            textScale *= 0.75;
+        if (WordCloud.isMobile){
+            minSize *= 0.75;
+            maxSize *= 0.5;
+        }
 
-        const myWords: cloud.Word[] = data.map(d => ({text: d.text, size: (d.count * textScale)}));
+        const counts = data.map(d => d.count);
+        const [minCount, maxCount] = [Math.min(...counts), Math.max(...counts)];
 
-        const width = $(`#${cloudId}`)!.offsetWidth;
+        const fontSize = d3.scaleSqrt()
+            .domain([minCount, maxCount])
+            .range([minSize, maxSize]);
+        
+        const myWords: cloud.Word[] = data.map(d => ({text: d.text, size: fontSize(d.count)}));
 
-        let svg = d3.select(`#${cloudId}`).append("svg")
-                .attr("width", width)
-                .attr("height", height)
+        console.log(`Creating word cloud ${cloudId} with ${data.length} words, min count ${minCount}, max count ${maxCount}`);
 
-        let layout = cloud()
+        const container = $id(cloudId);
+        if (!container) return;
+        container.innerHTML = "";
+
+        const width = container.offsetWidth;
+
+        const svg = d3.select(container).append("svg")
+            .attr("width", width)
+            .attr("height", height)
+
+        const layout = cloud()
             .size([width, height])
             .words(myWords)
             .padding(5)
             .rotate(() => ~~(Math.random() * 2) * 90)
-            .font("Inter")
+            .font("Bitter")
             .fontSize(d => d.size!)
             .on("end", draw);
         layout.start();
@@ -47,14 +63,11 @@ export class WordCloud {
             .selectAll("text")
                 .data(words)
             .enter().append("text")
-                .style("font-size", d => d.size)
+                .style("font-size", d => d.size + "px")
                 .style("fill", color)
                 .attr("text-anchor", "middle")
-                .style("font-family", "Inter")
-                .style("font-weight", "800")
-                .style("text-shadow", `0 0 16px color-mix(in srgb, black 50%, ${color})`)
-                //.style("text-shadow", `0 0 16px hsl(from ${color} h s calc(l * 0.5))`)
-                //.style("text-shadow", `0 0 20px ${color}`)
+                .style("font-family", "Bitter")
+                .style("font-weight", "700")
                 .attr("transform", d => "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")")
                 .text(d => d.text);
         }

@@ -51,10 +51,11 @@ if (charts.length > 0) {
                 Charts.createHeatmap(chartId, master[dataKey], title, subtitle, color, height); break;
         }
 
-        const textScale = el.dataset.scale?.parseFloat() ?? 20;
+        const minSize = el.dataset.minSize?.parseFloat() ?? 10;
+        const maxSize = el.dataset.maxSize?.parseFloat() ?? 150;
 
         if (el.classList.contains('wordcloud')) {
-            WordCloud.createWordCloud(el.id, master[dataKey], height, textScale, color);
+            WordCloud.createWordCloud(el.id, master[dataKey], height, minSize, maxSize, color);
         }
 
         loadedAmount++;
@@ -71,7 +72,7 @@ function showPerformancePopup() {
     debugLoadTimeDiv.style.position = 'fixed';
     debugLoadTimeDiv.style.bottom = '4px';
     debugLoadTimeDiv.style.right = '4px';
-    
+
     if (WordCloud.wordclouds.length > 0) {
         debugLoadTimeDiv.innerHTML = `
             ${Charts.charts.length} Charts (${Charts.charts.map(c => c.loadTime).reduce((a, b) => a + b, 0).roundTo(0)} ms)<br>
