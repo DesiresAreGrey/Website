@@ -40,7 +40,9 @@ export class WordCloud {
         layout.start();
 
         function draw(words: any[]) {
-            svg.append("g")
+            svg
+            .style("overflow", "visible")
+            .append("g")
                 .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
             .selectAll("text")
                 .data(words)
@@ -50,6 +52,9 @@ export class WordCloud {
                 .attr("text-anchor", "middle")
                 .style("font-family", "Inter")
                 .style("font-weight", "800")
+                .style("text-shadow", `0 0 16px color-mix(in srgb, black 50%, ${color})`)
+                //.style("text-shadow", `0 0 16px hsl(from ${color} h s calc(l * 0.5))`)
+                //.style("text-shadow", `0 0 20px ${color}`)
                 .attr("transform", d => "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")")
                 .text(d => d.text);
         }
