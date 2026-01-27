@@ -29,10 +29,10 @@ image: /assets/surveys/4tran2025p2/thumb.png
   <input id="describingserious-a" class="vh" type="radio" name="view-describingserious" checked>
   <input id="describingserious-b" class="vh" type="radio" name="view-describingserious">
 
-  <div class="chart-stack" style="min-height: 750px;">
+  <div class="chart-stack" style="min-height: 800px;">
     <div id="describingserious-ftm-bar" 
       class="apexchart chart-layer layer-a"
-      style="height: 750px;"
+      style="height: 800px;"
       data-chart="bar"
       data-datakey="describing_terms_serious_ftm_flipped"
       data-title="Describing Terms - Serious"
@@ -41,7 +41,7 @@ image: /assets/surveys/4tran2025p2/thumb.png
     </div>
     <div id="describingserious-mtf-bar" 
       class="apexchart chart-layer layer-b"
-      style="height: 750px;"
+      style="height: 800px;"
       data-chart="bar"
       data-datakey="describing_terms_serious_mtf_flipped"
       data-title="Describing Terms - Serious"
@@ -142,10 +142,10 @@ image: /assets/surveys/4tran2025p2/thumb.png
   <input id="describingironic-a" class="vh" type="radio" name="view-describingironic" checked>
   <input id="describingironic-b" class="vh" type="radio" name="view-describingironic">
 
-  <div class="chart-stack" style="min-height: 750px;">
+  <div class="chart-stack" style="min-height: 800px;">
     <div id="describingironic-ftm-bar" 
       class="apexchart chart-layer layer-a"
-      style="height: 750px;"
+      style="height: 800px;"
       data-chart="bar"
       data-datakey="describing_terms_ironic_ftm_flipped"
       data-title="Describing Terms - Ironic"
@@ -154,7 +154,7 @@ image: /assets/surveys/4tran2025p2/thumb.png
     </div>
     <div id="describingironic-mtf-bar" 
       class="apexchart chart-layer layer-b"
-      style="height: 750px;"
+      style="height: 800px;"
       data-chart="bar"
       data-datakey="describing_terms_ironic_mtf_flipped"
       data-title="Describing Terms - Ironic"
