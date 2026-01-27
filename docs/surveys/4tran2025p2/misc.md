@@ -265,7 +265,7 @@ look beautiful?
       data-min-size="9"
       data-max-size="90"
       data-padding="2.5"
-      data-color="#a47bea"
+      data-color="#a46fff"
       >
     </div>
     <div id="aesthetic-ftm-custom-cloud" 

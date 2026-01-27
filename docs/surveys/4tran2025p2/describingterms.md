@@ -103,7 +103,7 @@ image: /assets/surveys/4tran2025p2/thumb.png
       data-min-size="15"
       data-max-size="90"
       data-padding="2.5"
-      data-color="#a47bea"
+      data-color="#a46fff"
       >
     </div>
     <div id="describing-terms-serious-ftm-custom-cloud" 
@@ -213,10 +213,10 @@ image: /assets/surveys/4tran2025p2/thumb.png
       class="wordcloud chart-layer layer-a"
       style="height: 550px;"
       data-datakey="describing_terms_ironic_custom_wordcloud"
-      data-min-size="15"
+      data-min-size="20"
       data-max-size="90"
       data-padding="2.5"
-      data-color="#a47bea"
+      data-color="#a46fff"
       >
     </div>
     <div id="describing-terms-ironic-ftm-custom-cloud" 

@@ -38,9 +38,9 @@ export class WordCloud {
         }
         const opacity = d3.scaleLog()
             .domain([minCount, maxCount])
-            .range([0.75, 1]);
+            .range([0.69, 1]);
         
-        const myWords: cloud.Word[] = data.map(d => ({ text: d.text, count: d.count, size: fontSize(d.count) }));
+        const myWords: cloud.Word[] = data.map(d => ({ text: d.text, count: d.count, size: fontSize(d.count) })).sort((a, b) => b.count - a.count);
 
         const container = $id(cloudId);
         if (!container) return;
@@ -56,7 +56,7 @@ export class WordCloud {
             .size([width, height])
             .words(myWords)
             .padding(padding)
-            .rotate(() => ~~(Math.random() * 2) * 90)
+            .rotate((_, index) => index == 0 ? 0 : ~~(Math.random() * 2) * 90)
             .font("Bitter")
             .fontSize(d => d.size!)
             .on("end", draw);

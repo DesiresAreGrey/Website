@@ -85,9 +85,10 @@ Here's a wordcloud of people who selected "Other" for drugs used and then inputt
 <div class="wordcloud" id="drugs-other-cloud" 
   style="height: 350px;"
   data-datakey="custom_drugs_wordcloud"
-  data-min-size="15"
+  data-min-size="20"
   data-max-size="80"
-  data-color="#a47bea"
+  data-padding="3"
+  data-color="#a46fff"
   >
 </div>
 
@@ -217,9 +218,10 @@ I guess a lot of people have PTSD.
       class="wordcloud chart-layer layer-a"
       style="height: 500px;"
       data-datakey="disorders_officially_diagnosed_custom_wordcloud"
-      data-min-size="10"
-      data-max-size="150"
-      data-color="#a47bea"
+      data-min-size="18"
+      data-max-size="130"
+      data-padding="3"
+      data-color="#a46fff"
       >
     </div>
     <div id="disordersofficialcustom-bar" 
@@ -296,9 +298,10 @@ CPTSD at the top with AvPD at second. I wish I had included PTSD and CPTSD in th
       class="wordcloud chart-layer layer-a"
       style="height: 500px;"
       data-datakey="disorders_self_diagnosed_custom_wordcloud"
-      data-min-size="10"
-      data-max-size="150"
-      data-color="#a47bea"
+      data-min-size="16"
+      data-max-size="130"
+      data-padding="4"
+      data-color="#a46fff"
       >
     </div>
     <div id="disordersselfcustom-bar" 
