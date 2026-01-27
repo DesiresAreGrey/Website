@@ -6,12 +6,12 @@ import { WordCloud } from "../../wordcloud.js";
 const charts = [...$$('.apexchart'), ...$$('.wordcloud')];
 if (charts.length > 0) {
     LoadingBar.start();
+
+    const master = await Utils.fetchJson('/assets/surveys/4tran2025p2/results/_master.json');
     await document.fonts.load("700 1em 'Bitter'");
 
     let loadedAmount = 0;
     const totalToLoad = charts.length + 1;
-
-    const master = await Utils.fetchJson('/assets/surveys/4tran2025p2/results/_master.json');
 
     LoadingBar.update(++loadedAmount / totalToLoad, (loadedAmount + 1) / totalToLoad);
 

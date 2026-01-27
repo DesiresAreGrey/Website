@@ -1,6 +1,6 @@
 ---
 description: Results of the Extended 4tran Survey (2025.2)
-image: /assets/surveys/4tran2025p2/thumb.png
+image: /assets/surveys/4tran2025p2/thumb-misc.png
 ---
 <script type="importmap">
 {
@@ -262,9 +262,9 @@ look beautiful?
       class="wordcloud chart-layer layer-a"
       style="height: 550px;"
       data-datakey="aesthetic_custom_wordcloud"
-      data-min-size="9"
+      data-min-size="12"
       data-max-size="90"
-      data-padding="2.5"
+      data-padding="2"
       data-color="#a46fff"
       >
     </div>
@@ -272,9 +272,9 @@ look beautiful?
       class="wordcloud chart-layer layer-b"
       style="height: 550px;"
       data-datakey="aesthetic_ftm_custom_wordcloud"
-      data-min-size="12"
+      data-min-size="20"
       data-max-size="80"
-      data-padding="3.5"
+      data-padding="3"
       data-color="#259efa"
       >
     </div>
@@ -282,9 +282,9 @@ look beautiful?
       class="wordcloud chart-layer layer-c"
       style="height: 550px;"
       data-datakey="aesthetic_mtf_custom_wordcloud"
-      data-min-size="10"
+      data-min-size="15"
       data-max-size="96"
-      data-padding="3"
+      data-padding="2.5"
       data-color="#ff4f69"
       >
     </div>
