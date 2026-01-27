@@ -334,5 +334,5 @@ ___
 
 <div class="button-container">
   <a class="big-button" href="../heightpreferences">Previous Page</a>
-  <a class="big-button" href="../misc">Next Page</a>
+  <a class="big-button" href="../describingterms">Next Page</a>
 </div>
