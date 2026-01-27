@@ -17,8 +17,7 @@ export class WordCloud {
         return [...WordCloud.#wordclouds]; 
     }
 
-    static async createWordCloud(cloudId: string, data: any[], height: number, minSize: number, maxSize: number, color: string): Promise<void> {
-        await document.fonts.load("700 1em 'Bitter'")
+    static createWordCloud(cloudId: string, data: any[], height: number, minSize: number, maxSize: number, padding: number, color: string): void {
         const start = performance.now();
 
         if (WordCloud.isMobile){
@@ -48,7 +47,7 @@ export class WordCloud {
         const layout = cloud()
             .size([width, height])
             .words(myWords)
-            .padding(5)
+            .padding(padding)
             .rotate(() => ~~(Math.random() * 2) * 90)
             .font("Bitter")
             .fontSize(d => d.size!)

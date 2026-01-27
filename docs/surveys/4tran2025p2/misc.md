@@ -200,6 +200,55 @@ When it comes to number of tattoos/piercings (of the people who do have them), m
 
 ### Aesthetic
 
+Casual, Emo, and Sporty are the only aesthetics more common among men than with women. The rest are all more common among women, with Preppy and Goth
+being the most skewed towards women.
+
+Unsurprisingly, the most common aestheics among both men and women are casual and comfortable.
+
+<div class="chart-set">
+  <input id="aesthetic-a" class="vh" type="radio" name="view-aesthetic" checked>
+  <input id="aesthetic-b" class="vh" type="radio" name="view-aesthetic">
+  <input id="aesthetic-c" class="vh" type="radio" name="view-aesthetic">
+
+  <div class="chart-stack" style="min-height: 400px;">
+    <div id="aesthetic-bar" 
+      class="apexchart chart-layer layer-a"
+      style="height: 400px;"
+      data-chart="ratio-bar"
+      data-datakey="aesthetic_norm_flipped"
+      data-title="Aesthetic"
+      data-subtitle="Normalized Ratio"
+      data-normalized
+      >
+    </div>
+    <div id="aesthetic-ftm-bar" 
+      class="apexchart chart-layer layer-b"
+      style="height: 400px;"
+      data-chart="bar"
+      data-datakey="aesthetic_ftm_flipped"
+      data-title="Aesthetic"
+      data-subtitle="FtM"
+      >
+    </div>
+    <div id="aesthetic-mtf-bar"
+      class="apexchart chart-layer layer-c"
+      style="height: 400px;"
+      data-chart="bar"
+      data-datakey="aesthetic_mtf_flipped"
+      data-title="Aesthetic"
+      data-subtitle="MtF"
+      data-colors='["#ff4f69"]'
+      >
+    </div>
+    
+  </div>
+  <div class="toggle">
+    <label for="aesthetic-a" class="noselect">Normalized Ratio</label>
+    <label for="aesthetic-b" class="noselect">FtM</label>
+    <label for="aesthetic-c" class="noselect">MtF</label>
+  </div>
+</div>
+
 This is the word cloud of custom aesthetics that people typed in when they selected "Other" for aesthetic preference. Am I insane if I think these
 look beautiful?
 
@@ -213,8 +262,9 @@ look beautiful?
       class="wordcloud chart-layer layer-a"
       style="height: 550px;"
       data-datakey="aesthetic_custom_wordcloud"
-      data-min-size="8"
+      data-min-size="9"
       data-max-size="90"
+      data-padding="2.5"
       data-color="#a47bea"
       >
     </div>
@@ -224,6 +274,7 @@ look beautiful?
       data-datakey="aesthetic_ftm_custom_wordcloud"
       data-min-size="12"
       data-max-size="80"
+      data-padding="3.5"
       data-color="#259efa"
       >
     </div>
@@ -233,6 +284,7 @@ look beautiful?
       data-datakey="aesthetic_mtf_custom_wordcloud"
       data-min-size="10"
       data-max-size="96"
+      data-padding="3"
       data-color="#ff4f69"
       >
     </div>

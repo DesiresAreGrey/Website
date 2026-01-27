@@ -6,6 +6,7 @@ import { WordCloud } from "../../wordcloud.js";
 const charts = [...$$('.apexchart'), ...$$('.wordcloud')];
 if (charts.length > 0) {
     LoadingBar.start();
+    await document.fonts.load("700 1em 'Bitter'");
 
     let loadedAmount = 0;
     const totalToLoad = charts.length + 1;
@@ -53,9 +54,10 @@ if (charts.length > 0) {
 
         const minSize = el.dataset.minSize?.parseFloat() ?? 10;
         const maxSize = el.dataset.maxSize?.parseFloat() ?? 150;
+        const padding = el.dataset.padding?.parseFloat() ?? 4;
 
         if (el.classList.contains('wordcloud')) {
-            WordCloud.createWordCloud(el.id, master[dataKey], height, minSize, maxSize, color);
+            WordCloud.createWordCloud(el.id, master[dataKey], height, minSize, maxSize, padding, color);
         }
 
         loadedAmount++;
