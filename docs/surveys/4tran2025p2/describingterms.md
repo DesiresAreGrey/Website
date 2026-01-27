@@ -23,9 +23,42 @@ image: /assets/surveys/4tran2025p2/thumb.png
 
 ### Serious
 
+#### Given Options
+
 <div class="chart-set">
   <input id="describingserious-a" class="vh" type="radio" name="view-describingserious" checked>
   <input id="describingserious-b" class="vh" type="radio" name="view-describingserious">
+
+  <div class="chart-stack" style="min-height: 750px;">
+    <div id="describingserious-ftm-bar" 
+      class="apexchart chart-layer layer-a"
+      style="height: 750px;"
+      data-chart="bar"
+      data-datakey="describing_terms_serious_ftm_flipped"
+      data-title="Describing Terms - Serious"
+      data-subtitle="FtM"
+      >
+    </div>
+    <div id="describingserious-mtf-bar" 
+      class="apexchart chart-layer layer-b"
+      style="height: 750px;"
+      data-chart="bar"
+      data-datakey="describing_terms_serious_mtf_flipped"
+      data-title="Describing Terms - Serious"
+      data-subtitle="MtF"
+      data-colors='["#ff4f69"]'
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="describingserious-a" class="noselect">FtM</label>
+    <label for="describingserious-b" class="noselect">MtF</label>
+  </div>
+</div>
+
+<div class="chart-set">
+  <input id="describingseriouscloud-a" class="vh" type="radio" name="view-describingseriouscloud" checked>
+  <input id="describingseriouscloud-b" class="vh" type="radio" name="view-describingseriouscloud">
 
   <div class="chart-stack" style="min-height: 550px;">
     <div id="describingserious-ftm-cloud" 
@@ -50,8 +83,8 @@ image: /assets/surveys/4tran2025p2/thumb.png
     </div>
   </div>
   <div class="toggle">
-    <label for="describingserious-a" class="noselect">FtM</label>
-    <label for="describingserious-b" class="noselect">MtF</label>
+    <label for="describingseriouscloud-a" class="noselect">FtM</label>
+    <label for="describingseriouscloud-b" class="noselect">MtF</label>
   </div>
 </div>
 
