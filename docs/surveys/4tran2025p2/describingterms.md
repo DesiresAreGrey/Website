@@ -110,7 +110,7 @@ image: /assets/surveys/4tran2025p2/thumb.png
       class="wordcloud chart-layer layer-b"
       style="height: 550px;"
       data-datakey="describing_terms_serious_ftm_custom_wordcloud"
-      data-min-size="30"
+      data-min-size="25"
       data-max-size="100"
       data-padding="2.5"
       data-color="#259efa"
@@ -131,6 +131,119 @@ image: /assets/surveys/4tran2025p2/thumb.png
     <label for="describingseriouscloudcustom-a" class="noselect">Overall</label>
     <label for="describingseriouscloudcustom-b" class="noselect">FtM</label>
     <label for="describingseriouscloudcustom-c" class="noselect">MtF</label>
+  </div>
+</div>
+
+### Ironic
+
+#### Given Options
+
+<div class="chart-set">
+  <input id="describingironic-a" class="vh" type="radio" name="view-describingironic" checked>
+  <input id="describingironic-b" class="vh" type="radio" name="view-describingironic">
+
+  <div class="chart-stack" style="min-height: 750px;">
+    <div id="describingironic-ftm-bar" 
+      class="apexchart chart-layer layer-a"
+      style="height: 750px;"
+      data-chart="bar"
+      data-datakey="describing_terms_ironic_ftm_flipped"
+      data-title="Describing Terms - Ironic"
+      data-subtitle="FtM"
+      >
+    </div>
+    <div id="describingironic-mtf-bar" 
+      class="apexchart chart-layer layer-b"
+      style="height: 750px;"
+      data-chart="bar"
+      data-datakey="describing_terms_ironic_mtf_flipped"
+      data-title="Describing Terms - Ironic"
+      data-subtitle="MtF"
+      data-colors='["#ff4f69"]'
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="describingironic-a" class="noselect">FtM</label>
+    <label for="describingironic-b" class="noselect">MtF</label>
+  </div>
+</div>
+
+<div class="chart-set">
+  <input id="describingironiccloud-a" class="vh" type="radio" name="view-describingironiccloud" checked>
+  <input id="describingironiccloud-b" class="vh" type="radio" name="view-describingironiccloud">
+
+  <div class="chart-stack" style="min-height: 550px;">
+    <div id="describingironic-ftm-cloud" 
+      class="wordcloud chart-layer layer-a"
+      style="height: 550px;"
+      data-datakey="describing_terms_ironic_ftm_wordcloud"
+      data-min-size="8"
+      data-max-size="80"
+      data-padding="3"
+      data-color="#259efa"
+      >
+    </div>
+    <div id="describingironic-mtf-cloud" 
+      class="wordcloud chart-layer layer-b"
+      style="height: 550px;"
+      data-datakey="describing_terms_ironic_mtf_wordcloud"
+      data-min-size="8"
+      data-max-size="80"
+      data-padding="3"
+      data-color="#ff4f69"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="describingironiccloud-a" class="noselect">FtM</label>
+    <label for="describingironiccloud-b" class="noselect">MtF</label>
+  </div>
+</div>
+
+#### Custom
+
+<div class="chart-set">
+  <input id="describingironiccloudcustom-a" class="vh" type="radio" name="view-describingironiccloudcustom" checked>
+  <input id="describingironiccloudcustom-b" class="vh" type="radio" name="view-describingironiccloudcustom">
+  <input id="describingironiccloudcustom-c" class="vh" type="radio" name="view-describingironiccloudcustom">
+
+  <div class="chart-stack" style="min-height: 550px;">
+    <div id="describing-terms-ironic-custom-cloud" 
+      class="wordcloud chart-layer layer-a"
+      style="height: 550px;"
+      data-datakey="describing_terms_ironic_custom_wordcloud"
+      data-min-size="15"
+      data-max-size="90"
+      data-padding="2.5"
+      data-color="#a47bea"
+      >
+    </div>
+    <div id="describing-terms-ironic-ftm-custom-cloud" 
+      class="wordcloud chart-layer layer-b"
+      style="height: 550px;"
+      data-datakey="describing_terms_ironic_ftm_custom_wordcloud"
+      data-min-size="25"
+      data-max-size="90"
+      data-padding="2.5"
+      data-color="#259efa"
+      >
+    </div>
+    <div id="describing-terms-ironic-mtf-custom-cloud" 
+      class="wordcloud chart-layer layer-c"
+      style="height: 550px;"
+      data-datakey="describing_terms_ironic_mtf_custom_wordcloud"
+      data-min-size="20"
+      data-max-size="85"
+      data-padding="2.5"
+      data-color="#ff4f69"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="describingironiccloudcustom-a" class="noselect">Overall</label>
+    <label for="describingironiccloudcustom-b" class="noselect">FtM</label>
+    <label for="describingironiccloudcustom-c" class="noselect">MtF</label>
   </div>
 </div>
 
