@@ -22,8 +22,8 @@ export class WordCloud {
         const start = performance.now();
 
         if (WordCloud.isMobile){
-            minSize *= 0.9;
-            maxSize *= 0.6;
+            minSize *= 0.85;
+            maxSize *= 0.5;
         }
 
         const counts = data.map(d => d.count);

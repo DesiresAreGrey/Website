@@ -197,3 +197,49 @@ When it comes to number of tattoos/piercings (of the people who do have them), m
   data-subtitle="Boxplot"
   >
 </div>
+
+### Aesthetic
+
+This is the word cloud of custom aesthetics that people typed in when they selected "Other" for aesthetic preference. Am I insane if I think these
+look beautiful?
+
+<div class="chart-set">
+  <input id="aesthetic-custom-a" class="vh" type="radio" name="view-aestheticcustom" checked>
+  <input id="aesthetic-custom-b" class="vh" type="radio" name="view-aestheticcustom">
+  <input id="aesthetic-custom-c" class="vh" type="radio" name="view-aestheticcustom">
+
+  <div class="chart-stack" style="min-height: 550px;">
+    <div id="aesthetic-custom-cloud" 
+      class="wordcloud chart-layer layer-a"
+      style="height: 550px;"
+      data-datakey="aesthetic_custom_wordcloud"
+      data-min-size="8"
+      data-max-size="90"
+      data-color="#a47bea"
+      >
+    </div>
+    <div id="aesthetic-ftm-custom-cloud" 
+      class="wordcloud chart-layer layer-b"
+      style="height: 550px;"
+      data-datakey="aesthetic_ftm_custom_wordcloud"
+      data-min-size="12"
+      data-max-size="80"
+      data-color="#259efa"
+      >
+    </div>
+    <div id="aesthetic-mtf-custom-cloud" 
+      class="wordcloud chart-layer layer-c"
+      style="height: 550px;"
+      data-datakey="aesthetic_mtf_custom_wordcloud"
+      data-min-size="10"
+      data-max-size="96"
+      data-color="#ff4f69"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="aesthetic-custom-a" class="noselect">Overall</label>
+    <label for="aesthetic-custom-b" class="noselect">FtM</label>
+    <label for="aesthetic-custom-c" class="noselect">MtF</label>
+  </div>
+</div>
