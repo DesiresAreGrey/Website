@@ -17,7 +17,7 @@ export class WordCloud {
         return [...WordCloud.#wordclouds]; 
     }
 
-    static createWordCloud(cloudId: string, data: any[], height: number, minSize: number, maxSize: number, padding: number, color: string): void {
+    static createWordCloud(cloudId: string, data: any[], height: number, minSize: number, maxSize: number, padding: number, color: string, scaleLinear: boolean): void {
         const start = performance.now();
 
         if (WordCloud.isMobile){
@@ -28,9 +28,14 @@ export class WordCloud {
         const counts = data.map(d => d.count);
         const [minCount, maxCount] = [Math.min(...counts), Math.max(...counts)];
 
-        const fontSize = d3.scaleSqrt()
+        let fontSize: any = d3.scaleSqrt()
             .domain([minCount, maxCount])
             .range([minSize, maxSize]);
+        if (scaleLinear) {
+            fontSize = d3.scaleLinear()
+                .domain([minCount, maxCount])
+                .range([minSize, maxSize]);
+        }
         const opacity = d3.scaleLog()
             .domain([minCount, maxCount])
             .range([0.75, 1]);

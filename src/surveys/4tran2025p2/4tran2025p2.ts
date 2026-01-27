@@ -55,9 +55,10 @@ if (charts.length > 0) {
         const minSize = el.dataset.minSize?.parseFloat() ?? 10;
         const maxSize = el.dataset.maxSize?.parseFloat() ?? 150;
         const padding = el.dataset.padding?.parseFloat() ?? 4;
+        const scaleLinear = el.dataset.scaleLinear != undefined;
 
         if (el.classList.contains('wordcloud')) {
-            WordCloud.createWordCloud(el.id, master[dataKey], height, minSize, maxSize, padding, color);
+            WordCloud.createWordCloud(el.id, master[dataKey], height, minSize, maxSize, padding, color, scaleLinear);
         }
 
         loadedAmount++;
