@@ -31,8 +31,11 @@ export class WordCloud {
         const fontSize = d3.scaleSqrt()
             .domain([minCount, maxCount])
             .range([minSize, maxSize]);
+        const opacity = d3.scaleLog()
+            .domain([minCount, maxCount])
+            .range([0.75, 1]);
         
-        const myWords: cloud.Word[] = data.map(d => ({text: d.text, size: fontSize(d.count)}));
+        const myWords: cloud.Word[] = data.map(d => ({ text: d.text, count: d.count, size: fontSize(d.count) }));
 
         const container = $id(cloudId);
         if (!container) return;
@@ -67,6 +70,7 @@ export class WordCloud {
                 .attr("text-anchor", "middle")
                 .style("font-family", "Bitter")
                 .style("font-weight", "700")
+                .style("opacity", d => opacity(d.count!).toString())
                 .attr("transform", d => "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")")
                 .text(d => d.text);
         }
