@@ -21,6 +21,52 @@ image: /assets/surveys/4tran2025p2/thumb.png
 
 ## Describing Terms
 
+### Serious
+
+<div class="chart-set">
+  <input id="describingserious-a" class="vh" type="radio" name="view-describingserious" checked>
+  <input id="describingserious-b" class="vh" type="radio" name="view-describingserious">
+  <input id="describingserious-c" class="vh" type="radio" name="view-describingserious">
+
+  <div class="chart-stack" style="min-height: 550px;">
+    <div id="describingserious-cloud" 
+      class="wordcloud chart-layer layer-a"
+      style="height: 550px;"
+      data-datakey="describing_terms_serious_wordcloud"
+      data-min-size="9"
+      data-max-size="75"
+      data-padding="3"
+      data-color="#a47bea"
+      >
+    </div>
+    <div id="describingserious-ftm-cloud" 
+      class="wordcloud chart-layer layer-b"
+      style="height: 550px;"
+      data-datakey="describing_terms_serious_ftm_wordcloud"
+      data-min-size="12"
+      data-max-size="75"
+      data-padding="3"
+      data-color="#259efa"
+      >
+    </div>
+    <div id="describingserious-mtf-cloud" 
+      class="wordcloud chart-layer layer-c"
+      style="height: 550px;"
+      data-datakey="describing_terms_serious_mtf_wordcloud"
+      data-min-size="10"
+      data-max-size="75"
+      data-padding="3"
+      data-color="#ff4f69"
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="describingserious-a" class="noselect">Overall</label>
+    <label for="describingserious-b" class="noselect">FtM</label>
+    <label for="describingserious-c" class="noselect">MtF</label>
+  </div>
+</div>
+
 
 ___
 
