@@ -7,7 +7,7 @@
     ["relationships", "Relationships"],
     ["heightpreferences", "Height Preferences"],
     ["health", "Health"],
-    ["describingterms", "Describing Terms"],
+    ["selfdescribing", "Self Describing"],
     ["misc", "Misc"],
     ["nsfw", "NSFW"],
     ["conclusion", "Conclusion"]

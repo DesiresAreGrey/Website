@@ -1,6 +1,6 @@
 ---
 description: Results of the Extended 4tran Survey (2025.2)
-image: /assets/surveys/4tran2025p2/thumb-describingterms.png
+image: /assets/surveys/4tran2025p2/thumb-selfdescribing.png
 ---
 <link rel="stylesheet" href="/stylesheets/surveys/4tran2025p2.css">
 <script type="importmap">
@@ -15,16 +15,22 @@ image: /assets/surveys/4tran2025p2/thumb-describingterms.png
 <script type="module" src="/js/surveys/4tran2025p2/4tran2025p2.js"></script>
 
 # Extended 4tran Survey (2025.2)
-<h6 style="margin: 0 0.2rem">Page 9 - Describing Terms</h6>
+<h6 style="margin: 0 0.2rem">Page 9 - Self Describing</h6>
 
 <div class="nav-links" style="margin: 0.25rem 1rem;"></div>
 <script src="/js/surveys/navlinks.js" data-firstpage="/surveys/4tran2025p2/" data-toc="/assets/surveys/4tran2025p2/toc.json"></script>
 
-## Describing Terms
+## Self Describing
 
-### Serious
+This page goes over the question asking what terms respondents use to describe themselves which a given list of 50 terms.
+
+### Genuine/Serious
+
+This question asked what terms people used in a genuine/serious manner to describe themselves.
 
 #### Given Options
+
+Out of the 50 given terms, 
 
 <div class="chart-set">
   <input id="describingserious-a" class="vh" type="radio" name="view-describingserious" checked>
@@ -90,6 +96,8 @@ image: /assets/surveys/4tran2025p2/thumb-describingterms.png
 </div>
 
 #### Custom
+
+The Other option allowed for people to type in custom terms.
 
 <div class="chart-set">
   <input id="describingseriouscloudcustom-a" class="vh" type="radio" name="view-describingseriouscloudcustom" checked>

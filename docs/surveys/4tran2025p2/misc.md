@@ -300,6 +300,6 @@ look beautiful?
 ___
 
 <div class="button-container">
-  <a class="big-button" href="../describingterms">Previous Page</a>
+  <a class="big-button" href="../selfdescribing">Previous Page</a>
   <a class="big-button" href="../nsfw">Next Page</a>
 </div>
