@@ -1,6 +1,55 @@
 .wordcloud-word {
-    transition: fill 0.3s ease;
-    &:hover {
-        filter: brightness(1.25);
-    }
+  transition: filter 200ms ease, font-variation-settings 200ms ease, opacity 200ms ease;
+  will-change: filter, font-variation-settings;
+  text-rendering: geometricPrecision;
+  shape-rendering: geometricPrecision;
+  font-variation-settings: 'wght' 700;
+  &:hover {
+    font-variation-settings: 'wght' 750;
+    filter: brightness(1.1);
+    opacity: 1 !important;
+  }
 }
+
+.wordcloud-tooltip {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  padding: 10px;
+
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1000;
+
+  background: rgba(8, 8, 8, .8) !important;
+  box-shadow: 2px 2px 6px -4px #000 !important;
+  backdrop-filter: blur(3px) saturate(150%);
+  outline: solid;
+  outline-width: thin;
+  outline-color: #333333;
+  outline-offset: -1px;
+  border-radius: 0.5rem;
+
+  line-height: 125%;
+
+  transition: opacity 200ms ease, transform 50ms ease;
+
+  & .word {
+    font-size: 16px;
+    font-variation-settings: 'wght' 700;
+  }
+  & .place {
+    font-size: 14px;
+    font-variation-settings: 'wght' 700;
+  }
+  & .count {
+    font-size: 14px;
+    font-variation-settings: 'wght' 400;
+  }
+
+  &.active {
+    opacity: 1;
+  }
+}
+

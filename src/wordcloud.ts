@@ -1,5 +1,6 @@
 import * as d3 from 'd3';
 import cloud from 'd3-cloud';
+import { Utils } from './utils.js';
 
 interface WordCloudData {
     id: string;
@@ -40,11 +41,15 @@ export class WordCloud {
             .domain([minCount, maxCount])
             .range([0.69, 1]);
         
-        const myWords: cloud.Word[] = data.map(d => ({ text: d.text, count: d.count, size: fontSize(d.count) })).sort((a, b) => b.count - a.count);
+        const myWords: cloud.Word[] = data.sort((a, b) => b.count - a.count).map((d, i) => ({ text: d.text, count: d.count, size: fontSize(d.count), index: i }));
 
         const container = $id(cloudId);
         if (!container) return;
         container.innerHTML = "";
+
+        const tooltip = document.createElement('div');
+        tooltip.className = 'wordcloud-tooltip';
+        container.appendChild(tooltip);
 
         const width = container.offsetWidth;
 
@@ -71,6 +76,7 @@ export class WordCloud {
                 .data(words)
             .enter().append("text")
                 .classed("wordcloud-word", true)
+                .classed("noselect", true)
                 .style("font-size", d => d.size + "px")
                 .style("fill", color)
                 .attr("text-anchor", "middle")
@@ -78,8 +84,41 @@ export class WordCloud {
                 .style("font-weight", "700")
                 .style("opacity", d => opacity(d.count!).toString())
                 .attr("transform", d => "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")")
+                .attr("data-word", d => d.text)
+                .attr("data-count", d => d.count)
+                .attr("data-index", d => d.index)
                 .text(d => d.text);
         }
+
+        container.$$('svg .wordcloud-word')!.forEach(wordEl => {
+            wordEl.addEventListener('mouseenter', async (e) => {
+
+                const word = wordEl.dataset.word;
+                const count = wordEl.dataset.count;
+                const place = Number(wordEl.dataset.index) + 1;
+
+                tooltip.innerHTML = `
+                    <div class="word">${word}</div>
+                    <span class="place">#${place}</span> <span class="count">(${count} respondents)</span>
+                    `;
+
+                if (!tooltip.classList.contains('active')) {
+                    const hadTransform = !tooltip.style.transform
+                    tooltip.style.transform = `translate(${e.clientX + 15}px, ${e.clientY + 15}px)`;
+                    if (hadTransform) await Utils.wait(75);
+                    tooltip.classList.add('active');
+                }
+            });
+
+            wordEl.addEventListener('mousemove', (e) => {
+                tooltip.style.transform = `translate(${e.clientX + 15}px, ${e.clientY + 15}px)`;
+            });
+
+            wordEl.addEventListener('mouseleave', () => {
+                tooltip.classList.remove('active');
+            });
+        });
+
         WordCloud.#wordclouds.push({
             id: cloudId,
             loadTime: (performance.now() - start).roundTo(0),
