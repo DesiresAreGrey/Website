@@ -3,6 +3,7 @@ description: Results of the 2025 4tran Survey (Ratgirltwink)
 image: https://desiresaregrey.com/assets/surveys/4tran2025/thumb.png
 ---
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="/stylesheets/surveys/4tran2025.css?v={{ now() }}">
 <style>
 .reddit {
     color: #ff5719 !important;

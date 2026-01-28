@@ -2,6 +2,7 @@
 description: Results of the Extended 4tran Survey (2025.2)
 image: /assets/surveys/4tran2025p2/thumb-describingterms.png
 ---
+<link rel="stylesheet" href="/stylesheets/surveys/4tran2025p2.css?v={{ now() }}">
 <script type="importmap">
 {
   "imports": {

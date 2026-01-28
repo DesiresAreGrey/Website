@@ -1,0 +1,6 @@
+.wordcloud-word {
+    transition: fill 0.3s ease;
+    &:hover {
+        filter: brightness(1.25);
+    }
+}

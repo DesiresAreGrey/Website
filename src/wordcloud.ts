@@ -70,6 +70,7 @@ export class WordCloud {
             .selectAll("text")
                 .data(words)
             .enter().append("text")
+                .classed("wordcloud-word", true)
                 .style("font-size", d => d.size + "px")
                 .style("fill", color)
                 .attr("text-anchor", "middle")
