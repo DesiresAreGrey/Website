@@ -22,15 +22,23 @@ image: /assets/surveys/4tran2025p2/thumb-selfdescribing.png
 
 ## Self Describing
 
-This page goes over the question asking what terms respondents use to describe themselves which a given list of 50 terms.
+This page goes over the question asking what terms respondents use to describe themselves which a given list of 50 terms. If you don't like /tttt/
+terminology, feel free to skip this page.
 
 ### Genuine/Serious
 
-This question asked what terms people used in a genuine/serious manner to describe themselves.
+This question asked what terms people used in a genuine/serious way to describe themselves.
 
 #### Given Options
 
-Out of the 50 given terms, 
+Unsurprisingly, Trans is the most common for both men and women, with FtM/Mtf being second. 
+
+What is interesting however is transsexual and transgender being in 3rd then 4th respectively for men, but the reverse for women. The disparity in
+counts between the two is also pretty interesting. With men, theres a large gap between transsexual and transgender, while for women the gap between
+transgender and transsexual is pretty small.
+
+Personally as a woman, I use Tomboymoder to describe myself (since people don't like when I say I'm a passoid boymoder), so it was interesting to see
+here was in 12th place for men but only 30th place for women.
 
 <div class="chart-set">
   <input id="describingserious-a" class="vh" type="radio" name="view-describingserious" checked>
@@ -62,6 +70,8 @@ Out of the 50 given terms,
     <label for="describingserious-b" class="noselect">MtF</label>
   </div>
 </div>
+
+I *really* love how the word clouds turned out for this one. They aren't the best for cold hard data, but the visual representation is so good.
 
 <div class="chart-set">
   <input id="describingseriouscloud-a" class="vh" type="radio" name="view-describingseriouscloud" checked>
@@ -97,7 +107,7 @@ Out of the 50 given terms,
 
 #### Custom
 
-The Other option allowed for people to type in custom terms.
+The "Other" option allowed for people to type in custom terms. The most common overall custom term was luckshit, by 1 man and 3 women.
 
 <div class="chart-set">
   <input id="describingseriouscloudcustom-a" class="vh" type="radio" name="view-describingseriouscloudcustom" checked>
@@ -109,30 +119,33 @@ The Other option allowed for people to type in custom terms.
       class="wordcloud chart-layer layer-a"
       style="height: 550px;"
       data-datakey="describing_terms_serious_custom_wordcloud"
-      data-min-size="15"
-      data-max-size="90"
+      data-min-size="18"
+      data-max-size="80"
       data-padding="2.5"
       data-color="#a46fff"
+      data-scale-linear
       >
     </div>
     <div id="describing-terms-serious-ftm-custom-cloud" 
       class="wordcloud chart-layer layer-b"
       style="height: 550px;"
       data-datakey="describing_terms_serious_ftm_custom_wordcloud"
-      data-min-size="25"
-      data-max-size="100"
+      data-min-size="28"
+      data-max-size="80"
       data-padding="2.5"
       data-color="#259efa"
+      data-scale-linear
       >
     </div>
     <div id="describing-terms-serious-mtf-custom-cloud" 
       class="wordcloud chart-layer layer-c"
       style="height: 550px;"
       data-datakey="describing_terms_serious_mtf_custom_wordcloud"
-      data-min-size="15"
-      data-max-size="90"
+      data-min-size="18"
+      data-max-size="80"
       data-padding="2.5"
       data-color="#ff4f69"
+      data-scale-linear
       >
     </div>
   </div>
@@ -145,7 +158,15 @@ The Other option allowed for people to type in custom terms.
 
 ### Ironic
 
+This question asked what terms people used in a ironic way to describe themselves.
+
 #### Given Options
+
+The distribution for men is kinda interesting with how there are 2 drops, one from Pooner to Tranny, and another from Gigapoon to Theyfab. It's also
+pretty interesting how Pooner is by far the most used ironic term, but I guess it makes sense.
+
+The distribution for women doesn't have anything similar/as distinct as the 2 drops with men. Tranny being the first is pretty obvious, though I
+didn't expect AGP to be second (same with AAP being third for men, right under Tranny). 
 
 <div class="chart-set">
   <input id="describingironic-a" class="vh" type="radio" name="view-describingironic" checked>
@@ -222,20 +243,22 @@ The Other option allowed for people to type in custom terms.
       class="wordcloud chart-layer layer-a"
       style="height: 550px;"
       data-datakey="describing_terms_ironic_custom_wordcloud"
-      data-min-size="20"
-      data-max-size="90"
+      data-min-size="18"
+      data-max-size="80"
       data-padding="2.5"
       data-color="#a46fff"
+      data-scale-linear
       >
     </div>
     <div id="describing-terms-ironic-ftm-custom-cloud" 
       class="wordcloud chart-layer layer-b"
       style="height: 550px;"
       data-datakey="describing_terms_ironic_ftm_custom_wordcloud"
-      data-min-size="25"
-      data-max-size="90"
+      data-min-size="28"
+      data-max-size="80"
       data-padding="2.5"
       data-color="#259efa"
+      data-scale-linear
       >
     </div>
     <div id="describing-terms-ironic-mtf-custom-cloud" 
@@ -243,9 +266,10 @@ The Other option allowed for people to type in custom terms.
       style="height: 550px;"
       data-datakey="describing_terms_ironic_mtf_custom_wordcloud"
       data-min-size="20"
-      data-max-size="85"
+      data-max-size="75"
       data-padding="2.5"
       data-color="#ff4f69"
+      data-scale-linear
       >
     </div>
   </div>
