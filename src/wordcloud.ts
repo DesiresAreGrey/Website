@@ -49,6 +49,7 @@ export class WordCloud {
 
         const tooltip = document.createElement('div');
         tooltip.className = 'wordcloud-tooltip';
+        tooltip.style.transform = `translate(${window.innerWidth/2}px, ${window.innerHeight/2}px)`;
         container.appendChild(tooltip);
 
         const width = container.offsetWidth;
@@ -103,15 +104,20 @@ export class WordCloud {
                     `;
 
                 if (!tooltip.classList.contains('active')) {
-                    const hadTransform = !tooltip.style.transform
-                    tooltip.style.transform = `translate(${e.clientX + 15}px, ${e.clientY + 15}px)`;
-                    if (hadTransform) await Utils.wait(75);
                     tooltip.classList.add('active');
                 }
             });
 
             wordEl.addEventListener('mousemove', (e) => {
-                tooltip.style.transform = `translate(${e.clientX + 15}px, ${e.clientY + 15}px)`;
+                let x = e.clientX + 15;
+                let y = e.clientY - tooltip.offsetHeight;
+
+                if (x + tooltip.offsetWidth > window.innerWidth)
+                    x = e.clientX - tooltip.offsetWidth - 15;
+                if (y < 0)
+                    y = e.clientY + 15;
+
+                tooltip.style.transform = `translate(${x}px, ${y}px)`;
             });
 
             wordEl.addEventListener('mouseleave', () => {
