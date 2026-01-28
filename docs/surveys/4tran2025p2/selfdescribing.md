@@ -199,6 +199,8 @@ didn't expect AGP to be second (same with AAP being third for men, right under T
   </div>
 </div>
 
+The word clouds for this one are also really good.
+
 <div class="chart-set">
   <input id="describingironiccloud-a" class="vh" type="radio" name="view-describingironiccloud" checked>
   <input id="describingironiccloud-b" class="vh" type="radio" name="view-describingironiccloud">
@@ -232,6 +234,9 @@ didn't expect AGP to be second (same with AAP being third for men, right under T
 </div>
 
 #### Custom
+
+Not many people typed in custom terms for ironic use, but its interesting how Dood (3 men) was the most common overall word when including both
+genders. I wish I added a dedicated option for typing in custom terms so that people would be more likely to type them out.
 
 <div class="chart-set">
   <input id="describingironiccloudcustom-a" class="vh" type="radio" name="view-describingironiccloudcustom" checked>
