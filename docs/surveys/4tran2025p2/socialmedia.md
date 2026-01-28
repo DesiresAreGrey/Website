@@ -2,7 +2,7 @@
 description: Results of the Extended 4tran Survey (2025.2)
 image: /assets/surveys/4tran2025p2/thumb-socialmedia.png
 ---
-<link rel="stylesheet" href="/stylesheets/surveys/4tran2025p2.css?v={{ now() }}">
+<link rel="stylesheet" href="/stylesheets/surveys/4tran2025p2.css">
 <script type="importmap">
 {
   "imports": {
@@ -12,13 +12,13 @@ image: /assets/surveys/4tran2025p2/thumb-socialmedia.png
   }
 }
 </script>
-<script type="module" src="/js/surveys/4tran2025p2/4tran2025p2.js?v={{ now() }}"></script>
+<script type="module" src="/js/surveys/4tran2025p2/4tran2025p2.js"></script>
 
 # Extended 4tran Survey (2025.2)
 <h6 style="margin: 0 0.2rem">Page 3 - Social Media</h6>
 
 <div class="nav-links" style="margin: 0.25rem 1rem;"></div>
-<script src="/js/surveys/navlinks.js?v={{ now() }}" data-firstpage="/surveys/4tran2025p2/" data-toc="/assets/surveys/4tran2025p2/toc.json"></script>
+<script src="/js/surveys/navlinks.js" data-firstpage="/surveys/4tran2025p2/" data-toc="/assets/surveys/4tran2025p2/toc.json"></script>
 
 ## Social Media
 

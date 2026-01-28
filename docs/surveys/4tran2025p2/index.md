@@ -3,7 +3,7 @@ description: Results of the Extended 4tran Survey (2025.2)
 image: /assets/surveys/4tran2025p2/thumb.png
 ---
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link rel="stylesheet" href="/stylesheets/surveys/4tran2025p2.css?v={{ now() }}">
+<link rel="stylesheet" href="/stylesheets/surveys/4tran2025p2.css">
 <style>
 .reddit {
     color: #ff5719 !important;
@@ -36,13 +36,13 @@ image: /assets/surveys/4tran2025p2/thumb.png
   }
 }
 </script>
-<script type="module" src="/js/surveys/4tran2025p2/4tran2025p2.js?v={{ now() }}"></script>
+<script type="module" src="/js/surveys/4tran2025p2/4tran2025p2.js"></script>
 
 # Extended 4tran Survey (2025.2)
 <h6 style="margin: 0 0.2rem">Page 1 - Demographics</h6>
 
 <div class="nav-links" style="margin: 0.25rem 1rem;"></div>
-<script src="/js/surveys/navlinks.js?v={{ now() }}" data-firstpage="/surveys/4tran2025p2/" data-toc="/assets/surveys/4tran2025p2/toc.json"></script>
+<script src="/js/surveys/navlinks.js" data-firstpage="/surveys/4tran2025p2/" data-toc="/assets/surveys/4tran2025p2/toc.json"></script>
 
 This is the results page for the Extended 4tran Survey (2025.2) which is a follow up survey to the original 2025 4tran Survey, and includes questions that were
 requested but missing from the original survey. The survey was open from December 5 to December 31, 2025 and got **1,675** (real) responses. Duplicates were
