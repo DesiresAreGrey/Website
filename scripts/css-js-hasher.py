@@ -9,6 +9,8 @@ log = logging.getLogger("mkdocs")
 hash_dirs = [
     "js",
     "stylesheets",
+    "misc",
+    "surveys/4tran2025",
 ]
 
 blacklist_contains = [

@@ -32,7 +32,7 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025/thumb.png
 <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-<script src="4transurvey2025.js?v={{ now() }}" data-path="../../assets/surveys/4tran2025/results/"></script>
+<script src="4transurvey2025.js" data-path="../../assets/surveys/4tran2025/results/"></script>
 <!-- js is gonna make me 41 :( -->
 
 # The 2025 4tran Survey

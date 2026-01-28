@@ -5,7 +5,7 @@ description: Uses the default .NET WebAssembly Template
 
 A test of .NET/C# WebAssembly using the default template (stopwatch) that .NET comes with but like adapted for my site and stuff
 
-<script type='module' src="main.js?v={{ now() }}"></script>
+<script type='module' src="main.js"></script>
 <h3>Stopwatch</h3>
 <p>
   Time elapsed in .NET is <span id="time"><i>loading...</i></span>

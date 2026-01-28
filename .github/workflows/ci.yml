@@ -30,6 +30,5 @@ jobs:
       - run: pip install mkdocs-video 
       - run: pip install mkdocs-redirects 
       - run: pip install mkdocs-minify-plugin 
-      - run: pip install mkdocs-macros-plugin 
       - run: npm run build-ts
       - run: mkdocs gh-deploy --force
