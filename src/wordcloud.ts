@@ -83,7 +83,7 @@ export class WordCloud {
                 .attr("text-anchor", "middle")
                 .style("font-family", "Bitter")
                 .style("font-weight", "700")
-                .style("opacity", d => opacity(d.count!).toString())
+                .style("--opacity", d => opacity(d.count!).toString())
                 .attr("transform", d => "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")")
                 .attr("data-word", d => d.text)
                 .attr("data-count", d => d.count)

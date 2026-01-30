@@ -1,12 +1,11 @@
 .wordcloud-word {
   transition: fill 200ms ease, font-variation-settings 200ms ease, opacity 200ms ease;
-  will-change: opacity, font-variation-settings;
-  fill: var(--color);
+  will-change: font-variation-settings;
+  fill: oklch(from var(--color) calc(l * var(--opacity)) calc(c * var(--opacity)) h);
   font-variation-settings: 'wght' 700;
   &:hover {
     font-variation-settings: 'wght' 750;
     fill: oklch(from var(--color) calc(l + 0.1) c h) !important;
-    opacity: 1 !important;
   }
 }
 
