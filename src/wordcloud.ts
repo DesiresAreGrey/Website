@@ -79,7 +79,7 @@ export class WordCloud {
                 .classed("wordcloud-word", true)
                 .classed("noselect", true)
                 .style("font-size", d => d.size + "px")
-                .style("fill", color)
+                .style("--color" , color)
                 .attr("text-anchor", "middle")
                 .style("font-family", "Bitter")
                 .style("font-weight", "700")
