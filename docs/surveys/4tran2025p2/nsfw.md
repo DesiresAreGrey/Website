@@ -289,6 +289,23 @@ lower than the amount of straight men performing PIV, interestingly enough.
   >
 </div>
 
+### Self Pleasure
+
+Saying the actual word is too icky to me, so I just say self pleasure.
+
+The disparity between men and women makes sense all things considered. However, what is interesting to me is that Q1 for women is zero, meaning that a
+lot of women almost never self pleasure. The maximum for women is also lower than Q3 for men, so the gap is pretty large.
+
+<div id="self-pleasure-boxplot" 
+  class="apexchart"
+  style="height: 300px;"
+  data-chart="boxplot"
+  data-datakey="self_pleasure"
+  data-title="Times Self Pleasuring Per Week"
+  data-subtitle="Boxplot"
+  >
+</div>
+
 ___
 
 <div class="button-container">
