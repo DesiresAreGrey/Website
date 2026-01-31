@@ -351,6 +351,47 @@ Straight women are almost all submissives, with 95% being submissive and 5% bein
 
 ### Preferred Sexual Position
 
+More men are tops than women, which is once again unsurprising. The difference is much larger though, which does make sense especially since I'm
+pretty sure this difference between the genders applies to cis people as well.
+
+<div id="sexual-position-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="sexual_position"
+  data-title="Preferred Sexual Position"
+  data-subtitle="Overall"
+  data-colors='["#7B61FF", "#5642bd", "#2E294E"]'
+  >
+</div>
+
+The vast majority of straight men are tops, and there are no bottom straight men. Not much else to say here as this is all pretty expected and
+consistent with the previous survey. It would be interesting to see how this compares to mainstream trans communities though.
+
+<div id="sexual-position-ftm-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="sexual_position_ftm"
+  data-title="Preferred Sexual Position"
+  data-subtitle="FtM"
+  data-colors='["#008FFB", "#15598c", "#1b3b4d"]'
+  >
+</div>
+
+Pretty expected and similar to position, except for lesbians who top more than they are submissive. 
+
+<div id="sexual-position-mtf-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="sexual_position_mtf"
+  data-title="Preferred Sexual Position"
+  data-subtitle="MtF"
+  data-colors='["#FF4560", "#801927", "#4d1f2a"]'
+  >
+</div>
+
 ___
 
 <div class="button-container">
