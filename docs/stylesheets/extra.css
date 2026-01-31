@@ -204,12 +204,18 @@ button:hover {
   text-align: center;
   padding: 0.5rem;
   font-size: 20px;
-}
-.big-button:focus,
-.big-button:hover {
-  background-color: var(--md-primary-fg-color);
-  border-color: var(--md-primary-fg-color);
-  color: #fff !important;
+
+  &:focus, 
+  &:hover {
+    background-color: var(--md-primary-fg-color);
+    border-color: var(--md-primary-fg-color);
+    color: #fff !important;
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 
 .button-container {

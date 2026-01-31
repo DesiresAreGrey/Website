@@ -126,4 +126,5 @@ ___
 
 <div class="button-container">
   <a class="big-button" href="../nsfw">Previous Page</a>
+  <a class="big-button" disabled></a>
 </div>
