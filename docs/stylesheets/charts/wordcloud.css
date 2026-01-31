@@ -16,6 +16,8 @@
 
   padding: 7px 10px;
 
+  width: max-content;
+
   opacity: 0;
   pointer-events: none;
   z-index: 1000;
@@ -31,7 +33,7 @@
 
   line-height: 125%;
 
-  transition: opacity 200ms ease, transform 100ms ease-out;
+  transition: opacity 200ms ease, top 100ms ease, left 100ms ease;
 
   & .word {
     font-size: 15px;
