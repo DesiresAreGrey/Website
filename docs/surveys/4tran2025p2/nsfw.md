@@ -55,6 +55,8 @@ would be the most likely to be into natal PIV, with straight men being the least
   >
 </div>
 
+This seems pretty equal to the men, though bi women are slightly less into natal PIV than bi men.
+
 <div id="natal-piv-mtf-ratio" 
   class="apexchart"
   style="height: 250px;"
@@ -68,7 +70,8 @@ would be the most likely to be into natal PIV, with straight men being the least
 
 ### Using Natal Genitalia
 
-Generally this seems to be pretty similar to the natal PIV results.
+Generally this seems to be pretty similar to the natal PIV results, thought very slightly more people are open to using their natal genitalia in
+general than for specifically PIV.
 
 
 <div id="natal-using-ratio" 
@@ -84,7 +87,7 @@ Generally this seems to be pretty similar to the natal PIV results.
 
 #### FtM
 
-
+Generally the same as PIV, though gay men are slightly more open to this compared to PIV.
 
 <div id="natal-using-ftm-ratio" 
   class="apexchart"
@@ -96,6 +99,11 @@ Generally this seems to be pretty similar to the natal PIV results.
   data-colors='["#008FFB", "#15598c", "#1b3b4d"]'
   >
 </div>
+
+Further breaking this up by most preferred gender, we can see how T4T vs T4C compare. 
+
+Bi and gay trans men are equally positive towards using their natal genitalia for both cis and trans men, though there are more trans men neutral about it
+with cis men than with trans men.
 
 It is interesting how there is 1 straight trans man who would want to be penetrated by a trans woman.
 
@@ -157,6 +165,8 @@ It is interesting how there is 1 straight trans man who would want to be penetra
 
 #### MtF
 
+The chart here is pretty similar to men.
+
 <div id="natal-using-mtf-ratio" 
   class="apexchart"
   style="height: 250px;"
@@ -167,6 +177,15 @@ It is interesting how there is 1 straight trans man who would want to be penetra
   data-colors='["#FF4560", "#801927", "#4d1f2a"]'
   >
 </div>
+
+There are more bi trans women who want to use their natal genitalia with trans men than with cis men, which is unlike the vice versa for bi trans men.
+
+Lesbian trans women are more open to using their natal genitalia with cis women than with trans women, which once again is unlike the vice versa for
+gay trans men. Less lesbians are neutral about using their natal genitalia with cis women, meaning more lesbian trans women do not want to use their
+natal genitalia with cis women compared to trans men wanting to use their natal genitalia with cis men.
+
+It is interesting how there is 1 straight trans woman who would want to be penetrate a trans man, like how there way a straight trans man who would
+want to be penetrated by a trans woman. Made for each other?
 
 <div class="chart-set">
   <input id="natalusingmtf-a" class="vh" type="radio" name="view-natalusingmtf" checked>
