@@ -1,4 +1,16 @@
-export {}; 
+export class Utils {
+    static async fetchJson<T = any>(url: string): Promise<T> {
+        return (await fetch(url)).json();
+    }
+
+    static pageLoaded = () => new Promise<void>(resolve => {
+        document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", () => resolve(), { once: true }) : resolve();
+    });
+
+    static async wait(ms: number): Promise<void> {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+}
 
 declare global {
     type UnitSystem = "metric" | "imperial";
@@ -13,8 +25,13 @@ declare global {
 
     interface HTMLElement {
         $<T extends HTMLElement>(selector: string): T | null;
+        $id<T extends HTMLElement>(id: string): T | null;
         $$<T extends HTMLElement>(selector: string): NodeListOf<T>;
         appendHtml(htmlString: string): void;
+    }
+
+    interface Object {
+        toJson(): string;
     }
 
     interface String {
@@ -26,9 +43,14 @@ declare global {
         roundTo(precision?: number): number;
         floorTo(precision?: number): number;
 
+        abs(): number;
+        clamp(min?: number, max?: number): number;
+
         mult(multiplier: number): number;
         multFloor(multiplier: number): number;
         multRound(multiplier: number): number;
+
+        appendOrdinal(): string;
 
         toFeetInches(decimals?: number, fromUnit?: UnitSystem): string;
         asInches(fromUnit?: UnitSystem): number;
@@ -37,9 +59,8 @@ declare global {
         asKg(fromUnit?: UnitSystem): number;
     }
 
-    function loaded(): Promise<void>;
-
     function $<T extends HTMLElement>(selector: string): T | null;
+    function $id<T extends HTMLElement>(id: string): T | null;
     function $$<T extends HTMLElement>(selector: string): NodeListOf<T>;
 }
 
@@ -48,10 +69,17 @@ Object.defineProperty(NodeList.prototype, 'toArray', { value: function() { retur
 Object.defineProperty(HTMLCollection.prototype, 'toArray', { value: function() { return [...this]; } });
 
 Object.defineProperty(HTMLElement.prototype, '$', { value: function(this: HTMLElement, selector: string) { return this.querySelector(selector); } });
+Object.defineProperty(HTMLElement.prototype, '$id', { value: function(this: HTMLElement, id: string) { return this.querySelector("#" + id); } });
 Object.defineProperty(HTMLElement.prototype, '$$', { value: function(this: HTMLElement, selector: string) { return this.querySelectorAll(selector); } });
 
 Object.defineProperty(HTMLElement.prototype, 'appendHtml', { 
     value: function(this: HTMLElement, htmlString: string) { this.insertAdjacentHTML('beforeend', htmlString); } 
+});
+
+Object.defineProperty(Object.prototype, 'toJson', { 
+    value: function(this: object) { 
+        return JSON.stringify(this);
+    }
 });
 
 Object.defineProperty(String.prototype, 'parseJson', { 
@@ -80,10 +108,33 @@ Object.defineProperty(Number.prototype, 'roundTo', {
 Object.defineProperty(Number.prototype, 'floorTo', { 
     value: function(this: number, precision = 0) { return Math.floor(this * (10 ** precision)) / (10 ** precision) } 
 });
+Object.defineProperty(Number.prototype, 'abs', { 
+    value: function(this: number) { return Math.abs(this) } 
+});
+Object.defineProperty(Number.prototype, 'clamp', { 
+    value: function(this: number, min: number = 0, max: number = 1) { return Math.min(Math.max(this, min), max) } 
+});
 
 Object.defineProperty(Number.prototype, 'mult', { value: function(this: number, multiplier: number) { return this * multiplier } });
 Object.defineProperty(Number.prototype, 'multFloor', { value: function(this: number, multiplier: number) { return Math.floor(this * multiplier) } });
 Object.defineProperty(Number.prototype, 'multRound', { value: function(this: number, multiplier: number) { return Math.round(this * multiplier) } });
+
+Object.defineProperty(Number.prototype, 'appendOrdinal', { 
+    value: function(this: number) {
+        const stringValue = this.toString();
+        if (stringValue.endsWith('11') || stringValue.endsWith('12') || stringValue.endsWith('13')) {
+            return stringValue + 'th';
+        }
+        const lastChar = stringValue[stringValue.length - 1];
+
+        switch (lastChar) {
+            case '1': return stringValue + 'st';
+            case '2': return stringValue + 'nd';
+            case '3': return stringValue + 'rd';
+            default:  return stringValue + 'th';
+        }
+    } 
+});
 
 Object.defineProperty(Number.prototype, 'toFeetInches', { 
     value: function(this: number, decimals: number = 0, fromUnit: UnitSystem = "imperial") { 
@@ -118,9 +169,6 @@ Object.defineProperty(Number.prototype, 'asKg', {
     } 
 });
 
-window.loaded = () => new Promise<void>(resolve => {
-    document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", () => resolve(), { once: true }) : resolve();
-});
-
 window.$ = (selector) => document.querySelector(selector);
+window.$id = (id) => document.querySelector("#" + id);
 window.$$ = (selector) => document.querySelectorAll(selector);

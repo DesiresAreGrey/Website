@@ -5,12 +5,11 @@ node_modules/
 npm-debug.log*
 yarn-error.log*
 
-# TS build output (adjust if your outDir is different)
+# TS build output
 docs/js/
 
-# Optional: ignore source maps if you enable them
+# Source maps
 *.map
-
 
 # --- Python / MkDocs ---
 .cache/

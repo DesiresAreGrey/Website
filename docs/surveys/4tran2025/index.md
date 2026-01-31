@@ -2,36 +2,15 @@
 description: Results of the 2025 4tran Survey 
 image: https://desiresaregrey.com/assets/surveys/4tran2025/thumb.png
 ---
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<style>
-.reddit {
-    color: #ff5719 !important;
-    font-variation-settings: 'wght' 650;
-    transition: all 200ms ease !important;
-}
-.reddit:hover {
-    color: #ff6026 !important;
-    text-shadow: 0 0 32px #ff3c00;
-    font-variation-settings: 'wght' 800;
-}
-.twitter {
-    color: #1DA1F2 !important;
-    font-variation-settings: 'wght' 650;
-    transition: all 200ms ease !important;
-}
-.twitter:hover {
-    color: #2ca6f2 !important;
-    text-shadow: 0 0 32px #0091ff;
-    font-variation-settings: 'wght' 800;
-}
-</style>
+<link rel="stylesheet" href="/stylesheets/surveys/4tran2025.css">
+<link rel="stylesheet" href="/stylesheets/socialmedia.css">
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-<script src="4transurvey2025.js?v={{ now() }}" data-path="../../assets/surveys/4tran2025/results/"></script>
+<script src="4transurvey2025.js" data-path="../../assets/surveys/4tran2025/results/"></script>
 <!-- js is gonna make me 41 :( -->
 
 # The 2025 4tran Survey

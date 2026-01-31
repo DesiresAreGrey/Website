@@ -30,7 +30,6 @@ markdown_extensions:
   - pymdownx.details
 plugins:
   - mkdocs-video
-  - macros
   - glightbox:
       touchNavigation: true
       loop: false
@@ -46,7 +45,6 @@ plugins:
       caption_position: bottom
   - minify:
       minify_css: true
-      cache_safe: true
       css_files:
         - stylesheets/extra.css
   - redirects:
@@ -78,7 +76,8 @@ exclude_docs: |
   csharp/
 
 hooks:
-  - 'docs/misc/apex-weapon-stats/toc.py'
+  - 'scripts/misc/apex-weapon-stats/toc.py'
+  - 'scripts/css-js-hasher.py'
 
 nav:
   - Home: 'index.md'
