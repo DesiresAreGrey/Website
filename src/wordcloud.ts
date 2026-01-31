@@ -29,6 +29,8 @@ export class WordCloud {
         const counts = data.map(d => d.count);
         const [minCount, maxCount] = [Math.min(...counts), Math.max(...counts)];
 
+        const rotate = false;
+
         let fontSize: any = d3.scaleSqrt()
             .domain([minCount, maxCount])
             .range([minSize, maxSize]);
@@ -49,7 +51,6 @@ export class WordCloud {
 
         const tooltip = document.createElement('div');
         tooltip.className = 'wordcloud-tooltip';
-        tooltip.style.transform = `translate(${window.innerWidth/2}px, ${window.innerHeight/2}px)`;
         container.appendChild(tooltip);
 
         const width = container.offsetWidth;
@@ -62,7 +63,7 @@ export class WordCloud {
             .size([width, height])
             .words(myWords)
             .padding(padding)
-            .rotate((_, index) => index == 0 ? 0 : ~~(Math.random() * 2) * 90)
+            .rotate(rotate ? (_, index) => index == 0 ? 0 : ~~(Math.random() * 2) * 90 : 0)
             .font("Bitter")
             .fontSize(d => d.size!)
             .on("end", draw);
@@ -106,18 +107,23 @@ export class WordCloud {
                 if (!tooltip.classList.contains('active')) {
                     tooltip.classList.add('active');
                 }
-            });
 
-            wordEl.addEventListener('mousemove', (e) => {
-                let x = e.offsetX + 15;
-                let y = e.offsetY - tooltip.offsetHeight;
+                const wordRect = wordEl.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
 
-                if (x + tooltip.offsetWidth > window.innerWidth)
-                    x = e.offsetX - tooltip.offsetWidth - 15;
-                if (y < 0)
-                    y = e.offsetY + 15;
+                let x = wordRect.right - containerRect.left;
+                let y = wordRect.top - tooltip.offsetHeight - containerRect.top;
+                
+                if (x + tooltip.offsetWidth > containerRect.width)
+                    x = (wordRect.left - containerRect.left) - tooltip.offsetWidth;
 
-                tooltip.style.transform = `translate(${x}px, ${y}px)`;
+                if (wordRect.top - tooltip.offsetHeight - 15 < 0)
+                    y = wordRect.bottom - containerRect.top;
+
+                console.log({wordRect, containerRect, x, y});
+            
+                tooltip.style.left = `${x}px`;
+                tooltip.style.top = `${y}px`;
             });
 
             wordEl.addEventListener('mouseleave', () => {
