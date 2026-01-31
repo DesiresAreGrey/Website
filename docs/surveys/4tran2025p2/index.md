@@ -3,30 +3,8 @@ title: "Extended 4tran Survey (2025.2) Results: Demographics [Page 1]"
 description: Results of the Extended 4tran Survey (2025.2)
 image: /assets/surveys/4tran2025p2/thumb.png
 ---
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="/stylesheets/surveys/4tran2025p2.css">
-<style>
-.reddit {
-    color: #ff5719 !important;
-    font-variation-settings: 'wght' 650;
-    transition: all 200ms ease !important;
-}
-.reddit:hover {
-    color: #ff6026 !important;
-    text-shadow: 0 0 32px #ff3c00;
-    font-variation-settings: 'wght' 800;
-}
-.twitter {
-    color: #1DA1F2 !important;
-    font-variation-settings: 'wght' 650;
-    transition: all 200ms ease !important;
-}
-.twitter:hover {
-    color: #2ca6f2 !important;
-    text-shadow: 0 0 32px #0091ff;
-    font-variation-settings: 'wght' 800;
-}
-</style>
+<link rel="stylesheet" href="/stylesheets/socialmedia.css">
 
 <script type="importmap">
 {
