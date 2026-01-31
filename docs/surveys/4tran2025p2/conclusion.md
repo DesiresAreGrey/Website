@@ -98,9 +98,13 @@ the 4 pages of the first survey.
 I'm glad the survey did well and that people liked it. I think next time my plan would be to do a survey across more of the trans community, rather
 than just a 4tran survey. I have no idea how well that would go and if it would even be allowed, since for this survey I worked with 4tran's mods to
 get my posts to stay up and get them pinned so that people would see them, and I have no idea if other more mainstream communities would be open to
-that. <span style="font-size: 12px; color: #888">If you are a mod of one of those mainstream communities please reach out to me on Reddit</span>
+that. <span style="font-size: 12px; color: #888">If you are a mod for one of those mainstream communities please reach out to me on Reddit if you're
+interested.</span>
 
-
+Again, disclaimer that I'm not a statistician or math person, so I can't really do any deeper sorta analysis of the data. There's also a lot of places
+I could've gone deeper, like further breaking things down, but at the same time I already have 12 entire pages of results and I've spent so much time
+working on this to the point I've been kinda neglecting myself so I could finish this asap. Its nice being on the end stretch now, writing out this
+conclusion.
 
 <p>
   Follow me on:
