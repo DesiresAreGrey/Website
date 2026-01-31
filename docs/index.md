@@ -1,7 +1,7 @@
 ---
 image: https://desiresaregrey.com/assets/DesiresAreGrey.png
 ---
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="/stylesheets/socialmedia.css">
 <link rel="preload" href="assets/DesiresAreGrey.png" as="image">
 
 <style>
@@ -72,22 +72,6 @@ image: https://desiresaregrey.com/assets/DesiresAreGrey.png
 .social-link .fa-brands {
   font-size: 1.2rem;
 }
-
-.reddit {
-  color: #ff5719 !important;
-}
-.social-link:hover.reddit {
-  color: #ff6026 !important;
-  text-shadow: 0 0 32px #ff3c00;
-}
-
-.twitter {
-  color: #1DA1F2 !important;
-}
-.social-link:hover.twitter {
-  color: #2ca6f2 !important;
-  text-shadow: 0 0 32px #0091ff;
-}
 </style>
 
 <div class="home-container">
@@ -102,6 +86,10 @@ image: https://desiresaregrey.com/assets/DesiresAreGrey.png
     <a class="social-link noselect twitter" href="https://twitter.com/DesiresAreGrey" target="_blank">
       <i class="fa-brands fa-twitter"></i>
       <span>Twitter</span>
+    </a>
+    <a class="social-link noselect youtube" href="https://www.youtube.com/@DesiresAreGrey" target="_blank">
+      <i class="fa-brands fa-youtube"></i>
+      <span>YouTube</span>
     </a>
   </div>
 </div>
