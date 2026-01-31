@@ -1,6 +1,6 @@
 ---
-title: "Extended 4tran Survey (2025.2) Results: Sexuality [Page 5]"
-description: Results of the Extended 4tran Survey (2025.2)
+title: "Extended 4tran Survey (2025.2) Results: Sexuality"
+description: The results page for the Extended 4tran Survey (2025.2), a follow up survey to the original 2025 4tran Survey
 image: /assets/surveys/4tran2025p2/thumb-sexuality.png
 ---
 <link rel="stylesheet" href="/stylesheets/surveys/4tran2025p2.css">
