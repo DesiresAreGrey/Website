@@ -243,6 +243,52 @@ want to be penetrated by a trans woman. Made for each other?
   </div>
 </div>
 
+### Performing PIV
+
+This question asked if people still performed PIV, regardless of how they felt on it (due to partner expectations/etc).
+
+The numbers here are much higher than either Natal PIV or Using Natal Genitalia, showing that a good number of trans people perform PIV even if they
+do not want to.
+
+<div id="natal-does-piv-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="natal_does_piv"
+  data-title="Performing PIV"
+  data-subtitle="Overall"
+  data-colors='["#7B61FF", "#2E294E"]'
+  >
+</div>
+
+Gay and bisexual men are much more likely to perform PIV compared to straight men (though I'm not sure how straight trans men would be performing PIV except
+with trans women). 
+
+<div id="natal-does-piv-ftm-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="natal_does_piv_ftm"
+  data-title="Performing PIV"
+  data-subtitle="FtM"
+  data-colors='["#008FFB", "#183d52"]'
+  >
+</div>
+
+Same story here, with bisexual women and lesbians being more likely to perform PIV than straight women. The amount of straight women performing PIV is
+lower than the amount of straight men performing PIV, interestingly enough.
+
+<div id="natal-does-piv-mtf-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="natal_does_piv_mtf"
+  data-title="Performing PIV"
+  data-subtitle="MtF"
+  data-colors='["#FF4560", "#521b28"]'
+  >
+</div>
+
 ___
 
 <div class="button-container">
