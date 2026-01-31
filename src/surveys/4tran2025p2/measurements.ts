@@ -66,10 +66,10 @@ update();
 
 function focusInput(e: Event) {
     if (window.innerWidth > 768) return;
-    const input = e.target as HTMLInputElement;
-    const tempValue = input.value;
-    input.value = '';
-    input.value = tempValue;
+    //const input = e.target as HTMLInputElement;
+    //const tempValue = input.value;
+    //input.value = '';
+    //input.value = tempValue;
 }
 
 function getTotalHeight(oldUnit: UnitSystem): number {
