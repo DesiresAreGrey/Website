@@ -108,7 +108,7 @@ export class WordCloud {
                 }
 
                 const wordRect = wordEl.getBoundingClientRect();
-                const containerRect = tooltip.offsetParent!.getBoundingClientRect();
+                const containerRect = tooltip.offsetParent?.getBoundingClientRect() ?? container.getBoundingClientRect();
 
                 let x = wordRect.right - containerRect.left;
                 let y = wordRect.top - tooltip.offsetHeight - containerRect.top;
