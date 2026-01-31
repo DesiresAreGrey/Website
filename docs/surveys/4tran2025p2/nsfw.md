@@ -306,6 +306,51 @@ lot of women almost never self pleasure. The maximum for women is also lower tha
   >
 </div>
 
+### Preferred Sexual Role
+
+Unsurprisingly, men are dominant and women are submissive. However, many more women are submissive than men are dominant, though far more men are
+switches than women.
+
+<div id="sexual-role-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="sexual_role"
+  data-title="Preferred Sexual Role"
+  data-subtitle="Overall"
+  data-colors='["#7B61FF", "#5642bd", "#2E294E"]'
+  >
+</div>
+
+Straight men being the most dominant is once again expected, and bi men are the most switchy. When compared to the [previous survey](/surveys/4tran2025/4/#nsfw){ target="_blank" rel="noopener" }, 
+there is a noticeable increase in the dominance of all men.
+
+<div id="sexual-role-ftm-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="sexual_role_ftm"
+  data-title="Preferred Sexual Role"
+  data-subtitle="FtM"
+  data-colors='["#008FFB", "#15598c", "#1b3b4d"]'
+  >
+</div>
+
+Straight women are almost all submissives, with 95% being submissive and 5% being switches. Lesbians are the most dominant, though its only 8% who are.
+
+<div id="sexual-role-mtf-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="sexual_role_mtf"
+  data-title="Preferred Sexual Role"
+  data-subtitle="MtF"
+  data-colors='["#FF4560", "#801927", "#4d1f2a"]'
+  >
+</div>
+
+### Preferred Sexual Position
+
 ___
 
 <div class="button-container">
