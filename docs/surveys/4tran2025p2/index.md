@@ -39,9 +39,13 @@ Its heavily recommended you view this site on desktop! The charts are interactiv
     <i class="fa-brands fa-reddit-alien" style="margin-right: -0.1rem;"></i>
     <span>Reddit</span>
   </a>
-  <a class="noselect twitter" href="https://twitter.com/DesiresAreGrey" target="_blank">
+  <a class="noselect twitter" style="margin-right: 0.15rem;" href="https://twitter.com/DesiresAreGrey" target="_blank">
     <i class="fa-brands fa-twitter" style="margin-right: -0.1rem;"></i>
     <span>Twitter</span>
+  </a>
+  <a class="noselect youtube" style="margin-right: 0.15rem;" href="https://www.youtube.com/@DesiresAreGrey" target="_blank">
+    <i class="fa-brands fa-youtube" style="margin-right: -0.1rem;"></i>
+    <span>YouTube</span>
   </a>
 </p>
 
