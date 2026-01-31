@@ -102,9 +102,9 @@ function update(e?: Event) {
     const aboveBelowFtm = amountAboveBelowFtm >= 0 ? "taller" : "shorter";
 
     if (amountAboveBelowFtm != 0)
-        $("#ftm-average")!.textContent = `You are ${amountAboveBelowFtm.abs()} ${units} ${aboveBelowFtm} than the average FtM height`;
+        $("#ftm-average")!.textContent = `You are ${amountAboveBelowFtm.abs()} ${units} ${aboveBelowFtm} than the average FtM`;
     else
-        $("#ftm-average")!.textContent = `You are at the average FtM height`;
+        $("#ftm-average")!.textContent = `You are at the average for FtMs`;
 
     const mtfZ = (height.asInches(getUnits()) - heightStats["Woman (MtF)"].mean) / heightStats["Woman (MtF)"].sd;
     const mtfPercentile = Math.max(0, Math.min(100, Phi(mtfZ) * 100));
@@ -116,9 +116,9 @@ function update(e?: Event) {
     const aboveBelowMtf = amountAboveBelowMtf >= 0 ? "taller" : "shorter";
 
     if (amountAboveBelowMtf != 0)
-        $("#mtf-average")!.textContent = `You are ${amountAboveBelowMtf.abs()} ${units} ${aboveBelowMtf} than the average MtF height`;
+        $("#mtf-average")!.textContent = `You are ${amountAboveBelowMtf.abs()} ${units} ${aboveBelowMtf} than the average MtF`;
     else
-        $("#mtf-average")!.textContent = `You are at the average MtF height`;
+        $("#mtf-average")!.textContent = `You are at the average for MtFs`;
 }
 
 function changeUnit(oldUnit: UnitSystem, newUnit: UnitSystem) {
@@ -215,14 +215,14 @@ function createScatterPlot() {
                 const point: number[] = w.config.series[seriesIndex].data[dataPointIndex] ?? [0, 0];
                 const height = point[1];
                 const weight = point[0];
-                const bmi = (weight.asKg(getUnits()) / ((height.asCm(getUnits()) / 100) ** 2)).roundTo(2);
+                const bmi = (weight.asKg("imperial") / ((height.asCm("imperial") / 100) ** 2)).roundTo(2);
                 const name: string = w.config.series[seriesIndex].name;
                 return `
                 <div class="apexcharts-tooltip-title" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">${name}</div>
                 <div class="apexcharts-tooltip-box apexcharts-tooltip-scatter">
                     <div class="apexcharts-tooltip-text" style="font-family: Inter, Arial, sans-serif; font-size: 12px;">
-                        Height: <b>${point[1].asInches(getUnits()).toFeetInches()} - ${point[1].asCm(getUnits()).roundTo(2)} cm</b><br>
-                        Weight: <b>${point[0]} lbs - ${point[0]?.asKg(getUnits()).roundTo(1)} kg</b><br>
+                        Height: <b>${point[1].toFeetInches()} - ${point[1].asCm("imperial").roundTo(2)} cm</b><br>
+                        Weight: <b>${point[0]} lbs - ${point[0]?.asKg("imperial").roundTo(1)} kg</b><br>
                         BMI: <b>${bmi}</b>
                     </div>
                 </div>`;
