@@ -109,13 +109,13 @@ export class WordCloud {
             });
 
             wordEl.addEventListener('mousemove', (e) => {
-                let x = e.clientX + 15;
-                let y = e.clientY - tooltip.offsetHeight;
+                let x = e.offsetX + 15;
+                let y = e.offsetY - tooltip.offsetHeight;
 
                 if (x + tooltip.offsetWidth > window.innerWidth)
-                    x = e.clientX - tooltip.offsetWidth - 15;
+                    x = e.offsetX - tooltip.offsetWidth - 15;
                 if (y < 0)
-                    y = e.clientY + 15;
+                    y = e.offsetY + 15;
 
                 tooltip.style.transform = `translate(${x}px, ${y}px)`;
             });
