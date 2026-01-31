@@ -33,6 +33,8 @@ image: /assets/surveys/4tran2025p2/thumb-measurements.png
   margin-bottom: .5rem;
 }
 .input {
+  height: 30px;
+  max-height: 30px;
   padding: .15rem;
   background: #252525;
   border: .1rem solid;
