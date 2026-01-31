@@ -29,6 +29,8 @@ export class WordCloud {
         const counts = data.map(d => d.count);
         const [minCount, maxCount] = [Math.min(...counts), Math.max(...counts)];
 
+        const rotate = false;
+
         let fontSize: any = d3.scaleSqrt()
             .domain([minCount, maxCount])
             .range([minSize, maxSize]);
@@ -61,7 +63,7 @@ export class WordCloud {
             .size([width, height])
             .words(myWords)
             .padding(padding)
-            .rotate((_, index) => index == 0 ? 0 : ~~(Math.random() * 2) * 90)
+            .rotate(rotate ? (_, index) => index == 0 ? 0 : ~~(Math.random() * 2) * 90 : 0)
             .font("Bitter")
             .fontSize(d => d.size!)
             .on("end", draw);
@@ -105,20 +107,21 @@ export class WordCloud {
                 if (!tooltip.classList.contains('active')) {
                     tooltip.classList.add('active');
                 }
-            });
 
-            wordEl.addEventListener('mousemove', (e) => {
-                const offset = 20;
+                const wordRect = wordEl.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
 
-                let x = e.offsetX + offset;
-                let y = e.offsetY - tooltip.offsetHeight - offset;
+                let x = wordRect.right - containerRect.left;
+                let y = wordRect.top - tooltip.offsetHeight - containerRect.top;
+                
+                if (x + tooltip.offsetWidth > containerRect.width)
+                    x = (wordRect.left - containerRect.left) - tooltip.offsetWidth;
 
-                if (x + tooltip.offsetWidth > window.innerWidth)
-                    x = e.offsetX - tooltip.offsetWidth - offset;
-                if (y < 0)
-                    y = e.offsetY + offset;
+                if (wordRect.top - tooltip.offsetHeight - 15 < 0)
+                    y = wordRect.bottom - containerRect.top;
 
-                //tooltip.style.transform = `translate(${x}px, ${y}px)`;
+                console.log({wordRect, containerRect, x, y});
+            
                 tooltip.style.left = `${x}px`;
                 tooltip.style.top = `${y}px`;
             });
