@@ -102,6 +102,73 @@ image: /assets/surveys/4tran2025p2/thumb.png
   </div>
 </div>
 
+<div id="natal-piv-mtf-ratio" 
+  class="apexchart"
+  style="height: 250px;"
+  data-chart="ratio-bar"
+  data-datakey="natal_piv_mtf"
+  data-title="Natal PIV"
+  data-subtitle="MtF"
+  data-colors='["#FF4560", "#801927", "#4d1f2a"]'
+  >
+</div>
+
+<div class="chart-set">
+  <input id="natalpivmtf-a" class="vh" type="radio" name="view-natalpivmtf" checked>
+  <input id="natalpivmtf-b" class="vh" type="radio" name="view-natalpivmtf">
+  <input id="natalpivmtf-c" class="vh" type="radio" name="view-natalpivmtf">
+  <input id="natalpivmtf-d" class="vh" type="radio" name="view-natalpivmtf">
+
+  <div class="chart-stack" style="min-height: 300px;">
+    <div id="natal-piv-mtf-straight-ratio" 
+      class="apexchart  chart-layer layer-a"
+      style="height: 300px;"
+      data-chart="ratio-bar"
+      data-datakey="natal_piv_mtf_straight"
+      data-title="Natal PIV x Most Preferred Gender"
+      data-subtitle="MtF (Straight)"
+      data-colors='["#FF4560", "#801927", "#4d1f2a"]'
+      >
+    </div>
+    <div id="natal-piv-mtf-bisexual-ratio" 
+      class="apexchart  chart-layer layer-b"
+      style="height: 300px;"
+      data-chart="ratio-bar"
+      data-datakey="natal_piv_mtf_bisexual"
+      data-title="Natal PIV x Most Preferred Gender"
+      data-subtitle="MtF (Bisexual)"
+      data-colors='["#FF4560", "#801927", "#4d1f2a"]'
+      >
+    </div>
+    <div id="natal-piv-mtf-lesbian-ratio" 
+      class="apexchart  chart-layer layer-c"
+      style="height: 300px;"
+      data-chart="ratio-bar"
+      data-datakey="natal_piv_mtf_lesbian"
+      data-title="Natal PIV x Most Preferred Gender"
+      data-subtitle="MtF (Lesbian)"
+      data-colors='["#FF4560", "#801927", "#4d1f2a"]'
+      >
+    </div>
+    <div id="natal-piv-mtf-asexual-ratio" 
+      class="apexchart  chart-layer layer-d"
+      style="height: 300px;"
+      data-chart="ratio-bar"
+      data-datakey="natal_piv_mtf_asexual"
+      data-title="Natal PIV x Most Preferred Gender"
+      data-subtitle="MtF (Asexual)"
+      data-colors='["#FF4560", "#801927", "#4d1f2a"]'
+      >
+    </div>
+  </div>
+  <div class="toggle">
+    <label for="natalpivmtf-a" class="noselect">Straight</label>
+    <label for="natalpivmtf-b" class="noselect">Bisexual</label>
+    <label for="natalpivmtf-c" class="noselect">Lesbian</label>
+    <label for="natalpivmtf-d" class="noselect">Asexual</label>
+  </div>
+</div>
+
 ___
 
 <div class="button-container">
