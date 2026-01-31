@@ -4,6 +4,7 @@ description: The results page for the Extended 4tran Survey (2025.2), a follow u
 image: /assets/surveys/4tran2025p2/thumb.png
 ---
 <link rel="stylesheet" href="/stylesheets/surveys/4tran2025p2.css">
+<link rel="stylesheet" href="/stylesheets/socialmedia.css">
 <script type="importmap">
 {
   "imports": {
@@ -93,6 +94,23 @@ the 4 pages of the first survey.
 </div>
 
 ## Conclusion
+
+I'm glad the survey did well and that people liked it. I think next time my plan would be to do a survey across more of the trans community, rather
+than just a 4tran survey. I have no idea how well that would go and if it would even be allowed, since for this survey I worked with 4tran's mods to
+get my posts to stay up and get them pinned so that people would see them, and I have no idea if other more mainstream communities would be open to
+that. <span style="font-size: 12px; color: #888">If you are a mod of one of those mainstream communities please reach out to me on Reddit</span>
+
+<p>
+  Follow me on:
+  <a class="noselect reddit" style="margin-right: 0.15rem;" href="https://www.reddit.com/user/DesiresAreGrey" target="_blank">
+    <i class="fa-brands fa-reddit-alien" style="margin-right: -0.1rem;"></i>
+    <span>Reddit</span>
+  </a>
+  <a class="noselect twitter" href="https://twitter.com/DesiresAreGrey" target="_blank">
+    <i class="fa-brands fa-twitter" style="margin-right: -0.1rem;"></i>
+    <span>Twitter</span>
+  </a>
+</p>
 
 ___
 
