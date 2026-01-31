@@ -120,6 +120,8 @@ export class WordCloud {
                 if (wordRect.top - tooltip.offsetHeight - 15 < 0)
                     y = wordRect.bottom - containerRect.top;
 
+                x = Math.max(0, x);
+
                 console.log({wordRect, containerRect, x, y});
             
                 tooltip.style.left = `${x}px`;
