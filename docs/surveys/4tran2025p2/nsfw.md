@@ -68,6 +68,8 @@ would be the most likely to be into natal PIV, with straight men being the least
 
 ### Using Natal Genitalia
 
+Generally this seems to be pretty similar to the natal PIV results.
+
 
 <div id="natal-using-ratio" 
   class="apexchart"

@@ -109,7 +109,7 @@ Object.defineProperty(Number.prototype, 'floorTo', {
     value: function(this: number, precision = 0) { return Math.floor(this * (10 ** precision)) / (10 ** precision) } 
 });
 Object.defineProperty(Number.prototype, 'abs', { 
-    value: function(this: number) { return this < 0 ? this : this } 
+    value: function(this: number) { return Math.abs(this) } 
 });
 Object.defineProperty(Number.prototype, 'clamp', { 
     value: function(this: number, min: number = 0, max: number = 1) { return Math.min(Math.max(this, min), max) } 

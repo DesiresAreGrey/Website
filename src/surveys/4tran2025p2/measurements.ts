@@ -90,17 +90,35 @@ function update(e?: Event) {
 
     infoBmi.textContent = `${(weightInput.value.parseFloat()!.asKg(getUnits()) / ((height.asCm(getUnits()) / 100) ** 2)).roundTo(2)} BMI`;
 
+    const units = getUnits() == "imperial" ? "inches" : "cm";
+
     const ftmZ = (height.asInches(getUnits()) - heightStats["Man (FtM)"].mean) / heightStats["Man (FtM)"].sd;
     const ftmPercentile = Math.max(0, Math.min(100, Phi(ftmZ) * 100));
     $("#ftm-percentile")!.textContent = `${ftmPercentile.roundTo(1).appendOrdinal()} Percentile`;
     $("#ftm-tallerthan")!.textContent = `You are taller than ${ftmPercentile.roundTo(1)}% of FtMs`;
     $("#ftm-shorterthan")!.textContent = `You are shorter than ${(100 - ftmPercentile).roundTo(1)}% of FtMs`;
 
+    const amountAboveBelowFtm = getUnits() == "imperial" ? (height.asInches(getUnits()) - heightStats["Man (FtM)"].mean).roundTo(1) : (height.asCm(getUnits()) - heightStats["Man (FtM)"].mean.asCm("imperial")).roundTo(1);
+    const aboveBelowFtm = amountAboveBelowFtm >= 0 ? "taller" : "shorter";
+
+    if (amountAboveBelowFtm != 0)
+        $("#ftm-average")!.textContent = `You are ${amountAboveBelowFtm.abs()} ${units} ${aboveBelowFtm} than the average FtM height`;
+    else
+        $("#ftm-average")!.textContent = `You are at the average FtM height`;
+
     const mtfZ = (height.asInches(getUnits()) - heightStats["Woman (MtF)"].mean) / heightStats["Woman (MtF)"].sd;
     const mtfPercentile = Math.max(0, Math.min(100, Phi(mtfZ) * 100));
     $("#mtf-percentile")!.textContent = `${mtfPercentile.roundTo(1).appendOrdinal()} Percentile`;
     $("#mtf-tallerthan")!.textContent = `You are taller than ${mtfPercentile.roundTo(1)}% of MtFs`;
     $("#mtf-shorterthan")!.textContent = `You are shorter than ${(100 - mtfPercentile).roundTo(1)}% of MtFs`;
+
+    const amountAboveBelowMtf = getUnits() == "imperial" ? (height.asInches(getUnits()) - heightStats["Woman (MtF)"].mean).roundTo(1) : (height.asCm(getUnits()) - heightStats["Woman (MtF)"].mean.asCm("imperial")).roundTo(1);
+    const aboveBelowMtf = amountAboveBelowMtf >= 0 ? "taller" : "shorter";
+
+    if (amountAboveBelowMtf != 0)
+        $("#mtf-average")!.textContent = `You are ${amountAboveBelowMtf.abs()} ${units} ${aboveBelowMtf} than the average MtF height`;
+    else
+        $("#mtf-average")!.textContent = `You are at the average MtF height`;
 }
 
 function changeUnit(oldUnit: UnitSystem, newUnit: UnitSystem) {
