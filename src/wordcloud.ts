@@ -93,8 +93,7 @@ export class WordCloud {
         }
 
         container.$$('svg .wordcloud-word')!.forEach(wordEl => {
-            wordEl.addEventListener('mouseenter', async (e) => {
-
+            wordEl.addEventListener('mouseenter', () => {
                 const word = wordEl.dataset.word;
                 const count = wordEl.dataset.count;
                 const place = Number(wordEl.dataset.index) + 1;
@@ -109,7 +108,7 @@ export class WordCloud {
                 }
 
                 const wordRect = wordEl.getBoundingClientRect();
-                const containerRect = container.getBoundingClientRect();
+                const containerRect = tooltip.offsetParent?.getBoundingClientRect() ?? container.getBoundingClientRect();
 
                 let x = wordRect.right - containerRect.left;
                 let y = wordRect.top - tooltip.offsetHeight - containerRect.top;
@@ -121,8 +120,6 @@ export class WordCloud {
                     y = wordRect.bottom - containerRect.top;
 
                 x = Math.max(0, x);
-
-                console.log({wordRect, containerRect, x, y});
             
                 tooltip.style.left = `${x}px`;
                 tooltip.style.top = `${y}px`;
