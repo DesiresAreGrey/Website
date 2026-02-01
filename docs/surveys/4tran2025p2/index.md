@@ -29,6 +29,8 @@ This is the results page for the Extended 4tran Survey (2025.2) which is a follo
 requested but missing from the original survey. The survey was open from December 5 to December 31, 2025 and got **1,675** (real) responses. Duplicates were
 automatically filtered (if you submitted more than once, only your last submission was kept), and spam/etc was manually removed (thanks
 [u/ILoveFurnaceGenocide](https://www.reddit.com/user/ILoveFurnaceGenocide/){ target="_blank" } for the help). 
+Feel free to check out the [Reddit Post](https://www.reddit.com/r/4tran4/comments/1qte7l0/the_extended_4tran_survey_20252_results/){ target="_blank" .reddit } 
+and the [Tweet](https://x.com/DesiresAreGrey/status/2018102946144092559){ target="_blank" .twitter } about the survey results.
 
 Sorry for taking so long to publish the results, I had a lot of stuff going on in December and January including recovery from FFS. I was originally
 hoping to post the results way earlier but I just couldn't realistically.

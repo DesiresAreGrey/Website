@@ -103,6 +103,9 @@ get my posts to stay up and get them pinned so that people would see them, and I
 that. <span style="font-size: 12px; color: #888">If you are a mod for one of those mainstream communities please reach out to me on Reddit if you're
 interested.</span>
 
+Feel free to check out the [Reddit Post](https://www.reddit.com/r/4tran4/comments/1qte7l0/the_extended_4tran_survey_20252_results/){ target="_blank" .reddit } 
+and the [Tweet](https://x.com/DesiresAreGrey/status/2018102946144092559){ target="_blank" .twitter } about the survey results.
+
 Again, disclaimer that I'm not a statistician or math person, so I can't really do any deeper sorta analysis of the data. There's also a lot of places
 I could've gone deeper, like further breaking things down, but at the same time I already have 12 entire pages of results and I've spent so much time
 working on this to the point I've been kinda neglecting myself so I could finish this asap. Its nice being on the end stretch now, writing out this
