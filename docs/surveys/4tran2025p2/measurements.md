@@ -173,7 +173,6 @@ Even more of a normal distribution than the first survey. Its kinda beautiful vi
 <div class="chart-set">
   <input id="height-a" class="vh" type="radio" name="view-height" checked>
   <input id="height-b" class="vh" type="radio" name="view-height">
-  <input id="height-c" class="vh" type="radio" name="view-height">
   
   <div class="chart-stack">
     <div id="height-pop-pyramid" 
@@ -191,24 +190,15 @@ Even more of a normal distribution than the first survey. Its kinda beautiful vi
       style="height: 500px;"
       data-chart="boxplot"
       data-datakey="height_inches_boxplot"
-      data-subtitle="Box Plot (Inches)"
+      data-subtitle="Box Plot"
       data-title="Height"
-      >
-    </div>
-    <div id="height-cm-boxplot" 
-      class="apexchart chart-layer layer-c"
-      style="height: 500px;"
-      data-chart="boxplot"
-      data-datakey="height_cm_boxplot"
-      data-subtitle="Box Plot (Centimeters)"
-      data-title="Height"
+      data-height-inches
       >
     </div>
   </div>
   <div class="toggle">
     <label for="height-a" class="noselect">Population Pyramid</label>
-    <label for="height-b" class="noselect">Box Plot (Inches)</label>
-    <label for="height-c" class="noselect">Box Plot (CM)</label>
+    <label for="height-b" class="noselect">Box Plot</label>
   </div>
 </div>
 

@@ -90,8 +90,19 @@ nav:
       - The 2025 4tran Survey [Page 4]: 'surveys/4tran2025/4.md'
       - The 2025 4tran Survey [Jealous Cat]: 'surveys/4tran2025/jealouscat.md'
       - The 2025 4tran Survey [Ratgirltwink]: 'surveys/4tran2025/ratgirltwink.md'
-#    - Extended 4tran Survey (2025.2): 
-#      - Extended 4tran Survey (2025.2): 'surveys/4tran2025p2/index.md'
+    - Extended 4tran Survey (2025.2): 
+      - Page 1 - Demographics: 'surveys/4tran2025p2/index.md'
+      - Page 2 - Measurements: 'surveys/4tran2025p2/measurements.md'
+      - Page 3 - Social Media: 'surveys/4tran2025p2/socialmedia.md'
+      - Page 4 - Transition: 'surveys/4tran2025p2/transition.md'
+      - Page 5 - Sexuality: 'surveys/4tran2025p2/sexuality.md'
+      - Page 6 - Relationships: 'surveys/4tran2025p2/relationships.md'
+      - Page 7 - Height Preferences: 'surveys/4tran2025p2/heightpreferences.md'
+      - Page 8 - Health: 'surveys/4tran2025p2/health.md'
+      - Page 9 - Self Describing: 'surveys/4tran2025p2/selfdescribing.md'
+      - Page 10 - Miscellaneous: 'surveys/4tran2025p2/misc.md'
+      - Page 11 - NSFW: 'surveys/4tran2025p2/nsfw.md'
+      - Page 12 - Feedback & Conclusion: 'surveys/4tran2025p2/conclusion.md'
   - Misc:
     - 'misc/index.md'
     - Apex Legends Weapon Stats: 'misc/apex-weapon-stats/index.md'
