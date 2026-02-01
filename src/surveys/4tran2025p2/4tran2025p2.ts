@@ -1,7 +1,7 @@
-import { Utils } from "../../utils.js";
-import { LoadingBar } from "../../loadingbar.js";
-import { Charts } from "../../charts.js";
-import { WordCloud } from "../../wordcloud.js";
+import { Utils } from "../../utils/utils.js";
+import { LoadingBar } from "../../utils/loadingbar.js";
+import { Apex } from "../../charts/apex.js";
+import { WordCloud } from "../../charts/wordcloud.js";
 
 const charts = [...$$('.apexchart'), ...$$('.wordcloud')];
 if (charts.length > 0) {
@@ -33,23 +33,23 @@ if (charts.length > 0) {
 
         switch (el.dataset.chart) {
             case "ratio-bar":
-                Charts.createRatioBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, normalized); break;
+                Apex.createRatioBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, normalized); break;
             case "bar":
-                Charts.createBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, true); break;
+                Apex.createBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, true); break;
             case "column":
-                Charts.createBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, false); break;
+                Apex.createBarChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, false); break;
             case "pop-pyramid":
-                Charts.createPopPyramidChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, el.dataset.bounds?.parseFloat() ?? 15, horizontal); break;
+                Apex.createPopPyramidChart(chartId, master[dataKey], title, subtitle, hideSeries, colors, height, el.dataset.bounds?.parseFloat() ?? 15, horizontal); break;
             case "pie":
-                Charts.createPieChart(chartId, master[dataKey], title, colors, height); break;
+                Apex.createPieChart(chartId, master[dataKey], title, colors, height); break;
             case "boxplot":
-                Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height, el.dataset.bounds?.parseFloat() ?? undefined, vertical, false, upperColor, lowerColor, heightInches); break;
+                Apex.createBoxPlot(chartId, master[dataKey], title, subtitle, height, el.dataset.bounds?.parseFloat() ?? undefined, vertical, false, upperColor, lowerColor, heightInches); break;
             case "change-boxplot":
-                Charts.createBoxPlot(chartId, master[dataKey], title, subtitle, height, el.dataset.bounds?.parseFloat() ?? 5, vertical, true, upperColor, lowerColor); break;
+                Apex.createBoxPlot(chartId, master[dataKey], title, subtitle, height, el.dataset.bounds?.parseFloat() ?? 5, vertical, true, upperColor, lowerColor); break;
             case "scatter":
-                Charts.createScatterPlot(chartId, master[dataKey], title, subtitle, hideSeries, colors, height); break;
+                Apex.createScatterPlot(chartId, master[dataKey], title, subtitle, hideSeries, colors, height); break;
             case "heatmap":
-                Charts.createHeatmap(chartId, master[dataKey], title, subtitle, color, height); break;
+                Apex.createHeatmap(chartId, master[dataKey], title, subtitle, color, height); break;
         }
 
         const minSize = el.dataset.minSize?.parseFloat() ?? 10;
@@ -78,14 +78,14 @@ function showPerformancePopup() {
 
     if (WordCloud.wordclouds.length > 0) {
         debugLoadTimeDiv.innerHTML = `
-            ${Charts.charts.length} Charts (${Charts.charts.map(c => c.loadTime).reduce((a, b) => a + b, 0).roundTo(0)} ms)<br>
+            ${Apex.charts.length} Charts (${Apex.charts.map(c => c.loadTime).reduce((a, b) => a + b, 0).roundTo(0)} ms)<br>
             ${WordCloud.wordclouds.length} Clouds (${WordCloud.wordclouds.map(c => c.loadTime).reduce((a, b) => a + b, 0).roundTo(0)} ms)<br>
             Fully loaded in ${(LoadingBar.elapsedTime)?.roundTo(0)} ms
         `;
     }
     else {
         debugLoadTimeDiv.innerHTML = `
-            ${Charts.charts.length} Charts (${Charts.charts.map(c => c.loadTime).reduce((a, b) => a + b, 0).roundTo(0)} ms)<br>
+            ${Apex.charts.length} Charts (${Apex.charts.map(c => c.loadTime).reduce((a, b) => a + b, 0).roundTo(0)} ms)<br>
             Fully loaded in ${(LoadingBar.elapsedTime)?.roundTo(0)} ms
         `;
     }

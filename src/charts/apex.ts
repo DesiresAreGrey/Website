@@ -1,4 +1,4 @@
-import "./utils.js";
+import "../utils/utils.js";
 import ApexCharts from 'apexcharts';
 
 interface ChartData {
@@ -9,13 +9,13 @@ interface ChartData {
     loadTime: number;
 }
 
-export class Charts {
+export class Apex {
     static get isMobile() { return window.innerWidth > 768 ? false : true; }
-    static get animationEnabled(): boolean { return localStorage.getItem('chart-animations-enabled')?.parseJson() ?? !Charts.isMobile; }
+    static get animationEnabled(): boolean { return localStorage.getItem('chart-animations-enabled')?.parseJson() ?? !Apex.isMobile; }
 
     static #charts: ChartData[] = [];
     static get charts() {
-        return [...Charts.#charts]; 
+        return [...Apex.#charts]; 
     }
 
     static createRatioBarChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, normalized: boolean = false) {
@@ -36,7 +36,7 @@ export class Charts {
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
                 animations: {
-                    enabled: Charts.animationEnabled
+                    enabled: Apex.animationEnabled
                 },
             },
             title: {
@@ -129,7 +129,7 @@ export class Charts {
         };
         const start = performance.now();
         new ApexCharts($id(chartId), options).render();
-        Charts.#charts.push({
+        Apex.#charts.push({
             id: chartId,
             title: title,
             subtitle: subtitle,
@@ -155,7 +155,7 @@ export class Charts {
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
                 animations: {
-                    enabled: Charts.animationEnabled
+                    enabled: Apex.animationEnabled
                 },
             },
             title: {
@@ -226,7 +226,7 @@ export class Charts {
         };
         const start = performance.now();
         new ApexCharts($id(chartId), options).render();
-        Charts.#charts.push({
+        Apex.#charts.push({
             id: chartId,
             title: title,
             subtitle: subtitle,
@@ -247,7 +247,7 @@ export class Charts {
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
                 animations: {
-                    enabled: Charts.animationEnabled
+                    enabled: Apex.animationEnabled
                 },
             },
             title: {
@@ -347,7 +347,7 @@ export class Charts {
         }
         const start = performance.now();
         new ApexCharts($id(chartId), options).render();
-        Charts.#charts.push({
+        Apex.#charts.push({
             id: chartId,
             title: title,
             subtitle: subtitle,
@@ -366,7 +366,7 @@ export class Charts {
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
                 animations: {
-                    enabled: Charts.animationEnabled
+                    enabled: Apex.animationEnabled
                 },
             },
             series: data.series,
@@ -414,7 +414,7 @@ export class Charts {
         };
         const start = performance.now();
         new ApexCharts($id(chartId), options).render();
-        Charts.#charts.push({
+        Apex.#charts.push({
             id: chartId,
             title: title,
             subtitle: undefined,
@@ -436,7 +436,7 @@ export class Charts {
                     enabled: false
                 },
                 animations: {
-                    enabled: Charts.animationEnabled
+                    enabled: Apex.animationEnabled
                 },
             },
             title: {
@@ -600,7 +600,7 @@ export class Charts {
 
         const start = performance.now();
         new ApexCharts($id(chartId), options).render();
-        Charts.#charts.push({
+        Apex.#charts.push({
             id: chartId,
             title: title,
             subtitle: subtitle,
@@ -627,7 +627,7 @@ export class Charts {
                     enabled: false
                 },
                 animations: {
-                    enabled: Charts.animationEnabled
+                    enabled: Apex.animationEnabled
                 },
             },
             title: {
@@ -720,7 +720,7 @@ export class Charts {
         
         const start = performance.now();
         new ApexCharts($id(chartId), { ...options, ...customOptions }).render();
-        Charts.#charts.push({
+        Apex.#charts.push({
             id: chartId,
             title: title,
             subtitle: subtitle,
@@ -742,7 +742,7 @@ export class Charts {
                     enabled: false
                 },
                 animations: {
-                    enabled: Charts.animationEnabled
+                    enabled: Apex.animationEnabled
                 },
             },
             title: {
@@ -837,7 +837,7 @@ export class Charts {
         };
         const start = performance.now();
         new ApexCharts($id(chartId), { ...options, ...customOptions }).render();
-        Charts.#charts.push({
+        Apex.#charts.push({
             id: chartId,
             title: title,
             subtitle: subtitle,

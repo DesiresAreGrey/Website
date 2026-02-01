@@ -1,6 +1,5 @@
 import * as d3 from 'd3';
 import cloud from 'd3-cloud';
-import { Utils } from './utils.js';
 
 interface WordCloudData {
     id: string;

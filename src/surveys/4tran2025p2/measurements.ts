@@ -1,6 +1,6 @@
-import "../../utils.js";
-import { LoadingBar } from "../../loadingbar.js";
-import { Charts } from "../../charts.js";
+import "../../utils/utils.js";
+import { LoadingBar } from "../../utils/loadingbar.js";
+import { Apex } from "../../charts/apex.js";
 import ApexCharts from 'apexcharts';
 
 const unitsSelect = $("#units") as HTMLSelectElement;
@@ -254,7 +254,7 @@ function createScatterPlot() {
             strokeColors: '#090909',
         }, 
     };
-    Charts.createScatterPlot("height-weight-scatter", scatterData, "Height and Weight", "Scatter Plot", [2], ['#259efa', '#ff4f69', '#00E396', '#fff'], scatterChartHeight, 10, customOptions);
+    Apex.createScatterPlot("height-weight-scatter", scatterData, "Height and Weight", "Scatter Plot", [2], ['#259efa', '#ff4f69', '#00E396', '#fff'], scatterChartHeight, 10, customOptions);
     chartLoaded = true;
 }
 
