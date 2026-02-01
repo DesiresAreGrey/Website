@@ -1,7 +1,7 @@
 ---
 title: "Extended 4tran Survey (2025.2) Results: Self Describing"
 description: The results page for the Extended 4tran Survey (2025.2), a follow up survey to the original 2025 4tran Survey
-image: /assets/surveys/4tran2025p2/thumb-selfdescribing.png
+image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb-selfdescribing.png
 ---
 <script src="/js/utils/header-title-changer.js" data-title="Page 9 - Self Describing"></script>
 
