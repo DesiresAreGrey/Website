@@ -1,9 +1,11 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
 
 .reddit {
+  position: relative;
   color: oklch(0.68 0.215 38) !important;
   font-variation-settings: 'wght' 650;
   transition: all 200ms ease !important;
+
   &:hover {
     color: oklch(0.7 0.215 38) !important;
     text-shadow: 0 0 32px oklch(0.63 0.25 38);
@@ -12,6 +14,7 @@
 }
 
 .twitter {
+  position: relative;
   color: oklch(0.68 0.16 243) !important;
   font-variation-settings: 'wght' 650;
   transition: all 200ms ease !important;
@@ -24,10 +27,11 @@
 }
 
 .youtube {
+  position: relative;
   color: oklch(0.68 0.24 24) !important;
   font-variation-settings: 'wght' 650;
   transition: all 200ms ease !important;
-
+  
   &:hover {
     color: oklch(0.7 0.24 24) !important;
     text-shadow: 0 0 32px oklch(0.63 0.3 24);
