@@ -3,6 +3,8 @@ title: "Extended 4tran Survey (2025.2) Results: Relationships"
 description: The results page for the Extended 4tran Survey (2025.2), a follow up survey to the original 2025 4tran Survey
 image: /assets/surveys/4tran2025p2/thumb-relationships.png
 ---
+<script src="/js/utils/header-title-changer.js" data-title="Page 6 - Relationships"></script>
+
 <link rel="stylesheet" href="/stylesheets/surveys/4tran2025p2.css">
 <script type="importmap">
 {
