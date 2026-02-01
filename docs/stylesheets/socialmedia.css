@@ -24,13 +24,13 @@
 }
 
 .youtube {
-  color: oklch(0.68 0.225 24) !important;
+  color: oklch(0.68 0.24 24) !important;
   font-variation-settings: 'wght' 650;
   transition: all 200ms ease !important;
 
   &:hover {
-    color: oklch(0.7 0.225 24) !important;
-    text-shadow: 0 0 32px oklch(0.63 0.275 24);
+    color: oklch(0.7 0.24 24) !important;
+    text-shadow: 0 0 32px oklch(0.63 0.3 24);
     font-variation-settings: 'wght' 800;
   }
 }
