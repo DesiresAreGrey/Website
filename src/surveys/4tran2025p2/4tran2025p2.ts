@@ -90,6 +90,7 @@ function showPerformancePopup() {
         `;
     }
     
+    debugLoadTimeDiv.style.textShadow = '0 0 4px rgba(0, 0, 0, 0.8)';
     debugLoadTimeDiv.style.transition = 'opacity 250ms ease';
     debugLoadTimeDiv.style.textAlign = 'right';
     setTimeout(() => debugLoadTimeDiv.style.setProperty('opacity', '0'), 4000);
