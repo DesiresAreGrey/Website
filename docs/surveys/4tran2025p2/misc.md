@@ -27,7 +27,7 @@ image: https://desiresaregrey.com/assets/surveys/4tran2025p2/thumb-misc.png
 
 ### Views On DIY
 
-This question asked people to rate their views on DIY HRT as a concept from 0-10 (with 10 being positive and vice versa).
+This question asked people how positively they viewed the concept of DIY HRT from 0 to 10, with 10 being the most positive and vice versa.
 
 At first I thought this boxplot was broken for men and women, but it actually turns out so many men/women voted 10 that every answer other than 10 is counted as an
 outlier. 1307/1675 (78%) of respondents voted 10.
