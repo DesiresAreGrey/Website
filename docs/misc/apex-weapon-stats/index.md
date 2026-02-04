@@ -5,7 +5,7 @@ image: https://desiresaregrey.com/assets/misc/apex-weapon-stats/apex-keyart.jpg
 ---
 # Apex Legends Weapon Stats
 
-<script type="module" src="apex-weapon-stats.js"></script>
+<script type="module" src="apexweaponstats.js"></script>
 
 <style>
   /* colors */
