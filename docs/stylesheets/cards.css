@@ -45,6 +45,7 @@ h1 {
     top: 0; left: 0; right: 0; bottom: 0;
     background-image: var(--image);
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
     opacity: 0.15;
     transform: scale(var(--scale, 1));
@@ -121,10 +122,6 @@ h1 {
     }
     p {
       font-size: 0.75rem;
-    }
-
-    &::before {
-      transform: scale(var(--mobile-scale, --scale, 1));
     }
   }
 }

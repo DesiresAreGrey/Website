@@ -11,7 +11,7 @@ h1 {
 
 <div class="card-gallery">
   <div class="card-grid" type="small">
-    <a class="card" href="apex-weapon-stats" style="--image: url('/assets/misc/apex-weapon-stats/apex-keyart.jpg'); --scale: 0.75; --mobile-scale: 1;">
+    <a class="card" href="apex-weapon-stats" style="--image: url('/assets/misc/apex-weapon-stats/apex-primaryart.jpg'); --scale: 1.08;">
       <h2>Apex Legends Weapon Stats</h2>
       <p>Compare detailed weapon stats for Apex Legends weapons across across seasons, firing modes, and weapon variants.</p>
     </a>
