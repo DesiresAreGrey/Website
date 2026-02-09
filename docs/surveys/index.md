@@ -24,7 +24,8 @@ h1 {
   background-color: rgba(26, 10, 40, 0.5);
   border: .1rem solid;
   border-color: var(--md-primary-fg-color);
-  border-radius: 2rem;
+  corner-shape: squircle;
+  border-radius: calc(2rem * var(--br-mult));
   padding: 0 2rem;
   text-decoration: none;
   transition: all 0.25s ease;
@@ -35,6 +36,22 @@ h1 {
   justify-content: center;
   height: 300px;
   transition: all 200ms ease !important;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: var(--image);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    transform: scale(var(--scale, 1));
+    
+    border-radius: inherit;
+    filter: blur(8px);
+    transition: opacity 200ms ease !important;
+  }
 
   h2 {
     margin-top: 0;
@@ -76,6 +93,30 @@ h1 {
       color: #ffffff;
       text-shadow: 0 0 4px #00000050;
     }
+
+    &::before {
+      opacity: 0;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .survey-gallery {
+    padding: 2rem 1rem;
+  }
+
+  .survey-card {
+    padding: 1.5rem;
+
+    h2 {
+      font-size: 1.05rem;
+    }
+    .date {
+      font-size: 0.65rem;
+    }
+    p {
+      font-size: 0.75rem;
+    }
   }
 }
 
@@ -86,12 +127,12 @@ h1 {
 
 <div class="survey-gallery">
   <div class="card-grid">
-    <a class="survey-card" href="4tran2025p2">
+    <a class="survey-card" href="4tran2025p2" style="--image: url('/assets/surveys/4tran2025p2/thumb.png'); --scale: 1.2;">
       <h2>Extended 4tran Survey (2025.2)</h2>
       <p class="date">December 5 – December 31, 2025</p>
       <p>Results and analysis of a follow up survey, including requested questions missing from the original 2025 4tran Survey</p>
     </a>
-    <a class="survey-card" href="4tran2025">
+    <a class="survey-card" href="4tran2025" style="--image: url('/assets/surveys/4tran2025/thumb.png'); --scale: 1.1;">
       <h2>The 4tran Survey (2025)</h2>
       <p class="date">September 30 – October 6, 2025</p>
       <p>Results and analysis of a survey conducted across various 4tran communities</p>

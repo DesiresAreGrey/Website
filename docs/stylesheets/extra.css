@@ -7,6 +7,14 @@
 
   --shadow-s: 0 1px 2px #00000030, 0 2px 4px #00000015;
   --shadow-m: 0 2px 4px #00000030, 0 4px 8px #00000015;
+
+  --br-mult: 1;
+}
+
+@supports (corner-shape: squircle) {
+  :root {
+    --br-mult: 2;
+  }
 }
 
 /* Scroll Margin */
