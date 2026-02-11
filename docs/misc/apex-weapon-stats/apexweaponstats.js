@@ -764,7 +764,7 @@ function updateWeaponStats(column) {
     }
 
     column.querySelector("#blast-pattern").innerHTML = '';
-    column.querySelector("#blast-pattern").drawPattern(column.mode.Firing.Shot.BlastPattern, undefined, false, false, 1);
+    column.querySelector("#blast-pattern").drawPattern(column.mode.Firing.Shot.BlastPattern, undefined, false, false, 1.5);
 
     // Reload Time
 
@@ -899,7 +899,7 @@ function utils() {
     Object.defineProperty(Number.prototype, 'toMeters', { value: function(precision = 0) { return (this * 0.0254).roundTo(precision) } });
 
     Object.defineProperty(Element.prototype, 'drawPattern', {
-        value: function(points = [], bounds = [-20, -20, 20, 20], drawAxes = true, connectPoints = false, pointRadius = 1, lineWidth = 0.1, pointColor = '#ffffff', lineColor = '#666666', shiftX = 0, shiftY = 0) {
+        value: function(points = [], bounds = [-30, -30, 30, 30], drawAxes = true, connectPoints = false, pointRadius = 1, lineWidth = 0.1, pointColor = '#ffffff', lineColor = '#666666', shiftX = 0, shiftY = 0) {
             const axisColor = '#444444';
             this.setAttribute('viewBox', `${bounds[0]} ${bounds[1]} ${bounds[2] - bounds[0]} ${bounds[3] - bounds[1]}`);
             if (drawAxes)
