@@ -1,7 +1,7 @@
-import "../../utils/utils.js";
-import { LoadingBar } from "../../utils/loadingbar.js";
 import { Apex } from "../../charts/apex.js";
 import ApexCharts from 'apexcharts';
+import { LoadingBar } from "../../utils/loadingbar.js";
+import "../../utils/utils.js";
 
 const unitsSelect = $("#units") as HTMLSelectElement;
 
