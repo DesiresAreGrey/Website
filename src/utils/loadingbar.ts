@@ -105,7 +105,7 @@ export class LoadingBar {
             const tickSize = nextWidth - newWidth;
             const trickleDuration = bar.animationTime * tickSize;
 
-            console.log(`Trickle to ${nextWidth}% over ${trickleDuration}ms`);
+            //console.log(`Trickle to ${nextWidth}% over ${trickleDuration}ms`);
 
             bar._progress = progress.clamp();
 

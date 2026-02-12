@@ -1,4 +1,5 @@
-import { Utils } from "../utils/utils.js"; 
+import { Utils } from "../utils/utils.js";
+import { API } from "../utils/api.js";
 
 const cached = localStorage.getItem("apex-season-banner")?.parseJson();
 const card = document.querySelector("#apex-weapon-stats-card") as HTMLElement;
@@ -20,7 +21,7 @@ else {
 }
 
 async function setImage() {
-    const imageUrl = (await Utils.fetchJson("https://desiresapi.runasp.net/misc/apex/season-banner"))?.url;
+    const imageUrl = (await API.fetchJson("misc/apex/season-banner"))?.url;
     card?.style.setProperty(`--image`, `url('${imageUrl}')`);
     localStorage.setItem("apex-season-banner", ({ time: Date.now(), url: imageUrl }).toJson());
 }

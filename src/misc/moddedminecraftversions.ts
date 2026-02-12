@@ -1,4 +1,5 @@
 import { Utils } from "../utils/utils.js";
+import { API } from "../utils/api.js";
 import { LoadingBar } from "../utils/loadingbar.js";
 import { Apex } from "../charts/apex.js";
 
@@ -31,14 +32,14 @@ const versions = [
 LoadingBar.startTrickle();
 LoadingBar.update(0, 0.5);
 
-const versionSpecific = await Utils.postJson("https://desiresapi.runasp.net/misc/modrinth/modded-minecraft-versions", {
+const versionSpecific = await API.postJson("misc/modrinth/modded-minecraft-versions", {
     loaders: loaders.slice(0, -1),
     versions: versions
 });
 
 LoadingBar.update(0.5, 0.9);
 
-const total = await Utils.postJson("https://desiresapi.runasp.net/misc/modrinth/modded-minecraft-versions", {
+const total = await API.postJson("misc/modrinth/modded-minecraft-versions", {
     loaders: loaders.slice(-1),
     versions: versions
 });
@@ -53,6 +54,6 @@ LoadingBar.update(0.93, 0.96);
 Apex.createRatioBarChart("modrinth-loader-ratio", versionSpecific, "By Loader (Ratio)", `Data Updated ${Utils.readableDate(versionSpecific.lastUpdated)}`, [], colors, 500, false, "mods");
 
 LoadingBar.update(0.96, 1);
-Apex.createBarChart("modrinth-total", total, "All Mods", `Data Updated ${Utils.readableDate(versionSpecific.lastUpdated)}`, [], ['#546E7A'], 500, false, false, "mods");
+Apex.createBarChart("modrinth-total", total, "All Mods", `Data Updated ${Utils.readableDate(total.lastUpdated)}`, [], ['#546E7A'], 500, false, false, "mods");
 
 LoadingBar.finish();
