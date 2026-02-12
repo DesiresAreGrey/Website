@@ -51,11 +51,10 @@ import { Utils } from "../utils/utils.js";
     async function setImage() {
         const latest = (await Utils.fetchJson("https://launchercontent.mojang.com/v2/games.json")).entries.find((entry: any) => entry.productId === "java");
         
-
         let imageUrl = latest.heroImage.url;
         if (imageUrl.startsWith("/"))
             imageUrl = `https://launchercontent.mojang.com${imageUrl}`;
-        console.log(imageUrl);
+        
         card?.style.setProperty(`--image`, `url('${imageUrl}')`);
         localStorage.setItem("minecraft-update-banner", ({ time: Date.now(), url: imageUrl }).toJson());
     }
