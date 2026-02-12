@@ -32,6 +32,7 @@ h1 {
   text-decoration: none;
   transition: all 0.25s ease;
   box-shadow: 0 0 10px rgba(150, 100, 255, 0.1);
+  text-shadow: 0 0 8px #00000050;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,6 +62,7 @@ h1 {
     color: #dcc0ff;
     font-size: 1.25rem;
     font-variation-settings: 'wght' 500;
+    text-shadow: 0 0 8px #00000050;
     transition: all 200ms ease !important;
   }
 
@@ -69,6 +71,7 @@ h1 {
     font-size: 0.8rem;
     margin-top: 0;
     margin-bottom: 0;
+    text-shadow: 0 0 8px #00000050;
   }
 
   p {
@@ -76,24 +79,24 @@ h1 {
     color: #b298e2;
     font-size: 0.9rem;
     font-variation-settings: 'wght' 350;
+    text-shadow: 0 0 8px #00000050;
     transition: all 200ms ease !important;
   }
 
   &:hover {
-    /*background-color: var(--md-primary-fg-color);*/
     transform: translateY(-4px);
     box-shadow: 0 0 24px rgba(123, 0, 255, 0.69);
     color: #ffffff;
-    text-shadow: 0 0 4px #00000050;
+    text-shadow: 0 0 8px #000000aa;
 
     h2 {
       color: #ffffff;
-      text-shadow: 0 0 4px #00000050;
+      text-shadow: 0 0 8px #000000aa;
     }
 
     p {
       color: #ffffff;
-      text-shadow: 0 0 4px #00000050;
+      text-shadow: 0 0 8px #000000aa;
     }
 
     &::before {
