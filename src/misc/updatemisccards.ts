@@ -1,9 +1,10 @@
 import { API } from "../utils/api.js";
-import { Utils } from "../utils/utils.js";
+import { JsonClient } from "../utils/jsonclient.js";
+import "../utils/utils.js";
 
 {
     const cached = localStorage.getItem("apex-season-banner")?.parseJson();
-    const card = document.querySelector("#apex-weapon-stats-card") as HTMLElement;
+    const card = $("#apex-weapon-stats-card") as HTMLElement;
 
     if (cached?.url) {
         card?.style.setProperty(`--image`, `url('${cached.url}')`);
@@ -22,7 +23,7 @@ import { Utils } from "../utils/utils.js";
     }
 
     async function setImage() {
-        const imageUrl = (await API.fetchJson("misc/apex/season-banner"))?.url;
+        const imageUrl = (await API.get("misc/apex/season-banner"))?.url;
         card?.style.setProperty(`--image`, `url('${imageUrl}')`);
         localStorage.setItem("apex-season-banner", ({ time: Date.now(), url: imageUrl }).toJson());
     }
@@ -30,7 +31,7 @@ import { Utils } from "../utils/utils.js";
 
 {
     const cached = localStorage.getItem("minecraft-update-banner")?.parseJson();
-    const card = document.querySelector("#modded-minecraft-versions-card") as HTMLElement;
+    const card = $("#modded-minecraft-versions-card") as HTMLElement;
 
     if (cached?.url) {
         card?.style.setProperty(`--image`, `url('${cached.url}')`);
@@ -49,7 +50,7 @@ import { Utils } from "../utils/utils.js";
     }
 
     async function setImage() {
-        const latest = (await Utils.fetchJson("https://launchercontent.mojang.com/v2/games.json")).entries.find((entry: any) => entry.productId === "java");
+        const latest = (await JsonClient.get("https://launchercontent.mojang.com/v2/games.json")).entries.find((entry: any) => entry.productId === "java");
         
         let imageUrl = latest.heroImage.url;
         if (imageUrl.startsWith("/"))

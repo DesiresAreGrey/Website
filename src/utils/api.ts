@@ -1,4 +1,4 @@
-import { Utils } from "./utils.js";
+import { JsonClient } from "./jsonclient.js";
 
 export class API {
     static async getUrl(): Promise<string> {
@@ -16,15 +16,15 @@ export class API {
         }
     }
 
-    static async fetchJson<T = any>(endpoint: string): Promise<T> {
+    static async get<T = any>(endpoint: string): Promise<T> {
         if (endpoint.startsWith('/'))
             endpoint = endpoint.substring(1);
-        return Utils.fetchJson(await API.getUrl() + endpoint);
+        return JsonClient.get(await API.getUrl() + endpoint);
     }
 
-    static async postJson<T = any>(endpoint: string, data: any): Promise<T> {
+    static async post<T = any>(endpoint: string, data: any): Promise<T> {
         if (endpoint.startsWith('/'))
             endpoint = endpoint.substring(1);
-        return Utils.postJson(await API.getUrl() + endpoint, data);
+        return JsonClient.post(await API.getUrl() + endpoint, data);
     }
 }

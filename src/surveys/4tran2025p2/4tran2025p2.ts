@@ -1,13 +1,14 @@
-import { Utils } from "../../utils/utils.js";
-import { LoadingBar } from "../../utils/loadingbar.js";
 import { Apex } from "../../charts/apex.js";
+import { JsonClient } from "../../utils/jsonclient.js";
+import { LoadingBar } from "../../utils/loadingbar.js";
 import { WordCloud } from "../../charts/wordcloud.js";
+import "../../utils/utils.js";
 
 const charts = [...$$('.apexchart'), ...$$('.wordcloud')];
 if (charts.length > 0) {
     LoadingBar.start();
 
-    const master = await Utils.fetchJson('/assets/surveys/4tran2025p2/results/_master.json');
+    const master = await JsonClient.get('/assets/surveys/4tran2025p2/results/_master.json');
     await document.fonts.load("700 1em 'Bitter'");
 
     let loadedAmount = 0;

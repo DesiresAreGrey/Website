@@ -1,5 +1,5 @@
-import "../utils/utils.js";
 import ApexCharts from 'apexcharts';
+import "../utils/utils.js";
 
 interface ChartData {
     id: string;

@@ -17,7 +17,7 @@ image: https://desiresaregrey.com/assets/misc/minecraft/thumb.png
 
 ## Modrinth
 
-<div id="modrinth-total"></div>
+<div id="modrinth-total" style="min-height: 500px;"></div>
 
 <div class="chart-set">
   <input id="modrinth-a" class="vh" type="radio" name="view-modrinth" checked>
@@ -32,3 +32,5 @@ image: https://desiresaregrey.com/assets/misc/minecraft/thumb.png
     <label for="modrinth-b" class="noselect">Ratio</label>
   </div>
 </div>
+
+<input type="text" id="modrinth-filter" placeholder="Filter versions..." style="margin-top: 1rem; width: 100%; max-width: 400px;">

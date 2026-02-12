@@ -1,15 +1,7 @@
-import { Utils } from "../utils/utils.js";
+import { Apex } from "../charts/apex.js";
 import { API } from "../utils/api.js";
 import { LoadingBar } from "../utils/loadingbar.js";
-import { Apex } from "../charts/apex.js";
-
-const loaders = [
-    "Fabric",
-    "Quilt",
-    "NeoForge",
-    "Forge",
-    "All"
-];
+import { Utils } from "../utils/utils.js";
 
 const versions = [
     "1.12.2",
@@ -29,31 +21,35 @@ const versions = [
     "1.21.11"
 ];
 
-LoadingBar.start();
-LoadingBar.update(0, 0.5);
+loadCharts();
 
-const versionSpecific = await API.postJson("misc/minecraft/modded-modrinth-versions", {
-    loaders: loaders.slice(0, -1),
-    versions: versions
-});
+async function loadCharts() {
+    LoadingBar.start();
+    LoadingBar.update(0, 0.5);
 
-LoadingBar.update(0.5, 0.9);
+    const versionSpecific = await API.post("misc/minecraft/modded-modrinth-versions", {
+        loaders: ["Fabric", "Quilt", "NeoForge", "Forge"],
+        versions: versions
+    });
 
-const total = await API.postJson("misc/minecraft/modded-modrinth-versions", {
-    loaders: loaders.slice(-1),
-    versions: versions
-});
+    LoadingBar.update(0.5, 0.9);
+
+    const total = await API.post("misc/minecraft/modded-modrinth-versions", {
+        loaders: ["All"],
+        versions: versions
+    });
 
 
-const colors = ['rgba(236, 186, 149, 1)', 'rgba(170, 85, 255, 1)', 'rgb(216, 130, 49)', 'rgba(79, 120, 202, 1)'];
+    const colors = ['rgba(236, 186, 149, 1)', 'rgba(170, 85, 255, 1)', 'rgb(216, 130, 49)', 'rgba(79, 120, 202, 1)'];
 
-LoadingBar.update(0.9, 0.93);
-Apex.createBarChart("modrinth-loader", versionSpecific, "By Loader", `Data Updated ${Utils.readableDate(versionSpecific.lastUpdated)}`, [], colors, 500, false, false, "mods");
+    LoadingBar.update(0.9, 0.93);
+    Apex.createBarChart("modrinth-loader", versionSpecific, "By Loader", `Data Updated ${Utils.readableDate(versionSpecific.lastUpdated)}`, [], colors, 500, false, false, "mods");
 
-LoadingBar.update(0.93, 0.96);
-Apex.createRatioBarChart("modrinth-loader-ratio", versionSpecific, "By Loader (Ratio)", `Data Updated ${Utils.readableDate(versionSpecific.lastUpdated)}`, [], colors, 500, false, "mods");
+    LoadingBar.update(0.93, 0.96);
+    Apex.createRatioBarChart("modrinth-loader-ratio", versionSpecific, "By Loader (Ratio)", `Data Updated ${Utils.readableDate(versionSpecific.lastUpdated)}`, [], colors, 500, false, "mods");
 
-LoadingBar.update(0.96, 1);
-Apex.createBarChart("modrinth-total", total, "All Mods", `Data Updated ${Utils.readableDate(total.lastUpdated)}`, [], ['#546E7A'], 500, false, false, "mods");
+    LoadingBar.update(0.96, 1);
+    Apex.createBarChart("modrinth-total", total, "All Mods", `Data Updated ${Utils.readableDate(total.lastUpdated)}`, [], ['#546E7A'], 500, false, false, "mods");
 
-LoadingBar.finish();
+    LoadingBar.finish();
+}

@@ -1,29 +1,13 @@
 export class Utils {
-    static async fetchJson<T = any>(url: string): Promise<T> {
-        return (await fetch(url)).json();
-    }
-
-    static async postJson<T = any>(url: string, data: any): Promise<T> {
-        return (await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        })).json();
-    }
-
     static readableDateTime(timestamp: string): string {
-        const date = new Date(timestamp);
-        return date.toLocaleString(undefined, {
+        return new Date(timestamp).toLocaleString(undefined, {
             dateStyle: "medium",
             timeStyle: "short"
         });
     }
 
     static readableDate(timestamp: string): string {
-        const date = new Date(timestamp);
-        return date.toLocaleString(undefined, {
+        return new Date(timestamp).toLocaleString(undefined, {
             dateStyle: "medium"
         });
     }
