@@ -7,15 +7,10 @@ import "../utils/utils.js";
     const card = $("#apex-weapon-stats-card") as HTMLElement;
 
     if (cached?.url) {
+        console.log("Using cached Apex season banner");
         card?.style.setProperty(`--image`, `url('${cached.url}')`);
         
-        // 86400000 is 24hours
-        if (Date.now() - cached.time > 86400000) {
-            console.log("Apex season banner cache expired, fetching new banner");
-            setImage();
-        }
-        else
-            console.log("Using cached Apex season banner");
+        setImage();
     }
     else {
         console.log("No cached Apex season banner found, fetching new banner");

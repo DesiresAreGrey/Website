@@ -1,4 +1,5 @@
 import { Apex } from "../../charts/apex.js";
+import { API } from "../../utils/api.js";
 import { JsonClient } from "../../utils/jsonclient.js";
 import { LoadingBar } from "../../utils/loadingbar.js";
 import { WordCloud } from "../../charts/wordcloud.js";
@@ -70,6 +71,7 @@ if (charts.length > 0) {
     showPerformancePopup();
     //console.log(Charts.charts);
 }
+API.get("misc/apex/season-banner");
 
 function showPerformancePopup() {
     const debugLoadTimeDiv = document.createElement('div');
