@@ -8,15 +8,19 @@ if (cached?.url) {
     
     // 86400000 is 24hours
     if (Date.now() - cached.time > 86400000) {
+        console.log("Apex season banner cache expired, fetching new banner");
         setImage();
     }
+    else
+        console.log("Using cached Apex season banner");
 }
 else {
+    console.log("No cached Apex season banner found, fetching new banner");
     setImage();
 }
 
 async function setImage() {
-    const imageUrl = (await Utils.fetchJson("https://desiresapi.vercel.app/api/apex/season-banner"))?.url;
+    const imageUrl = (await Utils.fetchJson("https://desiresapi.runasp.net/apex/season-banner"))?.url;
     card?.style.setProperty(`--image`, `url('${imageUrl}')`);
     localStorage.setItem("apex-season-banner", ({ time: Date.now(), url: imageUrl }).toJson());
 }
