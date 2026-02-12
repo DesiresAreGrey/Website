@@ -29,7 +29,7 @@ const versions = [
     "1.21.11"
 ];
 
-LoadingBar.startTrickle();
+LoadingBar.start();
 LoadingBar.update(0, 0.5);
 
 const versionSpecific = await API.postJson("misc/minecraft/modded-modrinth-versions", {
