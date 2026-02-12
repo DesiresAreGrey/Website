@@ -32,14 +32,14 @@ const versions = [
 LoadingBar.startTrickle();
 LoadingBar.update(0, 0.5);
 
-const versionSpecific = await API.postJson("misc/modrinth/modded-minecraft-versions", {
+const versionSpecific = await API.postJson("misc/minecraft/modded-modrinth-versions", {
     loaders: loaders.slice(0, -1),
     versions: versions
 });
 
 LoadingBar.update(0.5, 0.9);
 
-const total = await API.postJson("misc/modrinth/modded-minecraft-versions", {
+const total = await API.postJson("misc/minecraft/modded-modrinth-versions", {
     loaders: loaders.slice(-1),
     versions: versions
 });

@@ -45,14 +45,14 @@ h1 {
     top: 0; left: 0; right: 0; bottom: 0;
     background-image: var(--image);
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center;
     opacity: 0.15;
     transform: scale(var(--scale, 1));
-    
     border-radius: inherit;
     filter: blur(6px);
-    transition: opacity 200ms ease !important;
+    
+    transition: opacity 200ms ease, filter 200ms ease !important;
   }
 
   h2 {
@@ -80,9 +80,9 @@ h1 {
   }
 
   &:hover {
-    background-color: var(--md-primary-fg-color);
+    /*background-color: var(--md-primary-fg-color);*/
     transform: translateY(-4px);
-    box-shadow: 0 0 24px rgba(123, 0, 255, 0.5);
+    box-shadow: 0 0 24px rgba(123, 0, 255, 0.69);
     color: #ffffff;
     text-shadow: 0 0 4px #00000050;
 
@@ -97,7 +97,8 @@ h1 {
     }
 
     &::before {
-      opacity: 0;
+      opacity: 0.2;
+      filter: blur(5px);
     }
   }
 
