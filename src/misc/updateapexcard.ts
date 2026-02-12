@@ -20,7 +20,7 @@ else {
 }
 
 async function setImage() {
-    const imageUrl = (await Utils.fetchJson("https://desiresapi.runasp.net/apex/season-banner"))?.url;
+    const imageUrl = (await Utils.fetchJson("https://desiresapi.runasp.net/misc/apex/season-banner"))?.url;
     card?.style.setProperty(`--image`, `url('${imageUrl}')`);
     localStorage.setItem("apex-season-banner", ({ time: Date.now(), url: imageUrl }).toJson());
 }
