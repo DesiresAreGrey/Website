@@ -18,7 +18,7 @@ export class Apex {
         return [...Apex.#charts]; 
     }
 
-    static createRatioBarChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, normalized: boolean = false) {
+    static createRatioBarChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, normalized: boolean = false, units: string = "respondents") {
         hideSeries.forEach(index => {
             if (data.series[index]) {
                 data.series[index].hidden = true;
@@ -82,7 +82,7 @@ export class Apex {
                         }
                         const total: number = opts.w.globals.stackedSeriesTotals[opts.dataPointIndex];
                         const pct = total ? ((val / total) * 100).toFixed(1) : 0;
-                        return `${val} respondents (${pct}%)`;
+                        return `${val} ${units} (${pct}%)`;
                     }
                 }
             },
@@ -138,7 +138,7 @@ export class Apex {
         })
     }
 
-    static createBarChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, horizontal: boolean) {
+    static createBarChart(chartId: string, data: any, title: string | undefined, subtitle: string | undefined, hideSeries: number[], colors: string[], height: number, horizontal: boolean, stacked: boolean = true, units: string = "respondents") {
         hideSeries.forEach(index => {
             if (data.series[index]) {
                 data.series[index].hidden = true;
@@ -150,7 +150,7 @@ export class Apex {
                 id: chartId,
                 type: 'bar',
                 height: height,
-                stacked: true,
+                stacked: stacked,
                 toolbar: { show: false },
                 background: '#090909',
                 fontFamily: 'Inter, Arial, sans-serif',
@@ -185,11 +185,11 @@ export class Apex {
                 y: {
                     formatter: (val: number, opts: any) => {
                         if (data.series.length <= 1)
-                            return `${val} respondents`;
+                            return `${val} ${units}`;
 
                         const total: number = opts.w.globals.stackedSeriesTotals[opts.dataPointIndex];
                         const pct = total ? ((val / total) * 100).toFixed(1) : 0;
-                        return `${val} respondents (${pct}%)`;
+                        return `${val} ${units} (${pct}%)`;
                     }
                 }
             },

@@ -3,6 +3,31 @@ export class Utils {
         return (await fetch(url)).json();
     }
 
+    static async postJson<T = any>(url: string, data: any): Promise<T> {
+        return (await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })).json();
+    }
+
+    static readableDateTime(timestamp: string): string {
+        const date = new Date(timestamp);
+        return date.toLocaleString(undefined, {
+            dateStyle: "medium",
+            timeStyle: "short"
+        });
+    }
+
+    static readableDate(timestamp: string): string {
+        const date = new Date(timestamp);
+        return date.toLocaleString(undefined, {
+            dateStyle: "medium"
+        });
+    }
+
     static pageLoaded = () => new Promise<void>(resolve => {
         document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", () => resolve(), { once: true }) : resolve();
     });
