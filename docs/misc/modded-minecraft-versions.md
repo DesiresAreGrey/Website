@@ -3,7 +3,7 @@ title: Popularity of Modded Minecraft Versions
 description: Charts showing the number of mods for different Minecraft versions (on Modrinth).
 image: https://desiresaregrey.com/assets/misc/minecraft/thumb.png
 ---
-<link rel="stylesheet" href="/stylesheets/charts/apexcharts.css">
+<link rel="stylesheet" href="/stylesheets/misc/moddedminecraftversions.css">
 <script type="importmap">
 {
   "imports": {
@@ -33,4 +33,10 @@ image: https://desiresaregrey.com/assets/misc/minecraft/thumb.png
   </div>
 </div>
 
-<input type="text" id="modrinth-filter" placeholder="Filter versions..." style="margin-top: 1rem; width: 100%; max-width: 400px;">
+<div>
+  <div class="versions-row">
+    <div class="label">Versions</div>
+    <div id="modrinth-versions-update" class="button disabled fa-solid fa-arrow-rotate-right" style="margin: 0 0 1px -3px;"></div>
+  </div>
+  <textarea id="modrinth-versions-input" class="big-input" rows="1"></textarea>
+</div>
