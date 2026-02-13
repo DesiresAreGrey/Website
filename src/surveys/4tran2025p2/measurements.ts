@@ -84,11 +84,12 @@ function update(e?: Event) {
         (e.target as HTMLInputElement).value = (e.target as HTMLInputElement).value.replace(/[^0-9.]/g, '');
 
     let height = getTotalHeight(getUnits());
+    let weight = weightInput.value?.parseFloat() ?? 0;
 
     infoHeight.textContent = `${height?.toFeetInches(1, getUnits())} - ${height.asCm(getUnits()).roundTo(2)} cm`;
-    infoWeight.textContent = `${weightInput.value.parseFloat()?.asPounds(getUnits()).roundTo(1)} lbs - ${weightInput.value.parseFloat()?.asKg(getUnits()).roundTo(1)} kg`;
+    infoWeight.textContent = `${weight.asPounds(getUnits()).roundTo(1)} lbs - ${weight.asKg(getUnits()).roundTo(1)} kg`;
 
-    infoBmi.textContent = `${(weightInput.value.parseFloat()!.asKg(getUnits()) / ((height.asCm(getUnits()) / 100) ** 2)).roundTo(2)} BMI`;
+    infoBmi.textContent = `${(weight.asKg(getUnits()) / ((height.asCm(getUnits()) / 100) ** 2)).roundTo(2)} BMI`;
 
     const units = getUnits() == "imperial" ? "inches" : "cm";
 
@@ -132,12 +133,12 @@ function changeUnit(oldUnit: UnitSystem, newUnit: UnitSystem) {
         heightFeetInput.value = feet.toString();
         heightInput.value = remainingInches.roundTo(1).toString();
 
-        weightInput.value = weightInput.value.parseFloat()?.asPounds(oldUnit).roundTo(1).toString()!;
+        weightInput.value = weightInput.value?.parseFloat()?.asPounds(oldUnit).roundTo(1).toString() ?? "";
     }
     else {
         heightInput.value = num.asCm(oldUnit).roundTo(1).toString();
 
-        weightInput.value = weightInput.value.parseFloat()?.asKg(oldUnit).roundTo(1).toString()!;
+        weightInput.value = weightInput.value?.parseFloat()?.asKg(oldUnit).roundTo(1).toString() ?? "";
     }
     updateUnitUI(newUnit);
 }
@@ -283,7 +284,7 @@ function updateScatterPlot() {
 
     requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-            const xy = [weightInput.value.parseFloat()?.asPounds(getUnits()).roundTo(1), getTotalHeight(getUnits()).asInches(getUnits()).roundTo(1)];
+            const xy = [weightInput.value?.parseFloat()?.asPounds(getUnits()).roundTo(1) ?? 0, getTotalHeight(getUnits()).asInches(getUnits()).roundTo(1) ?? 0];
 
             let data = scatterData;
             let colors = ['#259efa', '#ff4f69', '#00E396', '#fff'];
