@@ -1,8 +1,10 @@
 ---
 title: Popularity of Modded Minecraft Versions
-description: Charts showing the number of mods for different Minecraft versions (on Modrinth).
+description: Charts showing the number of mods for different Minecraft versions on Modrinth and Curseforge.
 image: https://desiresaregrey.com/assets/misc/minecraft/thumb.png
 ---
+<script src="/js/utils/header-title-changer.js" data-mobile-title="Modded Minecraft Versions"></script>
+
 <link rel="stylesheet" href="/stylesheets/misc/moddedminecraftversions.css">
 <script type="importmap">
 {
