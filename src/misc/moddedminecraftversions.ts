@@ -4,12 +4,10 @@ import { LoadingBar } from "../utils/loadingbar.js";
 import { Utils } from "../utils/utils.js";
 
 let versions = [
+    "1.7.10",
     "1.12.2",
     "1.16.5",
-    "1.17",
     "1.17.1",
-    "1.18",
-    "1.18.1",
     "1.18.2",
     "1.19.2",
     "1.20",
