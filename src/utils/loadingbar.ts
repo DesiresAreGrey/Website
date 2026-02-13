@@ -52,8 +52,8 @@ export class LoadingBar {
     }
 
     static start(): void {
-        LoadingBar.instance ??= new LoadingBar();
-        const bar = LoadingBar.instance;
+        this.instance ??= new LoadingBar();
+        const bar = this.instance;
 
         bar.element.style.transition = 'opacity 250ms ease';
         bar.element.style.opacity = '0';
@@ -72,8 +72,8 @@ export class LoadingBar {
     }
 
     static startTrickle(animationTime = 100): void {
-        LoadingBar.instance ??= new LoadingBar();
-        const bar = LoadingBar.instance;
+        this.instance ??= new LoadingBar();
+        const bar = this.instance;
 
         bar.animationTime = animationTime;
 
@@ -94,8 +94,10 @@ export class LoadingBar {
     }
 
     static update(progress: number, trickleTo?: number): void {
-        console.log(`Updating loading bar to ${(progress * 100).roundTo(3)}%`);
-        const bar = LoadingBar.instance;
+        if (progress === 0)
+            this.start();
+
+        const bar = this.instance;
         if (!bar)
             return;
 
@@ -114,23 +116,27 @@ export class LoadingBar {
             bar.animation = bar.element.animate([ { width: `${newWidth}%` }, { width: `${nextWidth}%` } ], { duration: trickleDuration, fill: 'forwards' });
         }
         else {
+            //console.log(`Updating loading bar to ${(progress * 100).roundTo(3)}%`);
             bar._progress = progress.clamp();
             bar.element.style.width = `${progress * 90 + 5}%`;
         }
+
+        if (progress >= 1)
+            this.finish();
     }
 
     static async updateAsync(progress: number, nextProgress?: number, minUpdateInterval: number = 750): Promise<void> {
-        const bar = LoadingBar.instance;
+        const bar = this.instance;
         if (!bar || performance.now() - bar.lastUpdateTime < minUpdateInterval)
             return;
 
-        LoadingBar.update(progress, nextProgress); 
+        this.update(progress, nextProgress); 
         await new Promise(resolve => requestAnimationFrame(resolve));
         bar.lastUpdateTime = performance.now();
     }
 
     static finish(): void {
-        const bar = LoadingBar.instance;
+        const bar = this.instance;
         if (!bar)
             return;
         
