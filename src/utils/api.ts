@@ -29,7 +29,7 @@ export class API {
         return JsonClient.get(await API.url + endpoint);
     }
 
-    static async post<T = any>(endpoint: string, data: any): Promise<T> {
+    static async post<T = any>(endpoint: string, data: unknown): Promise<T> {
         if (endpoint.startsWith('/'))
             endpoint = endpoint.substring(1);
         return JsonClient.post(await API.url + endpoint, data);
