@@ -19,6 +19,18 @@ export class Utils {
     static async wait(ms: number): Promise<void> {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
+
+    static runAfter(callback: () => void, delay: number, element?: HTMLElement): void {
+        if (!element)
+            element = document.documentElement;
+        const el = element as HTMLElement & { timeout?: number };
+        if (el.timeout)
+            clearTimeout(el.timeout);
+        el.timeout = setTimeout(() => {
+            callback();
+            delete el.timeout;
+        }, delay);
+    }
 }
 
 declare global {
