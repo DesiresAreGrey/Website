@@ -4,7 +4,7 @@ import { LoadingBar } from "../utils/loadingbar.js";
 import { Utils } from "../utils/utils.js";
 
 const loaderColors = ['rgba(236, 186, 149, 1)', 'rgba(170, 85, 255, 1)', 'rgb(216, 130, 49)', 'rgba(79, 120, 202, 1)'];
-const versions = [
+const startingVersions = [
     "1.7.10",
     "1.12.2",
     "1.16.5",
@@ -31,7 +31,7 @@ async function loadOverallCharts(loadStart = 0, loadEnd = 1) {
     const input = $id("overall-versions-input") as HTMLTextAreaElement;
     const updateButton = $id("overall-versions-update") as UpdateButton;
 
-    updateButton.versions ??= versions;
+    updateButton.versions ??= startingVersions;
 
     input.value = updateButton.versions.join(", ");
     input.addEventListener("keydown", enterToUpdate);
@@ -53,7 +53,7 @@ async function loadOverallCharts(loadStart = 0, loadEnd = 1) {
 
     const totalCurseforge = await API.post("/misc/minecraft/curseforge/modded-versions", {
         loaders: ["All"],
-        versions: updateButton.versions ?? versions
+        versions: updateButton.versions
     });
     totalCurseforge.series[0].name = "Curseforge";
     console.log(totalCurseforge);
@@ -62,7 +62,7 @@ async function loadOverallCharts(loadStart = 0, loadEnd = 1) {
 
     const totalModrinth = await API.post("/misc/minecraft/modrinth/modded-versions", {
         loaders: ["All"],
-        versions: updateButton.versions ?? versions
+        versions: updateButton.versions
     });
     totalModrinth.series[0].name = "Modrinth";
     console.log(totalModrinth);
@@ -84,7 +84,7 @@ async function loadModrinthCharts(loadStart = 0, loadEnd = 1) {
     const input = $id("modrinth-versions-input") as HTMLTextAreaElement;
     const updateButton = $id("modrinth-versions-update") as UpdateButton;
 
-    updateButton.versions ??= versions;
+    updateButton.versions ??= startingVersions;
 
     input.value = updateButton.versions.join(", ");
     input.addEventListener("keydown", enterToUpdate);
@@ -106,7 +106,7 @@ async function loadModrinthCharts(loadStart = 0, loadEnd = 1) {
 
     const modrinth = await API.post("/misc/minecraft/modrinth/modded-versions", {
         loaders: ["Fabric", "Quilt", "NeoForge", "Forge"],
-        versions: updateButton.versions ?? versions
+        versions: updateButton.versions
     });
     console.log(modrinth);
 
@@ -128,7 +128,7 @@ async function loadCurseforgeCharts(loadStart = 0, loadEnd = 1) {
     const input = $id("curseforge-versions-input") as HTMLTextAreaElement;
     const updateButton = $id("curseforge-versions-update") as UpdateButton;
 
-    updateButton.versions ??= versions;
+    updateButton.versions ??= startingVersions;
 
     input.value = updateButton.versions.join(", ");
     input.addEventListener("keydown", enterToUpdate);
@@ -150,7 +150,7 @@ async function loadCurseforgeCharts(loadStart = 0, loadEnd = 1) {
 
     const curseforge = await API.post("/misc/minecraft/curseforge/modded-versions", {
         loaders: ["Fabric", "Quilt", "NeoForge", "Forge"],
-        versions: updateButton.versions ?? versions
+        versions: updateButton.versions
     });
     console.log(curseforge);
 
