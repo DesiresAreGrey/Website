@@ -177,7 +177,7 @@ function showApiRequests(containerId: string, requests: number) {
     if (inputWrapper) {
         inputWrapper.classList.add("show-requests");
         inputWrapper.setAttribute("data-requests", `${requests} API Request${requests !== 1 ? "s" : ""}`);
-        setTimeout(() => inputWrapper.classList.remove("show-requests"), 2000);
+        setTimeout(() => inputWrapper.classList.remove("show-requests"), 5000);
     }
 }
 
