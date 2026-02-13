@@ -17,9 +17,19 @@ image: https://desiresaregrey.com/assets/misc/minecraft/thumb.png
 
 # Popularity of Modded Minecraft Versions
 
-## Modrinth
+## Overall
 
-<div id="modrinth-total" style="min-height: 500px;"></div>
+<div id="overall-total" style="min-height: 500px;"></div>
+
+<div>
+  <div class="versions-row">
+    <div class="label">Versions</div>
+    <div id="overall-versions-update" class="button disabled fa-solid fa-arrow-rotate-right" style="margin: 0 0 1px -3px;"></div>
+  </div>
+  <textarea id="overall-versions-input" class="big-input" rows="1"></textarea>
+</div>
+
+## Modrinth
 
 <div class="chart-set">
   <input id="modrinth-a" class="vh" type="radio" name="view-modrinth" checked>
@@ -44,8 +54,6 @@ image: https://desiresaregrey.com/assets/misc/minecraft/thumb.png
 </div>
 
 ## Curseforge
-
-<div id="curseforge-total" style="min-height: 500px;"></div>
 
 <div class="chart-set">
   <input id="curseforge-a" class="vh" type="radio" name="view-curseforge" checked>

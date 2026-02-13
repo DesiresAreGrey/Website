@@ -94,11 +94,12 @@ export class LoadingBar {
     }
 
     static update(progress: number, trickleTo?: number): void {
+        console.log(`Updating loading bar to ${(progress * 100).roundTo(3)}%`);
         const bar = LoadingBar.instance;
         if (!bar)
             return;
 
-        if (bar.animation && trickleTo != undefined)
+        if (bar.animation && trickleTo)
         {
             const newWidth = (progress * 90 + 5).roundTo(0).clamp(0, 100);
             const nextWidth = (trickleTo * 90 + 5).roundTo(0).clamp(0, 100);

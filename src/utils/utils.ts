@@ -54,6 +54,8 @@ declare global {
 
         abs(): number;
         clamp(min?: number, max?: number): number;
+        remap(fromMin: number, fromMax: number, toMin: number, toMax: number): number;
+        remap(toMin: number, toMax: number): number;
 
         mult(multiplier: number): number;
         multFloor(multiplier: number): number;
@@ -122,6 +124,24 @@ Object.defineProperty(Number.prototype, 'abs', {
 });
 Object.defineProperty(Number.prototype, 'clamp', { 
     value: function(this: number, min: number = 0, max: number = 1) { return Math.min(Math.max(this, min), max) } 
+});
+
+Object.defineProperty(Number.prototype, 'remap', {
+    value: function (this: number, a = 0, b = 1, c?: number, d?: number) {
+        if (c === undefined || d === undefined) {
+            const toMin = a;
+            const toMax = b;
+            return this * (toMax - toMin) + toMin;
+        }
+        const fromMin = a;
+        const fromMax = b;
+        const toMin = c;
+        const toMax = d;
+        const range = fromMax - fromMin;
+        if (range === 0) return toMin;
+        const normalized = (this - fromMin) / range;
+        return normalized * (toMax - toMin) + toMin;
+    }
 });
 
 Object.defineProperty(Number.prototype, 'mult', { value: function(this: number, multiplier: number) { return this * multiplier } });
