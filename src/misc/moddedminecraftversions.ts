@@ -48,7 +48,7 @@ async function loadCharts() {
     LoadingBar.start();
     LoadingBar.update(0, 0.5);
 
-    const versionSpecific = await API.post("misc/minecraft/modded-modrinth-versions", {
+    const versionSpecific = await API.post("/misc/minecraft/modrinth/modded-versions", {
         loaders: ["Fabric", "Quilt", "NeoForge", "Forge"],
         versions: versions
     });
@@ -56,7 +56,7 @@ async function loadCharts() {
 
     LoadingBar.update(0.5, 0.9);
 
-    const total = await API.post("misc/minecraft/modded-modrinth-versions", {
+    const total = await API.post("/misc/minecraft/modrinth/modded-versions", {
         loaders: ["All"],
         versions: versions
     });
