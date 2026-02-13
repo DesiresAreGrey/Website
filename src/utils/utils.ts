@@ -31,6 +31,24 @@ export class Utils {
             delete el.timeout;
         }, delay);
     }
+
+    /**
+    * -1 if first is older, 1 if second is older, 0 if equal, null if invalid version
+    */
+    static compareVersions(first: string, second: string): number | null {
+        const parts1 = first.split('.').map(Number);
+        const parts2 = second.split('.').map(Number);
+
+        if (parts1.some(isNaN) || parts2.some(isNaN))
+            return null;
+
+        for (let i = 0; i < Math.max(parts1.length, parts2.length); i++) {
+            if (parts1[i] > parts2[i]) return 1;
+            if (parts1[i] < parts2[i]) return -1;
+        }
+        
+        return 0;
+    }
 }
 
 declare global {
