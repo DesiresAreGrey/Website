@@ -21,12 +21,14 @@ image: https://desiresaregrey.com/assets/misc/minecraft/thumb.png
 
 <div id="overall-total" style="min-height: 500px;"></div>
 
-<div>
+<div id="overall-versions">
   <div class="versions-row">
     <div class="label">Versions</div>
     <div id="overall-versions-update" class="button disabled fa-solid fa-arrow-rotate-right" style="margin: 0 0 1px -3px;"></div>
   </div>
-  <textarea id="overall-versions-input" class="big-input" rows="1"></textarea>
+  <div class="input-wrapper">
+    <textarea id="overall-versions-input" class="big-input" rows="1"></textarea>
+  </div>
 </div>
 
 ## Modrinth
@@ -45,12 +47,14 @@ image: https://desiresaregrey.com/assets/misc/minecraft/thumb.png
   </div>
 </div>
 
-<div>
+<div id="modrinth-versions">
   <div class="versions-row">
     <div class="label">Versions</div>
     <div id="modrinth-versions-update" class="button disabled fa-solid fa-arrow-rotate-right" style="margin: 0 0 1px -3px;"></div>
   </div>
-  <textarea id="modrinth-versions-input" class="big-input" rows="1"></textarea>
+  <div class="input-wrapper">
+    <textarea id="modrinth-versions-input" class="big-input" rows="1"></textarea>
+  </div>
 </div>
 
 ## Curseforge
@@ -69,10 +73,12 @@ image: https://desiresaregrey.com/assets/misc/minecraft/thumb.png
   </div>
 </div>
 
-<div>
+<div id="curseforge-versions">
   <div class="versions-row">
     <div class="label">Versions</div>
     <div id="curseforge-versions-update" class="button disabled fa-solid fa-arrow-rotate-right" style="margin: 0 0 1px -3px;"></div>
   </div>
-  <textarea id="curseforge-versions-input" class="big-input" rows="1"></textarea>
+  <div class="input-wrapper">
+    <textarea id="curseforge-versions-input" class="big-input" rows="1"></textarea>
+  </div>
 </div>

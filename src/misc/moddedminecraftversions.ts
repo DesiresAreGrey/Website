@@ -4,7 +4,7 @@ import { LoadingBar } from "../utils/loadingbar.js";
 import { Utils } from "../utils/utils.js";
 
 const loaderColors = ['rgba(236, 186, 149, 1)', 'rgba(170, 85, 255, 1)', 'rgb(216, 130, 49)', 'rgba(79, 120, 202, 1)'];
-let versions = [
+const versions = [
     "1.7.10",
     "1.12.2",
     "1.16.5",
@@ -21,6 +21,7 @@ let versions = [
 ];
 
 const parseVersions = (input: string) => input.split(/(?:,| |\n)/).map(v => v.trim()).filter(v => v.length > 0);
+const versionsChanged = (input: string, currentVersions: string[] | undefined) => parseVersions(input).join(", ") === currentVersions?.join(", ");
 
 await loadOverallCharts(0, 0.333);
 await loadModrinthCharts(0.333, 0.666);
@@ -28,22 +29,21 @@ await loadCurseforgeCharts(0.666, 1);
 
 async function loadOverallCharts(loadStart = 0, loadEnd = 1) {
     const input = $id("overall-versions-input") as HTMLTextAreaElement;
-    const updateButton = $id("overall-versions-update") as HTMLDivElement;
+    const updateButton = $id("overall-versions-update") as UpdateButton;
 
-    input.value = versions.join(", ");
-    input.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" && !e.shiftKey) {
-            e.preventDefault();
-            updateButton.click();
-        }
-    });
-    input.addEventListener("input", () => updateButton.classList.toggle("disabled", parseVersions(input.value).join(", ") === versions.join(", ")));
-    updateButton.classList.toggle("disabled", parseVersions(input.value).join(", ") === versions.join(", "));
+    updateButton.versions ??= versions;
+
+    input.value = updateButton.versions.join(", ");
+    input.addEventListener("keydown", enterToUpdate);
+    input.addEventListener("input", () => toggleUpdateButton(updateButton, input.value));
+    toggleUpdateButton(updateButton, input.value);
 
     updateButton.addEventListener("click", async () => {
-        versions = parseVersions(input.value);
-        await loadOverallCharts(0, 1);
-        updateButton.classList.add("disabled");
+        if (versionsChanged(input.value, updateButton.versions))
+            return;
+        updateButton.versions = parseVersions(input.value);
+        await loadOverallCharts();
+        toggleUpdateButton(updateButton, input.value);
     });
 
     if (loadStart === 0)
@@ -53,7 +53,7 @@ async function loadOverallCharts(loadStart = 0, loadEnd = 1) {
 
     const totalCurseforge = await API.post("/misc/minecraft/curseforge/modded-versions", {
         loaders: ["All"],
-        versions: versions
+        versions: updateButton.versions ?? versions
     });
     totalCurseforge.series[0].name = "Curseforge";
     console.log(totalCurseforge);
@@ -62,7 +62,7 @@ async function loadOverallCharts(loadStart = 0, loadEnd = 1) {
 
     const totalModrinth = await API.post("/misc/minecraft/modrinth/modded-versions", {
         loaders: ["All"],
-        versions: versions
+        versions: updateButton.versions ?? versions
     });
     totalModrinth.series[0].name = "Modrinth";
     console.log(totalModrinth);
@@ -70,6 +70,7 @@ async function loadOverallCharts(loadStart = 0, loadEnd = 1) {
     const total = totalCurseforge;
     total.series.push(...totalModrinth.series);
 
+    showApiRequests("overall-versions", totalCurseforge.apiRequests + totalModrinth.apiRequests);
 
     LoadingBar.update(0.9.remap(loadStart, loadEnd));
     $id("overall-total")!.innerHTML = "";
@@ -81,22 +82,21 @@ async function loadOverallCharts(loadStart = 0, loadEnd = 1) {
 
 async function loadModrinthCharts(loadStart = 0, loadEnd = 1) {
     const input = $id("modrinth-versions-input") as HTMLTextAreaElement;
-    const updateButton = $id("modrinth-versions-update") as HTMLDivElement;
+    const updateButton = $id("modrinth-versions-update") as UpdateButton;
 
-    input.value = versions.join(", ");
-    input.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" && !e.shiftKey) {
-            e.preventDefault();
-            updateButton.click();
-        }
-    });
-    input.addEventListener("input", () => updateButton.classList.toggle("disabled", parseVersions(input.value).join(", ") === versions.join(", ")));
-    updateButton.classList.toggle("disabled", parseVersions(input.value).join(", ") === versions.join(", "));
+    updateButton.versions ??= versions;
+
+    input.value = updateButton.versions.join(", ");
+    input.addEventListener("keydown", enterToUpdate);
+    input.addEventListener("input", () => toggleUpdateButton(updateButton, input.value));
+    toggleUpdateButton(updateButton, input.value);
 
     updateButton.addEventListener("click", async () => {
-        versions = parseVersions(input.value);
-        await loadModrinthCharts(0, 1);
-        updateButton.classList.add("disabled");
+        if (versionsChanged(input.value, updateButton.versions))
+            return;
+        updateButton.versions = parseVersions(input.value);
+        await loadModrinthCharts();
+        toggleUpdateButton(updateButton, input.value);
     });
 
     if (loadStart === 0)
@@ -104,19 +104,21 @@ async function loadModrinthCharts(loadStart = 0, loadEnd = 1) {
 
     LoadingBar.update(0.0.remap(loadStart, loadEnd));
 
-    const versionSpecific = await API.post("/misc/minecraft/modrinth/modded-versions", {
+    const modrinth = await API.post("/misc/minecraft/modrinth/modded-versions", {
         loaders: ["Fabric", "Quilt", "NeoForge", "Forge"],
-        versions: versions
+        versions: updateButton.versions ?? versions
     });
-    console.log(versionSpecific);
+    console.log(modrinth);
+
+    showApiRequests("modrinth-versions", modrinth.apiRequests);
 
     LoadingBar.update(0.9.remap(loadStart, loadEnd));
     $id("modrinth-loader")!.innerHTML = "";
-    Apex.createBarChart("modrinth-loader", versionSpecific, "Modrinth - By Loader", `Data Updated ${Utils.readableDate(versionSpecific.lastUpdated)}`, [], loaderColors, 500, false, false, "mods");
+    Apex.createBarChart("modrinth-loader", modrinth, "Modrinth - By Loader", `Data Updated ${Utils.readableDate(modrinth.lastUpdated)}`, [], loaderColors, 500, false, false, "mods");
 
     LoadingBar.update(0.95.remap(loadStart, loadEnd));
     $id("modrinth-loader-ratio")!.innerHTML = "";
-    Apex.createRatioBarChart("modrinth-loader-ratio", versionSpecific, "Modrinth - By Loader (Ratio)", `Data Updated ${Utils.readableDate(versionSpecific.lastUpdated)}`, [], loaderColors, 500, false, "mods");
+    Apex.createRatioBarChart("modrinth-loader-ratio", modrinth, "Modrinth - By Loader (Ratio)", `Data Updated ${Utils.readableDate(modrinth.lastUpdated)}`, [], loaderColors, 500, false, "mods");
 
     if (loadEnd === 1)
         LoadingBar.finish();
@@ -124,22 +126,21 @@ async function loadModrinthCharts(loadStart = 0, loadEnd = 1) {
 
 async function loadCurseforgeCharts(loadStart = 0, loadEnd = 1) {
     const input = $id("curseforge-versions-input") as HTMLTextAreaElement;
-    const updateButton = $id("curseforge-versions-update") as HTMLDivElement;
+    const updateButton = $id("curseforge-versions-update") as UpdateButton;
 
-    input.value = versions.join(", ");
-    input.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" && !e.shiftKey) {
-            e.preventDefault();
-            updateButton.click();
-        }
-    });
-    input.addEventListener("input", () => updateButton.classList.toggle("disabled", parseVersions(input.value).join(", ") === versions.join(", ")));
-    updateButton.classList.toggle("disabled", parseVersions(input.value).join(", ") === versions.join(", "));
+    updateButton.versions ??= versions;
+
+    input.value = updateButton.versions.join(", ");
+    input.addEventListener("keydown", enterToUpdate);
+    input.addEventListener("input", () => toggleUpdateButton(updateButton, input.value));
+    toggleUpdateButton(updateButton, input.value);
 
     updateButton.addEventListener("click", async () => {
-        versions = parseVersions(input.value);
-        await loadCurseforgeCharts(0, 1);
-        updateButton.classList.add("disabled");
+        if (versionsChanged(input.value, updateButton.versions))
+            return;
+        updateButton.versions = parseVersions(input.value);
+        await loadCurseforgeCharts();
+        toggleUpdateButton(updateButton, input.value);
     });
 
     if (loadStart === 0)
@@ -147,20 +148,48 @@ async function loadCurseforgeCharts(loadStart = 0, loadEnd = 1) {
 
     LoadingBar.update(0.0.remap(loadStart, loadEnd));
 
-    const versionSpecific = await API.post("/misc/minecraft/curseforge/modded-versions", {
+    const curseforge = await API.post("/misc/minecraft/curseforge/modded-versions", {
         loaders: ["Fabric", "Quilt", "NeoForge", "Forge"],
-        versions: versions
+        versions: updateButton.versions ?? versions
     });
-    console.log(versionSpecific);
+    console.log(curseforge);
+
+    showApiRequests("curseforge-versions", curseforge.apiRequests);
 
     LoadingBar.update(0.9.remap(loadStart, loadEnd));
     $id("curseforge-loader")!.innerHTML = "";
-    Apex.createBarChart("curseforge-loader", versionSpecific, "Curseforge - By Loader", `Data Updated ${Utils.readableDate(versionSpecific.lastUpdated)}`, [], loaderColors, 500, false, false, "mods");
+    Apex.createBarChart("curseforge-loader", curseforge, "Curseforge - By Loader", `Data Updated ${Utils.readableDate(curseforge.lastUpdated)}`, [], loaderColors, 500, false, false, "mods");
 
     LoadingBar.update(0.95.remap(loadStart, loadEnd));
     $id("curseforge-loader-ratio")!.innerHTML = "";
-    Apex.createRatioBarChart("curseforge-loader-ratio", versionSpecific, "Curseforge - By Loader (Ratio)", `Data Updated ${Utils.readableDate(versionSpecific.lastUpdated)}`, [], loaderColors, 500, false, "mods");
+    Apex.createRatioBarChart("curseforge-loader-ratio", curseforge, "Curseforge - By Loader (Ratio)", `Data Updated ${Utils.readableDate(curseforge.lastUpdated)}`, [], loaderColors, 500, false, "mods");
 
     if (loadEnd === 1)
         LoadingBar.finish();
+}
+
+function toggleUpdateButton(button: UpdateButton, input: string) {
+    button.classList.toggle("disabled", versionsChanged(input, button.versions));
+}
+
+function showApiRequests(containerId: string, requests: number) {
+    const inputWrapper = $id(containerId)?.$(".input-wrapper") as HTMLDivElement;
+    if (inputWrapper) {
+        inputWrapper.classList.add("show-requests");
+        inputWrapper.setAttribute("data-requests", `${requests} API Request${requests !== 1 ? "s" : ""}`);
+        setTimeout(() => inputWrapper.classList.remove("show-requests"), 2000);
+    }
+}
+
+function enterToUpdate(e: KeyboardEvent) {
+    if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        const input = e.target as HTMLTextAreaElement;
+        input.blur();
+        (input.parentNode?.parentNode?.querySelector(".button") as HTMLElement).click();
+    }
+}
+
+interface UpdateButton extends HTMLDivElement {
+    versions?: string[];
 }
