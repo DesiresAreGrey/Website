@@ -75,7 +75,7 @@ async function loadCharts() {
 
     LoadingBar.update(0.96, 1);
     $id("modrinth-total")!.innerHTML = "";
-    Apex.createBarChart("modrinth-total", total, "All Mods", `Data Updated ${Utils.readableDate(total.lastUpdated)}`, [], ['#546E7A'], 500, false, false, "mods");
+    Apex.createBarChart("modrinth-total", total, "All Mods", `Data Updated ${Utils.readableDate(total.lastUpdated)}`, [], ['#1bd96a'], 500, false, false, "mods");
 
     LoadingBar.finish();
 }
