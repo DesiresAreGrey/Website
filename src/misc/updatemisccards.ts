@@ -10,7 +10,7 @@ import { Utils } from "../utils/utils.js";
     if (cached) {
         console.log("Using cached Apex season banner");
         card?.style.setProperty(`--image`, `url('${cached}')`);
-        card?.classList.remove("unloaded");
+        card?.classList.add("loaded");
     }
     else {
         console.log("Fetching Apex season banner");
@@ -20,7 +20,7 @@ import { Utils } from "../utils/utils.js";
     async function setImage() {
         const imageUrl = (await API.get("misc/apex/season-banner"))?.url;
         card?.style.setProperty(`--image`, `url('${imageUrl}')`);
-        card?.classList.remove("unloaded");
+        card?.classList.add("loaded");
         Utils.setCache("apex-season-banner", imageUrl, TimeSpan.fromHours(12).ms);
     }
 }
@@ -32,7 +32,7 @@ import { Utils } from "../utils/utils.js";
     if (cached) {
         console.log("Using cached Minecraft banner");
         card?.style.setProperty(`--image`, `url('${cached}')`);
-        card?.classList.remove("unloaded");
+        card?.classList.add("loaded");
     }
     else {
         console.log("Fetching Minecraft banner");
@@ -47,7 +47,7 @@ import { Utils } from "../utils/utils.js";
             imageUrl = `https://launchercontent.mojang.com${imageUrl}`;
         
         card?.style.setProperty(`--image`, `url('${imageUrl}')`);
-        card?.classList.remove("unloaded");
+        card?.classList.add("loaded");
         Utils.setCache("minecraft-update-banner", imageUrl, TimeSpan.fromHours(12).ms);
     }
 }

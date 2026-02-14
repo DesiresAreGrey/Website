@@ -1,3 +1,5 @@
+@keyframes cardFadeIn { from { opacity: 0; } }
+
 h1 {
   text-align: center;
   font-size: 2rem !important;
@@ -39,7 +41,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   height: 300px;
-  transition: all 250ms ease !important;
+  transition: all 200ms ease !important;
   overflow: hidden;
 
   &::before {
@@ -50,16 +52,17 @@ h1 {
     background-size: cover;
     background-repeat: repeat;
     background-position: center;
-    opacity: 0.15;
+    opacity: 0;
     transform: scale(var(--scale, 1));
     border-radius: inherit;
     filter: blur(6px);
     
-    transition: opacity 250ms ease, filter 250ms ease !important;
+    transition: opacity 200ms ease, filter 200ms ease !important;
   }
 
-  &.unloaded::before {
-    opacity: 0;
+  &.loaded::before {
+    opacity: 0.175;
+    animation: cardFadeIn 500ms ease;
   }
 
   h2 {
@@ -106,7 +109,7 @@ h1 {
     }
 
     &::before {
-      opacity: 0.2;
+      opacity: 0.225;
       filter: blur(5px);
     }
   }

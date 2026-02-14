@@ -1,7 +1,5 @@
 // big disclaimer im not a js/web dev so i dont know whats the proper way to be doing anything. if for some reason anyone actually looks at and/or contributes to this code youll prob be sad
 
-import { API } from "../../js/utils/api.js";
-
 const u = utils();
 
 const seasons = [];
