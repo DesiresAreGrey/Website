@@ -20,7 +20,12 @@ const startingVersions = [
     "1.21.11"
 ];
 
-const parseVersions = (input: string) => input.split(/(?:,| |\n)/).map(v => v.trim()).filter(v => v.length > 0);
+const parseVersions = (input: string) => input
+    .split(/(?:,| |\n)/)
+    .map(v => v.trim())
+    .filter(v => v.length > 0 && !isNaN(Utils.compareVersions(v, v)))
+    .sort(Utils.compareVersions);
+
 const versionsChanged = (input: string, currentVersions: string[] | undefined) => parseVersions(input).join(", ") === currentVersions?.join(", ");
 
 await loadOverallCharts(0, 0.333);
@@ -33,7 +38,8 @@ async function loadOverallCharts(loadStart = 0, loadEnd = 1) {
 
     updateButton.versions ??= startingVersions;
 
-    input.value = updateButton.versions.join(", ");
+    //if (parseVersions(input.value).length === 0)
+        input.value = updateButton.versions.join(", ");
     input.addEventListener("keydown", enterToUpdate);
     input.addEventListener("input", () => toggleUpdateButton(updateButton, input.value));
     toggleUpdateButton(updateButton, input.value);
@@ -86,7 +92,8 @@ async function loadModrinthCharts(loadStart = 0, loadEnd = 1) {
 
     updateButton.versions ??= startingVersions;
 
-    input.value = updateButton.versions.join(", ");
+    //if (parseVersions(input.value).length === 0)
+        input.value = updateButton.versions.join(", ");
     input.addEventListener("keydown", enterToUpdate);
     input.addEventListener("input", () => toggleUpdateButton(updateButton, input.value));
     toggleUpdateButton(updateButton, input.value);
@@ -130,7 +137,8 @@ async function loadCurseforgeCharts(loadStart = 0, loadEnd = 1) {
 
     updateButton.versions ??= startingVersions;
 
-    input.value = updateButton.versions.join(", ");
+    //if (parseVersions(input.value).length === 0)
+        input.value = updateButton.versions.join(", ");
     input.addEventListener("keydown", enterToUpdate);
     input.addEventListener("input", () => toggleUpdateButton(updateButton, input.value));
     toggleUpdateButton(updateButton, input.value);
@@ -169,6 +177,7 @@ async function loadCurseforgeCharts(loadStart = 0, loadEnd = 1) {
 }
 
 function toggleUpdateButton(button: UpdateButton, input: string) {
+    console.log(parseVersions(input));
     button.classList.toggle("disabled", versionsChanged(input, button.versions));
 }
 
