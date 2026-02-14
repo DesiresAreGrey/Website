@@ -58,10 +58,8 @@ h1 {
     transition: opacity 250ms ease, filter 250ms ease !important;
   }
 
-  &.unloaded {
-    &::before {
-      opacity: 0;
-    }
+  &.unloaded::before {
+    opacity: 0;
   }
 
   h2 {
