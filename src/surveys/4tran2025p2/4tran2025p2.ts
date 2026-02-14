@@ -71,7 +71,6 @@ if (charts.length > 0) {
     showPerformancePopup();
     //console.log(Charts.charts);
 }
-API.get("status");
 
 function showPerformancePopup() {
     const debugLoadTimeDiv = document.createElement('div');

@@ -49,7 +49,6 @@ document.getElementById("increase-columns").onclick = () => {
 };
 
 loadURLParams();
-void API.get("status");
 
 function updateColumnButtonStyles(loaded = true) {
     if (numColumns >= 5 || !loaded) {
