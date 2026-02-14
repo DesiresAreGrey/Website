@@ -62,7 +62,7 @@ export class Utils {
         const cached = localStorage.getItem(key)?.parseJson();
 
         if (cached && cached.expiresAt > Date.now())
-            return cached.value;
+            return cached.value as T;
         localStorage.removeItem(key);
         return null;
     }

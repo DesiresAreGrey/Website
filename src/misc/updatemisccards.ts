@@ -1,46 +1,41 @@
 import { API } from "../utils/api.js";
 import { JsonFetch } from "../utils/jsonfetch.js";
-import "../utils/utils.js";
+import { Utils } from "../utils/utils.js";
 
 {
-    const cached = localStorage.getItem("apex-season-banner")?.parseJson();
+    const cached = Utils.getCache<string>("apex-season-banner");
     const card = $("#apex-weapon-stats-card") as HTMLElement;
 
-    if (cached?.url) {
+    if (cached) {
         console.log("Using cached Apex season banner");
-        card?.style.setProperty(`--image`, `url('${cached.url}')`);
+        card?.style.setProperty(`--image`, `url('${cached}')`);
         
         setImage();
     }
     else {
-        console.log("No cached Apex season banner found, fetching new banner");
+        console.log("Fetching Apex season banner");
         setImage();
     }
 
     async function setImage() {
         const imageUrl = (await API.get("misc/apex/season-banner"))?.url;
         card?.style.setProperty(`--image`, `url('${imageUrl}')`);
-        localStorage.setItem("apex-season-banner", ({ time: Date.now(), url: imageUrl }).toJson());
+        Utils.setCache("apex-season-banner", imageUrl, 86400000); // 24 hours
     }
 }
 
 {
-    const cached = localStorage.getItem("minecraft-update-banner")?.parseJson();
+    const cached = Utils.getCache<string>("minecraft-update-banner");
     const card = $("#modded-minecraft-versions-card") as HTMLElement;
 
-    if (cached?.url) {
-        card?.style.setProperty(`--image`, `url('${cached.url}')`);
-        
-        // 86400000 is 24hours
-        if (Date.now() - cached.time > 86400000) {
-            console.log("Minecraft banner cache expired, fetching new banner");
-            setImage();
-        }
-        else
-            console.log("Using cached Minecraft banner");
+    if (cached) {
+        console.log("Using cached Minecraft banner");
+        card?.style.setProperty(`--image`, `url('${cached}')`);
+
+        setImage();
     }
     else {
-        console.log("No cached Minecraft banner found, fetching new banner");
+        console.log("Fetching Minecraft banner");
         setImage();
     }
 
@@ -52,6 +47,6 @@ import "../utils/utils.js";
             imageUrl = `https://launchercontent.mojang.com${imageUrl}`;
         
         card?.style.setProperty(`--image`, `url('${imageUrl}')`);
-        localStorage.setItem("minecraft-update-banner", ({ time: Date.now(), url: imageUrl }).toJson());
+        Utils.setCache("minecraft-update-banner", imageUrl, 86400000); // 24 hours
     }
 }
