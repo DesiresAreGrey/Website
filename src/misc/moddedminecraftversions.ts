@@ -76,7 +76,7 @@ async function loadOverallCharts(loadStart = 0, loadEnd = 1) {
     const total = totalCurseforge;
     total.series.push(...totalModrinth.series);
 
-    showApiRequests("overall-versions", totalCurseforge.apiRequests + totalModrinth.apiRequests);
+    showApiRequests("overall-versions", totalCurseforge.apiRequests + totalModrinth.apiRequests, "Modrinth/Curseforge");
 
     LoadingBar.update(0.9.remap(loadStart, loadEnd));
     $id("overall-total")!.innerHTML = "";
@@ -117,7 +117,7 @@ async function loadModrinthCharts(loadStart = 0, loadEnd = 1) {
     });
     console.log(modrinth);
 
-    showApiRequests("modrinth-versions", modrinth.apiRequests);
+    showApiRequests("modrinth-versions", modrinth.apiRequests, "Modrinth");
 
     LoadingBar.update(0.9.remap(loadStart, loadEnd));
     $id("modrinth-loader")!.innerHTML = "";
@@ -162,7 +162,7 @@ async function loadCurseforgeCharts(loadStart = 0, loadEnd = 1) {
     });
     console.log(curseforge);
 
-    showApiRequests("curseforge-versions", curseforge.apiRequests);
+    showApiRequests("curseforge-versions", curseforge.apiRequests, "Curseforge");
 
     LoadingBar.update(0.9.remap(loadStart, loadEnd));
     $id("curseforge-loader")!.innerHTML = "";
@@ -181,11 +181,11 @@ function toggleUpdateButton(button: UpdateButton, input: string) {
     button.classList.toggle("disabled", versionsChanged(input, button.versions));
 }
 
-function showApiRequests(containerId: string, requests: number) {
+function showApiRequests(containerId: string, requests: number, apiName: string) {
     const inputWrapper = $id(containerId)?.$(".input-wrapper") as HTMLDivElement;
     if (inputWrapper) {
         inputWrapper.classList.add("show-requests");
-        inputWrapper.setAttribute("data-requests", `${requests} API Request${requests !== 1 ? "s" : ""}`);
+        inputWrapper.setAttribute("data-requests", `${requests} ${apiName} API Request${requests !== 1 ? "s" : ""}`);
         Utils.runAfter(() => inputWrapper.classList.remove("show-requests"), 5000, inputWrapper);
     }
 }
