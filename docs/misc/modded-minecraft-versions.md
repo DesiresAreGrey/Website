@@ -17,7 +17,8 @@ image: https://desiresaregrey.com/assets/misc/minecraft/thumb.png
 
 # Popularity of Modded Minecraft Versions
 
-## Overall
+Charts are Interactive! You can click on legend items to toggle the different options, and you can hover over points for total counts. Data is fetched
+from Modrinth and Curseforge APIs, and may take a moment to load.
 
 <div id="overall-total" style="min-height: 500px;"></div>
 
@@ -31,7 +32,7 @@ image: https://desiresaregrey.com/assets/misc/minecraft/thumb.png
   </div>
 </div>
 
-## Modrinth
+___
 
 <div class="chart-set">
   <input id="modrinth-a" class="vh" type="radio" name="view-modrinth" checked>
@@ -57,7 +58,7 @@ image: https://desiresaregrey.com/assets/misc/minecraft/thumb.png
   </div>
 </div>
 
-## Curseforge
+___
 
 <div class="chart-set">
   <input id="curseforge-a" class="vh" type="radio" name="view-curseforge" checked>
