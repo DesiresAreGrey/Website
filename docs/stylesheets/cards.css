@@ -1,4 +1,4 @@
-@keyframes cardFadeIn { from { opacity: 0; } }
+@keyframes cardFadeIn { from { opacity: 0; filter: blur(8px); } }
 
 h1 {
   text-align: center;
@@ -53,6 +53,7 @@ h1 {
     background-repeat: repeat;
     background-position: center;
     opacity: 0;
+    will-change: opacity, filter;
     transform: scale(var(--scale, 1));
     border-radius: inherit;
     filter: blur(6px);
