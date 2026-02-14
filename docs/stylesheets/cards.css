@@ -39,7 +39,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   height: 300px;
-  transition: all 200ms ease !important;
+  transition: all 250ms ease !important;
   overflow: hidden;
 
   &::before {
@@ -55,7 +55,13 @@ h1 {
     border-radius: inherit;
     filter: blur(6px);
     
-    transition: opacity 200ms ease, filter 200ms ease !important;
+    transition: opacity 250ms ease, filter 250ms ease !important;
+  }
+
+  &.unloaded {
+    &::before {
+      opacity: 0;
+    }
   }
 
   h2 {
