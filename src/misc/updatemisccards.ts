@@ -1,5 +1,6 @@
 import { API } from "../utils/api.js";
 import { JsonFetch } from "../utils/jsonfetch.js";
+import { TimeSpan } from "../utils/timespan.js";
 import { Utils } from "../utils/utils.js";
 
 {
@@ -20,7 +21,7 @@ import { Utils } from "../utils/utils.js";
     async function setImage() {
         const imageUrl = (await API.get("misc/apex/season-banner"))?.url;
         card?.style.setProperty(`--image`, `url('${imageUrl}')`);
-        Utils.setCache("apex-season-banner", imageUrl, 86400000); // 24 hours
+        Utils.setCache("apex-season-banner", imageUrl, TimeSpan.fromDays(1).ms);
     }
 }
 
@@ -47,6 +48,6 @@ import { Utils } from "../utils/utils.js";
             imageUrl = `https://launchercontent.mojang.com${imageUrl}`;
         
         card?.style.setProperty(`--image`, `url('${imageUrl}')`);
-        Utils.setCache("minecraft-update-banner", imageUrl, 86400000); // 24 hours
+        Utils.setCache("minecraft-update-banner", imageUrl, TimeSpan.fromDays(1).ms);
     }
 }

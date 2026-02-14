@@ -1,4 +1,5 @@
 import { JsonFetch } from "./jsonfetch.js";
+import { TimeSpan } from "./timespan.js";
 import { Utils } from "./utils.js";
 
 export class API {
@@ -13,7 +14,7 @@ export class API {
             try {
                 const isReachable = await JsonFetch.isReachable("https://api.desiresaregrey.com/status");
                 if (isReachable)
-                    Utils.setCache("api-url", "https://api.desiresaregrey.com/", 60 * 60 * 1000); // 1h
+                    Utils.setCache("api-url", "https://api.desiresaregrey.com/", TimeSpan.fromHours(1).ms);
                 return isReachable ? "https://api.desiresaregrey.com/" : "https://desiresapi.runasp.net/";
             } 
             catch {
