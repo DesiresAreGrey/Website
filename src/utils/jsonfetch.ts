@@ -1,4 +1,4 @@
-export class JsonClient {
+export class JsonFetch {
     static async get<T = any>(url: string): Promise<T> {
         const response = await fetch(url);
         if (!response.ok)
@@ -19,5 +19,15 @@ export class JsonClient {
             throw new Error(`Failed to post JSON to ${url}: ${response.status} ${response.statusText}`);
 
         return response.json() as Promise<T>;
+    }
+
+    static async isReachable(url: string): Promise<boolean> {
+        try {
+            const response = await fetch(url);
+            return response.ok;
+        }
+        catch {
+            return false;
+        }
     }
 }

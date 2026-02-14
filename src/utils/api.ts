@@ -1,22 +1,22 @@
-import { JsonClient } from "./jsonclient.js";
+import { JsonFetch } from "./jsonfetch.js";
+import { Utils } from "./utils.js";
 
 export class API {
     static #urlPromise: Promise<string> | null = null;
 
     static get url(): Promise<string> {
-        this.#urlPromise = Promise.resolve("https://desiresapi.runasp.net/");
-        return this.#urlPromise;
-
-        // for if i pay for it
         this.#urlPromise ??= (async () => {
+            const cached = Utils.getCache<string>("api-url");
+            if (cached && cached == "https://api.desiresaregrey.com/") {
+                return cached;
+            }
             try {
-                const response = await fetch("https://api.desiresaregrey.com/", { 
-                    method: 'HEAD', 
-                    mode: 'no-cors' 
-                });
-                return response.ok || response.type === 'opaque' ? "https://api.desiresaregrey.com/" : "https://desiresapi.runasp.net/";
+                const isReachable = await JsonFetch.isReachable("https://api.desiresaregrey.com/status");
+                if (isReachable)
+                    Utils.setCache("api-url", "https://api.desiresaregrey.com/", 60 * 60 * 1000); // 1h
+                return isReachable ? "https://api.desiresaregrey.com/" : "https://desiresapi.runasp.net/";
             } 
-            catch (error) {
+            catch {
                 return "https://desiresapi.runasp.net/";
             }
         })();
@@ -26,13 +26,13 @@ export class API {
     static async get<T = any>(endpoint: string): Promise<T> {
         if (endpoint.startsWith('/'))
             endpoint = endpoint.substring(1);
-        return JsonClient.get(await API.url + endpoint);
+        return JsonFetch.get(await API.url + endpoint);
     }
 
     static async post<T = any>(endpoint: string, data: unknown): Promise<T> {
         if (endpoint.startsWith('/'))
             endpoint = endpoint.substring(1);
-        return JsonClient.post(await API.url + endpoint, data);
+        return JsonFetch.post(await API.url + endpoint, data);
     }
 }
 

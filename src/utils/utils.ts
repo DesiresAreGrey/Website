@@ -52,6 +52,20 @@ export class Utils {
         
         return 0;
     }
+
+    static setCache<T>(key: string, value: T, LifetimeMs: number): void {
+        const expiresAt = Date.now() + LifetimeMs;
+        localStorage.setItem(key, { value, expiresAt }.toJson());
+    }
+
+    static getCache<T>(key: string): T | null {
+        const cached = localStorage.getItem(key)?.parseJson();
+
+        if (cached && cached.expiresAt > Date.now())
+            return cached.value;
+        localStorage.removeItem(key);
+        return null;
+    }
 }
 
 declare global {
@@ -106,6 +120,8 @@ declare global {
     function $<T extends HTMLElement>(selector: string): T | null;
     function $id<T extends HTMLElement>(id: string): T | null;
     function $$<T extends HTMLElement>(selector: string): NodeListOf<T>;
+
+    function checkCache(key: string): Element | null;
 }
 
 Object.defineProperty(NodeList.prototype, 'toArray', { value: function() { return [...this]; } });
@@ -234,3 +250,10 @@ Object.defineProperty(Number.prototype, 'asKg', {
 window.$ = (selector) => document.querySelector(selector);
 window.$id = (id) => document.querySelector("#" + id);
 window.$$ = (selector) => document.querySelectorAll(selector);
+
+window.checkCache = (key) => {
+    const cached = localStorage.getItem(key)?.parseJson();
+    if (cached)
+        cached.isExpired = cached.expiresAt <= Date.now();
+    return cached ?? "Cache Value does not exist";
+};

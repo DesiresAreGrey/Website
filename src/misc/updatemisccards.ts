@@ -1,5 +1,5 @@
 import { API } from "../utils/api.js";
-import { JsonClient } from "../utils/jsonclient.js";
+import { JsonFetch } from "../utils/jsonfetch.js";
 import "../utils/utils.js";
 
 {
@@ -45,7 +45,7 @@ import "../utils/utils.js";
     }
 
     async function setImage() {
-        const latest = (await JsonClient.get("https://launchercontent.mojang.com/v2/games.json")).entries.find((entry: any) => entry.productId === "java");
+        const latest = (await JsonFetch.get("https://launchercontent.mojang.com/v2/games.json")).entries.find((entry: any) => entry.productId === "java");
         
         let imageUrl = latest.heroImage.url;
         if (imageUrl.startsWith("/"))
