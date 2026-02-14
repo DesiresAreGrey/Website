@@ -18,7 +18,7 @@ image: https://desiresaregrey.com/assets/misc/minecraft/thumb.png
 # Popularity of Modded Minecraft Versions
 
 Charts are Interactive! You can click on legend items to toggle the different options, and you can hover over points for total counts. Data is fetched
-from Modrinth and Curseforge APIs, and may take a moment to load.
+from Modrinth and Curseforge APIs, and are cached for 1 day (may take a bit to load the first time).
 
 <div id="overall-total" style="min-height: 500px;"></div>
 
